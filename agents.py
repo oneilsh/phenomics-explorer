@@ -4,7 +4,6 @@ from typing import Annotated, List
 import logging
 import requests
 import streamlit as st
-
 from neo4j import GraphDatabase
 
 # for reading API keys from .env file
@@ -36,14 +35,14 @@ class Neo4jAgent(StreamlitKani):
         self.max_response_tokens = max_response_tokens
 
 
-    @st.cache_data(ttl=1)
     @ai_function()
     def query_kg(self, query: Annotated[str, AIParam(desc="Cypher query to run.")],):
         """Run a cypher query against the database."""
 
         def render_query():
-             st.markdown(f"Query Used: ```{query}```")
+             st.markdown(f"Query Used: \n```\n{query}\n```")
 
+        
         self.render_in_streamlit_chat(render_query)
 
         with self.neo4j_driver.session() as session:
@@ -58,7 +57,6 @@ class Neo4jAgent(StreamlitKani):
         else:
             return result
         
-
 
 
 

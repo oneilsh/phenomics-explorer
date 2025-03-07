@@ -38,12 +38,12 @@ ks.initialize_app_config(
             "Get Help": "https://github.com/monarch-initiative/phenomics-assistant",
             "Report a Bug": "https://github.com/monarch-initiative/phenomics-assistant/issues",
             "About": "Phenomics Assistant is built on GPT-4, Streamlit, zhudotexe/kani, hourfu/redlines, and oneilsh/kani-utils.",
-        }
+        },
+    share_chat_ttl_seconds = 60 * 60 * 24 * 60, # 60 days
 )
 
 # define an engine to use (see Kani documentation for more info)
 engine = OpenAIEngine(os.environ["OPENAI_API_KEY"], model="gpt-4o")
-engine35 = OpenAIEngine(os.environ["OPENAI_API_KEY"], model="gpt-3.5-turbo-0125")
 
 # We also have to define a function that returns a dictionary of agents to serve
 # Agents are keyed by their name, which is what the user will see in the UI
