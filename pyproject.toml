@@ -14,6 +14,9 @@ python-dotenv = "^1.0.0"
 kani-utils = {git = "https://github.com/oneilsh/kani-utils.git", branch = "main"}
 httpx = "^0.24.0"
 neo4j = "^5.20.0"
+st-link-analysis = "^0.3.0"
+pyyaml = "^6.0.2"
+seaborn = "^0.13.2"
 
 [build-system]
 requires = ["poetry-core"]
