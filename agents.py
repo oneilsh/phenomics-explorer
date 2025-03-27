@@ -1,5 +1,5 @@
 from kani_utils.base_kanis import StreamlitKani
-from kani import AIParam, ai_function, ChatMessage
+from kani import AIParam, ai_function, ChatMessage, AIFunction, ChatRole
 from typing import Annotated, List
 import logging
 import requests
@@ -8,8 +8,6 @@ from neo4j import GraphDatabase
 import random
 import yaml
 from kani.exceptions import WrappedCallException
-from textwrap import dedent, indent
-from pprint import pformat
 
 # for reading API keys from .env file
 import os
@@ -18,8 +16,9 @@ import httpx
 
 from st_link_analysis import st_link_analysis, NodeStyle, EdgeStyle
 from neo4j_utils import process_neo4j_result
-from monarch_utils import munge_monarch_graph_result, node_styles
+from monarch_utils import munge_monarch_graph_result, node_styles, eval_query_prompt
 import asyncio
+import time
 
 import re
 
@@ -55,76 +54,83 @@ class Neo4jAgent(StreamlitKani):
 
         self.max_response_tokens = max_response_tokens
 
-    
-    def eval_query_prompt(self, query, result_dict):
-        """Generate a prompt for evaluating a query result."""
-
-        result_dict_str = yaml.dump(result_dict)
-        summary_msg = dedent(f"""\
-            I need you to evaluate the result of a graph query. Please review the query and the result yaml and answer the following questions.
-
-            Query: {indent(query, " " * 12)}
-
-            Result yaml:
-            ```
-            {indent(pformat(result_dict), " " * 12)}
-            ```
-
-            From this information we need:
-
-            1. A summary of how the query works in lay language.
-            2. Confirmation that the relationship specifications in the query are directed correctly with respect to the conversation thus far. In particular, be sure that `biolink_sublass_of` relationships are directed appropriately.
-            3. Confirmation that the query returns edge information via a named variable. For exampple, a query like `MATCH (n:biolink_Gene)-[:biolink_causes]->(m:biolink_Disease) RETURN n, m` does not, but `MATCH (n:biolink_Gene)-[r:biolink_causes]->(m:biolink_Disease) RETURN n, r, m` does.
-            4. Confirmation that the query matches the user's intent, in the context of the conversation so far.
-            5. Suggestions for improving the query, if any.
-
-            Report your answer using your report_evaluation() function.
-            """)
-        
-        print("\n\n\n\n\n\n##############################################")
-        print(summary_msg)
-        return summary_msg
 
 
-    @ai_function()
-    def report_evaluation(self, 
-                          query_summary: Annotated[str, AIParam(desc="A summary of how the query works in lay language.")],
-                          directions_ok: Annotated[bool, AIParam(desc="Whether edge directions in the query are directed correctly.")],
-                          returns_edges: Annotated[bool, AIParam(desc="Whether the query returns edge information via a named variable.")],
-                          matches_user_intent: Annotated[bool, AIParam(desc="Whether the query matches the user's intent.")],
-                          suggestion: Annotated[str, AIParam(desc="Suggestions for improving the query.")]
-                          ):
-        """Report on the evaluation of a query, including whether the query matches the user's intent, whether the edge directions are correct, and whether the query returns edge information."""
+    @ai_function(after = ChatRole.ASSISTANT)
+    async def evaluate_query(self, query: Annotated[str, AIParam(desc="""Cypher query to evaluate. The query should return a table or graph-like result; if returning a graph, it should include both node and edge data.""")]):
+        """Evaluate a cypher query to ensure that it returns the correct type of result and is appropriate for the conversation context."""
 
-        return {"query_summary": query_summary,
-                "directions_ok": directions_ok,
-                "returns_edges": returns_edges,
-                "matches_user_intent": matches_user_intent,
-                "suggestion": suggestion
-                }
-
-
-    @ai_function()
-    async def query_kg_tabular(self, query: Annotated[str, AIParam(desc="Cypher query to run.")]):
-        """Run a cypher query against the database and return the result as a table. This function will throw an error if the query does not return tabular or scalar results."""
+        if not hasattr(self, 'status'):
+            self.status = st.status(label = "Generating query...")
+        else:
+            self.status.update(label = "Generating query...")
 
         query = fix_biolink_labels(query)
 
         with self.neo4j_driver.session() as session:
-            result = session.run(query)
-            result_dict = process_neo4j_result(result)
+            raw_result = session.run(query)
 
-            prompt = self.eval_query_prompt(query, result_dict)
+        result_dict = process_neo4j_result(raw_result)
+        
+        def report_evaluation(query_summary: Annotated[str, AIParam(desc="A summary of how the query works in lay language.")],
+                              directions_ok: Annotated[bool, AIParam(desc="Whether edge directions in the query are directed correctly.")],
+                              returns_graph: Annotated[bool, AIParam(desc="Whether the query returns graph information, rather than a tabular result.")],
+                              returns_edges: Annotated[bool, AIParam(desc="Whether a graph query returns edge information via a named variable. Set to `True` if the query is tabular.")],
+                              matches_user_intent: Annotated[bool, AIParam(desc="Whether the query matches the user's intent.")],
+                              suggestion: Annotated[str, AIParam(desc="Suggestions for improving the query.")]
+                              ):
+            """Report on the evaluation of a query, including whether the query matches the user's intent, whether the edge directions are correct, and whether the query returns edge information."""
 
-            evaluator_kani = MonarchKGAgent(self.engine)
-            
-            async def collect_async_generator(async_gen):
-                return [message async for message in async_gen]
 
-            result = await collect_async_generator(evaluator_kani.full_round_str(prompt))
-            
+            return json.dumps({"query_summary": query_summary,
+                    "directions_ok": directions_ok,
+                    "returns_graph": returns_graph,
+                    "returns_edges": returns_edges,
+                    "matches_user_intent": matches_user_intent,
+                    "suggestion": suggestion
+                    })
 
-        str_res = "dummy result"
+        functions = [AIFunction(report_evaluation, after = ChatRole.USER)]
+        evaluator_kani = MonarchKGAgent(self.engine, functions = functions)
+
+        prompt = eval_query_prompt(query, result_dict)
+
+        self.status.update(label = "Evaluating query...")
+        async def collect_async_generator(async_gen):
+            messages = []
+            async for message in async_gen:
+                messages.append(message.content)
+            return messages
+        
+        eval_chat_log = await collect_async_generator(evaluator_kani.full_round(prompt))
+        result = json.loads(eval_chat_log[1])
+
+        # now we throw an error if any of the boolean values are False
+        if not result['directions_ok'] or not result['matches_user_intent']:
+            raise WrappedCallException(retry = True, original = ValueError("The query did not pass evaluation; please review the suggestions and try again."))
+
+        if result['returns_graph'] and not result['returns_edges']:
+            raise WrappedCallException(retry = True, original = ValueError("The query would result in a graph but did not return edge information via a named variable; please review the suggestions and try again."))
+
+        return f"The query passed evaluation; you can now run it against the database. Here the evaluation information:\n\n{yaml.dump(result)}"
+    
+
+    @ai_function()
+    async def query_kg_tabular(self, query: Annotated[str, AIParam(desc="Cypher query to run.")]):
+        """Run a cypher query against the database and return the result as a table. This function will throw an error if the query does not return tabular or scalar results."""
+        query = fix_biolink_labels(query)
+        # if self.status is not set, set it...
+        if not hasattr(self, 'status'):
+            self.status = st.status(label = "Running query...")
+        else:
+            self.status.update(label = "Running query...")
+
+        with self.neo4j_driver.session() as session:
+            raw_result = session.run(query)
+
+            result_dict = process_neo4j_result(raw_result)
+
+            str_res = yaml.dump(result_dict['data'])
 
         # if self.message_token_len reports more than 10000 tokens in the result, we need to ask the agent to make the request smaller
         tokens = self.message_token_len(ChatMessage.user(str_res))

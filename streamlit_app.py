@@ -31,6 +31,7 @@ dotenv.load_dotenv()
 # this function MUST be run first
 ks.initialize_app_config(
     show_function_calls = False,
+    show_function_calls_status = False,
     page_title = "Phenomics Assistant",
     page_icon = "🧬", # can also be a URL
     initial_sidebar_state = "expanded", # or "expanded"

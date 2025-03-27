@@ -6,6 +6,8 @@ import neo4j
 import os
 from neo4j import GraphDatabase
 import dotenv
+from textwrap import dedent, indent
+from pprint import pformat
 
 dotenv.load_dotenv()
 
@@ -73,6 +75,32 @@ node_styles = []
 for cat, color in node_category_map.items():
     node_styles.append(NodeStyle(cat, color, caption="caption"))
 
+
+def eval_query_prompt(query, result_dict):
+    """Generate a prompt for evaluating a query result."""
+
+    summary_msg = dedent(f"""\
+        I need you to evaluate the result of a graph query. Please review the query and the result yaml and answer the following questions.
+
+        Query: {indent(query, " " * 12)}
+
+        Result yaml:
+        ```
+        {indent(pformat(result_dict), " " * 12)}
+        ```
+
+        From this information we need:
+
+        1. A summary of how the query works in lay language.
+        2. Confirmation that the relationship specifications in the query are directed correctly with respect to the conversation thus far. In particular, be sure that `biolink_sublass_of` relationships are directed appropriately.
+        3. Confirmation that the query returns edge information via a named variable. For exampple, a query like `MATCH (n:biolink_Gene)-[:biolink_causes]->(m:biolink_Disease) RETURN n, m` does not, but `MATCH (n:biolink_Gene)-[r:biolink_causes]->(m:biolink_Disease) RETURN n, r, m` does.
+        4. Confirmation that the query matches the user's intent, in the context of the conversation so far.
+        5. Suggestions for improving the query, if any.
+
+        Report your answer using your report_evaluation() function.
+        """)
+    
+    return summary_msg
 
 
 def munge_monarch_graph_result(result_data):
