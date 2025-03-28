@@ -4,6 +4,7 @@ from neo4j import GraphDatabase
 import os
 import dotenv
 import pprint
+import yaml
 
 
 dotenv.load_dotenv()
@@ -75,10 +76,15 @@ def process_neo4j_result(result):
 
         # Decide final output format based on whether we found graph data
         if data_type == "graph":
+            # import pprint
+            # print("\n\n\n\n\n\n\n############################")
+            # pprint.pprint(graph_data)
+            # print("############################\n\n\n\n\n\n\n")
             return {"type": data_type, "data": graph_data}
         else:
             # e.g., if all rows were scalar
-            result = {"type": "table", "data": pd.DataFrame(table_data)}
+            # if it's table data, return it in the LLM-readable format 
+            result = {"type": "table", "data": table_data}
             # but, if the result is just a single scalar value, return that
             if len(result["data"]) == 1 and len(result["data"].columns) == 1:
                 return {"type": "scalar", "data": result["data"].iloc[0, 0]}

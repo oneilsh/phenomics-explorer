@@ -76,26 +76,36 @@ for cat, color in node_category_map.items():
     node_styles.append(NodeStyle(cat, color, caption="caption"))
 
 
-def eval_query_prompt(query, result_dict):
+def eval_query_prompt(query, result_dict, messages_history):
     """Generate a prompt for evaluating a query result."""
+
+    # messages_history is a list of ChatMessage objects, which have role and content attributes'
+    messages_history = [f"{m.role}: {m.content}" for m in messages_history]
 
     summary_msg = dedent(f"""\
         I need you to evaluate the result of a graph query. Please review the query and the result yaml and answer the following questions.
 
-        Query: {indent(query, " " * 12)}
+        Prior Messages:
+        ```
+        {indent(pformat(messages_history), " " * 8)}
+        ```
+                      
+        Query: `{query}`
 
         Result yaml:
         ```
-        {indent(pformat(result_dict), " " * 12)}
+        {indent(pformat(result_dict), " " * 8)}
         ```
 
         From this information we need:
 
         1. A summary of how the query works in lay language.
         2. Confirmation that the relationship specifications in the query are directed correctly with respect to the conversation thus far. In particular, be sure that `biolink_sublass_of` relationships are directed appropriately.
-        3. Confirmation that the query returns edge information via a named variable. For exampple, a query like `MATCH (n:biolink_Gene)-[:biolink_causes]->(m:biolink_Disease) RETURN n, m` does not, but `MATCH (n:biolink_Gene)-[r:biolink_causes]->(m:biolink_Disease) RETURN n, r, m` does.
-        4. Confirmation that the query matches the user's intent, in the context of the conversation so far.
-        5. Suggestions for improving the query, if any.
+        3. The return type of the query, either `"table"`, `"graph"`, or `"scalar"`.
+        4. If the result would be a graph, that the query returns edge information via a named variable. For exampple, a query like `MATCH (n:biolink_Gene)-[:biolink_causes]->(m:biolink_Disease) RETURN n, m` does not, but `MATCH (n:biolink_Gene)-[r:biolink_causes]->(m:biolink_Disease) RETURN n, r, m` does. Use `True` for table results.
+        5. Confirmation that the query matches the user's intent, in the context of the conversation so far.
+        6. Whether the result should be visualized for the user with a displayed table or graph view, considering the size and complexity of the result.
+        7. Suggestions for improving the query, if any.
 
         Report your answer using your report_evaluation() function.
         """)

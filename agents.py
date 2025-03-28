@@ -8,6 +8,7 @@ from neo4j import GraphDatabase
 import random
 import yaml
 from kani.exceptions import WrappedCallException
+from enum import Enum
 
 # for reading API keys from .env file
 import os
@@ -54,16 +55,18 @@ class Neo4jAgent(StreamlitKani):
 
         self.max_response_tokens = max_response_tokens
 
+    def _status(self, label):
+        if not hasattr(self, 'status'):
+            self.status = st.status(label = label)
+        else:
+            self.status.update(label = label)
 
 
     @ai_function(after = ChatRole.ASSISTANT)
-    async def evaluate_query(self, query: Annotated[str, AIParam(desc="""Cypher query to evaluate. The query should return a table or graph-like result; if returning a graph, it should include both node and edge data.""")]):
+    async def run_query(self, query: Annotated[str, AIParam(desc="""Cypher query to evaluate. The query should return a table or graph-like result; if returning a graph, it should include both node and edge data.""")]):
         """Evaluate a cypher query to ensure that it returns the correct type of result and is appropriate for the conversation context."""
 
-        if not hasattr(self, 'status'):
-            self.status = st.status(label = "Generating query...")
-        else:
-            self.status.update(label = "Generating query...")
+        self._status("Generating query...")
 
         query = fix_biolink_labels(query)
 
@@ -72,30 +75,44 @@ class Neo4jAgent(StreamlitKani):
 
         result_dict = process_neo4j_result(raw_result)
         
+        class ReturnType(Enum):
+            TABLE = "table"
+            GRAPH = "graph"
+            SCALAR = "scalar"
+           
         def report_evaluation(query_summary: Annotated[str, AIParam(desc="A summary of how the query works in lay language.")],
-                              directions_ok: Annotated[bool, AIParam(desc="Whether edge directions in the query are directed correctly.")],
-                              returns_graph: Annotated[bool, AIParam(desc="Whether the query returns graph information, rather than a tabular result.")],
-                              returns_edges: Annotated[bool, AIParam(desc="Whether a graph query returns edge information via a named variable. Set to `True` if the query is tabular.")],
-                              matches_user_intent: Annotated[bool, AIParam(desc="Whether the query matches the user's intent.")],
+                              directions_ok: Annotated[bool, AIParam(desc="Confirmation that the relationship specifications in the query are directed correctly with respect to the conversation thus far.")],
+                              return_type: Annotated[ReturnType, AIParam(desc="The return type of the query.")],
+                              returns_edges: Annotated[bool, AIParam(desc="If the result would be a graph, that the query returns edge information via a named variable. Always `True` for table results.")],
+                              matches_user_intent: Annotated[bool, AIParam(desc="Confirmation that the query matches the user's intent, in the context of the conversation so far.")],
+                              visualize: Annotated[bool, AIParam(desc="Whether the result should be visualized for the user with a displayed table or graph view.")],
                               suggestion: Annotated[str, AIParam(desc="Suggestions for improving the query.")]
                               ):
             """Report on the evaluation of a query, including whether the query matches the user's intent, whether the edge directions are correct, and whether the query returns edge information."""
 
+            # if it passes, we clear out the suggestion so that the model doesn't get confused
+            if directions_ok and matches_user_intent and \
+                ((return_type == ReturnType.GRAPH and returns_edges) or return_type != ReturnType.GRAPH):
+                suggestion = "None."
 
+            # we return json string here and reparse it later, rather than trying to fit a dictionary
+            # in the resulting ChatMessage.content
             return json.dumps({"query_summary": query_summary,
-                    "directions_ok": directions_ok,
-                    "returns_graph": returns_graph,
-                    "returns_edges": returns_edges,
-                    "matches_user_intent": matches_user_intent,
+                    "directions_ok": directions_ok,             # error
+                    "return_type": return_type.value,
+                    "returns_edges": returns_edges,             # error
+                    "matches_user_intent": matches_user_intent, # error
+                    "visualize": visualize,
                     "suggestion": suggestion
                     })
 
         functions = [AIFunction(report_evaluation, after = ChatRole.USER)]
         evaluator_kani = MonarchKGAgent(self.engine, functions = functions)
 
-        prompt = eval_query_prompt(query, result_dict)
+        # use most recent 3 messages
+        prompt = eval_query_prompt(query, result_dict, self.chat_history[-3:])
 
-        self.status.update(label = "Evaluating query...")
+        self._status("Evaluating query...")
         async def collect_async_generator(async_gen):
             messages = []
             async for message in async_gen:
@@ -103,42 +120,59 @@ class Neo4jAgent(StreamlitKani):
             return messages
         
         eval_chat_log = await collect_async_generator(evaluator_kani.full_round(prompt))
+
+        # need to add the evaluator's token usage to ours
+        self.tokens_used_prompt += evaluator_kani.tokens_used_prompt
+        self.tokens_used_completion += evaluator_kani.tokens_used_completion
+
         result = json.loads(eval_chat_log[1])
 
         # now we throw an error if any of the boolean values are False
         if not result['directions_ok'] or not result['matches_user_intent']:
-            raise WrappedCallException(retry = True, original = ValueError("The query did not pass evaluation; please review the suggestions and try again."))
+            raise WrappedCallException(retry = True, original = ValueError("The query did not pass evaluation; please review the suggestions and try again. Evaluation:\n\n" + yaml.dump(result)))
 
-        if result['returns_graph'] and not result['returns_edges']:
-            raise WrappedCallException(retry = True, original = ValueError("The query would result in a graph but did not return edge information via a named variable; please review the suggestions and try again."))
+        if result['return_type'] == 'graph' and not result['returns_edges']:
+            raise WrappedCallException(retry = True, original = ValueError("The query would result in a graph but did not return edge information via a named variable; please review the suggestions and try again. Evaluation:\n\n" + yaml.dump(result)))
 
-        return f"The query passed evaluation; you can now run it against the database. Here the evaluation information:\n\n{yaml.dump(result)}"
+        if result['visualize']:
+            pass
+
+        # if we've passed, we want to provide some information to the user about the query evaluation in a streamlit container
+        def render_query_eval():
+            with st.expander("Query Evaluation"):
+                st.json({"query": query, **result})
+        
+        self.render_in_streamlit_chat(render_query_eval)
+
+        # TODO PICKUP NEXT HERE: need to return the result of the query to the model, 
+        # for some reason this is None currently.
+        return f"The query passed evaluation; here are the results:\n\n{yaml.dump(result_dict['data'])}"
     
 
-    @ai_function()
-    async def query_kg_tabular(self, query: Annotated[str, AIParam(desc="Cypher query to run.")]):
-        """Run a cypher query against the database and return the result as a table. This function will throw an error if the query does not return tabular or scalar results."""
-        query = fix_biolink_labels(query)
-        # if self.status is not set, set it...
-        if not hasattr(self, 'status'):
-            self.status = st.status(label = "Running query...")
-        else:
-            self.status.update(label = "Running query...")
+    # @ai_function()
+    # async def query_kg_tabular(self, query: Annotated[str, AIParam(desc="Cypher query to run.")]):
+    #     """Run a cypher query against the database and return the result as a table. This function will throw an error if the query does not return tabular or scalar results."""
+    #     query = fix_biolink_labels(query)
+    #     # if self.status is not set, set it...
+    #     if not hasattr(self, 'status'):
+    #         self.status = st.status(label = "Running query...")
+    #     else:
+    #         self.status.update(label = "Running query...")
 
-        with self.neo4j_driver.session() as session:
-            raw_result = session.run(query)
+    #     with self.neo4j_driver.session() as session:
+    #         raw_result = session.run(query)
 
-            result_dict = process_neo4j_result(raw_result)
+    #         result_dict = process_neo4j_result(raw_result)
 
-            str_res = yaml.dump(result_dict['data'])
+    #         str_res = yaml.dump(result_dict['data'])
 
-        # if self.message_token_len reports more than 10000 tokens in the result, we need to ask the agent to make the request smaller
-        tokens = self.message_token_len(ChatMessage.user(str_res))
-        if tokens > self.max_response_tokens:
-            raise WrappedCallException(retry = True, original = ValueError(f"ERROR: The result contained {tokens} tokens, greater than the maximum allowable of {self.max_response_tokens}. Please try a smaller query."))
-        else:
-            str_res = str_res + "\n\nACTION: SUMMARIZE"
-            return str_res
+    #     # if self.message_token_len reports more than 10000 tokens in the result, we need to ask the agent to make the request smaller
+    #     tokens = self.message_token_len(ChatMessage.user(str_res))
+    #     if tokens > self.max_response_tokens:
+    #         raise WrappedCallException(retry = True, original = ValueError(f"ERROR: The result contained {tokens} tokens, greater than the maximum allowable of {self.max_response_tokens}. Please try a smaller query."))
+    #     else:
+    #         str_res = str_res + "\n\nACTION: SUMMARIZE"
+    #         return str_res
         
     
         
