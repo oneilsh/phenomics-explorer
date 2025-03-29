@@ -76,25 +76,21 @@ def process_neo4j_result(result):
 
         # Decide final output format based on whether we found graph data
         if data_type == "graph":
-            # import pprint
-            # print("\n\n\n\n\n\n\n############################")
-            # pprint.pprint(graph_data)
-            # print("############################\n\n\n\n\n\n\n")
-            return {"type": data_type, "data": graph_data}
+            result = {"type": data_type, "data": graph_data}
         else:
             # e.g., if all rows were scalar
             # if it's table data, return it in the LLM-readable format 
             result = {"type": "table", "data": table_data}
             # but, if the result is just a single scalar value, return that
             if len(result["data"]) == 1 and len(result["data"].columns) == 1:
-                return {"type": "scalar", "data": result["data"].iloc[0, 0]}
+                result = {"type": "scalar", "data": result["data"].iloc[0, 0]}
             
-            return result
+        return result
         
     except Exception as e:
         print(f"Error processing result: {e}")
         return None
-
+ 
 
 def _add_node(graph_data, node, known_node_ids):
     """
@@ -118,14 +114,12 @@ def _add_node(graph_data, node, known_node_ids):
         "id": str(node_internal_id),  # or node_props.get("id", str(node_internal_id))
         "caption": caption
     }
-
-    node_data["label"] = node_props.get("category")  # or "label" if you store a custom label
     
     # Merge remaining props
     for k, v in node_props.items():
-        if k not in ["name", "symbol"]:
-            node_data[k] = v
-    
+        node_data[k] = v
+
+
     graph_data["nodes"].append({"data": node_data})
 
 

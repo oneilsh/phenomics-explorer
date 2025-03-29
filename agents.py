@@ -61,6 +61,9 @@ class Neo4jAgent(StreamlitKani):
         else:
             self.status.update(label = label)
 
+    def _clear_status(self):
+        del self.status
+
 
     @ai_function(after = ChatRole.ASSISTANT)
     async def run_query(self, query: Annotated[str, AIParam(desc="""Cypher query to evaluate. The query should return a table or graph-like result; if returning a graph, it should include both node and edge data.""")]):
@@ -72,9 +75,17 @@ class Neo4jAgent(StreamlitKani):
 
         with self.neo4j_driver.session() as session:
             raw_result = session.run(query)
+            result_dict = process_neo4j_result(raw_result)
 
-        result_dict = process_neo4j_result(raw_result)
+        if not result_dict:
+            raise WrappedCallException(retry = True, original = ValueError("The query did not return a valid result; please review the query and try again."))
         
+        if result_dict['type'] == 'graph':
+            import pprint
+            pprint.pprint(result_dict)
+            result_dict['data'] = munge_monarch_graph_result(result_dict['data'])
+
+
         class ReturnType(Enum):
             TABLE = "table"
             GRAPH = "graph"
@@ -83,9 +94,9 @@ class Neo4jAgent(StreamlitKani):
         def report_evaluation(query_summary: Annotated[str, AIParam(desc="A summary of how the query works in lay language.")],
                               directions_ok: Annotated[bool, AIParam(desc="Confirmation that the relationship specifications in the query are directed correctly with respect to the conversation thus far.")],
                               return_type: Annotated[ReturnType, AIParam(desc="The return type of the query.")],
-                              returns_edges: Annotated[bool, AIParam(desc="If the result would be a graph, that the query returns edge information via a named variable. Always `True` for table results.")],
+                              returns_edges: Annotated[bool, AIParam(desc="If the return type is a graph, whether the query returns edge information via a named variable. Always `True` for table results.")],
                               matches_user_intent: Annotated[bool, AIParam(desc="Confirmation that the query matches the user's intent, in the context of the conversation so far.")],
-                              visualize: Annotated[bool, AIParam(desc="Whether the result should be visualized for the user with a displayed table or graph view.")],
+                              visualize: Annotated[bool, AIParam(desc="the return type is a graph, whether it should be visualized for the user to accompany the answer. Always `True` for table results.")],
                               suggestion: Annotated[str, AIParam(desc="Suggestions for improving the query.")]
                               ):
             """Report on the evaluation of a query, including whether the query matches the user's intent, whether the edge directions are correct, and whether the query returns edge information."""
@@ -109,8 +120,14 @@ class Neo4jAgent(StreamlitKani):
         functions = [AIFunction(report_evaluation, after = ChatRole.USER)]
         evaluator_kani = MonarchKGAgent(self.engine, functions = functions)
 
-        # use most recent 3 messages
-        prompt = eval_query_prompt(query, result_dict, self.chat_history[-3:])
+        # use most recent messages from self.chat_history that has a user or assistant
+        hist = [message for message in self.chat_history if message.role == ChatRole.USER or message.role == ChatRole.ASSISTANT]
+        prompt = eval_query_prompt(query, result_dict, hist[-3:])
+        print("\n\n\n\n\n\n##########################")
+
+        print("PROMPT")
+        print(prompt)
+        print("##########################\n\n\n\n\n\n")
 
         self._status("Evaluating query...")
         async def collect_async_generator(async_gen):
@@ -129,13 +146,25 @@ class Neo4jAgent(StreamlitKani):
 
         # now we throw an error if any of the boolean values are False
         if not result['directions_ok'] or not result['matches_user_intent']:
+            self._status("Query did not pass evaluation.")
             raise WrappedCallException(retry = True, original = ValueError("The query did not pass evaluation; please review the suggestions and try again. Evaluation:\n\n" + yaml.dump(result)))
 
         if result['return_type'] == 'graph' and not result['returns_edges']:
+            self._status("Query did not pass evaluation.")
             raise WrappedCallException(retry = True, original = ValueError("The query would result in a graph but did not return edge information via a named variable; please review the suggestions and try again. Evaluation:\n\n" + yaml.dump(result)))
 
-        if result['visualize']:
-            pass
+        if result['return_type'] == 'graph' and result['visualize']:
+            res = result_dict['data']
+            key = ''.join(random.choices('abcdefghijklmnopqrstuvwxyz', k=10))
+            edge_styles = []
+            edge_types = set([edge['data']['predicate'] for edge in res['edges']])
+            for edge_type in edge_types:
+                edge_styles.append(EdgeStyle(label=edge_type, caption="predicate", directed=True))
+
+            def render_graph():
+                st_link_analysis(res, "cose", node_styles, edge_styles, height=300, key=key)
+
+            self.render_in_streamlit_chat(render_graph)
 
         # if we've passed, we want to provide some information to the user about the query evaluation in a streamlit container
         def render_query_eval():
@@ -144,93 +173,9 @@ class Neo4jAgent(StreamlitKani):
         
         self.render_in_streamlit_chat(render_query_eval)
 
-        # TODO PICKUP NEXT HERE: need to return the result of the query to the model, 
-        # for some reason this is None currently.
+        self._clear_status()
         return f"The query passed evaluation; here are the results:\n\n{yaml.dump(result_dict['data'])}"
     
-
-    # @ai_function()
-    # async def query_kg_tabular(self, query: Annotated[str, AIParam(desc="Cypher query to run.")]):
-    #     """Run a cypher query against the database and return the result as a table. This function will throw an error if the query does not return tabular or scalar results."""
-    #     query = fix_biolink_labels(query)
-    #     # if self.status is not set, set it...
-    #     if not hasattr(self, 'status'):
-    #         self.status = st.status(label = "Running query...")
-    #     else:
-    #         self.status.update(label = "Running query...")
-
-    #     with self.neo4j_driver.session() as session:
-    #         raw_result = session.run(query)
-
-    #         result_dict = process_neo4j_result(raw_result)
-
-    #         str_res = yaml.dump(result_dict['data'])
-
-    #     # if self.message_token_len reports more than 10000 tokens in the result, we need to ask the agent to make the request smaller
-    #     tokens = self.message_token_len(ChatMessage.user(str_res))
-    #     if tokens > self.max_response_tokens:
-    #         raise WrappedCallException(retry = True, original = ValueError(f"ERROR: The result contained {tokens} tokens, greater than the maximum allowable of {self.max_response_tokens}. Please try a smaller query."))
-    #     else:
-    #         str_res = str_res + "\n\nACTION: SUMMARIZE"
-    #         return str_res
-        
-    
-        
-
-    # @ai_function()
-    # def query_kg_graph_display(self, query: Annotated[str, AIParam(desc="Cypher query to run and visualize.")]):
-    #     query = fix_biolink_labels(query)
-    #     """Run a cypher query against the database and visualize the result for the user. This function will throw an error if the query does not return graph-like results for visualization."""
-
-    #     with self.neo4j_driver.session() as session:
-    #         result = session.run(query)
-    #         result_dict = process_neo4j_result(result)
-
-    #         # the result will be a dictionary with keys 'type' and 'data'
-    #         # if type is 'table', 'data' will be a pandas dataframe
-    #         # if type is 'graph', 'data' will be a dictionary appropriate for st_link_analysis
-    #         # if type is 'scalar', the result will be a single scalar value (e.g. a count)
-
-    #         # in all cases, we are going to need a string representation to return to the llm
-    #         str_res = ""
-    #         res_summary = ""
-    #         if result_dict['type'] == 'graph':
-    #             res = munge_monarch_graph_result(result_dict['data'])
-    #             str_res = yaml.dump(res)
-    #             res_summary = f"Graph with {len(res['nodes'])} nodes and {len(res['edges'])} edges."
-
-    #             if len(res['nodes']) > 0 and len(res['edges']) == 0:
-    #                 raise WrappedCallException(retry = True, original = ValueError("The query returned a graph with no edges; the query passed to query_kg_graph_display must return both nodes and edges. Please try again."))
-
-    #             # generate a random key string
-    #             key = ''.join(random.choices('abcdefghijklmnopqrstuvwxyz', k=10))
-
-    #             # build edges - we do this on the fly since we don't have a convenient master key of 
-    #             # edge types, needed for the EdgeStyle object
-    #             edge_styles = []
-
-    #             # first we get a list of unique edge types
-    #             edge_types = set([edge['data']['predicate'] for edge in res['edges']])
-
-    #             # for each edge type, create an EdgeStyle object
-    #             for edge_type in edge_types:
-    #                 edge_styles.append(EdgeStyle(label=edge_type, caption="predicate", directed=True))
-                
-    #             def render_graph():
-    #                 st_link_analysis(res, "cose", node_styles, edge_styles, height=300, key=key)
-
-    #             self.render_in_streamlit_chat(render_graph)
-
-    #         else:
-    #             raise WrappedCallException(retry = True, original = ValueError(f"Unexpected result type from query: {result_dict['type']}; the query passed to display_kg_graph must return graph-like results with both nodes and edges. Please try again."))
-
-    #     # if self.message_token_len reports more than 10000 tokens in the result, we need to ask the agent to make the request smaller
-    #     tokens = self.message_token_len(ChatMessage.user(str_res))
-    #     if tokens > self.max_response_tokens:
-    #         return f"The result contained {tokens} tokens, and so cannot be returned in full, but the graph with {len(res['nodes'])} nodes and {len(res['edges'])} has been visualized for the user."
-    #     else:
-    #         str_res = str_res + "\n\nACTION: SUMMARIZE"
-    #         return str_res
 
 
 class MonarchKGAgent(Neo4jAgent):
