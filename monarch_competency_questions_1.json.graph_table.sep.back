@@ -2,28 +2,32 @@
 {
 "question": "List all of the diseases related to TAF4.",
 "search_terms": ["TAF4"],
-"query": "MATCH (g:biolink_Gene {id: 'HGNC:11537'})-[r]-(d:biolink_Disease) RETURN g, r, d",
+"query_kg_tabular": "MATCH (g:biolink_Gene {id: 'HGNC:11537'})-[r]-(d:biolink_Disease) RETURN d.id, d.name, type(r)",
+"query_kg_graph_display": "MATCH (g:biolink_Gene {id: 'HGNC:11537'})-[r]-(d:biolink_Disease) RETURN g, r, d",
 "expected_answer":"The gene [TAF4](https://monarchinitiative.org/HGNC:11537) is associated with the disease ['neurodevelopmental disorder with dysmorphic facies and distal limb anomalies'](https://monarchinitiative.org/MONDO:0060596) through the relationship 'biolink_gene_associated_with_condition'."
 },
 {
 "question": "What is the relationship between abamectin and avermectin B1a?",
 "search_terms": ["abamectin", "avermectin B1a"],
-"query": "MATCH (c1:biolink_ChemicalEntity {id: 'CHEBI:39214'})-[r]-(c2:biolink_ChemicalEntity {id: 'CHEBI:29534'}) RETURN c1, r, c2",
+"query_kg_tabular": "MATCH (c1:biolink_ChemicalEntity {id: 'CHEBI:39214'})-[r]-(c2:biolink_ChemicalEntity {id: 'CHEBI:29534'}) RETURN c1.id, c1.name, c2.id, c2.name, type(r)",
+"query_kg_graph_display": "MATCH (c1:biolink_ChemicalEntity {id: 'CHEBI:39214'})-[r]-(c2:biolink_ChemicalEntity {id: 'CHEBI:29534'}) RETURN c1, r, c2",
 "expected_answer": "[Abamectin](https://monarchinitiative.org/CHEBI:39214) is 'biolink_related_to' [avermectin B1a](https://monarchinitiative.org/CHEBI:29534), suggesting a connection or similarity between these chemical entities."},
 {
 "question": "What features of Noonan Syndrome 6 are unique compared to other types of Noonan Syndrome?",
 "search_terms": ["Noonan syndrome 6", "Noonan Syndrome"],
-"query": "MATCH (ns6_subtype:biolink_Disease)-[:biolink_subclass_of*0..]->(noonan_syndrome_6:biolink_Disease {id: 'MONDO:0013186'}) OPTIONAL MATCH (ns6_subtype)-[:biolink_has_phenotype]->(pns6:biolink_PhenotypicFeature) WITH collect(DISTINCT pns6.name) AS noonan_syndrome_6_phenotypes, collect(DISTINCT ns6_subtype) AS ns6_subtypes MATCH (ns_subtype:biolink_Disease)-[:biolink_subclass_of*0..]->(noonan_syndrome:biolink_Disease {id: 'MONDO:0018997'}) WHERE NOT ns_subtype IN ns6_subtypes OPTIONAL MATCH (ns_subtype)-[:biolink_has_phenotype]->(pns:biolink_PhenotypicFeature) WITH noonan_syndrome_6_phenotypes, collect(DISTINCT pns.name) AS noonan_syndrome_phenotypes RETURN [phenotype IN noonan_syndrome_6_phenotypes WHERE phenotype IN noonan_syndrome_phenotypes] AS shared_phenotypes, [phenotype IN noonan_syndrome_6_phenotypes WHERE NOT phenotype IN noonan_syndrome_phenotypes] AS unique_to_noonan_syndrome_6 ",
+"query_kg_tabular": "MATCH (ns6_subtype:biolink_Disease)-[:biolink_subclass_of*0..]->(noonan_syndrome_6:biolink_Disease {id: 'MONDO:0013186'}) OPTIONAL MATCH (ns6_subtype)-[:biolink_has_phenotype]->(pns6:biolink_PhenotypicFeature) WITH collect(DISTINCT pns6.name) AS noonan_syndrome_6_phenotypes, collect(DISTINCT ns6_subtype) AS ns6_subtypes MATCH (ns_subtype:biolink_Disease)-[:biolink_subclass_of*0..]->(noonan_syndrome:biolink_Disease {id: 'MONDO:0018997'}) WHERE NOT ns_subtype IN ns6_subtypes OPTIONAL MATCH (ns_subtype)-[:biolink_has_phenotype]->(pns:biolink_PhenotypicFeature) WITH noonan_syndrome_6_phenotypes, collect(DISTINCT pns.name) AS noonan_syndrome_phenotypes RETURN [phenotype IN noonan_syndrome_6_phenotypes WHERE phenotype IN noonan_syndrome_phenotypes] AS shared_phenotypes, [phenotype IN noonan_syndrome_6_phenotypes WHERE NOT phenotype IN noonan_syndrome_phenotypes] AS unique_to_noonan_syndrome_6 ",
 "expected_answer": "According to the data, there are 7 phenotypes associated with Noonan syndrome 6 that are not shared with other types of Noonan syndrome. These are: \n - [Single umbilical artery](https://monarchinitiative.org/HP:0001195) \n - [Astigmatism](https://monarchinitiative.org/HP:0000483) \n - [Premature atrial contractions](https://monarchinitiative.org/HP:0001692) \n - [Keratoconus](https://monarchinitiative.org/HP:0000563) \n - [Long eyebrows](https://monarchinitiative.org/HP:0000537) \n - [Intellectual disability, borderline](https://monarchinitiative.org/HP:0000739) \n - [Edema](https://monarchinitiative.org/HP:0000969) \n Many other phenotypes are shared with other Noonan syndrome subtypes, including [Cryptorchidism](https://monarchinitiative.org/HP:0000028), [Sensorineural hearing impairment](https://monarchinitiative.org/HP:0000407), [Downslanted palpebral fissures](https://monarchinitiative.org/HP:0000494), [Webbed neck](https://monarchinitiative.org/HP:0000465), and [short stature](https://monarchinitiative.org/HP:0004322). You can visit the [page](https://monarchinitiative.org/MONDO:0018997) for Noonan syndrome to learn more about this disease and its subtypes."},
 {
 "question": "What are all the different types of Ehlers-Danlos Syndrome?",
 "search_terms": ["Ehlers-Danlos Syndrome"],
-"query": "MATCH (parent:biolink_Disease {id: 'MONDO:0020066'}) OPTIONAL MATCH (subD:biolink_Disease) -[r:biolink_subclass_of*]->(parent) RETURN parent, r, subD",
+"query_kg_tabular": "MATCH (d:biolink_Disease {id: 'MONDO:0020066'})<-[:biolink_subclass_of*]-(subD:biolink_Disease) RETURN subD.id AS SubtypeID, subD.name AS SubtypeName",
+"query_kg_graph_display": "MATCH (parent:biolink_Disease {id: 'MONDO:0020066'}) OPTIONAL MATCH (subD:biolink_Disease) -[r:biolink_subclass_of*]->(parent) RETURN parent, r, subD",
 "expected_answer": "Subtypes and descendants of [Ehlers-Danlos Syndrome](https://monarchinitiative.org/MONDO:0020066) include [Ehlers-Danlos syndrome, Beasley-Cohen type](https://monarchinitiative.org/MONDO:0012114), [Ehlers-Danlos syndrome, vascular-like type](https://monarchinitiative.org/MONDO:0016469), [Ehlers-Danlos syndrome, autosomal dominant, type unspecified](https://monarchinitiative.org/MONDO:0007528), [joint laxity, familial](https://monarchinitiative.org/MONDO:0007842), [Hernández-Aguirre Negrete syndrome](https://monarchinitiative.org/MONDO:0016290), and various others covering different forms of the syndrome."},
 {
 "question": "What phenotypes are shared by EDS or its descendants, and Cystic Fibrosis or its descendants?",
 "search_terms": ["Ehlers-Danlos Syndrome", "Cystic Fibrosis"],
-"query": "MATCH path = (d: biolink_Disease {id: 'MONDO:0020066'})-[:biolink_subclass_of*]->(parent: biolink_Disease) RETURN nodes(path) AS Nodes, relationships(path) AS Edges",
+"query_kg_tabular": "MATCH (eds:biolink_Disease {id: 'MONDO:0020066'})<-[:biolink_subclass_of*0..]-(descEDS:biolink_Disease)-[:biolink_has_phenotype]->(phen:biolink_PhenotypicFeature), (cf:biolink_Disease {id: 'MONDO:0009061'})<-[:biolink_subclass_of*0..]-(descCF:biolink_Disease) WHERE (descCF)-[:biolink_has_phenotype]->(phen) WITH phen, COUNT(DISTINCT descEDS) AS EdsCount, COUNT(DISTINCT descCF) AS CfCount RETURN phen.id AS PhenotypeID, phen.name AS PhenotypeName, EdsCount, CfCount ORDER BY CfCount DESC, EdsCount DESC",
+"query_kg_graph_display": "MATCH path = (d: biolink_Disease {id: 'MONDO:0020066'})-[:biolink_subclass_of*]->(parent: biolink_Disease) RETURN nodes(path) AS Nodes, relationships(path) AS Edges",
 "expected_answer": "The shared phenotypes should be displayed, with phenotypic features such as Osteopenia and Hearing impairment among the top results shared by both disease groups and their descendants."
 }
 ]

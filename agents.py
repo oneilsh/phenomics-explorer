@@ -34,153 +34,9 @@ def fix_biolink_labels(query):
     return res
 
 
-class Neo4jAgent(StreamlitKani):
-    """Base class for agents that interact with the knowledge graph. NOTE: set NEO4J_BOLT to e.g. bolt://localhost:7687 in .env file."""
-    def __init__(self, 
-                 *args,
-                 max_response_tokens = 10000, 
-                 system_prompt = "You have access to a neo4j knowledge graph, and can run cypher queries against it.",
-                 **kwargs
-                 ):
-
-        super().__init__(system_prompt = system_prompt, *args, **kwargs)
-
-        # dev instance of KG
-        self.neo4j_uri = os.environ["NEO4J_URI"]  # default bolt protocol port
-        self.neo4j_driver = GraphDatabase.driver(self.neo4j_uri)
-
-        # if description is given, set self.description to it
-        if 'description' in kwargs:
-                self.description = kwargs['description']
-
-        self.max_response_tokens = max_response_tokens
-
-    def _status(self, label):
-        if not hasattr(self, 'status'):
-            self.status = st.status(label = label)
-        else:
-            self.status.update(label = label)
-
-    def _clear_status(self):
-        del self.status
-
-
-    @ai_function(after = ChatRole.ASSISTANT)
-    async def run_query(self, query: Annotated[str, AIParam(desc="""Cypher query to evaluate. The query should return a table or graph-like result; if returning a graph, it should include both node and edge data.""")]):
-        """Evaluate a cypher query to ensure that it returns the correct type of result and is appropriate for the conversation context."""
-
-        self._status("Generating query...")
-
-        query = fix_biolink_labels(query)
-
-        with self.neo4j_driver.session() as session:
-            raw_result = session.run(query)
-            result_dict = process_neo4j_result(raw_result)
-
-        if not result_dict:
-            raise WrappedCallException(retry = True, original = ValueError("The query did not return a valid result; please review the query and try again."))
-        
-        if result_dict['type'] == 'graph':
-            import pprint
-            pprint.pprint(result_dict)
-            result_dict['data'] = munge_monarch_graph_result(result_dict['data'])
-
-
-        class ReturnType(Enum):
-            TABLE = "table"
-            GRAPH = "graph"
-            SCALAR = "scalar"
-           
-        def report_evaluation(query_summary: Annotated[str, AIParam(desc="A summary of how the query works in lay language.")],
-                              directions_ok: Annotated[bool, AIParam(desc="Confirmation that the relationship specifications in the query are directed correctly with respect to the conversation thus far.")],
-                              return_type: Annotated[ReturnType, AIParam(desc="The return type of the query.")],
-                              returns_edges: Annotated[bool, AIParam(desc="If the return type is a graph, whether the query returns edge information via a named variable. Always `True` for table results.")],
-                              matches_user_intent: Annotated[bool, AIParam(desc="Confirmation that the query matches the user's intent, in the context of the conversation so far.")],
-                              visualize: Annotated[bool, AIParam(desc="the return type is a graph, whether it should be visualized for the user to accompany the answer. Always `True` for table results.")],
-                              suggestion: Annotated[str, AIParam(desc="Suggestions for improving the query.")]
-                              ):
-            """Report on the evaluation of a query, including whether the query matches the user's intent, whether the edge directions are correct, and whether the query returns edge information."""
-
-            # if it passes, we clear out the suggestion so that the model doesn't get confused
-            if directions_ok and matches_user_intent and \
-                ((return_type == ReturnType.GRAPH and returns_edges) or return_type != ReturnType.GRAPH):
-                suggestion = "None."
-
-            # we return json string here and reparse it later, rather than trying to fit a dictionary
-            # in the resulting ChatMessage.content
-            return json.dumps({"query_summary": query_summary,
-                    "directions_ok": directions_ok,             # error
-                    "return_type": return_type.value,
-                    "returns_edges": returns_edges,             # error
-                    "matches_user_intent": matches_user_intent, # error
-                    "visualize": visualize,
-                    "suggestion": suggestion
-                    })
-
-        functions = [AIFunction(report_evaluation, after = ChatRole.USER)]
-        evaluator_kani = MonarchKGAgent(self.engine, functions = functions)
-
-        # use most recent messages from self.chat_history that has a user or assistant
-        hist = [message for message in self.chat_history if message.role == ChatRole.USER or message.role == ChatRole.ASSISTANT]
-        prompt = eval_query_prompt(query, result_dict, hist[-3:])
-        print("\n\n\n\n\n\n##########################")
-
-        print("PROMPT")
-        print(prompt)
-        print("##########################\n\n\n\n\n\n")
-
-        self._status("Evaluating query...")
-        async def collect_async_generator(async_gen):
-            messages = []
-            async for message in async_gen:
-                messages.append(message.content)
-            return messages
-        
-        eval_chat_log = await collect_async_generator(evaluator_kani.full_round(prompt))
-
-        # need to add the evaluator's token usage to ours
-        self.tokens_used_prompt += evaluator_kani.tokens_used_prompt
-        self.tokens_used_completion += evaluator_kani.tokens_used_completion
-
-        result = json.loads(eval_chat_log[1])
-
-        # now we throw an error if any of the boolean values are False
-        if not result['directions_ok'] or not result['matches_user_intent']:
-            self._status("Query did not pass evaluation.")
-            raise WrappedCallException(retry = True, original = ValueError("The query did not pass evaluation; please review the suggestions and try again. Evaluation:\n\n" + yaml.dump(result)))
-
-        if result['return_type'] == 'graph' and not result['returns_edges']:
-            self._status("Query did not pass evaluation.")
-            raise WrappedCallException(retry = True, original = ValueError("The query would result in a graph but did not return edge information via a named variable; please review the suggestions and try again. Evaluation:\n\n" + yaml.dump(result)))
-
-        if result['return_type'] == 'graph' and result['visualize']:
-            res = result_dict['data']
-            key = ''.join(random.choices('abcdefghijklmnopqrstuvwxyz', k=10))
-            edge_styles = []
-            edge_types = set([edge['data']['predicate'] for edge in res['edges']])
-            for edge_type in edge_types:
-                edge_styles.append(EdgeStyle(label=edge_type, caption="predicate", directed=True))
-
-            def render_graph():
-                st_link_analysis(res, "cose", node_styles, edge_styles, height=300, key=key)
-
-            self.render_in_streamlit_chat(render_graph)
-
-        # if we've passed, we want to provide some information to the user about the query evaluation in a streamlit container
-        def render_query_eval():
-            with st.expander("Query Evaluation"):
-                st.json({"query": query, **result})
-        
-        self.render_in_streamlit_chat(render_query_eval)
-
-        self._clear_status()
-        return f"The query passed evaluation; here are the results:\n\n{yaml.dump(result_dict['data'])}"
-    
-
-
-class MonarchKGAgent(Neo4jAgent):
+class MonarchKGAgent(StreamlitKani):
     """Agent for interacting with the Monarch knowledge graph; extends KGAgent with keyword search (using Monarch API) system prompt with cypher examples."""
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, max_response_tokens = 10000, **kwargs):
 
         system_prompt = ('''# Instructions\n\nYou are the Phenomics Assistant, designed to assist users in exploring and intepreting a biomedical knowledge graph known as Monarch.\n\n''' + 
                         self._gen_instructions() + "\n\n" + 
@@ -197,6 +53,13 @@ class MonarchKGAgent(Neo4jAgent):
         self.avatar = "🕷️"
         self.user_avatar = "👤"
         self.name = "Phenomics Explorer (Experimental)"
+
+        # dev instance of KG
+        self.neo4j_uri = os.environ["NEO4J_URI"]  # default bolt protocol port
+        self.neo4j_driver = GraphDatabase.driver(self.neo4j_uri)
+
+        self.max_response_tokens = max_response_tokens
+
 
 
     def _get_greeting(self):
@@ -228,14 +91,149 @@ class MonarchKGAgent(Neo4jAgent):
         return yaml.dump(competency_questions)
     
 
+    def _status(self, label):
+        if not hasattr(self, 'status'):
+            self.status = st.status(label = label)
+        else:
+            self.status.update(label = label)
+
+    def _clear_status(self):
+        if hasattr(self, 'status'):
+            del self.status
+
+    # we override this so that we can clear the status box after each user-entered message;
+    async def add_to_history(self, message, *args, **kwargs):
+        if message.role == ChatRole.USER:
+            self._clear_status()
+
+        await super().add_to_history(message, *args, **kwargs)
+
+
+    @ai_function(after = ChatRole.ASSISTANT)
+    async def run_query(self, query: Annotated[str, AIParam(desc="""Cypher query to evaluate.""")]):
+        """Run a given cypher query against the knowledge graph and return the results. Think step-by-step when calling this function to ensure the query addresses the user question with the appropriate type of query, which may need to return either tabular or graph (nodes, edges, or paths) data. If the query returns a graph, it should both nodes and edges so they may be visualized for the user."""
+
+        self._status("Generating query...")
+
+        runnable_query = fix_biolink_labels(query)
+
+        with self.neo4j_driver.session() as session:
+            raw_result = session.run(runnable_query)
+            result_dict = process_neo4j_result(raw_result)
+        
+        if result_dict['type'] == 'graph':
+            result_dict['data'] = munge_monarch_graph_result(result_dict['data'])
+            import pprint
+            pprint.pprint(result_dict)
+
+
+        class ReturnType(Enum):
+            TABLE = "table"
+            GRAPH = "graph"
+            SCALAR = "scalar"
+            ERROR = "error"
+           
+        def report_evaluation(query_summary: Annotated[str, AIParam(desc="A summary of how the query works, allowing a non-technical user to understand the cypher syntax.")],
+                              directions_ok: Annotated[bool, AIParam(desc="Confirmation that the relationships are directed properly in the query according to the request.")],
+                              return_type: Annotated[ReturnType, AIParam(desc='The return type of the query, either `"table"`, `"graph"`, `"scalar"`, or `"error"`.')],
+                              returns_edges: Annotated[bool, AIParam(desc="If the result is a graph, that it contains both node and edge information for potential visualization. If the result is a table you may use True here.")],
+                              matches_user_intent: Annotated[bool, AIParam(desc="Confirmation that the query matches the user's intent, in the context of the conversation so far.")],
+                              suggestion: Annotated[str, AIParam(desc="Suggestions for improving the query, if any.")]
+                              ):
+            """Report on the evaluation of a query, including whether the query matches the user's intent, whether the edge directions are correct, and whether the query returns edge information."""
+
+            # if it passes, we clear out the suggestion so that the model doesn't get confused
+            if directions_ok and matches_user_intent and \
+                ((return_type == ReturnType.GRAPH and returns_edges) or return_type != ReturnType.GRAPH):
+                suggestion = "None."
+
+            # we return json string here and reparse it later, rather than trying to fit a dictionary
+            # in the resulting ChatMessage.content
+            return json.dumps({"query_summary": query_summary,
+                    "directions_ok": directions_ok,                # error
+                    "return_type": return_type.value,
+                    "returns_edges_ok": returns_edges,             # error
+                    "matches_user_intent_ok": matches_user_intent, # error
+                    "suggestion": suggestion
+                    })
+
+        functions = [AIFunction(report_evaluation, after = ChatRole.USER)]
+        evaluator_kani = MonarchKGAgent(self.engine, functions = functions)
+        evaluator_kani.system_prompt = ('''# Instructions\n\nYou are the Phenomics Evaluator, designed to evaluate cypher queries against the biomedical knowledge graph known as Monarch.\n\n''' + 
+                        "# Graph Summary\n\n" + self._gen_graph_summary() + "\n\n" + 
+                        '''When asked, use your report_evaluation() function to evaluate a given query and its results. Follow the instructions exactly.'''
+                        )
+
+        # use most recent messages from self.chat_history that has a user or assistant
+        hist = [message for message in self.chat_history if message.role == ChatRole.USER or message.role == ChatRole.ASSISTANT]
+        prompt = eval_query_prompt(query, result_dict, hist[-3:])
+        print("\n\n\n\n\n\n##########################")
+
+        print("PROMPT")
+        print(prompt)
+        print("##########################\n\n\n\n\n\n")
+
+        self._status("Evaluating query...")
+        async def collect_async_generator(async_gen):
+            messages = []
+            async for message in async_gen:
+                messages.append(message.content)
+            return messages
+        
+        eval_chat_log = await collect_async_generator(evaluator_kani.full_round(prompt))
+
+        # need to add the evaluator's token usage to ours
+        self.tokens_used_prompt += evaluator_kani.tokens_used_prompt
+        self.tokens_used_completion += evaluator_kani.tokens_used_completion
+
+        result = json.loads(eval_chat_log[1])
+
+        # now we throw an error if any of the boolean values are False
+        if not result['directions_ok'] or not result['matches_user_intent_ok']:
+            self._status("Query did not pass evaluation.")
+            raise WrappedCallException(retry = True, original = ValueError("The query did not pass evaluation; please review the suggestions and try again. Evaluation:\n\n" + yaml.dump(result)))
+
+        if result['return_type'] == 'graph' and not result['returns_edges_ok']:
+            self._status("Query did not pass evaluation.")
+            raise WrappedCallException(retry = True, original = ValueError("The resulted in a graph with no edge information included; please try again including edge information so the graph can be visualized for the user. Evaluation:\n\n" + yaml.dump(result)))
+
+        # if it returns a graph and is ok to visualize, which is true if it contains at least 2 nodes and one edge
+        if result['return_type'] == 'graph' and result_dict['data']['nodes'] and result_dict['data']['edges']:
+            if len(result_dict['data']['nodes']) >= 2 and len(result_dict['data']['edges']) >= 1:
+                res = result_dict['data']
+                key = ''.join(random.choices('abcdefghijklmnopqrstuvwxyz', k=10))
+                edge_styles = []
+                edge_types = set([edge['data']['predicate'] for edge in res['edges']])
+                for edge_type in edge_types:
+                    edge_styles.append(EdgeStyle(label=edge_type, caption="predicate", directed=True))
+
+                def render_graph():
+                    st_link_analysis(res, "cose", node_styles, edge_styles, height=300, key=key)
+
+                self.render_in_streamlit_chat(render_graph)
+
+        self._status("Generating Answer...")
+
+        # if we've passed, we want to provide some information to the user about the query evaluation in a streamlit container
+        report = {"Query": runnable_query, "Query Summary": result['query_summary']}
+        def render_query_eval():
+            with st.expander("Query Evaluation"):
+                st.json(report)
+        
+        self.render_in_streamlit_chat(render_query_eval)
+
+        return f"The query passed evaluation; here are the results:\n\n{yaml.dump(result_dict['data'])}"
+
+
     @ai_function()
-    def search(self, 
+    async def search(self, 
                search_terms: Annotated[List[str], AIParam(desc="Search terms to look up in the database.")],):
         """Search for nodes matching one or more terms. Each term is searched separately."""
 
         # single query endpoint url is e.g. https://api-v3.monarchinitiative.org/v3/api/search?q=cystic%20fibrosis&limit=10&offset=0
         # use httpx for each search term
         # return the results as a list of dictionaries
+        self._status(f"Searching for terms {search_terms}...")
 
         results = {}
         ids = []
@@ -256,7 +254,7 @@ class MonarchKGAgent(Neo4jAgent):
         if tokens > self.max_response_tokens:
             return f"ERROR: The result contained {tokens} tokens, greater than the maximum allowable of {self.max_response_tokens}. Please try a smaller search."
         else:
-            return results        
+            return results
 
 
 # sales at first am home warranty for account transfer: 888 875 0533

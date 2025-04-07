@@ -31,8 +31,16 @@ dotenv.load_dotenv()
 
 def process_neo4j_result(result):
     if not result:
-        return None
+        return {"type": "error", "data": "No result from Neo4j query."}
     
+    # PROBLEM TODO: for some reason this query doesn't result in edge data, even though it's very obviously in the result set
+    # please run this query exactly: MATCH (parent:biolink_Disease {id: 'MONDO:0020066'}) OPTIONAL MATCH (subD:biolink_Disease)-[r:biolink_subclass_of*]->(parent) RETURN parent, r, subD
+    
+    # maybe this one too? it triggers an error about missing edge info, but that's just because it really does need to return just a single node
+    # MATCH (g:biolink_Gene)-[:biolink_gene_associated_with_condition]->(d:biolink_Disease) WITH g, count(d) as disease_count RETURN g ORDER BY disease_count DESC LIMIT 5
+    
+    # and this, for "How many different kinds of edges are there?"
+    # MATCH ()-[r]->() RETURN DISTINCT type(r) AS relationship_type
     try:
         table_data = []
         graph_data = {"nodes": [], "edges": []}
@@ -45,6 +53,7 @@ def process_neo4j_result(result):
             record_data = {}
             
             for key, value in record.items():
+                print(f"key: {key}, value: {value}")
                 
                 # 1. If it's a Node
                 if isinstance(value, neo4j.graph.Node):
@@ -72,24 +81,22 @@ def process_neo4j_result(result):
             # it gets appended as a row to table_data
             table_data.append(record_data)
 
-
-
         # Decide final output format based on whether we found graph data
         if data_type == "graph":
             result = {"type": data_type, "data": graph_data}
+
         else:
-            # e.g., if all rows were scalar
-            # if it's table data, return it in the LLM-readable format 
+            # if it's table data or a scalar, return it in the LLM-readable format 
             result = {"type": "table", "data": table_data}
-            # but, if the result is just a single scalar value, return that
-            if len(result["data"]) == 1 and len(result["data"].columns) == 1:
-                result = {"type": "scalar", "data": result["data"].iloc[0, 0]}
             
+        import pprint
+        print("\n\n\n\n\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+        pprint.pprint(result["data"]["edges"])
         return result
+    
         
     except Exception as e:
-        print(f"Error processing result: {e}")
-        return None
+        return {"type": "error", "data": str(e)}
  
 
 def _add_node(graph_data, node, known_node_ids):
