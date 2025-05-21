@@ -16,8 +16,7 @@ neo4j = "^5.20.0"
 st-link-analysis = "^0.3.0"
 pyyaml = "^6.0.2"
 seaborn = "^0.13.2"
-kani = {extras = ["anthropic"], version = "^1.4.2"}
-torch = "^2.7.0"
+kani = {extras = ["openai"], version = "^1.4.2"}
 httpx = "^0.28.1"
 
 [build-system]
