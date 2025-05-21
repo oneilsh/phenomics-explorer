@@ -14,7 +14,7 @@ import dotenv # pip install python-dotenv
 
 # kani imports
 from kani.engines.openai import OpenAIEngine
-from kani.engines.anthropic import AnthropicEngine
+#from kani.engines.anthropic import AnthropicEngine
 
 from agent_monarch import *
 
