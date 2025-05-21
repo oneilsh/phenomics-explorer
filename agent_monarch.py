@@ -49,7 +49,9 @@ class MonarchKGAgent(BaseKGAgent):
         self.evaluator_system_prompt = ('''You are the Phenomics Evaluator, designed to evaluate cypher queries against the biomedical knowledge graph known as Monarch.\n\n''' + 
 "# Graph Summary\n\n" + graph_summary + "\n\n" + 
 "# Example queries\n\n" + example_queries_str + "\n\n" +
-'''# Instructions\n\nWhen asked, use your report_evaluation() function to evaluate a given query and its results. Follow the instructions exactly.'''
+'''# Instructions
+
+- When asked, use your report_evaluation() function to evaluate a given query and its results. Follow the instructions exactly.'''
 )
 
     ## called on button click
