@@ -82,7 +82,7 @@ Think step-by-step.
         self._status("Evaluating query...")
         result_summary = summarize_structure(neo4j_result)
         # TODO: this code is terrible; if I'm going to assume a parent method I should produce a proper interface to override
-        eval_result = await eval_agent.evaluate_query(self.eval_query_template, query, result_summary, context_history, self._gen_instructions())
+        eval_result = await eval_agent.evaluate_query(self.eval_query_template, query, result_summary, context_history, self._gen_monarch_instructions())
 
         # need to add the evaluator's token usage to ours
         self.tokens_used_prompt += eval_agent.tokens_used_prompt
@@ -242,7 +242,7 @@ Think step-by-step.
 
         self._status("Evaluating query and result...")
         result_summary = summarize_structure(neo4j_result)
-        eval_result = await eval_agent.evaluate_query(self.eval_query_template, query, result_summary, context_history, self._gen_instructions())
+        eval_result = await eval_agent.evaluate_query(self.eval_query_template, query, result_summary, context_history, self._gen_monarch_instructions())
 
         # need to add the evaluator's token usage to ours
         self.tokens_used_prompt += eval_agent.tokens_used_prompt
