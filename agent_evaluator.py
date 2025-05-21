@@ -69,7 +69,7 @@ class MonarchEvaluatorAgent(StreamlitKani):
         return result
     
 
-    def get_eval_query_prompt(self, template, query, result_dict, messages_history):
+    def get_eval_query_prompt(self, template, query, result_dict, messages_history, instructions):
         """Generate a prompt for evaluating a query result."""
 
         # messages_history is a list of ChatMessage objects, which have role and content attributes'
@@ -78,6 +78,7 @@ class MonarchEvaluatorAgent(StreamlitKani):
         res = (template.replace("%QUERY%", query)
                .replace("%QUERY_RESULT%", json.dumps(result_dict, indent=2))
                .replace("%MESSAGES_HISTORY%", "\n".join(messages_history))
+               .replace("%INSTRUCTIONS%", instructions)
                )
         # print("EVAL QUERY")
         # print(res)

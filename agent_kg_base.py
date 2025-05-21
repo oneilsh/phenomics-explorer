@@ -45,6 +45,11 @@ Result (possibly truncated):
 %QUERY_RESULT%
 ```
 
+Instructions given to the agent:
+```
+%INSTRUCTIONS%
+```
+
 Report your answer using your report_evaluation() function, considering the following:
 - Whether the result aligns with expectations based on the query.
 - Whether an ORDER BY clause should be applied.
@@ -76,7 +81,8 @@ Think step-by-step.
 
         self._status("Evaluating query...")
         result_summary = summarize_structure(neo4j_result)
-        eval_result = await eval_agent.evaluate_query(self.eval_query_template, query, result_summary, context_history)
+        # TODO: this code is terrible; if I'm going to assume a parent method I should produce a proper interface to override
+        eval_result = await eval_agent.evaluate_query(self.eval_query_template, query, result_summary, context_history, self._gen_instructions())
 
         # need to add the evaluator's token usage to ours
         self.tokens_used_prompt += eval_agent.tokens_used_prompt
@@ -236,7 +242,7 @@ Think step-by-step.
 
         self._status("Evaluating query and result...")
         result_summary = summarize_structure(neo4j_result)
-        eval_result = await eval_agent.evaluate_query(self.eval_query_template, query, result_summary, context_history)
+        eval_result = await eval_agent.evaluate_query(self.eval_query_template, query, result_summary, context_history, self._gen_instructions())
 
         # need to add the evaluator's token usage to ours
         self.tokens_used_prompt += eval_agent.tokens_used_prompt

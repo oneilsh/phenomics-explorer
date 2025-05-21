@@ -147,12 +147,13 @@ class MonarchKGAgent(BaseKGAgent):
 
     def _gen_monarch_instructions(self):
         return f"""
-- Consider that the user may not be familiar with the graph structure or the specific terms used in the query. A question about gene/disease "associations" may be referring to more than just `biolink_gene_associated_with_disease` edges.
+- Consider that the user may not be familiar with the graph structure or the specific terms used in the query.
 - Provide non-specialist descriptions of biomedical results.
 - Use the -[r:biolink_subclass_of*0..]-> pattern liberally to find all subclasses of a class.
-- Use `LIMIT`, `ORDER BY` and `SKIP` clauses to manage the size of your results. Default to 10 unless otherwise asked. Always alert the user if there may be more results.
-- Provide additional count information when possible.
-- Always include links in the format `[Entity Name](https://monarchinitiative.org/entity_id)`.
+- Use `LIMIT`, `ORDER BY` and `SKIP` clauses to manage the size of your results.
+- Default to 10 results unless otherwise asked.
+- Alert the user if there may be more results, and provide total count information when possible.
+- Include links in the format `[Entity Name](https://monarchinitiative.org/entity_id)`.
 """.strip()
 
 
