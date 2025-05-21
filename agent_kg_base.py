@@ -1,5 +1,5 @@
 from typing_extensions import Annotated
-from kani import AIParam, ai_function, ChatRole
+from kani import AIParam, ai_function, ChatRole, ChatMessage
 from kani_utils.base_kanis import StreamlitKani
 import random
 import streamlit as st
@@ -10,7 +10,7 @@ from neo4j_utils import _parse_neo4j_result
 from agent_evaluator import MonarchEvaluatorAgent
 import yaml
 from neo4j_utils import summarize_structure
-
+import json
 
 class BaseKGAgent(StreamlitKani):
     """Agent for interacting with the Monarch knowledge graph; extends KGAgent with keyword search (using Monarch API) system prompt with cypher examples."""
@@ -254,5 +254,8 @@ Think step-by-step.
 
         self._status("Generating Answer...")
 
-        return neo4j_result
-    
+        tokens = self.message_token_len(ChatMessage.user(json.dumps(neo4j_result)))
+        if tokens > self.max_response_tokens:
+            raise WrappedCallException(retry = True, original = ValueError(f"The search result contained {tokens} tokens, greater than the maximum allowable of {self.max_response_tokens}. Please try a smaller search."))
+        else:
+            return neo4j_result    

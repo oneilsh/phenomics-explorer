@@ -13,8 +13,9 @@ forgo the uncommon backtics and query `MATCH (n:biolink_Disease)`.
 
 When the agent wishes to run a query, an evaluator agent is inserted in the process, which checks the query and
 result against the user question. If the evaluation fails, an error is thrown to the parent agent with a
-suggestion for improvement. Malformed queries are also captured as errors, with the syntax error message
-provided back to the agent for trying again.
+suggestion for improvement. Malformed queries are captured as errors, with the syntax error message
+provided back to the agent for trying again. Queries that return more than 10k tokens also result in an error
+and suggestion for the agent to try again with a smaller query.
 
 Results with the recent GPT 4.1 are significantly improved over earlier results with 4o and even 4. 
 The agent has a tendency to be literal, for example "Which genes are associated with CF?" for example may use only
