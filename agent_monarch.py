@@ -153,8 +153,7 @@ class MonarchKGAgent(BaseKGAgent):
 - Use `LIMIT`, `ORDER BY` and `SKIP` clauses to manage the size of your results.
 - Default to 10 results unless otherwise asked.
 - Alert the user if there may be more results, and provide total count information when possible.
-- Include links in the format `[Entity Name](https://monarchinitiative.org/entity_id)`.
-""".strip()
+- Include links in the format `[Entity Name](https://monarchinitiative.org/entity_id)`.""".strip()
 
 
 
