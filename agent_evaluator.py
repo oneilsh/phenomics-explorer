@@ -37,10 +37,11 @@ class MonarchEvaluatorAgent(StreamlitKani):
     async def evaluate_query(self, template: Annotated[str, AIParam(desc="The template to use to build the query.")],
                                    query: Annotated[str, AIParam(desc="The cypher query to evaluate.")], 
                                    result_dict: Annotated[dict, AIParam(desc="The result of the cypher query, in dictionary format.")], 
-                                   context_history: Optional[Annotated[list[ChatMessage], AIParam(desc="The chat history, which is a list of ChatMessage objects. This is used to provide context for the evaluation.")]] = None):
+                                   context_history: Optional[Annotated[list[ChatMessage], AIParam(desc="The chat history, which is a list of ChatMessage objects. This is used to provide context for the evaluation.")]] = None,
+                                   instructions: Optional[Annotated[str, AIParam(desc="Instructions given to the main agent. This is used to provide context for the evaluation.")]] = None):
         """Evaluate a query result using the evaluator agent. This can be called externally (it is not available for the agent to call), which will trigger this agent to evaluate """
 
-        prompt = self.get_eval_query_prompt(template, query, result_dict, context_history)
+        prompt = self.get_eval_query_prompt(template, query, result_dict, context_history, instructions)
 
         # print("\n\n\n\n\n\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
         # print("MonarchEvaluatorAgent: prompt")
