@@ -46,10 +46,10 @@ class MonarchKGAgent(BaseKGAgent):
 
         self.max_response_tokens = max_response_tokens
 
-        self.evaluator_system_prompt = ('''# Instructions\n\nYou are the Phenomics Evaluator, designed to evaluate cypher queries against the biomedical knowledge graph known as Monarch.\n\n''' + 
+        self.evaluator_system_prompt = ('''You are the Phenomics Evaluator, designed to evaluate cypher queries against the biomedical knowledge graph known as Monarch.\n\n''' + 
 "# Graph Summary\n\n" + graph_summary + "\n\n" + 
 "# Example queries\n\n" + example_queries_str + "\n\n" +
-'''When asked, use your report_evaluation() function to evaluate a given query and its results. Follow the instructions exactly.'''
+'''# Instructions\n\nWhen asked, use your report_evaluation() function to evaluate a given query and its results. Follow the instructions exactly.'''
 )
 
     ## called on button click
