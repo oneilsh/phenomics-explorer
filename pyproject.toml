@@ -13,11 +13,12 @@ streamlit = "^1.26.0"
 python-dotenv = "^1.0.0"
 kani-utils = {git = "https://github.com/oneilsh/kani-utils.git", branch = "main"}
 neo4j = "^5.20.0"
-st-link-analysis = "^0.3.0"
 pyyaml = "^6.0.2"
 seaborn = "^0.13.2"
 kani = {extras = ["openai"], version = "^1.4.2"}
 httpx = "^0.28.1"
+cloudpickle = "^3.1.1"
+st-link-analysis = "^0.3.0"
 
 [build-system]
 requires = ["poetry-core"]

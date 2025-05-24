@@ -3,7 +3,7 @@ from kani import AIParam, ai_function, ChatRole, ChatMessage
 from kani_utils.base_kanis import StreamlitKani
 import random
 import streamlit as st
-from st_link_analysis import st_link_analysis, EdgeStyle
+from st_link_analysis import EdgeStyle, st_link_analysis
 from kani.exceptions import WrappedCallException
 import asyncio
 from neo4j_utils import _parse_neo4j_result
@@ -11,6 +11,7 @@ from agent_evaluator import MonarchEvaluatorAgent
 import yaml
 from neo4j_utils import summarize_structure
 import json
+
 
 class BaseKGAgent(StreamlitKani):
     """Agent for interacting with the Monarch knowledge graph; extends KGAgent with keyword search (using Monarch API) system prompt with cypher examples."""
@@ -65,11 +66,13 @@ Think step-by-step.
     
 
     # assumes we're working with a KGX graph (edges have a predicate, nodes have at least an id)
+    # layout options: "cose" for normal layouts, "dagre" for hierarchical layouts
     @ai_function()
     async def visualize_graph_query(self, 
                                     query: Annotated[str, AIParam(desc="""Cypher query to visualize.""")],
-                                    parameters: Annotated[dict, AIParam(desc="""Parameters to pass to the cypher query. This should be a dictionary of key-value pairs, where the keys are the parameter names and the values are the parameter values.""")] = None):
-        """Produce a visualization of a cypher query. The provided query must return graph data with at least 2 nodes and 1 relationship, or an error will be raised."""
+                                    parameters: Annotated[dict, AIParam(desc="""Parameters to pass to the cypher query. This should be a dictionary of key-value pairs, where the keys are the parameter names and the values are the parameter values.""")] = None,
+                                    ):
+        """Produce a visualization of a cypher query. The provided query must return graph data with at least 2 nodes and 1 relationship, or an error will be raised. Use the 'dagre' layout when the query is expected to return hierarchical information, for example subclass relationships."""
 
         self._status("Running query...")
         neo4j_result = await self._call_neo4j(query, parameters = parameters)
@@ -107,7 +110,13 @@ Think step-by-step.
             def render_graph():
                 st_link_analysis(graph, "cose", self.get_node_styles(), edge_styles, height=300, key=key)
 
-            self.render_in_streamlit_chat(render_graph)
+            def share_render_graph():
+                with st.container(border = True, key = key):
+                    st.write("Graph visualization is not available in shared chats.")
+                    with st.expander("Graph Data", expanded=False, icon="📊"):
+                        st.json(graph)
+
+            self.render_in_streamlit_chat(render_graph, share_func = share_render_graph, delay = False)
         else:
             self._status("Graph query did not return enough nodes or edges to visualize.")
             raise WrappedCallException(retry = True, original = ValueError(f"The query returned {len(graph['nodes'])} nodes and {len(graph['edges'])} edges, at least 2 nodes and 1 edge must be included. Please try a different query."))

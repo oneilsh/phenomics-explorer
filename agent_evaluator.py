@@ -84,3 +84,15 @@ class MonarchEvaluatorAgent(StreamlitKani):
         # print("EVAL QUERY")
         # print(res)
         return res
+    
+# What phenotypes are associated with more than one subtype of EDS?
+
+# How many subtypes are associated with both blue sclerae and scoliosis?
+
+# And how many genes are connected to more than one of those subtypes?
+
+# I see. Presumably there are genes associated with individual subtypes? How many are there, and can we visualize this network of the two phenotypes, connected subtypes, and connected genes?
+
+# That is just lovely. Thank you!
+
+

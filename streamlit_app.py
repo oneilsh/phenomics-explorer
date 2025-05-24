@@ -26,6 +26,8 @@ from agent_monarch import *
 import dotenv
 dotenv.load_dotenv() 
 
+
+
 # initialize the application and set some page settings
 # parameters here are passed to streamlit.set_page_config, 
 # see more at https://docs.streamlit.io/library/api-reference/utilities/st.set_page_config
@@ -35,7 +37,7 @@ ks.initialize_app_config(
     show_function_calls_status = False,
     page_title = "Phenomics Assistant",
     page_icon = "🧬", # can also be a URL
-    initial_sidebar_state = "expanded", # or "expanded"
+    initial_sidebar_state = "collapsed", # "collapsed" or "expanded"
     menu_items = {
             "Get Help": "https://github.com/monarch-initiative/phenomics-assistant",
             "Report a Bug": "https://github.com/monarch-initiative/phenomics-assistant/issues",

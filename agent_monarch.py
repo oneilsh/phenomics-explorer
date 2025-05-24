@@ -19,7 +19,6 @@ from agent_kg_base import BaseKGAgent
 import streamlit as st
 
 
-
 class MonarchKGAgent(BaseKGAgent):
     """Agent for interacting with the Monarch knowledge graph; extends KGAgent with keyword search (using Monarch API) system prompt with cypher examples."""
     def __init__(self, *args, max_response_tokens = 10000, **kwargs):
@@ -38,7 +37,7 @@ class MonarchKGAgent(BaseKGAgent):
         self.description = "Queries the Monarch KG with graph queries and contextual information."
         self.avatar = "🕷️"
         self.user_avatar = "👤"
-        self.name = "Phenomics Explorer (Experimental)"
+        self.name = "Phenomics Explorer"
 
         # dev instance of
         self.neo4j_uri = os.environ["NEO4J_URI"]  # default bolt protocol port
@@ -53,6 +52,117 @@ class MonarchKGAgent(BaseKGAgent):
 
 - When asked, use your report_evaluation() function to evaluate a given query and its results. Follow the instructions exactly.'''
 )
+
+    @ai_function()
+    async def get_entity_types(self):
+        """Get the types of entities in the graph. If displaying the result to the user, format them as a multi-column table organized by theme."""
+        
+        query = "CALL db.labels() YIELD label RETURN label"
+        res = await self._call_neo4j(query)
+
+        return res
+
+    @ai_function()
+    async def get_relationship_types(self):
+        """Get the types of relationships in the graph. If displaying the result to the user, format them as a multi-column table organized by theme."""
+        
+        query = "CALL db.relationshipTypes() YIELD relationshipType RETURN relationshipType"
+        res = await self._call_neo4j(query)
+
+        return res
+        
+
+
+    @ai_function()
+    def get_tour_instructions(self):
+        """Get the instructions for showing the user a tour of the app."""
+
+        instructions = """
+
+
+Tour Part 1: Graph Overview
+
+First, explain to the user that you provide an interface to the Monarch knowledge graph, 
+a large biomedical database that contains information about genes, diseases, phenotypes, 
+and other biological entities, and relationships between them. Describe what is meant by
+graph, nodes, and edges, in case they are not familiar. Ask them if have any questions.
+
+After you have completed an intial overview of the graph, display a visualization for
+the query `MATCH (g:biolink_Gene {id: "HGNC:1884"}) -[r:biolink_causes]-> (n:biolink_Disease {id: "MONDO:0009061"}) RETURN g, r, n`. 
+After the graph has been displayed, ask the user to click on the nodes and edges, and 
+describe the information in the nodes in particular. 
+
+[ASIDE: while you format queries with labels like "biolink_Gene",  the actual labels 
+in the graph are of the form `biolink:Gene`, and this is what the user sees.]
+
+Next, address their observations. Explain that the `id` property is a unique identifier 
+for the node, and `category` is a label that describes the type of entity it represents.
+The IDs will be of the form `HGNC:1884` or `MONDO:0009061`, and the categories will be of 
+the form `biolink:Gene` or `biolink:Disease`. Explain what the `biolink` prefix means, 
+and the `HGNC` and `MONDO` prefixes mean. Link to https://biolink.github.io/biolink-model/ 
+and https://monarch-initiative.github.io/monarch-ingest/Sources/ in this explanation 
+as references. 
+
+Follow this line of questioning by asking the user to click on the edge and review its 
+properties, reporting what they see.
+
+After recognizing their answer, explain the `biolink:causes` edge, noting again the use 
+of the biolink data model, and that `predicate` describes the type of the edge. Mention 
+that nodes of different categories and edges of different predicates have different sets 
+of other properties, such as, name, description, and so on. As the user if they
+have any further questions about the graph before moving on to part 2 of the tour.
+
+Tour Part 2: Hierarchical Relationships
+
+The next part of the tour covers the concept of hierarchical relationships in the graph. 
+Begin by describing ontologies, and how they are used to represent knowledge in a structured 
+way, particularly "subtype" or "subclass" relationships. Follow this up by visualizing
+the query `MATCH path = (n:biolink_Disease {id: "MONDO:0001982"})  <-[:biolink_subclass_of*]- (s:biolink_Disease) RETURN path`.
+
+Ask the user to try making the view fullscreen, zooming, and dragging the nodes around 
+to see the hierarchy more clearly. Ask them to let you know whey they are ready to move on.
+
+After they've had a chance to explore the graph, explain how the Monarch KG is composed 
+of entities from a variety of different ontologies, with relationships like `biolink_causes` 
+connecting them together into a vast web of knowledge. Follow this by running this query, 
+to demonstrate the various categories that are available: `CALL db.labels() YIELD label RETURN label`. 
+Format the results in a table with 3 columns to save space, and organize them according 
+to theme.
+
+Ask them if they'd like to see all of the different relationships in the graph, and if 
+so, visualize the query `CALL db.relationshipTypes() YIELD relationshipType RETURN relationshipType`.
+Again format the result in a multi-column table, organized by theme. Ask them if they'd 
+like to see the properties of a specific relationship or entity, and if so, run the query, 
+otherwise, continue on to part 3 of the tour.
+
+Tour Part 3: Searching the Graph
+
+In this part of the tour you flex you querying muscles, demonstrating the kinds of
+multi-step, sophisticated queries you can perform. Start by describing that you are 
+going to investigate phenotypes associated with the subtyptes of Niemmann-Pick disease, 
+and genes that associated with those phenotypes. Since there may be many such phenotypes 
+and genes, explain that you'll start by looking at the top 10 phenotypes, ordered by 
+the number of subtypes they are associated with. Run this search and query, and display 
+the results in a table. Let the user know that when they are done reviewing the results, 
+they can ask you to continue.
+
+Explain to the user that now you'll look for genes associated with these top 10 phenotypes, 
+as well as any genes that are directly connected to any of the Niemann-Pick disease 
+subtypes. In order to keep the result small, you'll pick the top 10, ordered by the 
+number of subtypes and/or phenotypes they are associated with. Run this query, and 
+display the results in a table, with columns for the Gene Name, Number of connected 
+Phenotypes, and Number of connected Subtypes. Remember that you don't need to limit
+the number of intermediary phenotypes in this version of the query, just the number 
+of genes.
+
+INSTRUCTIONS:
+
+ - Walk through the tour step-by-step, letting the user discover gradually
+ - Use markdown section headers to separate the parts of the tour
+ - Be concise, yet informative
+""".strip()
+        
+        return instructions
 
     ## called on button click
     def edit_system_prompt(self):
@@ -112,7 +222,7 @@ class MonarchKGAgent(BaseKGAgent):
 
         edit_eval_query_template()
 
-    def render_sidebar(self):
+    def sidebar(self):
         super().render_sidebar()
 
         st.divider()
@@ -136,13 +246,19 @@ class MonarchKGAgent(BaseKGAgent):
 
 
     def get_monarch_greeting(self):
-        return """I'm the Phenomics Explorer, an experimental AI with knowledge of the Monarch Initiative's knowledge graph structure and contents. I can answer questions via complex graph queries. Some things you can ask:
+        return \
+"""
+I'm the Phenomics Explorer, an AI with knowledge of the Monarch Initiative knowledge 
+graph. I can answer questions via complex graph queries. Some things you can ask:
 
-- What phenotypes are associated with more than one subtype of EDS?
-- What phenotypes are associated with Wilson disease or any of its subtypes, either directly or though connected genes?
-- Which gene is directly or indirectly associated with the largest number of diseases?
+- What genes are associated with Wilson disease? 
+- How many phenotypes (traits or symptoms) are associated with the gene that causes CF?
+- What kinds of entities do you know about?
+- How kinds of relationships do you know about?
 
-**Please note that as an experimental work in progress I frequently make mistakes.** More information is available in my [implementation notes](https://github.com/monarch-initiative/phenomics-assistant/blob/new_backend/pe_notes.md).
+But if you really want to get to know me and the graph, I suggest you request the tour! 🌎
+
+*Please note that as an experimental work in progress may make mistakes. An overview of my operation is available in my [implementation notes](https://github.com/monarch-initiative/phenomics-assistant/blob/phenomics_assistant2/pe_notes.md).*
 """.strip()
 
     def _gen_monarch_instructions(self):
