@@ -56,6 +56,7 @@ Report your answer using your report_evaluation() function, considering the foll
 - Whether an ORDER BY clause should be applied.
 - Whether relationships are oriented correctly in the query.
 - Whether the query should allow for OPTONAL matches.
+- Whether the query passes a 'sanity check' if the results are not as expected.
 
 Think step-by-step.
 """

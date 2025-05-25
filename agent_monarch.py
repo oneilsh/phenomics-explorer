@@ -74,10 +74,20 @@ class MonarchKGAgent(BaseKGAgent):
 
 
     @ai_function()
-    def get_tour_instructions(self):
+    def get_tour_instructions(self, 
+                              tour_part: Annotated[int, AIParam(desc="The part of the tour to get instructions for; 1, 2, or 3")] = "1"):
         """Get the instructions for showing the user a tour of the app."""
+        # if self.tours_seen already contains the tour_part, then we don't need to show it again; throw an error
+        # this means we have to generate a self.tours_seen list, even if it doesn't exist
+        if not hasattr(self, 'tours_seen'):
+            self.tours_seen = []
+        if tour_part in self.tours_seen:
+            raise ValueError(f"Tour part {tour_part} has already been seen in this conversation. Please choose a different part of the tour.")
+        # if the tour_part is not in the list, add it
+        self.tours_seen.append(tour_part)
 
-        instructions = """
+        if tour_part == 1:
+            instructions = """
 
 
 Tour Part 1: Graph Overview
@@ -107,11 +117,15 @@ Follow this line of questioning by asking the user to click on the edge and revi
 properties, reporting what they see.
 
 After recognizing their answer, explain the `biolink:causes` edge, noting again the use 
-of the biolink data model, and that `predicate` describes the type of the edge. Mention 
+of the biolink data model, and that `predicate` describes the type of the edge. Note especially
+the `primary_knowledge_source` field. Finally, mention 
 that nodes of different categories and edges of different predicates have different sets 
 of other properties, such as, name, description, and so on. As the user if they
 have any further questions about the graph before moving on to part 2 of the tour.
+"""
 
+        elif tour_part == 2:
+            instructions = """
 Tour Part 2: Hierarchical Relationships
 
 The next part of the tour covers the concept of hierarchical relationships in the graph. 
@@ -134,7 +148,10 @@ so, visualize the query `CALL db.relationshipTypes() YIELD relationshipType RETU
 Again format the result in a multi-column table, organized by theme. Ask them if they'd 
 like to see the properties of a specific relationship or entity, and if so, run the query, 
 otherwise, continue on to part 3 of the tour.
+"""
 
+        elif tour_part == 3:
+            instructions = """
 Tour Part 3: Searching the Graph
 
 In this part of the tour you flex you querying muscles, demonstrating the kinds of
@@ -154,12 +171,19 @@ display the results in a table, with columns for the Gene Name, Number of connec
 Phenotypes, and Number of connected Subtypes. Remember that you don't need to limit
 the number of intermediary phenotypes in this version of the query, just the number 
 of genes.
+"""
+        else:
+            raise ValueError(f"Unknown tour part: {tour_part}. Expected 1, 2, or 3.")
+
+        instructions += """
 
 INSTRUCTIONS:
 
- - Walk through the tour step-by-step, letting the user discover gradually
- - Use markdown section headers to separate the parts of the tour
+ - Only generate one message at a time, or call one function at a time, to properly pace the tour
+ - Use third-level markdown section headers to separate the parts of the tour
+ - Use backticks to format property names and values
  - Be concise, yet informative
+ - Don't forget to return to the tour, even if you get sidetracked
 """.strip()
         
         return instructions
@@ -253,8 +277,9 @@ graph. I can answer questions via complex graph queries. Some things you can ask
 
 - What genes are associated with Wilson disease? 
 - How many phenotypes (traits or symptoms) are associated with the gene that causes CF?
+- What are some phenotypes associated with more than one subtype of 
 - What kinds of entities do you know about?
-- How kinds of relationships do you know about?
+- What kinds of relationships do you know about?
 
 But if you really want to get to know me and the graph, I suggest you request the tour! 🌎
 
@@ -269,7 +294,7 @@ But if you really want to get to know me and the graph, I suggest you request th
 - Use `LIMIT`, `ORDER BY` and `SKIP` clauses to manage the size of your results.
 - Default to 10 results unless otherwise asked.
 - Alert the user if there may be more results, and provide total count information when possible.
-- Include links in the format `[Entity Name](https://monarchinitiative.org/entity_id)`.""".strip()
+- ALWAYS include links in the format `[Entity Name](https://monarchinitiative.org/entity_id)`.""".strip()
 
 
 
