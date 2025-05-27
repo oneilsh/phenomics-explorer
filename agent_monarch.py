@@ -277,13 +277,13 @@ graph. I can answer questions via complex graph queries. Some things you can ask
 
 - What genes are associated with Wilson disease? 
 - How many phenotypes (traits or symptoms) are associated with the gene that causes CF?
-- What are some phenotypes associated with more than one subtype of 
+- Visualize the genes that cause more than one type of Charcot-Marie-Tooth disease and their connections.
 - What kinds of entities do you know about?
 - What kinds of relationships do you know about?
 
 But if you really want to get to know me and the graph, I suggest you request the tour! 🌎
 
-*Please note that as an experimental work in progress may make mistakes. An overview of my operation is available in my [implementation notes](https://github.com/monarch-initiative/phenomics-assistant/blob/phenomics_assistant2/pe_notes.md).*
+*Note that as an AI I occasionally make mistakes. An overview of my operation is available in my [implementation notes](https://github.com/monarch-initiative/phenomics-assistant/blob/phenomics_assistant2/pe_notes.md).*
 """.strip()
 
     def _gen_monarch_instructions(self):
