@@ -55,89 +55,11 @@ Report your answer using your report_evaluation() function, considering the foll
 - Whether the result aligns with expectations based on the query.
 - Whether an ORDER BY clause should be applied.
 - Whether relationships are oriented correctly in the query.
-- Whether the query should allow for OPTONAL matches.
+- Whether the query should allow for OPTIONAL matches.
 - Whether the query passes a 'sanity check' if the results are not as expected.
 
 Think step-by-step.
 """
-
-    #########################
-    #### Visualization
-    #########################
-    
-
-    # assumes we're working with a KGX graph (edges have a predicate, nodes have at least an id)
-    # layout options: "cose" for normal layouts, "dagre" for hierarchical layouts
-    @ai_function()
-    async def visualize_graph_query(self, 
-                                    query: Annotated[str, AIParam(desc="""Cypher query to visualize.""")],
-                                    parameters: Annotated[dict, AIParam(desc="""Parameters to pass to the cypher query. This should be a dictionary of key-value pairs, where the keys are the parameter names and the values are the parameter values.""")] = None,
-                                    ):
-        """Produce a visualization of a cypher query. The provided query must return graph data with at least 2 nodes and 1 relationship, or an error will be raised. Use the 'dagre' layout when the query is expected to return hierarchical information, for example subclass relationships."""
-
-        self._status("Running query...")
-        neo4j_result = await self._call_neo4j(query, parameters = parameters)
-
-        ## Evaluation
-        context_history = [message for message in self.chat_history if message.role == ChatRole.USER or message.role == ChatRole.ASSISTANT][-3:]
-
-        eval_agent = MonarchEvaluatorAgent(engine = self.engine)
-
-        self._status("Evaluating query...")
-        result_summary = summarize_structure(neo4j_result)
-        # TODO: this code is terrible; if I'm going to assume a parent method I should produce a proper interface to override
-        eval_result = await eval_agent.evaluate_query(self.eval_query_template, query, result_summary, context_history, self._gen_monarch_instructions())
-
-        # need to add the evaluator's token usage to ours
-        self.tokens_used_prompt += eval_agent.tokens_used_prompt
-        self.tokens_used_completion += eval_agent.tokens_used_completion
-
-        if not eval_result['accept_query']:
-            self._status("Query did not pass evaluation.")
-            raise WrappedCallException(retry = True, original = ValueError("The query did not pass evaluation; please review the suggestions and try again. Evaluation:\n\n" + yaml.dump(eval_result)))
-
-        self._status("Generating Answer...")
-
-
-        graph = neo4j_result['result_as_graph']['data']
-
-        if len(graph['nodes']) >= 2 and len(graph['edges']) >= 1:
-            key = ''.join(random.choices('abcdefghijklmnopqrstuvwxyz', k=10))
-            edge_styles = []
-            edge_types = set([edge['data']['predicate'] for edge in graph['edges']])
-            for edge_type in edge_types:
-                edge_styles.append(EdgeStyle(label=edge_type, caption="predicate", directed=True))
-
-            def render_graph():
-                st_link_analysis(graph, "cose", self.get_node_styles(), edge_styles, height=300, key=key)
-
-            def share_render_graph():
-                with st.container(border = True, key = key):
-                    st.write("Graph visualization is not available in shared chats.")
-                    with st.expander("Graph Data", expanded=False, icon="📊"):
-                        st.json(graph)
-
-            self.render_in_streamlit_chat(render_graph, share_func = share_render_graph, delay = False)
-        else:
-            self._status("Graph query did not return enough nodes or edges to visualize.")
-            raise WrappedCallException(retry = True, original = ValueError(f"The query returned {len(graph['nodes'])} nodes and {len(graph['edges'])} edges, at least 2 nodes and 1 edge must be included. Please try a different query."))
-                
-
-        report = {
-            "query": query,
-             **eval_result
-        }
-        self.eval_chain.append(report)
-
-        # if the agent calls this it triggers a display in the UI, however occasionally the agent thinks it needs to and incliudes a broken <img> tag. 
-        # using 'include_in_markdown_output': False seems to prevent this
-        return {"result": "Successful.", "visualized": True, "include_in_markdown_output": False}
-
-
-
-    def get_node_styles(self):
-        # dummy that returns an empty list for the base class
-        return []
 
     #######################
     #### Status display
@@ -224,7 +146,7 @@ Think step-by-step.
     async def run_query(self, 
                         query: Annotated[str, AIParam(desc="""Cypher query to evaluate.""")],
                         parameters: Annotated[dict, AIParam(desc="""Parameters to pass to the cypher query. This should be a dictionary of key-value pairs, where the keys are the parameter names and the values are the parameter values.""")] = None):
-        """Run a given cypher query against the knowledge graph and return the results. Think step-by-step when calling this function to ensure the query addresses the user question with the appropriate type of query, which may need to return either tabular or graph (nodes, edges, or paths) data. If the query returns a graph, it should both nodes and edges so they may be visualized for the user."""
+        """Run a given cypher query against the knowledge graph and return the results. Think step-by-step when calling this function to ensure the query addresses the user question with the appropriate type of query, which may need to return either tabular or graph (nodes, edges, or paths) data."""
 
         # print("\n\n\n\n\n\n\n\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
         # print("ABOUT TO RUN QUERY:")

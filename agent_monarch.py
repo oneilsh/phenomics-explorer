@@ -72,122 +72,6 @@ class MonarchKGAgent(BaseKGAgent):
         return res
         
 
-
-    @ai_function()
-    def get_tour_instructions(self, 
-                              tour_part: Annotated[int, AIParam(desc="The part of the tour to get instructions for; 1, 2, or 3")] = "1"):
-        """Get the instructions for showing the user a tour of the app."""
-        # if self.tours_seen already contains the tour_part, then we don't need to show it again; throw an error
-        # this means we have to generate a self.tours_seen list, even if it doesn't exist
-        if not hasattr(self, 'tours_seen'):
-            self.tours_seen = []
-        if tour_part in self.tours_seen:
-            raise ValueError(f"Tour part {tour_part} has already been seen in this conversation. Please choose a different part of the tour.")
-        # if the tour_part is not in the list, add it
-        self.tours_seen.append(tour_part)
-
-        if tour_part == 1:
-            instructions = """
-
-
-Tour Part 1: Graph Overview
-
-First, explain to the user that you provide an interface to the Monarch knowledge graph, 
-a large biomedical database that contains information about genes, diseases, phenotypes, 
-and other biological entities, and relationships between them. Describe what is meant by
-graph, nodes, and edges, in case they are not familiar. Ask them if have any questions.
-
-After you have completed an intial overview of the graph, display a visualization for
-the query `MATCH (g:biolink_Gene {id: "HGNC:1884"}) -[r:biolink_causes]-> (n:biolink_Disease {id: "MONDO:0009061"}) RETURN g, r, n`. 
-After the graph has been displayed, ask the user to click on the nodes and edges, and 
-describe the information in the nodes in particular. 
-
-[ASIDE: while you format queries with labels like "biolink_Gene",  the actual labels 
-in the graph are of the form `biolink:Gene`, and this is what the user sees.]
-
-Next, address their observations. Explain that the `id` property is a unique identifier 
-for the node, and `category` is a label that describes the type of entity it represents.
-The IDs will be of the form `HGNC:1884` or `MONDO:0009061`, and the categories will be of 
-the form `biolink:Gene` or `biolink:Disease`. Explain what the `biolink` prefix means, 
-and the `HGNC` and `MONDO` prefixes mean. Link to https://biolink.github.io/biolink-model/ 
-and https://monarch-initiative.github.io/monarch-ingest/Sources/ in this explanation 
-as references. 
-
-Follow this line of questioning by asking the user to click on the edge and review its 
-properties, reporting what they see.
-
-After recognizing their answer, explain the `biolink:causes` edge, noting again the use 
-of the biolink data model, and that `predicate` describes the type of the edge. Note especially
-the `primary_knowledge_source` field. Finally, mention 
-that nodes of different categories and edges of different predicates have different sets 
-of other properties, such as, name, description, and so on. As the user if they
-have any further questions about the graph before moving on to part 2 of the tour.
-"""
-
-        elif tour_part == 2:
-            instructions = """
-Tour Part 2: Hierarchical Relationships
-
-The next part of the tour covers the concept of hierarchical relationships in the graph. 
-Begin by describing ontologies, and how they are used to represent knowledge in a structured 
-way, particularly "subtype" or "subclass" relationships. Follow this up by visualizing
-the query `MATCH path = (n:biolink_Disease {id: "MONDO:0001982"})  <-[:biolink_subclass_of*]- (s:biolink_Disease) RETURN path`.
-
-Ask the user to try making the view fullscreen, zooming, and dragging the nodes around 
-to see the hierarchy more clearly. Ask them to let you know whey they are ready to move on.
-
-After they've had a chance to explore the graph, explain how the Monarch KG is composed 
-of entities from a variety of different ontologies, with relationships like `biolink_causes` 
-connecting them together into a vast web of knowledge. Follow this by running this query, 
-to demonstrate the various categories that are available: `CALL db.labels() YIELD label RETURN label`. 
-Format the results in a table with 3 columns to save space, and organize them according 
-to theme.
-
-Ask them if they'd like to see all of the different relationships in the graph, and if 
-so, visualize the query `CALL db.relationshipTypes() YIELD relationshipType RETURN relationshipType`.
-Again format the result in a multi-column table, organized by theme. Ask them if they'd 
-like to see the properties of a specific relationship or entity, and if so, run the query, 
-otherwise, continue on to part 3 of the tour.
-"""
-
-        elif tour_part == 3:
-            instructions = """
-Tour Part 3: Searching the Graph
-
-In this part of the tour you flex you querying muscles, demonstrating the kinds of
-multi-step, sophisticated queries you can perform. Start by describing that you are 
-going to investigate phenotypes associated with the subtyptes of Niemmann-Pick disease, 
-and genes that associated with those phenotypes. Since there may be many such phenotypes 
-and genes, explain that you'll start by looking at the top 10 phenotypes, ordered by 
-the number of subtypes they are associated with. Run this search and query, and display 
-the results in a table. Let the user know that when they are done reviewing the results, 
-they can ask you to continue.
-
-Explain to the user that now you'll look for genes associated with these top 10 phenotypes, 
-as well as any genes that are directly connected to any of the Niemann-Pick disease 
-subtypes. In order to keep the result small, you'll pick the top 10, ordered by the 
-number of subtypes and/or phenotypes they are associated with. Run this query, and 
-display the results in a table, with columns for the Gene Name, Number of connected 
-Phenotypes, and Number of connected Subtypes. Remember that you don't need to limit
-the number of intermediary phenotypes in this version of the query, just the number 
-of genes.
-"""
-        else:
-            raise ValueError(f"Unknown tour part: {tour_part}. Expected 1, 2, or 3.")
-
-        instructions += """
-
-INSTRUCTIONS:
-
- - Only generate one message at a time, or call one function at a time, to properly pace the tour
- - Use third-level markdown section headers to separate the parts of the tour
- - Use backticks to format property names and values
- - Be concise, yet informative
- - Don't forget to return to the tour, even if you get sidetracked
-""".strip()
-        
-        return instructions
-
     ## called on button click
     def edit_system_prompt(self):
 
@@ -246,7 +130,7 @@ INSTRUCTIONS:
 
         edit_eval_query_template()
 
-    def sidebar(self):
+    def render_sidebar(self):
         super().render_sidebar()
 
         st.divider()
@@ -272,16 +156,14 @@ INSTRUCTIONS:
     def get_monarch_greeting(self):
         return \
 """
-I'm the Phenomics Explorer, an AI with knowledge of the Monarch Initiative knowledge 
-graph. I can answer questions via complex graph queries. Some things you can ask:
+I'm the Phenomics Explorer, an AI with knowledge of the [Monarch Initiative knowledge 
+graph](https://monarchinitiative.org/). I can answer questions via complex graph queries. Some things you can ask:
 
 - What genes are associated with Wilson disease? 
 - How many phenotypes (traits or symptoms) are associated with the gene that causes CF?
-- Visualize the genes that cause more than one type of Charcot-Marie-Tooth disease and their connections.
+- What phenotypes are associated with more than one subtype of Niemann-Pick disease?
 - What kinds of entities do you know about?
 - What kinds of relationships do you know about?
-
-But if you really want to get to know me and the graph, I suggest you request the tour! 🌎
 
 *Note that as an AI I occasionally make mistakes. An overview of my operation is available in my [implementation notes](https://github.com/monarch-initiative/phenomics-assistant/blob/phenomics_assistant2/pe_notes.md).*
 """.strip()
@@ -294,15 +176,7 @@ But if you really want to get to know me and the graph, I suggest you request th
 - Use `LIMIT`, `ORDER BY` and `SKIP` clauses to manage the size of your results.
 - Default to 10 results unless otherwise asked.
 - Alert the user if there may be more results, and provide total count information when possible.
-- ALWAYS include links in the format `[Entity Name](https://monarchinitiative.org/entity_id)`.""".strip()
-
-
-
-    # ALSO TODO: pull query eval out into a separate function for use in visualize_graph_query and run_query
-    # TODO report more in the user-facing query evaluation, including the result and pass check result. Display the eval in the 
-    #      chat before raising the exception (eventually the agent will give up). Might be nice to include a "query counter"
-    #      so that if we see a series of evals they are distinguished. Showing multiple evals in the chat is a bit of a mess, 
-    #      so even better would be to generate an eval datastructure and then show that at the end somewhere?
+- ALWAYS include links for nodes in the format `[Node Name](https://monarchinitiative.org/nodeid)`.""".strip()
 
 
     # we also need to override display_report to fix the query
