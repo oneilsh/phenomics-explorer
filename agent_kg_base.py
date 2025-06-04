@@ -23,6 +23,15 @@ class BaseKGAgent(StreamlitKani):
             'system_prompt',
             'You are an expert-level Neo4j analyst, designed to query a knowledge graph with cypher and interpret the result.'
         )
+        # if interactive is not set, we set it to True by default
+        if 'interactive' not in kwargs:
+            self.interactive = True
+        else:
+            self.interactive = kwargs['interactive']
+
+        # we need to remove it from kwargs so that it doesn't get passed to the parent class
+        if 'interactive' in kwargs:
+            del kwargs['interactive']
 
         super().__init__(*args, **kwargs)
         self.eval_chain = []
@@ -67,36 +76,41 @@ Think step-by-step.
     #     
 
     def _status(self, label):
-        if not hasattr(self, 'status'):
-            self.status = st.status(label = label)
-        else:
-            self.status.update(label = label)
+        if self.interactive:
+            if not hasattr(self, 'status'):
+                self.status = st.status(label = label)
+            else:
+                self.status.update(label = label)
 
     def _clear_status(self):
-        if hasattr(self, 'status'):
-            del self.status
+        if self.interactive:
+            if hasattr(self, 'status'):
+                del self.status
 
     
     def _display_report(self, report):
-        def render_query_eval():
-            with st.expander("Query Evaluation"):
-                st.json(report)
-        
-        self.render_in_streamlit_chat(render_query_eval)
+        if self.interactive:
+            def render_query_eval():
+                with st.expander("Query Evaluation"):
+                    st.json(report)
+            
+            self.render_in_streamlit_chat(render_query_eval)
 
     # we override this so that we can clear the status box after each user-entered message;
+    # this also clears the eval chain; if we're not running interactively, we don't clear this out for later evaluation
     async def add_to_history(self, message, *args, **kwargs):
-        if message.role == ChatRole.USER:
-            self._clear_status()
+        if self.interactive:
+            if message.role == ChatRole.USER:
+                self._clear_status()
 
-        # I see; the add_to_history is called for every assistant message, and there may be multiple in a single full round
-        # the one we want is the one that has no tool call; 
-        if message.role == ChatRole.ASSISTANT:
-            if message.tool_calls is None or len(message.tool_calls) == 0:
-                # we also render the report and reset the eval_chain
-                if len(self.eval_chain) > 0:
-                    self._display_report(self.eval_chain)
-                    self.eval_chain = []
+            # I see; the add_to_history is called for every assistant message, and there may be multiple in a single full round
+            # the one we want is the one that has no tool call; 
+            if message.role == ChatRole.ASSISTANT:
+                if message.tool_calls is None or len(message.tool_calls) == 0:
+                    # we also render the report and reset the eval_chain
+                    if len(self.eval_chain) > 0:
+                        self._display_report(self.eval_chain)
+                        self.eval_chain = []
 
         await super().add_to_history(message, *args, **kwargs)
 
@@ -147,12 +161,6 @@ Think step-by-step.
                         query: Annotated[str, AIParam(desc="""Cypher query to evaluate.""")],
                         parameters: Annotated[dict, AIParam(desc="""Parameters to pass to the cypher query. This should be a dictionary of key-value pairs, where the keys are the parameter names and the values are the parameter values.""")] = None):
         """Run a given cypher query against the knowledge graph and return the results. Think step-by-step when calling this function to ensure the query addresses the user question with the appropriate type of query, which may need to return either tabular or graph (nodes, edges, or paths) data."""
-
-        # print("\n\n\n\n\n\n\n\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-        # print("ABOUT TO RUN QUERY:")
-        # print(query)
-        # print("\n\nSYSTEM PROMPT:")
-        # print(self.system_prompt)
 
         self._status("Running query...")
         try:
