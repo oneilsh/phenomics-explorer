@@ -5,6 +5,7 @@ from monarch_utils import graph_summary, example_queries_str
 import json
 import yaml
 from kani_utils.base_kanis import StreamlitKani
+from kani_utils.utils import full_round_sync
 
 class MonarchEvaluatorAgent(StreamlitKani):
     """Agent for interacting with the Monarch knowledge graph; extends KGAgent with keyword search (using Monarch API) system prompt with cypher examples."""
@@ -34,7 +35,7 @@ class MonarchEvaluatorAgent(StreamlitKani):
                 })
     
  
-    async def evaluate_query(self, template: Annotated[str, AIParam(desc="The template to use to build the query.")],
+    def evaluate_query(self, template: Annotated[str, AIParam(desc="The template to use to build the query.")],
                                    query: Annotated[str, AIParam(desc="The cypher query to evaluate.")], 
                                    result_dict: Annotated[dict, AIParam(desc="The result of the cypher query, in dictionary format.")], 
                                    context_history: Optional[Annotated[list[ChatMessage], AIParam(desc="The chat history, which is a list of ChatMessage objects. This is used to provide context for the evaluation.")]] = None,
@@ -43,19 +44,8 @@ class MonarchEvaluatorAgent(StreamlitKani):
 
         prompt = self.get_eval_query_prompt(template, query, result_dict, context_history, instructions)
 
-        # print("\n\n\n\n\n\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
-        # print("MonarchEvaluatorAgent: prompt")
-        # print(prompt)
-
-        async def collect_async_generator(async_gen):
-            messages = []
-            async for message in async_gen:
-                messages.append(message.content)
-            return messages
-        
-        eval_chat_log = await collect_async_generator(self.full_round(prompt))
-        # print("EVAL CHAT LOG")
-        # print(eval_chat_log)
+        eval_chat_log = full_round_sync(self, prompt)
+        eval_chat_log = [m.content for m in eval_chat_log]
 
         # if eval_chat_log has 2 or more elements, the eval agent called a tool and the second element is the result
         if len(eval_chat_log) > 1:
@@ -63,9 +53,6 @@ class MonarchEvaluatorAgent(StreamlitKani):
         else:
             # if it didn't call a tool, the result is in the first element
             result = {"accept_query": False, "evaluator_message": eval_chat_log[0]}
-        # print("EVAL RESULT")
-        # import pprint
-        # pprint.pprint(result)
 
         return result
     
