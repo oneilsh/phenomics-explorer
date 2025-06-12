@@ -5,6 +5,7 @@ import dotenv
 import re
 import yaml
 import json
+import importlib.resources
 
 dotenv.load_dotenv()
 
@@ -91,7 +92,7 @@ def fix_biolink_labels(query):
 
 
 graph_summary = ""
-with open("kg_summary.md", "r") as f:
+with importlib.resources.files("phenomics_explorer").joinpath("kg_summary.md").open("r") as f:
     graph_summary = f.read()
     
 # example_queries_str = ""
@@ -100,8 +101,7 @@ with open("kg_summary.md", "r") as f:
 
 # these are lines not matching "expected_answer"
 example_queries = None
-yaml_file = "monarch_competency_questions_1.yaml"
-with open(yaml_file, "r") as f:
+with importlib.resources.files("phenomics_explorer").joinpath("monarch_competency_questions_1.yaml").open("r") as f:
     example_queries = yaml.safe_load(f)
 
 # we want a string version of the result, with a blank line between each entry

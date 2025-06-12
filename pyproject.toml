@@ -1,11 +1,17 @@
 [tool.poetry]
-name = "phenomics-assistant"
-version = "0.1.0"
-description = "LLM retrieval augmented generation agent for Monarch."
+name = "phenomics-explorer"
+version = "0.2.0"
+description = "LLM agent for Monarch."
 authors = ["Shawn O'Neil <oneilsh@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-package-mode = false
+package-mode = true
+
+include = [
+    "src/phenomics_explorer/monarch_competency_questions_1.yaml",
+    "src/phenomics_explorer/pe_notes.md"
+]
+
 
 [tool.poetry.dependencies]
 python=">=3.12,<4.0"
@@ -19,7 +25,14 @@ kani = {extras = ["openai"], version = "^1.4.2"}
 httpx = "^0.28.1"
 cloudpickle = "^3.1.1"
 st-link-analysis = "^0.3.0"
+importlib = "^1.0.4"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.packages]]
+from = "src"
+include = "phenomics_explorer"
+
+

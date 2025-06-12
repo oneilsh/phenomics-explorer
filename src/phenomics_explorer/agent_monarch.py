@@ -5,7 +5,7 @@ from typing import Annotated, List
 from neo4j import AsyncGraphDatabase
 from collections import OrderedDict
 import seaborn as sns
-from monarch_utils import graph_summary, example_queries_str
+from phenomics_explorer.monarch_utils import graph_summary, example_queries_str
 
 
 # for reading API keys from .env file
@@ -14,8 +14,8 @@ import json
 import httpx
 from st_link_analysis import NodeStyle
 
-from monarch_utils import fix_biolink_labels, graph_summary, munge_monarch_graph_result, categories
-from agent_kg_base import BaseKGAgent
+from phenomics_explorer.monarch_utils import fix_biolink_labels, graph_summary, munge_monarch_graph_result, categories
+from phenomics_explorer.agent_kg_base import BaseKGAgent
 import streamlit as st
 
 

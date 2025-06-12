@@ -6,10 +6,10 @@ import streamlit as st
 from st_link_analysis import EdgeStyle, st_link_analysis
 from kani.exceptions import WrappedCallException
 import asyncio
-from neo4j_utils import _parse_neo4j_result
-from agent_evaluator import MonarchEvaluatorAgent
+from phenomics_explorer.neo4j_utils import _parse_neo4j_result
+from phenomics_explorer.agent_evaluator import MonarchEvaluatorAgent
 import yaml
-from neo4j_utils import summarize_structure
+from phenomics_explorer.neo4j_utils import summarize_structure
 import json
 
 

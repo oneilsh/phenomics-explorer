@@ -1,7 +1,7 @@
 from typing_extensions import Annotated
 from typing import Optional
 from kani import AIParam, ai_function, ChatMessage, ChatRole
-from monarch_utils import graph_summary, example_queries_str
+from phenomics_explorer.monarch_utils import graph_summary, example_queries_str
 import json
 import yaml
 from kani_utils.base_kanis import StreamlitKani

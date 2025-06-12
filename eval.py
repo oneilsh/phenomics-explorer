@@ -10,7 +10,7 @@ import dotenv # pip install python-dotenv
 from kani.engines.openai import OpenAIEngine
 #from kani.engines.anthropic import AnthropicEngine
 
-from agent_monarch import *
+from phenomics_explorer.agent_monarch import MonarchKGAgent
 
 ########################
 ##### 1 - Configuration
