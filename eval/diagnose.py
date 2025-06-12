@@ -27,15 +27,9 @@ dotenv.load_dotenv()
 engine41 = OpenAIEngine(os.environ["OPENAI_API_KEY"], model="gpt-4.1-2025-04-14", temperature=0.0, max_tokens=10000)
 engine4o = OpenAIEngine(os.environ["OPENAI_API_KEY"], model="gpt-4o-2024-11-20", temperature=0.0, max_tokens=10000)
 
-engines_combinations = {
-    "smart_smart": {"base": "gpt-4.1-2025-04-14", "eval": "gpt-4.1-2025-04-14"},
-    "smart_dumb": {"base": "gpt-4.1-2025-04-14", "eval": "gpt-4o-2024-11-20"},
-    "dumb_smart": {"base": "gpt-4o-2024-11-20", "eval": "gpt-4.1-2025-04-14"},
-    "dumb_dumb": {"base": "gpt-4o-2024-11-20", "eval": "gpt-4o-2024-11-20"},
-     }
 
 base_engines = ["gpt-4.1-2025-04-14", "gpt-4o-2024-11-20"]
-eval_engines = ["gpt-4.1-2025-04-14", "gpt-4o-2024-11-20", "None"]
+eval_engines = ["gpt-4.1-2025-04-14", "None"]
 prompt_templates = {
     "basic_prompt": """From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses.
 
