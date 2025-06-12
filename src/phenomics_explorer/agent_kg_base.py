@@ -187,6 +187,7 @@ Think step-by-step.
             eval_result = eval_agent.evaluate_query(self.eval_query_template, query, result_summary, context_history, self._gen_monarch_instructions())
 
             # need to add the evaluator's token usage to ours
+            # TODO: this won't be right, since we're using the cost of the base agent, not the eval agent
             self.tokens_used_prompt += eval_agent.tokens_used_prompt
             self.tokens_used_completion += eval_agent.tokens_used_completion
 
