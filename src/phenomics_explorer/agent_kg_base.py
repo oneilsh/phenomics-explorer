@@ -28,10 +28,11 @@ class BaseKGAgent(StreamlitKani):
             self.interactive = True
         else:
             self.interactive = kwargs['interactive']
-
-        # we need to remove it from kwargs so that it doesn't get passed to the parent class
-        if 'interactive' in kwargs:
             del kwargs['interactive']
+
+        self.eval_engine = kwargs['eval_agent_engine']
+        del kwargs['eval_agent_engine']
+        
 
         super().__init__(*args, **kwargs)
         self.eval_chain = []
@@ -177,28 +178,29 @@ Think step-by-step.
 
         context_history = [message for message in self.chat_history if message.role == ChatRole.USER or message.role == ChatRole.ASSISTANT][-3:]
 
-        eval_agent = MonarchEvaluatorAgent(engine = self.engine)
-        eval_agent.update_system_prompt(self.evaluator_system_prompt)
+        if self.eval_engine is not None:
+            eval_agent = MonarchEvaluatorAgent(engine = self.eval_engine)
+            eval_agent.update_system_prompt(self.evaluator_system_prompt)
 
-        self._status("Evaluating query and result...")
-        result_summary = summarize_structure(neo4j_result)
-        eval_result = eval_agent.evaluate_query(self.eval_query_template, query, result_summary, context_history, self._gen_monarch_instructions())
+            self._status("Evaluating query and result...")
+            result_summary = summarize_structure(neo4j_result)
+            eval_result = eval_agent.evaluate_query(self.eval_query_template, query, result_summary, context_history, self._gen_monarch_instructions())
 
-        # need to add the evaluator's token usage to ours
-        self.tokens_used_prompt += eval_agent.tokens_used_prompt
-        self.tokens_used_completion += eval_agent.tokens_used_completion
+            # need to add the evaluator's token usage to ours
+            self.tokens_used_prompt += eval_agent.tokens_used_prompt
+            self.tokens_used_completion += eval_agent.tokens_used_completion
 
-        report = {
-            "query": query,
-            **eval_result
-        }
-        self.eval_chain.append(report)
+            report = {
+                "query": query,
+                **eval_result
+            }
+            self.eval_chain.append(report)
 
-        if not eval_result['accept_query']:
-            self._status("Query did not pass evaluation.")
-            raise WrappedCallException(retry = True, original = ValueError("The query did not pass evaluation; please review the suggestions and try again. Evaluation:\n\n" + yaml.dump(eval_result)))
+            if not eval_result['accept_query']:
+                self._status("Query did not pass evaluation.")
+                raise WrappedCallException(retry = True, original = ValueError("The query did not pass evaluation; please review the suggestions and try again. Evaluation:\n\n" + yaml.dump(eval_result)))
 
-        self._status("Generating Answer...")
+            self._status("Generating Answer...")
 
         tokens = self.message_token_len(ChatMessage.user(json.dumps(neo4j_result)))
         if tokens > self.max_response_tokens:

@@ -4,7 +4,6 @@ from kani.exceptions import WrappedCallException
 from typing import Annotated, List
 from neo4j import AsyncGraphDatabase
 from collections import OrderedDict
-import seaborn as sns
 from phenomics_explorer.monarch_utils import graph_summary, example_queries_str
 
 
@@ -186,31 +185,31 @@ graph](https://monarchinitiative.org/). I can answer questions via complex graph
         query = fix_biolink_labels(query)
         super().display_report(report)
 
-    def get_node_styles(self):
-        node_category_map = OrderedDict()
+    # def get_node_styles(self):
+    #     node_category_map = OrderedDict()
 
-        # we need a list of colors to use for the categories, which should be a palette
-        # that is colorblind-friendly and also looks good in a dark theme
-        # we can use the 'color_palette' function from seaborn to get a list of colors
-        # that we can use for the categories
-        # we need hex strings for the colors
-        colors = sns.color_palette("colorblind", len(categories))
-        colors = [f"#{int(r*255):02x}{int(g*255):02x}{int(b*255):02x}" for r, g, b in colors]
-        for cat, color in zip(categories, colors):
-            node_category_map[cat] = color
+    #     # we need a list of colors to use for the categories, which should be a palette
+    #     # that is colorblind-friendly and also looks good in a dark theme
+    #     # we can use the 'color_palette' function from seaborn to get a list of colors
+    #     # that we can use for the categories
+    #     # we need hex strings for the colors
+    #     colors = sns.color_palette("colorblind", len(categories))
+    #     colors = [f"#{int(r*255):02x}{int(g*255):02x}{int(b*255):02x}" for r, g, b in colors]
+    #     for cat, color in zip(categories, colors):
+    #         node_category_map[cat] = color
 
 
-        # there is going to be a nodestyle assocated with each category; which will be of the form:
-        # nodestyles = [
-        # NodeStyle(label="biolink:LifeStage", color=node_category_map["biolink:LifeStage"], caption="caption"),
-        # ... 
-        # ]
+    #     # there is going to be a nodestyle assocated with each category; which will be of the form:
+    #     # nodestyles = [
+    #     # NodeStyle(label="biolink:LifeStage", color=node_category_map["biolink:LifeStage"], caption="caption"),
+    #     # ... 
+    #     # ]
 
-        node_styles = []
-        for cat, color in node_category_map.items():
-            node_styles.append(NodeStyle(cat, color, caption="caption"))
+    #     node_styles = []
+    #     for cat, color in node_category_map.items():
+    #         node_styles.append(NodeStyle(cat, color, caption="caption"))
 
-        return node_styles
+    #     return node_styles
 
 
     @ai_function()
