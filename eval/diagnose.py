@@ -90,7 +90,7 @@ def phenopacket_to_prompt(phenopacket, include_ids = False):
     include_features_str = ", ".join(include_features) + "."
     exclude_features_str = ", ".join(exclude_features) + "."
     prompt = f"""
-From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses.
+From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses, even if there is insufficient information to make a definitive diagnosis. If you are unsure, provide a list of possible diagnoses with the most likely one first.
 
 Patient ID: {subject_id}
 Patient age: {age_human_readable}
@@ -136,13 +136,14 @@ for phenopacket_file in phenopackets_files:
 
             # extract diagnosis and lookup the MONDO ID and name for the diagnosis for later scoring
             diagnosis = phenopacket["interpretations"][0]["diagnosis"]["disease"]["id"] if len(phenopacket["interpretations"]) > 0 else None
+            diagnosis_mondo = None
 
-            mondo_query = f"MATCH (d:biolink_Disease) WHERE '{diagnosis}' IN d.xref RETURN d.id AS mondo_id, d.name AS disease_name"
+            mondo_query = f"MATCH (d:`biolink:Disease`) WHERE '{diagnosis}' IN d.xref RETURN d.id AS mondo_id, d.name AS disease_name"
             with neo4j_driver.session() as session:
                 result = session.run(mondo_query)
-                res = result.single()
-                diagnosis_mondo_id = res["mondo_id"] if res else None
-                diagnosis_mondo_name = res["disease_name"] if res else None
+                res = result.to_df().to_dict(orient="records")
+            if len(res) > 0:
+                diagnosis_mondo = res
 
             # run the diagnosis
             print(f"Running, base: {base_engine_str}, eval: {eval_engine_str}, input: {phenopacket_file}")
@@ -156,19 +157,18 @@ for phenopacket_file in phenopackets_files:
             result_tokens_used_prompt = agent.tokens_used_prompt
             result_tokens_used_completion = agent.tokens_used_completion
             result_dict = {
-                "messages": result_messages_as_json,
-                "eval_chain": result_eval_chain,
+                "phenopacket": phenopacket,
                 "cost_est_base_rate": result_cost,
                 "tokens_used_prompt": result_tokens_used_prompt,
                 "tokens_used_completion": result_tokens_used_completion,
                 "query": prompt,
                 "phenopacket_file": phenopacket_file,
                 "expected_diagnosis": diagnosis,
-                "expected_diagnosis_mondo_id": diagnosis_mondo_id,
-                "expected_diagnosis_mondo_name": diagnosis_mondo_name,
                 "base_engine": base_engine_str,
                 "eval_engine": eval_engine_str if eval_engine else "None",
-                "phenopacket": phenopacket
+                "eval_chain": result_eval_chain,
+                "messages": result_messages_as_json,
+                "expected_diagnosis_mondo": diagnosis_mondo,
             }
 
             # make sure the directory exists
