@@ -14,6 +14,7 @@ from kani.engines.openai import OpenAIEngine
 #from kani.engines.anthropic import AnthropicEngine
 
 from phenomics_explorer.agent_monarch import MonarchKGAgent
+from phenomics_explorer.utils import messages_dump
 
 ########################
 ##### 1 - Configuration
@@ -47,22 +48,6 @@ total_experiments = len(base_engines) * len(eval_engines) * len(prompt_templates
 phenopackets_dir = "phenopackets"
 phenopackets_files = glob.glob(os.path.join(phenopackets_dir, "*.json"))
 
-import enum 
-
-def recursive_model_dump(obj):
-    """Recursively convert objects to a JSON-serializable format."""
-    if isinstance(obj, dict):
-        return {k: recursive_model_dump(v) for k, v in obj.items()}
-    elif isinstance(obj, list):
-        return [recursive_model_dump(item) for item in obj]
-    elif hasattr(obj, 'model_dump'):
-        return recursive_model_dump(obj.model_dump())
-    # if it's an enum...
-    elif isinstance(obj, enum.Enum):
-        return recursive_model_dump(obj.value)
-    else:
-        return obj
-
 for phenopacket_file in phenopackets_files:
     with open(phenopacket_file, "r") as f:
         phenopacket = json.load(f)
@@ -72,9 +57,11 @@ for phenopacket_file in phenopackets_files:
             if eval_engine_str == "None":
                 eval_engine = None
             else:
-                eval_engine = OpenAIEngine(os.environ["OPENAI_API_KEY"], model=eval_engine_str, temperature=0.0, max_tokens=10000)
+                # 4o has a max context size of 128k; this is built into kani, but 4.1 is not built-in, so we set it to the same as 4o (even though technically it has up to 1M context)
+                # 4os max completion tokens is 16384
+                eval_engine = OpenAIEngine(os.environ["OPENAI_API_KEY"], model=eval_engine_str, temperature=0.0, max_tokens=16000, max_context_size = 128000)
             
-            engine = OpenAIEngine(os.environ["OPENAI_API_KEY"], model=base_engine_str, temperature=0.0, max_tokens=10000)
+            engine = OpenAIEngine(os.environ["OPENAI_API_KEY"], model=base_engine_str, temperature=0.0, max_tokens=16000, max_context_size = 128000)
 
             age_human_readable = "Unknown"
             if "subject" in phenopacket and "timeAtLastEncounter" in phenopacket["subject"] and "age" in phenopacket["subject"]["timeAtLastEncounter"]:
@@ -130,7 +117,7 @@ for phenopacket_file in phenopackets_files:
 
                     print(f"Running, base: {base_engine_str}, eval: {eval_engine_str}, prompt: {prompt_template}, format: {label_format}, input: {phenopacket_file}")
                     result_messages = full_round_sync(agent, prompt)
-                    result_messages_as_json = [recursive_model_dump(message) for message in result_messages]
+                    result_messages_as_json = [messages_dump(message) for message in result_messages]
 
                     result_eval_chain = agent.eval_chain
                     result_cost = agent.get_convo_cost()

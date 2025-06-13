@@ -47,8 +47,9 @@ ks.initialize_app_config(
 )
 
 # define an engine to use (see Kani documentation for more info)
-engine41 = OpenAIEngine(os.environ["OPENAI_API_KEY"], model="gpt-4.1-2025-04-14", temperature=0.0, max_tokens=10000)
-engine4o = OpenAIEngine(os.environ["OPENAI_API_KEY"], model="gpt-4o-2024-11-20", temperature=0.0, max_tokens=10000)
+# 4.1 isn't yet supported by Kani, so we need to explicitly set the max context size otherwise we get the default of 8k tokens (4.1 can support up to 1M tokens technically)
+engine41 = OpenAIEngine(os.environ["OPENAI_API_KEY"], model="gpt-4.1-2025-04-14", temperature=0.0, max_tokens=16000, max_context_size= 128000)
+engine4o = OpenAIEngine(os.environ["OPENAI_API_KEY"], model="gpt-4o-2024-11-20", temperature=0.0, max_tokens=16000)
 
 # We also have to define a function that returns a dictionary of agents to serve
 # Agents are keyed by their name, which is what the user will see in the UI
