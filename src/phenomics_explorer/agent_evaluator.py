@@ -2,6 +2,7 @@ from typing_extensions import Annotated
 from typing import Optional
 from kani import AIParam, ai_function, ChatMessage, ChatRole
 from phenomics_explorer.monarch_utils import graph_summary, example_queries_str
+from phenomics_explorer.utils import messages_dump
 import json
 import yaml
 from kani_utils.base_kanis import StreamlitKani
@@ -44,6 +45,11 @@ class MonarchEvaluatorAgent(StreamlitKani):
 
         prompt = self.get_eval_query_prompt(template, query, result_dict, context_history, instructions)
 
+        # print("\n\n-------------------------")
+        # print("EVAL QUERY PROMPT")
+        # print(prompt)
+        # print("-------------------------\n\n")
+
         eval_chat_log = full_round_sync(self, prompt)
         eval_chat_log = [m.content for m in eval_chat_log]
 
@@ -60,12 +66,20 @@ class MonarchEvaluatorAgent(StreamlitKani):
     def get_eval_query_prompt(self, template, query, result_dict, messages_history, instructions):
         """Generate a prompt for evaluating a query result."""
 
-        # messages_history is a list of ChatMessage objects, which have role and content attributes'
-        messages_history = [f"{m.role}: {m.content}" for m in messages_history]
+        cleaned_history = []
+        for m in messages_history:
+            # truncate function results to 1000 characters; providing the entirety of all function results is too much.
+            if m.role == ChatRole.FUNCTION and len(m.content) > 4000: # ~ 1000 tokens
+                m.content = m.content[:2000] + " ... [result trimmed] ..." + m.content[-2000:]  # keep the first and last 2000 characters
+            
+            cleaned_history.append(m)
+
+        cleaned_history_strings = [json.dumps(messages_dump(m)) for m in cleaned_history]
+        cleaned_history_strings = cleaned_history_strings[-10:]  # only keep the last 10 messages for context
 
         res = (template.replace("%QUERY%", query)
                .replace("%QUERY_RESULT%", json.dumps(result_dict, indent=2))
-               .replace("%MESSAGES_HISTORY%", "\n".join(messages_history))
+               .replace("%MESSAGES_HISTORY%", "\n".join(cleaned_history_strings))
                .replace("%INSTRUCTIONS%", instructions)
                )
         # print("EVAL QUERY")

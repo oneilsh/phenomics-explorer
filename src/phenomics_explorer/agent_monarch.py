@@ -20,7 +20,7 @@ import streamlit as st
 
 class MonarchKGAgent(BaseKGAgent):
     """Agent for interacting with the Monarch knowledge graph; extends KGAgent with keyword search (using Monarch API) system prompt with cypher examples."""
-    def __init__(self, *args, max_response_tokens = 10000, **kwargs):
+    def __init__(self, *args, max_response_tokens = 30000, **kwargs):
 
         kwargs['system_prompt'] = ('''You are the Phenomics Assistant, designed to assist users in exploring and intepreting a biomedical knowledge graph known as Monarch.\n\n''' + 
 #self._gen_monarch_instructions() + "\n\n" + 

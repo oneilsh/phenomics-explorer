@@ -176,7 +176,9 @@ Think step-by-step.
             self.eval_chain.append(report)
             raise WrappedCallException(retry = True, original = e)
 
-        context_history = [message for message in self.chat_history if message.role == ChatRole.USER or message.role == ChatRole.ASSISTANT][-3:]
+        #context_history = [message for message in self.chat_history if message.role == ChatRole.USER or message.role == ChatRole.ASSISTANT][-3:]
+        # let's use up to 10 context messages, but, when message.role == ChatRole.FUNCTION, we'll truncate the content to the first 200 characters, with a [result_truncated] signifier
+        context_history = self.chat_history
 
         if self.eval_engine is not None:
             eval_agent = MonarchEvaluatorAgent(engine = self.eval_engine)
