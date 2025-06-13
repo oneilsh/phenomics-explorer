@@ -1,0 +1,326 @@
+{
+    "phenopacket": {
+        "id": "PMID_24736735_G13684_Mother",
+        "subject": {
+            "id": "G13684_Mother"
+        },
+        "phenotypicFeatures": [
+            {
+                "type": {
+                    "id": "HP:0000256",
+                    "label": "Macrocephaly"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001159",
+                    "label": "Syndactyly"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001841",
+                    "label": "Preaxial foot polydactyly"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0006042",
+                    "label": "Y-shaped metacarpals"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0010567",
+                    "label": "Y-shaped metatarsals"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0002023",
+                    "label": "Anal atresia"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0002164",
+                    "label": "Nail dysplasia"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001162",
+                    "label": "Postaxial hand polydactyly"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001830",
+                    "label": "Postaxial foot polydactyly"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001177",
+                    "label": "Preaxial hand polydactyly"
+                },
+                "excluded": true
+            }
+        ],
+        "interpretations": [
+            {
+                "id": "G13684_Mother",
+                "progressStatus": "SOLVED",
+                "diagnosis": {
+                    "disease": {
+                        "id": "OMIM:175700",
+                        "label": "Greig cephalopolysyndactyly syndrome"
+                    },
+                    "genomicInterpretations": [
+                        {
+                            "subjectOrBiosampleId": "G13684_Mother",
+                            "interpretationStatus": "CAUSATIVE",
+                            "variantInterpretation": {
+                                "variationDescriptor": {
+                                    "id": "var_SxjTJYnkzWuSGHEhvFNUjzjyV",
+                                    "geneContext": {
+                                        "valueId": "HGNC:4319",
+                                        "symbol": "GLI3"
+                                    },
+                                    "expressions": [
+                                        {
+                                            "syntax": "hgvs.c",
+                                            "value": "NM_000168.6:c.444C>A"
+                                        },
+                                        {
+                                            "syntax": "hgvs.g",
+                                            "value": "NC_000007.14:g.42076781G>T"
+                                        }
+                                    ],
+                                    "vcfRecord": {
+                                        "genomeAssembly": "hg38",
+                                        "chrom": "chr7",
+                                        "pos": "42076781",
+                                        "ref": "G",
+                                        "alt": "T"
+                                    },
+                                    "moleculeContext": "genomic",
+                                    "allelicState": {
+                                        "id": "GENO:0000135",
+                                        "label": "heterozygous"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "diseases": [
+            {
+                "term": {
+                    "id": "OMIM:175700",
+                    "label": "Greig cephalopolysyndactyly syndrome"
+                },
+                "onset": {
+                    "ontologyClass": {
+                        "id": "HP:0003577",
+                        "label": "Congenital onset"
+                    }
+                }
+            }
+        ],
+        "metaData": {
+            "created": "2024-04-15T05:22:10.939446926Z",
+            "createdBy": "ORCID:0000-0002-0736-9199",
+            "resources": [
+                {
+                    "id": "geno",
+                    "name": "Genotype Ontology",
+                    "url": "http://purl.obolibrary.org/obo/geno.owl",
+                    "version": "2022-03-05",
+                    "namespacePrefix": "GENO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+                },
+                {
+                    "id": "hgnc",
+                    "name": "HUGO Gene Nomenclature Committee",
+                    "url": "https://www.genenames.org",
+                    "version": "06/01/23",
+                    "namespacePrefix": "HGNC",
+                    "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+                },
+                {
+                    "id": "omim",
+                    "name": "An Online Catalog of Human Genes and Genetic Disorders",
+                    "url": "https://www.omim.org",
+                    "version": "January 4, 2023",
+                    "namespacePrefix": "OMIM",
+                    "iriPrefix": "https://www.omim.org/entry/"
+                },
+                {
+                    "id": "so",
+                    "name": "Sequence types and features ontology",
+                    "url": "http://purl.obolibrary.org/obo/so.obo",
+                    "version": "2021-11-22",
+                    "namespacePrefix": "SO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+                },
+                {
+                    "id": "hp",
+                    "name": "human phenotype ontology",
+                    "url": "http://purl.obolibrary.org/obo/hp.owl",
+                    "version": "2024-04-03",
+                    "namespacePrefix": "HP",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+                }
+            ],
+            "phenopacketSchemaVersion": "2.0",
+            "externalReferences": [
+                {
+                    "id": "PMID:24736735",
+                    "reference": "https://pubmed.ncbi.nlm.nih.gov/24736735",
+                    "description": "New insights into genotype-phenotype correlation for GLI3 mutations"
+                }
+            ]
+        }
+    },
+    "cost_est_base_rate": 0.038592,
+    "tokens_used_prompt": 13496,
+    "tokens_used_completion": 1450,
+    "query": "From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses, even if there is insufficient information to make a definitive diagnosis. If you are unsure, provide a list of possible diagnoses with the most likely one first.\n\nPatient ID: G13684_Mother\nPatient age: Unknown\nPatient sex: Unknown\nPatient features: Macrocephaly, Syndactyly, Preaxial foot polydactyly.\nExcluded patient features: Y-shaped metacarpals, Y-shaped metatarsals, Anal atresia, Nail dysplasia, Postaxial hand polydactyly, Postaxial foot polydactyly, Preaxial hand polydactyly.",
+    "phenopacket_file": "phenopackets/PMID_24736735_G13684_Mother.json",
+    "expected_diagnosis": "OMIM:175700",
+    "base_engine": "gpt-4o-2024-11-20",
+    "eval_engine": "None",
+    "eval_chain": [],
+    "messages": [
+        {
+            "role": "assistant",
+            "content": "To provide a rank-ordered list of possible diagnoses for this patient, I will:\n\n1. Search for phenotypic features (macrocephaly, syndactyly, preaxial foot polydactyly) in the knowledge graph to identify diseases associated with these features.\n2. Exclude diseases associated with the excluded features (Y-shaped metacarpals, Y-shaped metatarsals, anal atresia, nail dysplasia, postaxial hand polydactyly, postaxial foot polydactyly, preaxial hand polydactyly).\n3. Rank the diseases based on the overlap of features and their relevance.\n\nLet me start by searching for diseases associated with the provided features.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_mkeBMKDQhmFvtNgUsH9P59NP",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"Macrocephaly\"]}"
+                    }
+                },
+                {
+                    "id": "call_FG1I5RjXwCvBsi3wwNGbHY13",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"Syndactyly\"]}"
+                    }
+                },
+                {
+                    "id": "call_18ptyvfAtV5m6WG6MlsvytH1",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"Preaxial foot polydactyly\"]}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'Macrocephaly': [{'id': 'HP:0000256', 'category': 'biolink:PhenotypicFeature', 'name': 'Macrocephaly', 'in_taxon_label': None}, {'id': 'MONDO:0011537', 'category': 'biolink:Disease', 'name': 'macrocephaly-autism syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0007923', 'category': 'biolink:Disease', 'name': 'macrocephaly, benign familial', 'in_taxon_label': None}, {'id': 'MONDO:0958227', 'category': 'biolink:Disease', 'name': 'polydactyly-macrocephaly syndrome', 'in_taxon_label': None}, {'id': 'HP:0005490', 'category': 'biolink:PhenotypicFeature', 'name': 'Postnatal macrocephaly', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_mkeBMKDQhmFvtNgUsH9P59NP",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "function",
+            "content": "{'Syndactyly': [{'id': 'HP:0001159', 'category': 'biolink:PhenotypicFeature', 'name': 'Syndactyly', 'in_taxon_label': None}, {'id': 'MONDO:0021002', 'category': 'biolink:Disease', 'name': 'syndactyly', 'in_taxon_label': None}, {'id': 'MONDO:1010824', 'category': 'biolink:Disease', 'name': 'syndactyly, chicken', 'in_taxon_label': None}, {'id': 'MONDO:1010827', 'category': 'biolink:Disease', 'name': 'syndactyly, cattle', 'in_taxon_label': None}, {'id': 'MONDO:1010828', 'category': 'biolink:Disease', 'name': 'syndactyly, sheep', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_FG1I5RjXwCvBsi3wwNGbHY13",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "function",
+            "content": "{'Preaxial foot polydactyly': [{'id': 'HP:0001841', 'category': 'biolink:PhenotypicFeature', 'name': 'Preaxial foot polydactyly', 'in_taxon_label': None}, {'id': 'MONDO:0017457', 'category': 'biolink:Disease', 'name': 'Preaxial polydactyly of toes', 'in_taxon_label': None}, {'id': 'HP:0010440', 'category': 'biolink:PhenotypicFeature', 'name': 'Ectopic accessory toe-like appendage', 'in_taxon_label': None}, {'id': 'MONDO:0011359', 'category': 'biolink:Disease', 'name': 'acromelic frontonasal dysostosis', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_18ptyvfAtV5m6WG6MlsvytH1",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "From the search results, I identified the following relevant phenotypic features and associated diseases:\n\n### Phenotypic Features:\n1. **Macrocephaly**:\n   - [Macrocephaly](https://monarchinitiative.org/HP:0000256) (Phenotypic Feature)\n   - Diseases: \n     - [Macrocephaly-autism syndrome](https://monarchinitiative.org/MONDO:0011537)\n     - [Macrocephaly, benign familial](https://monarchinitiative.org/MONDO:0007923)\n     - [Polydactyly-macrocephaly syndrome](https://monarchinitiative.org/MONDO:0958227)\n\n2. **Syndactyly**:\n   - [Syndactyly](https://monarchinitiative.org/HP:0001159) (Phenotypic Feature)\n   - Diseases:\n     - [Syndactyly](https://monarchinitiative.org/MONDO:0021002)\n\n3. **Preaxial foot polydactyly**:\n   - [Preaxial foot polydactyly](https://monarchinitiative.org/HP:0001841) (Phenotypic Feature)\n   - Diseases:\n     - [Preaxial polydactyly of toes](https://monarchinitiative.org/MONDO:0017457)\n     - [Acromelic frontonasal dysostosis](https://monarchinitiative.org/MONDO:0011359)\n\nNext, I will identify diseases that match all three features and exclude those associated with the excluded features.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_0aSGGNPoKWCwHHUoRorjurfG",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) WHERE p.id IN ['HP:0000256', 'HP:0001159', 'HP:0001841']\\nWITH d, collect(DISTINCT p.id) AS matched_features\\nWHERE size(matched_features) = 3\\nOPTIONAL MATCH (d)-[:biolink_has_phenotype]->(excluded:biolink_PhenotypicFeature) WHERE excluded.id IN ['HP:0006092', 'HP:0006093', 'HP:0002023', 'HP:0001597', 'HP:0001162', 'HP:0001830', 'HP:0001177']\\nWITH d, matched_features, collect(DISTINCT excluded.id) AS excluded_features\\nWHERE size(excluded_features) = 0\\nRETURN d.name AS disease_name, d.id AS disease_id, matched_features, excluded_features\\nLIMIT 10\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': []}}",
+            "name": "run_query",
+            "tool_call_id": "call_0aSGGNPoKWCwHHUoRorjurfG",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "No diseases were found that match all three features (macrocephaly, syndactyly, and preaxial foot polydactyly) while excluding the specified features. This suggests that either the combination of features is rare or not well-documented in the knowledge graph.\n\nI will now broaden the search to include diseases associated with at least two of the three features and still exclude those linked to the excluded features.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_JFG8GaRXUHZ6bowhJzPnDRbz",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) WHERE p.id IN ['HP:0000256', 'HP:0001159', 'HP:0001841']\\nWITH d, collect(DISTINCT p.id) AS matched_features\\nWHERE size(matched_features) >= 2\\nOPTIONAL MATCH (d)-[:biolink_has_phenotype]->(excluded:biolink_PhenotypicFeature) WHERE excluded.id IN ['HP:0006092', 'HP:0006093', 'HP:0002023', 'HP:0001597', 'HP:0001162', 'HP:0001830', 'HP:0001177']\\nWITH d, matched_features, collect(DISTINCT excluded.id) AS excluded_features\\nWHERE size(excluded_features) = 0\\nRETURN d.name AS disease_name, d.id AS disease_id, matched_features, excluded_features\\nLIMIT 10\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': [{'disease_name': 'pseudoaminopterin syndrome', 'disease_id': 'MONDO:0010865', 'matched_features': ['HP:0000256', 'HP:0001159'], 'excluded_features': []}, {'disease_name': 'Ito hypomelanosis', 'disease_id': 'MONDO:0010302', 'matched_features': ['HP:0000256', 'HP:0001159'], 'excluded_features': []}, {'disease_name': 'Robinow syndrome', 'disease_id': 'MONDO:0019978', 'matched_features': ['HP:0000256', 'HP:0001159'], 'excluded_features': []}, {'disease_name': 'angioosteohypertrophic syndrome', 'disease_id': 'MONDO:0007864', 'matched_features': ['HP:0000256', 'HP:0001159'], 'excluded_features': []}, {'disease_name': 'intellectual developmental disorder with behavioral abnormalities and craniofacial dysmorphism with or without seizures', 'disease_id': 'MONDO:0032883', 'matched_features': ['HP:0000256', 'HP:0001159'], 'excluded_features': []}, {'disease_name': 'megalencephaly-capillary malformation-polymicrogyria syndrome', 'disease_id': 'MONDO:0011240', 'matched_features': ['HP:0000256', 'HP:0001159'], 'excluded_features': []}, {'disease_name': 'cardiac, facial, and digital anomalies with developmental delay', 'disease_id': 'MONDO:0032572', 'matched_features': ['HP:0000256', 'HP:0001159'], 'excluded_features': []}, {'disease_name': 'Lenz-Majewski hyperostotic dwarfism', 'disease_id': 'MONDO:0007892', 'matched_features': ['HP:0000256', 'HP:0001159'], 'excluded_features': []}, {'disease_name': 'autosomal dominant Robinow syndrome 3', 'disease_id': 'MONDO:0014819', 'matched_features': ['HP:0000256', 'HP:0001159'], 'excluded_features': []}, {'disease_name': 'short-rib thoracic dysplasia 8 with or without polydactyly', 'disease_id': 'MONDO:0014214', 'matched_features': ['HP:0000256', 'HP:0001159'], 'excluded_features': []}]}}",
+            "name": "run_query",
+            "tool_call_id": "call_JFG8GaRXUHZ6bowhJzPnDRbz",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "Here is a rank-ordered list of possible diagnoses based on diseases associated with at least two of the patient's features (macrocephaly and syndactyly) while excluding the specified features:\n\n1. [Pseudoaminopterin syndrome](https://monarchinitiative.org/MONDO:0010865)\n2. [Ito hypomelanosis](https://monarchinitiative.org/MONDO:0010302)\n3. [Robinow syndrome](https://monarchinitiative.org/MONDO:0019978)\n4. [Angioosteohypertrophic syndrome](https://monarchinitiative.org/MONDO:0007864)\n5. [Intellectual developmental disorder with behavioral abnormalities and craniofacial dysmorphism with or without seizures](https://monarchinitiative.org/MONDO:0032883)\n6. [Megalencephaly-capillary malformation-polymicrogyria syndrome](https://monarchinitiative.org/MONDO:0011240)\n7. [Cardiac, facial, and digital anomalies with developmental delay](https://monarchinitiative.org/MONDO:0032572)\n8. [Lenz-Majewski hyperostotic dwarfism](https://monarchinitiative.org/MONDO:0007892)\n9. [Autosomal dominant Robinow syndrome 3](https://monarchinitiative.org/MONDO:0014819)\n10. [Short-rib thoracic dysplasia 8 with or without polydactyly](https://monarchinitiative.org/MONDO:0014214)\n\nThese diseases are ranked based on their association with the provided features. Further clinical evaluation and genetic testing would be necessary to refine the diagnosis.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": null,
+            "is_tool_call_error": null
+        }
+    ],
+    "expected_diagnosis_mondo": [
+        {
+            "mondo_id": "MONDO:0008287",
+            "disease_name": "Greig cephalopolysyndactyly syndrome"
+        }
+    ]
+}

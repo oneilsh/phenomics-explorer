@@ -1,0 +1,414 @@
+{
+    "phenopacket": {
+        "id": "PMID_37196654_Individual_33",
+        "subject": {
+            "id": "Individual 33",
+            "timeAtLastEncounter": {
+                "age": {
+                    "iso8601duration": "P7Y"
+                }
+            },
+            "sex": "MALE"
+        },
+        "phenotypicFeatures": [
+            {
+                "type": {
+                    "id": "HP:0000154",
+                    "label": "Wide mouth"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001256",
+                    "label": "Intellectual disability, mild"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001382",
+                    "label": "Joint hypermobility"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001270",
+                    "label": "Motor delay"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001513",
+                    "label": "Obesity"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0009890",
+                    "label": "High anterior hairline"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0002370",
+                    "label": "Poor coordination"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000316",
+                    "label": "Hypertelorism"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001252",
+                    "label": "Hypotonia"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000750",
+                    "label": "Delayed speech and language development"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001520",
+                    "label": "Large for gestational age"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000733",
+                    "label": "Abnormal repetitive mannerisms"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000540",
+                    "label": "Hypermetropia"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0011220",
+                    "label": "Prominent forehead"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001769",
+                    "label": "Broad foot"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000483",
+                    "label": "Astigmatism"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000411",
+                    "label": "Protruding ear"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000729",
+                    "label": "Autistic behavior"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0003307",
+                    "label": "Hyperlordosis"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000175",
+                    "label": "Cleft palate"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001250",
+                    "label": "Seizure"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001257",
+                    "label": "Spasticity"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000028",
+                    "label": "Cryptorchidism"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0410018",
+                    "label": "Recurrent ear infections"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000709",
+                    "label": "Psychosis"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000365",
+                    "label": "Hearing impairment"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0011968",
+                    "label": "Feeding difficulties"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001159",
+                    "label": "Syndactyly"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000767",
+                    "label": "Pectus excavatum"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000486",
+                    "label": "Strabismus"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0002360",
+                    "label": "Sleep abnormality"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001332",
+                    "label": "Dystonia"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0002019",
+                    "label": "Constipation"
+                },
+                "excluded": true
+            }
+        ],
+        "interpretations": [
+            {
+                "id": "Individual 33",
+                "progressStatus": "SOLVED",
+                "diagnosis": {
+                    "disease": {
+                        "id": "OMIM:618505",
+                        "label": "Neurodevelopmental disorder with coarse facies and mild distal skeletal abnormalities"
+                    },
+                    "genomicInterpretations": [
+                        {
+                            "subjectOrBiosampleId": "Individual 33",
+                            "interpretationStatus": "CAUSATIVE",
+                            "variantInterpretation": {
+                                "variationDescriptor": {
+                                    "id": "var_BMkObsOtwEqOJVMLVdlouDQNa",
+                                    "geneContext": {
+                                        "valueId": "HGNC:29012",
+                                        "symbol": "KDM6B"
+                                    },
+                                    "expressions": [
+                                        {
+                                            "syntax": "hgvs.c",
+                                            "value": "NM_001348716.2:c.2985_2988delinsGGGACAGTGCC"
+                                        },
+                                        {
+                                            "syntax": "hgvs.g",
+                                            "value": "NC_000017.11:g.7849273_7849276delinsGGGACAGTGCC"
+                                        }
+                                    ],
+                                    "vcfRecord": {
+                                        "genomeAssembly": "hg38",
+                                        "chrom": "chr17",
+                                        "pos": "7849273",
+                                        "ref": "TCGT",
+                                        "alt": "GGGACAGTGCC"
+                                    },
+                                    "moleculeContext": "genomic",
+                                    "allelicState": {
+                                        "id": "GENO:0000135",
+                                        "label": "heterozygous"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "diseases": [
+            {
+                "term": {
+                    "id": "OMIM:618505",
+                    "label": "Neurodevelopmental disorder with coarse facies and mild distal skeletal abnormalities"
+                }
+            }
+        ],
+        "metaData": {
+            "created": "2024-03-23T17:11:57.575253963Z",
+            "createdBy": "ORCID:0000-0002-0736-9199",
+            "resources": [
+                {
+                    "id": "geno",
+                    "name": "Genotype Ontology",
+                    "url": "http://purl.obolibrary.org/obo/geno.owl",
+                    "version": "2022-03-05",
+                    "namespacePrefix": "GENO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+                },
+                {
+                    "id": "hgnc",
+                    "name": "HUGO Gene Nomenclature Committee",
+                    "url": "https://www.genenames.org",
+                    "version": "06/01/23",
+                    "namespacePrefix": "HGNC",
+                    "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+                },
+                {
+                    "id": "omim",
+                    "name": "An Online Catalog of Human Genes and Genetic Disorders",
+                    "url": "https://www.omim.org",
+                    "version": "January 4, 2023",
+                    "namespacePrefix": "OMIM",
+                    "iriPrefix": "https://www.omim.org/entry/"
+                },
+                {
+                    "id": "so",
+                    "name": "Sequence types and features ontology",
+                    "url": "http://purl.obolibrary.org/obo/so.obo",
+                    "version": "2021-11-22",
+                    "namespacePrefix": "SO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+                },
+                {
+                    "id": "hp",
+                    "name": "human phenotype ontology",
+                    "url": "http://purl.obolibrary.org/obo/hp.owl",
+                    "version": "2024-02-27",
+                    "namespacePrefix": "HP",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+                }
+            ],
+            "phenopacketSchemaVersion": "2.0",
+            "externalReferences": [
+                {
+                    "id": "PMID:37196654",
+                    "reference": "https://pubmed.ncbi.nlm.nih.gov/37196654",
+                    "description": "The clinical and molecular spectrum of the KDM6B-related neurodevelopmental disorder"
+                }
+            ]
+        }
+    },
+    "cost_est_base_rate": 0.041984,
+    "tokens_used_prompt": 16184,
+    "tokens_used_completion": 1202,
+    "query": "From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses, even if there is insufficient information to make a definitive diagnosis. If you are unsure, provide a list of possible diagnoses with the most likely one first.\n\nPatient ID: Individual 33\nPatient age: 7 years\nPatient sex: Male\nPatient features: Wide mouth, Intellectual disability, mild, Joint hypermobility, Motor delay, Obesity, High anterior hairline, Poor coordination, Hypertelorism, Hypotonia, Delayed speech and language development, Large for gestational age, Abnormal repetitive mannerisms, Hypermetropia, Prominent forehead, Broad foot, Astigmatism, Protruding ear, Autistic behavior, Hyperlordosis.\nExcluded patient features: Cleft palate, Seizure, Spasticity, Cryptorchidism, Recurrent ear infections, Psychosis, Hearing impairment, Feeding difficulties, Syndactyly, Pectus excavatum, Strabismus, Sleep abnormality, Dystonia, Constipation.",
+    "phenopacket_file": "phenopackets/PMID_37196654_Individual33.json",
+    "expected_diagnosis": "OMIM:618505",
+    "base_engine": "gpt-4o-2024-11-20",
+    "eval_engine": "None",
+    "eval_chain": [],
+    "messages": [
+        {
+            "role": "assistant",
+            "content": "To determine the most likely diagnosis for this patient, I will follow a systematic approach:\n\n1. **Identify phenotypic features**: I will search for diseases or syndromes associated with the patient's features (e.g., wide mouth, intellectual disability, joint hypermobility, etc.).\n2. **Exclude features**: I will filter out diseases that include the excluded features (e.g., cleft palate, seizures, spasticity, etc.).\n3. **Rank diagnoses**: I will rank the potential diagnoses based on the overlap of features and their relevance to the patient's age and sex.\n\nLet me start by searching for diseases associated with the patient's phenotypic features.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_NstCBuh6iz1QuTNJEqQOvZIU",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\":[\"Wide mouth\",\"Intellectual disability\",\"Joint hypermobility\",\"Motor delay\",\"Obesity\",\"High anterior hairline\",\"Poor coordination\",\"Hypertelorism\",\"Hypotonia\",\"Delayed speech and language development\",\"Large for gestational age\",\"Abnormal repetitive mannerisms\",\"Hypermetropia\",\"Prominent forehead\",\"Broad foot\",\"Astigmatism\",\"Protruding ear\",\"Autistic behavior\",\"Hyperlordosis\"]}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'Wide mouth': [{'id': 'HP:0000154', 'category': 'biolink:PhenotypicFeature', 'name': 'Wide mouth', 'in_taxon_label': None}, {'id': 'MP:0031504', 'category': 'biolink:PhenotypicFeature', 'name': 'increased mouth width', 'in_taxon_label': None}, {'id': 'XPO:0141830', 'category': 'biolink:PhenotypicFeature', 'name': 'increased width of mouth', 'in_taxon_label': None}, {'id': 'UPHENO:0006476', 'category': 'biolink:PhenotypicFeature', 'name': 'increased width of mouth', 'in_taxon_label': None}, {'id': 'UPHENO:0006144', 'category': 'biolink:PhenotypicFeature', 'name': 'increased width of roof of mouth', 'in_taxon_label': None}], 'Intellectual disability': [{'id': 'MONDO:0001071', 'category': 'biolink:Disease', 'name': 'intellectual disability', 'in_taxon_label': None}, {'id': 'MONDO:0000508', 'category': 'biolink:Disease', 'name': 'syndromic intellectual disability', 'in_taxon_label': None}, {'id': 'MONDO:0010659', 'category': 'biolink:Disease', 'name': 'FRAXE intellectual disability', 'in_taxon_label': None}, {'id': 'HP:0001249', 'category': 'biolink:PhenotypicFeature', 'name': 'Intellectual disability', 'in_taxon_label': None}, {'id': 'MONDO:0008756', 'category': 'biolink:Disease', 'name': 'alopecia - intellectual disability syndrome', 'in_taxon_label': None}], 'Joint hypermobility': [{'id': 'HP:0001382', 'category': 'biolink:PhenotypicFeature', 'name': 'Joint hypermobility', 'in_taxon_label': None}, {'id': 'HP:0045087', 'category': 'biolink:PhenotypicFeature', 'name': 'Hip joint hypermobility', 'in_taxon_label': None}, {'id': 'HP:0002761', 'category': 'biolink:PhenotypicFeature', 'name': 'Generalized joint hypermobility', 'in_taxon_label': None}, {'id': 'HP:0045086', 'category': 'biolink:PhenotypicFeature', 'name': 'Knee joint hypermobility', 'in_taxon_label': None}, {'id': 'HP:0020152', 'category': 'biolink:PhenotypicFeature', 'name': 'Distal joint hypermobility', 'in_taxon_label': None}], 'Motor delay': [{'id': 'HP:0001270', 'category': 'biolink:PhenotypicFeature', 'name': 'Motor delay', 'in_taxon_label': None}, {'id': 'MP:0031496', 'category': 'biolink:PhenotypicFeature', 'name': 'motor developmental delay', 'in_taxon_label': None}, {'id': 'MONDO:0030036', 'category': 'biolink:Disease', 'name': 'leukoencephalopathy, motor delay, spasticity, and dysarthria syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0100065', 'category': 'biolink:Disease', 'name': 'TH-deficient infantile parkinsonism and motor delay', 'in_taxon_label': None}, {'id': 'MONDO:0030992', 'category': 'biolink:Disease', 'name': 'short stature, oligodontia, dysmorphic facies, and motor delay', 'in_taxon_label': None}], 'Obesity': [{'id': 'HP:0001513', 'category': 'biolink:PhenotypicFeature', 'name': 'Obesity', 'in_taxon_label': None}, {'id': 'MONDO:0011122', 'category': 'biolink:Disease', 'name': 'obesity disorder', 'in_taxon_label': None}, {'id': 'MONDO:0019182', 'category': 'biolink:Disease', 'name': 'inherited obesity', 'in_taxon_label': None}, {'id': 'MONDO:0005139', 'category': 'biolink:Disease', 'name': 'morbid obesity', 'in_taxon_label': None}, {'id': 'MONDO:0009763', 'category': 'biolink:Disease', 'name': 'obesity-hypoventilation syndrome', 'in_taxon_label': None}], 'High anterior hairline': [{'id': 'HP:0009890', 'category': 'biolink:PhenotypicFeature', 'name': 'High anterior hairline', 'in_taxon_label': None}, {'id': 'MONDO:0012735', 'category': 'biolink:Disease', 'name': 'Temple-Baraitser syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0013053', 'category': 'biolink:Disease', 'name': 'microcephaly-facio-cardio-skeletal syndrome, Hadziselimovic type', 'in_taxon_label': None}, {'id': 'MONDO:0011213', 'category': 'biolink:Disease', 'name': 'Pierpont syndrome', 'in_taxon_label': None}], 'Poor coordination': [{'id': 'HP:0002370', 'category': 'biolink:PhenotypicFeature', 'name': 'Poor coordination', 'in_taxon_label': None}, {'id': 'HP:0002275', 'category': 'biolink:PhenotypicFeature', 'name': 'Poor motor coordination', 'in_taxon_label': None}, {'id': 'HP:0007057', 'category': 'biolink:PhenotypicFeature', 'name': 'Poor hand-eye coordination', 'in_taxon_label': None}, {'id': 'HP:0007010', 'category': 'biolink:PhenotypicFeature', 'name': 'Poor fine motor coordination', 'in_taxon_label': None}, {'id': 'HP:0007015', 'category': 'biolink:PhenotypicFeature', 'name': 'Poor gross motor coordination', 'in_taxon_label': None}], 'Hypertelorism': [{'id': 'HP:0000316', 'category': 'biolink:PhenotypicFeature', 'name': 'Hypertelorism', 'in_taxon_label': None}, {'id': 'MONDO:0030639', 'category': 'biolink:Disease', 'name': 'Teebi hypertelorism syndrome', 'in_taxon_label': None}, {'id': 'MP:0001300', 'category': 'biolink:PhenotypicFeature', 'name': 'ocular hypertelorism', 'in_taxon_label': None}, {'id': 'MP:0000025', 'category': 'biolink:PhenotypicFeature', 'name': 'otic hypertelorism', 'in_taxon_label': None}, {'id': 'MONDO:0800025', 'category': 'biolink:Disease', 'name': 'Teebi hypertelorism syndrome 1', 'in_taxon_label': None}], 'Hypotonia': [{'id': 'HP:0001252', 'category': 'biolink:PhenotypicFeature', 'name': 'Hypotonia', 'in_taxon_label': None}, {'id': 'MP:0004144', 'category': 'biolink:PhenotypicFeature', 'name': 'hypotonia', 'in_taxon_label': None}, {'id': 'MONDO:0011669', 'category': 'biolink:Disease', 'name': 'hypotonia-cystinuria syndrome', 'in_taxon_label': None}, {'id': 'HP:0001290', 'category': 'biolink:PhenotypicFeature', 'name': 'Generalized hypotonia', 'in_taxon_label': None}, {'id': 'HP:0012389', 'category': 'biolink:PhenotypicFeature', 'name': 'Appendicular hypotonia', 'in_taxon_label': None}], 'Delayed speech and language development': [{'id': 'HP:0000750', 'category': 'biolink:PhenotypicFeature', 'name': 'Delayed speech and language development', 'in_taxon_label': None}, {'id': 'MONDO:0060622', 'category': 'biolink:Disease', 'name': 'neurodevelopmental disorder with severe motor impairment and absent language', 'in_taxon_label': None}, {'id': 'MONDO:0100348', 'category': 'biolink:Disease', 'name': 'neurodevelopmental disorder with microcephaly, impaired language, and gait abnormalities', 'in_taxon_label': None}, {'id': 'MONDO:0030837', 'category': 'biolink:Disease', 'name': 'neurodevelopmental disorder with microcephaly, impaired language, epilepsy, and gait abnormalities', 'in_taxon_label': None}, {'id': 'HP:0001263', 'category': 'biolink:PhenotypicFeature', 'name': 'Global developmental delay', 'in_taxon_label': None}], 'Large for gestational age': [{'id': 'HP:0001520', 'category': 'biolink:PhenotypicFeature', 'name': 'Large for gestational age', 'in_taxon_label': None}, {'id': 'HP:0004488', 'category': 'biolink:PhenotypicFeature', 'name': 'Macrocephaly at birth', 'in_taxon_label': None}], 'Abnormal repetitive mannerisms': [{'id': 'HP:0000733', 'category': 'biolink:PhenotypicFeature', 'name': 'Motor stereotypy', 'in_taxon_label': None}], 'Hypermetropia': [{'id': 'HP:0000540', 'category': 'biolink:PhenotypicFeature', 'name': 'Hypermetropia', 'in_taxon_label': None}, {'id': 'MP:0006153', 'category': 'biolink:PhenotypicFeature', 'name': 'hypermetropia', 'in_taxon_label': None}, {'id': 'HP:0500042', 'category': 'biolink:PhenotypicFeature', 'name': 'Latent hypermetropia', 'in_taxon_label': None}, {'id': 'HP:0031728', 'category': 'biolink:PhenotypicFeature', 'name': 'Mild hypermetropia', 'in_taxon_label': None}, {'id': 'HP:0031729', 'category': 'biolink:PhenotypicFeature', 'name': 'Moderate hypermetropia', 'in_taxon_label': None}], 'Prominent forehead': [{'id': 'HP:0011220', 'category': 'biolink:PhenotypicFeature', 'name': 'Prominent forehead', 'in_taxon_label': None}, {'id': 'UPHENO:0082905', 'category': 'biolink:PhenotypicFeature', 'name': 'prominent forehead', 'in_taxon_label': None}, {'id': 'MP:0030049', 'category': 'biolink:PhenotypicFeature', 'name': 'prominent forehead', 'in_taxon_label': None}, {'id': 'MONDO:0859295', 'category': 'biolink:Disease', 'name': 'neurodevelopmental disorder with short stature, prominent forehead, and feeding difficulties', 'in_taxon_label': None}, {'id': 'HP:0005487', 'category': 'biolink:PhenotypicFeature', 'name': 'Prominent metopic ridge', 'in_taxon_label': None}], 'Broad foot': [{'id': 'HP:0001769', 'category': 'biolink:PhenotypicFeature', 'name': 'Broad foot', 'in_taxon_label': None}, {'id': 'HP:0001783', 'category': 'biolink:PhenotypicFeature', 'name': 'Broad metatarsal', 'in_taxon_label': None}, {'id': 'HP:0010068', 'category': 'biolink:PhenotypicFeature', 'name': 'Broad first metatarsal', 'in_taxon_label': None}, {'id': 'HP:0031266', 'category': 'biolink:PhenotypicFeature', 'name': 'Podocyte foot process effacement', 'in_taxon_label': None}, {'id': 'MONDO:0007400', 'category': 'biolink:Disease', 'name': 'Jackson-Weiss syndrome', 'in_taxon_label': None}], 'Astigmatism': [{'id': 'HP:0000483', 'category': 'biolink:PhenotypicFeature', 'name': 'Astigmatism', 'in_taxon_label': None}, {'id': 'MONDO:0011284', 'category': 'biolink:Disease', 'name': 'astigmatism', 'in_taxon_label': None}, {'id': 'MONDO:0001831', 'category': 'biolink:Disease', 'name': 'irregular astigmatism', 'in_taxon_label': None}, {'id': 'MONDO:0001364', 'category': 'biolink:Disease', 'name': 'regular astigmatism', 'in_taxon_label': None}, {'id': 'HP:0000484', 'category': 'biolink:PhenotypicFeature', 'name': 'Hyperopic astigmatism', 'in_taxon_label': None}], 'Protruding ear': [{'id': 'HP:0000411', 'category': 'biolink:PhenotypicFeature', 'name': 'Protruding ear', 'in_taxon_label': None}, {'id': 'MP:0003681', 'category': 'biolink:PhenotypicFeature', 'name': 'protruding ear lobes', 'in_taxon_label': None}, {'id': 'UPHENO:0085884', 'category': 'biolink:PhenotypicFeature', 'name': 'protruding external ear', 'in_taxon_label': None}, {'id': 'MP:0000021', 'category': 'biolink:PhenotypicFeature', 'name': 'prominent ears', 'in_taxon_label': None}, {'id': 'HP:0000378', 'category': 'biolink:PhenotypicFeature', 'name': 'Cupped ear', 'in_taxon_label': None}], 'Autistic behavior': [{'id': 'HP:0000729', 'category': 'biolink:PhenotypicFeature', 'name': 'Autistic behavior', 'in_taxon_label': None}, {'id': 'MONDO:0005260', 'category': 'biolink:Disease', 'name': 'autism', 'in_taxon_label': None}, {'id': 'MONDO:0005258', 'category': 'biolink:Disease', 'name': 'autism spectrum disorder', 'in_taxon_label': None}, {'id': 'MONDO:0957397', 'category': 'biolink:Disease', 'name': 'intellectual developmental disorder, autosomal dominant 72', 'in_taxon_label': None}, {'id': 'MONDO:0016052', 'category': 'biolink:Disease', 'name': 'atypical autism', 'in_taxon_label': None}], 'Hyperlordosis': [{'id': 'HP:0003307', 'category': 'biolink:PhenotypicFeature', 'name': 'Hyperlordosis', 'in_taxon_label': None}, {'id': 'HP:0002938', 'category': 'biolink:PhenotypicFeature', 'name': 'Lumbar hyperlordosis', 'in_taxon_label': None}, {'id': 'MONDO:0008322', 'category': 'biolink:Disease', 'name': 'pseudoachondroplasia', 'in_taxon_label': None}, {'id': 'MONDO:0011771', 'category': 'biolink:Disease', 'name': 'neuronopathy, distal hereditary motor, autosomal recessive 3', 'in_taxon_label': None}, {'id': 'MONDO:0008491', 'category': 'biolink:Disease', 'name': 'stiff-person syndrome', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_NstCBuh6iz1QuTNJEqQOvZIU",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "I have identified several phenotypic features and their associated diseases or syndromes. To refine the list of potential diagnoses, I will now focus on diseases that match multiple features and exclude those that include the excluded features. Let me query the knowledge graph for diseases associated with the combination of these features.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_LvqwoY4iFD45SeVhiHJo5URO",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) WHERE p.id IN ['HP:0000154', 'HP:0001249', 'HP:0001382', 'HP:0001270', 'HP:0001513', 'HP:0009890', 'HP:0002370', 'HP:0000316', 'HP:0001252', 'HP:0000750', 'HP:0001520', 'HP:0000733', 'HP:0000540', 'HP:0011220', 'HP:0001769', 'HP:0000483', 'HP:0000411', 'HP:0000729', 'HP:0003307'] AND NOT (p.id IN ['HP:0000175', 'HP:0001250', 'HP:0001257', 'HP:0000028', 'HP:0000385', 'HP:0000709', 'HP:0011968', 'HP:0002591', 'HP:0000767', 'HP:0000640', 'HP:0002013', 'HP:0001267', 'HP:0002019', 'HP:0001328']) RETURN d, COUNT(p) AS feature_overlap ORDER BY feature_overlap DESC LIMIT 10\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [{'data': {'id': 'MONDO:0014379', 'caption': 'ADNP-related multiple congenital anomalies - intellectual disability - autism spectrum disorder', 'name': 'ADNP-related multiple congenital anomalies - intellectual disability - autism spectrum disorder', 'description': 'An autosomal dominant non-syndromic intellectual disability that has material basis in an autosomal dominant mutation of ADNP on chromosome 20q13.13.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014606', 'caption': 'intellectual disability-microcephaly-strabismus-behavioral abnormalities syndrome', 'name': 'intellectual disability-microcephaly-strabismus-behavioral abnormalities syndrome', 'description': 'Intellectual disability-microcephaly-strabismus-behavioral abnormalities syndrome is a rare, genetic, syndromic intellectual disability disorder characterized by craniofacial dysmorphism (microcephaly, hypotonic facies, strabismus, long and flat malar region, posteriorly rotated ears, flat nasal bridge with broad nasal tip, short philtrum, thin vermillion border, open mouth with down-turned corners, high arched palate, pointed chin), global developmental delay, intellectual disability and variable neurobehavioral abnormalities (autism spectrum disorder, aggressiveness, self injury). Additional features include vision abnormalities and variable sensorineural hearing loss, as well as short stature, hypotonia and gastrointestinal manifestations (e.g. poor feeding, gastroesophageal reflux, constipation).', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0013256', 'caption': 'chromosome 15q24 deletion syndrome', 'name': 'chromosome 15q24 deletion syndrome', 'description': '15q24 microdeletion syndrome is a rare chromosomal anomaly characterized cytogenetically by a 1.7-6.1 Mb deletion in chromosome 15q24 and clinically by pre- and post-natal growth retardation, intellectual disability, distinct facial features, and genital, skeletal, and digital anomalies.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0019349', 'caption': 'Sotos syndrome', 'name': 'Sotos syndrome', 'description': 'Sotos syndrome is a rare multisystemic genetic disorder characterized by a typical facial appearance, overgrowth of the body in early life with macrocephaly, and mild to severe intellectual disability.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014213', 'caption': 'intellectual disability-feeding difficulties-developmental delay-microcephaly syndrome', 'name': 'intellectual disability-feeding difficulties-developmental delay-microcephaly syndrome', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0060760', 'caption': 'intellectual developmental disorder with dysmorphic facies and behavioral abnormalities', 'name': 'intellectual developmental disorder with dysmorphic facies and behavioral abnormalities', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014298', 'caption': 'chromosome 5q12 deletion syndrome', 'name': 'chromosome 5q12 deletion syndrome', 'description': 'PDE4D haploinsufficiency syndrome is a rare syndromic intellectual disability characterized by developmental delay, intellectual disability, low body mass index, long arms, fingers and toes, prominent nose and small chin.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0011537', 'caption': 'macrocephaly-autism syndrome', 'name': 'macrocephaly-autism syndrome', 'description': \"An autosomal dominant disease characterized by macrocephaly, facial phenotypes including square outline with frontal bossing, 'dished-out' midface, biparietal narrowing, and long philtrum, developmental delay and autism that has material basis in heterozygous mutation in the PTEN gene on chromosome 10q23.\", 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0859178', 'caption': 'developmental delay, impaired speech, and behavioral abnormalities', 'name': 'developmental delay, impaired speech, and behavioral abnormalities', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0032600', 'caption': 'Snijders Blok-Campeau syndrome', 'name': 'Snijders Blok-Campeau syndrome', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': []}}",
+            "name": "run_query",
+            "tool_call_id": "call_LvqwoY4iFD45SeVhiHJo5URO",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "Based on the patient's phenotypic features and the exclusion of certain traits, here is a rank-ordered list of potential diagnoses:\n\n1. **[ADNP-related multiple congenital anomalies - intellectual disability - autism spectrum disorder](https://monarchinitiative.org/MONDO:0014379)**: This condition is associated with intellectual disability, autism spectrum disorder, and multiple congenital anomalies, which align with the patient's features such as intellectual disability, autistic behavior, and developmental delays.\n\n2. **[Intellectual disability-microcephaly-strabismus-behavioral abnormalities syndrome](https://monarchinitiative.org/MONDO:0014606)**: This syndrome includes intellectual disability, behavioral abnormalities, and developmental delays, which are consistent with the patient's presentation.\n\n3. **[Chromosome 15q24 deletion syndrome](https://monarchinitiative.org/MONDO:0013256)**: This syndrome is characterized by intellectual disability, distinct facial features, and developmental delays, which match the patient's features.\n\n4. **[Sotos syndrome](https://monarchinitiative.org/MONDO:0019349)**: This condition involves overgrowth, macrocephaly, and intellectual disability, which are consistent with the patient's large-for-gestational-age status and developmental delays.\n\n5. **[Intellectual disability-feeding difficulties-developmental delay-microcephaly syndrome](https://monarchinitiative.org/MONDO:0014213)**: This syndrome includes intellectual disability and developmental delays, though feeding difficulties are excluded in this patient.\n\n6. **[Intellectual developmental disorder with dysmorphic facies and behavioral abnormalities](https://monarchinitiative.org/MONDO:0060760)**: This condition involves intellectual disability, dysmorphic features, and behavioral abnormalities, aligning with the patient's presentation.\n\n7. **[Chromosome 5q12 deletion syndrome](https://monarchinitiative.org/MONDO:0014298)**: This syndrome includes developmental delay, intellectual disability, and distinct facial features, which are consistent with the patient's features.\n\n8. **[Macrocephaly-autism syndrome](https://monarchinitiative.org/MONDO:0011537)**: This condition involves macrocephaly, autism, and developmental delays, which align with the patient's autistic behavior and developmental delays.\n\n9. **[Developmental delay, impaired speech, and behavioral abnormalities](https://monarchinitiative.org/MONDO:0859178)**: This condition includes developmental delays and behavioral abnormalities, which are consistent with the patient's features.\n\n10. **[Snijders Blok-Campeau syndrome](https://monarchinitiative.org/MONDO:0032600)**: This syndrome involves developmental delays and behavioral abnormalities, which align with the patient's presentation.\n\nThese diagnoses are ranked based on the overlap of features with the patient's presentation. Further clinical evaluation, genetic testing, and consultation with a specialist are recommended to confirm the diagnosis.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": null,
+            "is_tool_call_error": null
+        }
+    ],
+    "expected_diagnosis_mondo": [
+        {
+            "mondo_id": "MONDO:0032790",
+            "disease_name": "neurodevelopmental disorder with coarse facies and mild distal skeletal abnormalities"
+        }
+    ]
+}

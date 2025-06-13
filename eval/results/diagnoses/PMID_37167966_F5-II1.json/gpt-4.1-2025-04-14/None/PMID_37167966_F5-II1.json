@@ -1,0 +1,284 @@
+{
+    "phenopacket": {
+        "id": "PMID_37167966_F5-II:1",
+        "subject": {
+            "id": "F5-II:1",
+            "timeAtLastEncounter": {
+                "age": {
+                    "iso8601duration": "P35Y"
+                }
+            },
+            "sex": "FEMALE"
+        },
+        "phenotypicFeatures": [
+            {
+                "type": {
+                    "id": "HP:0003236",
+                    "label": "Elevated circulating creatine kinase concentration"
+                },
+                "onset": {
+                    "age": {
+                        "iso8601duration": "P0D"
+                    }
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0003701",
+                    "label": "Proximal muscle weakness"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0003327",
+                    "label": "Axial muscle weakness"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0003326",
+                    "label": "Myalgia"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001315",
+                    "label": "Reduced tendon reflexes"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0003687",
+                    "label": "Centrally nucleated skeletal muscle fibers"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0003803",
+                    "label": "Type 1 muscle fiber predominance"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0100297",
+                    "label": "Increased endomysial connective tissue"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0012240",
+                    "label": "Increased intramyocellular lipid droplets"
+                },
+                "excluded": true
+            }
+        ],
+        "interpretations": [
+            {
+                "id": "F5-II:1",
+                "progressStatus": "SOLVED",
+                "diagnosis": {
+                    "disease": {
+                        "id": "OMIM:620375",
+                        "label": "Muscular dystrophy, limb-girdle, autosomal recessive 28"
+                    },
+                    "genomicInterpretations": [
+                        {
+                            "subjectOrBiosampleId": "F5-II:1",
+                            "interpretationStatus": "CAUSATIVE",
+                            "variantInterpretation": {
+                                "variationDescriptor": {
+                                    "id": "var_kuAMQrCmnJtXvAKXRPaXKDJBj",
+                                    "geneContext": {
+                                        "valueId": "HGNC:5006",
+                                        "symbol": "HMGCR"
+                                    },
+                                    "expressions": [
+                                        {
+                                            "syntax": "hgvs.c",
+                                            "value": "NM_000859.2:c.1401C>G"
+                                        },
+                                        {
+                                            "syntax": "hgvs.g",
+                                            "value": "NC_000005.10:g.75354535C>G"
+                                        }
+                                    ],
+                                    "vcfRecord": {
+                                        "genomeAssembly": "hg38",
+                                        "chrom": "chr5",
+                                        "pos": "75354535",
+                                        "ref": "C",
+                                        "alt": "G"
+                                    },
+                                    "moleculeContext": "genomic",
+                                    "allelicState": {
+                                        "id": "GENO:0000136",
+                                        "label": "homozygous"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "diseases": [
+            {
+                "term": {
+                    "id": "OMIM:620375",
+                    "label": "Muscular dystrophy, limb-girdle, autosomal recessive 28"
+                },
+                "onset": {
+                    "age": {
+                        "iso8601duration": "P16Y"
+                    }
+                }
+            }
+        ],
+        "metaData": {
+            "created": "2024-04-19T06:24:12.440951108Z",
+            "createdBy": "ORCID:0000-0002-0736-9199",
+            "resources": [
+                {
+                    "id": "geno",
+                    "name": "Genotype Ontology",
+                    "url": "http://purl.obolibrary.org/obo/geno.owl",
+                    "version": "2022-03-05",
+                    "namespacePrefix": "GENO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+                },
+                {
+                    "id": "hgnc",
+                    "name": "HUGO Gene Nomenclature Committee",
+                    "url": "https://www.genenames.org",
+                    "version": "06/01/23",
+                    "namespacePrefix": "HGNC",
+                    "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+                },
+                {
+                    "id": "omim",
+                    "name": "An Online Catalog of Human Genes and Genetic Disorders",
+                    "url": "https://www.omim.org",
+                    "version": "January 4, 2023",
+                    "namespacePrefix": "OMIM",
+                    "iriPrefix": "https://www.omim.org/entry/"
+                },
+                {
+                    "id": "so",
+                    "name": "Sequence types and features ontology",
+                    "url": "http://purl.obolibrary.org/obo/so.obo",
+                    "version": "2021-11-22",
+                    "namespacePrefix": "SO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+                },
+                {
+                    "id": "hp",
+                    "name": "human phenotype ontology",
+                    "url": "http://purl.obolibrary.org/obo/hp.owl",
+                    "version": "2024-04-04",
+                    "namespacePrefix": "HP",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+                }
+            ],
+            "phenopacketSchemaVersion": "2.0",
+            "externalReferences": [
+                {
+                    "id": "PMID:37167966",
+                    "reference": "https://pubmed.ncbi.nlm.nih.gov/37167966",
+                    "description": "Bi-allelic variants in HMGCR cause an autosomal-recessive progressive limb-girdle muscular dystrophy"
+                }
+            ]
+        }
+    },
+    "cost_est_base_rate": 0.02969,
+    "tokens_used_prompt": 11129,
+    "tokens_used_completion": 929,
+    "query": "From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses, even if there is insufficient information to make a definitive diagnosis. If you are unsure, provide a list of possible diagnoses with the most likely one first.\n\nPatient ID: F5-II:1\nPatient age: 35 years\nPatient sex: Female\nPatient features: Elevated circulating creatine kinase concentration (onset newborn), Proximal muscle weakness, Axial muscle weakness, Myalgia, Reduced tendon reflexes, Centrally nucleated skeletal muscle fibers, Type 1 muscle fiber predominance.\nExcluded patient features: Increased endomysial connective tissue, Increased intramyocellular lipid droplets.",
+    "phenopacket_file": "phenopackets/PMID_37167966_F5-II1.json",
+    "expected_diagnosis": "OMIM:620375",
+    "base_engine": "gpt-4.1-2025-04-14",
+    "eval_engine": "None",
+    "eval_chain": [],
+    "messages": [
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_Hj5Elv3PIYSLTvq8Tv488c0b",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"Elevated circulating creatine kinase concentration\", \"Proximal muscle weakness\", \"Axial muscle weakness\", \"Myalgia\", \"Reduced tendon reflexes\", \"Centrally nucleated skeletal muscle fibers\", \"Type 1 muscle fiber predominance\"]}"
+                    }
+                },
+                {
+                    "id": "call_y6KzVwbt6cai3gqjubKabzVp",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"Increased endomysial connective tissue\", \"Increased intramyocellular lipid droplets\"]}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'Elevated circulating creatine kinase concentration': [{'id': 'HP:0003236', 'category': 'biolink:PhenotypicFeature', 'name': 'Elevated circulating creatine kinase concentration', 'in_taxon_label': None}, {'id': 'MP:0010090', 'category': 'biolink:PhenotypicFeature', 'name': 'increased circulating creatine kinase level', 'in_taxon_label': None}], 'Proximal muscle weakness': [{'id': 'HP:0003701', 'category': 'biolink:PhenotypicFeature', 'name': 'Proximal muscle weakness', 'in_taxon_label': None}, {'id': 'HP:0009073', 'category': 'biolink:PhenotypicFeature', 'name': 'Progressive proximal muscle weakness', 'in_taxon_label': None}, {'id': 'HP:0003694', 'category': 'biolink:PhenotypicFeature', 'name': 'Late-onset proximal muscle weakness', 'in_taxon_label': None}, {'id': 'HP:0008994', 'category': 'biolink:PhenotypicFeature', 'name': 'Proximal muscle weakness in lower limbs', 'in_taxon_label': None}, {'id': 'HP:0008997', 'category': 'biolink:PhenotypicFeature', 'name': 'Proximal muscle weakness in upper limbs', 'in_taxon_label': None}], 'Axial muscle weakness': [{'id': 'HP:0003327', 'category': 'biolink:PhenotypicFeature', 'name': 'Axial muscle weakness', 'in_taxon_label': None}, {'id': 'UPHENO:0080568', 'category': 'biolink:PhenotypicFeature', 'name': 'decreased axial muscle strength', 'in_taxon_label': None}, {'id': 'MONDO:0100497', 'category': 'biolink:Disease', 'name': 'titinopathy with congenital contractures', 'in_taxon_label': None}, {'id': 'MONDO:0013061', 'category': 'biolink:Disease', 'name': 'myofibrillar myopathy 6', 'in_taxon_label': None}, {'id': 'MONDO:0100100', 'category': 'biolink:Disease', 'name': 'SELENON-related myopathy', 'in_taxon_label': None}], 'Myalgia': [{'id': 'HP:0003326', 'category': 'biolink:PhenotypicFeature', 'name': 'Myalgia', 'in_taxon_label': None}, {'id': 'MONDO:0004941', 'category': 'biolink:Disease', 'name': 'eosinophilia-myalgia syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0850415', 'category': 'biolink:Disease', 'name': 'rhabdomyolysis-myalgia syndrome', 'in_taxon_label': None}, {'id': 'HP:0031921', 'category': 'biolink:PhenotypicFeature', 'name': 'Gastrocnemius myalgia', 'in_taxon_label': None}, {'id': 'HP:0003738', 'category': 'biolink:PhenotypicFeature', 'name': 'Exercise-induced myalgia', 'in_taxon_label': None}], 'Reduced tendon reflexes': [{'id': 'HP:0001315', 'category': 'biolink:PhenotypicFeature', 'name': 'Reduced tendon reflexes', 'in_taxon_label': None}, {'id': 'HP:0012392', 'category': 'biolink:PhenotypicFeature', 'name': 'Jaw hyporeflexia', 'in_taxon_label': None}, {'id': 'HP:0012391', 'category': 'biolink:PhenotypicFeature', 'name': 'Hyporeflexia of upper limbs', 'in_taxon_label': None}, {'id': 'HP:0002600', 'category': 'biolink:PhenotypicFeature', 'name': 'Hyporeflexia of lower limbs', 'in_taxon_label': None}, {'id': 'MONDO:0013212', 'category': 'biolink:Disease', 'name': 'Charcot-Marie-Tooth disease axonal type 2N', 'in_taxon_label': None}], 'Centrally nucleated skeletal muscle fibers': [{'id': 'HP:0003687', 'category': 'biolink:PhenotypicFeature', 'name': 'Centrally nucleated skeletal muscle fibers', 'in_taxon_label': None}, {'id': 'MP:0009404', 'category': 'biolink:PhenotypicFeature', 'name': 'centrally nucleated skeletal muscle fibers', 'in_taxon_label': None}], 'Type 1 muscle fiber predominance': [{'id': 'HP:0003803', 'category': 'biolink:PhenotypicFeature', 'name': 'Type 1 muscle fiber predominance', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_Hj5Elv3PIYSLTvq8Tv488c0b",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "function",
+            "content": "{'Increased endomysial connective tissue': [{'id': 'HP:0100297', 'category': 'biolink:PhenotypicFeature', 'name': 'Increased endomysial connective tissue', 'in_taxon_label': None}], 'Increased intramyocellular lipid droplets': [{'id': 'HP:0012240', 'category': 'biolink:PhenotypicFeature', 'name': 'Increased intramyocellular lipid droplets', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_y6KzVwbt6cai3gqjubKabzVp",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_7Vu8lJBhOkANW3lcqMlJmguE",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) WHERE p.id IN ['HP:0003236','HP:0003701','HP:0003327','HP:0003326','HP:0001315','HP:0003687','HP:0003803'] WITH d, count(p) AS matched_phenotypes MATCH (d)-[:biolink_has_phenotype]->(allp:biolink_PhenotypicFeature) WITH d, matched_phenotypes, collect(allp.id) AS all_phenotypes WHERE NOT 'HP:0100297' IN all_phenotypes AND NOT 'HP:0012240' IN all_phenotypes RETURN d, matched_phenotypes ORDER BY matched_phenotypes DESC LIMIT 15\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [{'data': {'id': 'MONDO:0009708', 'caption': 'myopathy, myosin storage, autosomal recessive', 'name': 'myopathy, myosin storage, autosomal recessive', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0013225', 'caption': 'congenital generalized lipodystrophy type 4', 'name': 'congenital generalized lipodystrophy type 4', 'description': 'Any congenital generalized lipodystrophy in which the cause of the disease is a mutation in the CAVIN1 gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0009712', 'caption': 'congenital multicore myopathy with external ophthalmoplegia', 'name': 'congenital multicore myopathy with external ophthalmoplegia', 'description': '\"An autosomal recessive condition caused by mutation(s) in the RYR1 gene, encoding ryanodine receptor 1. It may be characterized clinically by neonatal hypotonia, delayed motor development, and generalized muscle weakness, and amyotrophy. Pathologically, the absence of mitochondria and focal disorganization of the sarcomere appear as \"\"minicores\"\" on ATPase staining as a result of focal defects in oxidative activity.\"', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0012240', 'caption': 'congenital myopathy 23', 'name': 'congenital myopathy 23', 'description': 'Any nemaline myopathy in which the cause of the disease is a mutation in the TPM2 gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0019127', 'caption': 'polymyositis', 'name': 'polymyositis', 'description': 'A rare idiopathic inflammatory myopathy characterized by symmetric proximal muscle weakness and elevated muscle enzymes.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0029133', 'caption': 'muscular dystrophy, limb-girdle, autosomal dominant 4', 'name': 'muscular dystrophy, limb-girdle, autosomal dominant 4', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0030927', 'caption': 'myofibrillar myopathy 11', 'name': 'myofibrillar myopathy 11', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0008050', 'caption': 'MYH7-related skeletal myopathy', 'name': 'MYH7-related skeletal myopathy', 'description': 'Laing distal myopathy, also called myopathy distal, type 1 (MPD1), is characterized by early-onset selective weakness of the great toe and ankle dorsiflexors, and a very slowly progressive course.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0012248', 'caption': 'autosomal recessive limb-girdle muscular dystrophy type 2K', 'name': 'autosomal recessive limb-girdle muscular dystrophy type 2K', 'description': 'Autosomal recessive limb-girdle muscular dystrophy type 2K (LGMD2K) is a form of limb-girdle muscular dystrophy characterized by the onset of slowly progressive proximal muscle weakness during childhood (with fatigue and difficulty running and climbing stairs) and developmental delay. Mild intellectual deficit and microcephaly, without any obvious structural brain abnormality, are found in all patients. Mild pseudohypertrophy and joint contractures of the ankles have also been reported.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0859530', 'caption': 'myopathy, sarcoplasmic body', 'name': 'myopathy, sarcoplasmic body', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0020485', 'caption': 'King-Denborough syndrome', 'name': 'King-Denborough syndrome', 'description': 'A rare genetic non-dystrophic myopathy characterized by the triad of congenital myopathy, dysmorphic features and susceptibility to malignant hyperthermia. Patients present with a wide phenotypic range, including delayed motor development, muscle weakness and fatigability, ptosis and facies myopathica (with or without creatine kinase elevations), skeletal abnormalities (e.g. short stature, scoliosis, kyphosis, lumbar lordosis and pectus carinatum/excavatum), mild dysmorphic facial features (e.g. hypertelorism, down-slanting palpebral fissures, epicanthic folds, low set ears, micrognathia), webbing of the neck, cryptorchidism, and a susceptibility to malignant hyperthermia and/or rhabdomyolysis due to intensive physical strain, viral infection or statin use.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0007827', 'caption': 'inclusion body myositis', 'name': 'inclusion body myositis', 'description': 'A slowly progressive degenerative inflammatory disorder of skeletal muscles characterized by late onset weakness of specific muscles and distinctive histopathological features.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0013686', 'caption': 'distal myopathy, Tateyama type', 'name': 'distal myopathy, Tateyama type', 'description': 'Distal myopathy, Tateyama type is a rare, genetic, slowly progressive, distal myopathy disorder characterized by muscle atrophy and weakness limited to the small muscles of the hands and feet (in particular, thenar and hypothenar muscle atrophy), increased serum creatine kinase, and severely reduced caveolin-3 expression on muscle biopsy. Some patients may also show calf hypertrophy, pes cavus, and signs of muscle hyperexcitability.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0008048', 'caption': 'autosomal dominant centronuclear myopathy', 'name': 'autosomal dominant centronuclear myopathy', 'description': 'An inherited neuromuscular disorder defined by numerous centrally placed nuclei on muscle biopsy and clinical features of a congenital myopathy.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0024530', 'caption': 'Bethlem myopathy 1A', 'name': 'Bethlem myopathy 1A', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': []}}",
+            "name": "run_query",
+            "tool_call_id": "call_7Vu8lJBhOkANW3lcqMlJmguE",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "Based on the patient's features and the exclusion of certain findings, here is a rank-ordered list of possible diagnoses. These are derived from diseases that are associated with the following features:\n\n- Elevated circulating creatine kinase concentration (onset newborn)\n- Proximal muscle weakness\n- Axial muscle weakness\n- Myalgia\n- Reduced tendon reflexes\n- Centrally nucleated skeletal muscle fibers\n- Type 1 muscle fiber predominance\n\nAnd that do NOT typically present with:\n- Increased endomysial connective tissue\n- Increased intramyocellular lipid droplets\n\nHere are the top possible diagnoses:\n\n1. [Myopathy, myosin storage, autosomal recessive](https://monarchinitiative.org/MONDO:0009708)\n2. [Congenital generalized lipodystrophy type 4](https://monarchinitiative.org/MONDO:0013225)\n3. [Congenital multicore myopathy with external ophthalmoplegia](https://monarchinitiative.org/MONDO:0009712)\n4. [Congenital myopathy 23](https://monarchinitiative.org/MONDO:0012240)\n5. [Polymyositis](https://monarchinitiative.org/MONDO:0019127)\n6. [Muscular dystrophy, limb-girdle, autosomal dominant 4](https://monarchinitiative.org/MONDO:0029133)\n7. [Myofibrillar myopathy 11](https://monarchinitiative.org/MONDO:0030927)\n8. [MYH7-related skeletal myopathy](https://monarchinitiative.org/MONDO:0008050)\n9. [Autosomal recessive limb-girdle muscular dystrophy type 2K](https://monarchinitiative.org/MONDO:0012248)\n10. [Myopathy, sarcoplasmic body](https://monarchinitiative.org/MONDO:0859530)\n\nOther possible but less likely diagnoses (based on the features and exclusions) include:\n- [King-Denborough syndrome](https://monarchinitiative.org/MONDO:0020485)\n- [Inclusion body myositis](https://monarchinitiative.org/MONDO:0007827)\n- [Distal myopathy, Tateyama type](https://monarchinitiative.org/MONDO:0013686)\n- [Autosomal dominant centronuclear myopathy](https://monarchinitiative.org/MONDO:0008048)\n- [Bethlem myopathy 1A](https://monarchinitiative.org/MONDO:0024530)\n\nThe most likely diagnosis, given the combination of muscle weakness, elevated creatine kinase, and centrally nucleated muscle fibers (with the exclusions you provided), is myopathy, myosin storage, autosomal recessive. However, further clinical correlation and genetic testing would be required for a definitive diagnosis.\n\nIf you would like more details about any of these conditions or the reasoning behind their ranking, please let me know!",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": null,
+            "is_tool_call_error": null
+        }
+    ],
+    "expected_diagnosis_mondo": [
+        {
+            "mondo_id": "MONDO:0957270",
+            "disease_name": "muscular dystrophy, limb-girdle, autosomal recessive 28"
+        }
+    ]
+}

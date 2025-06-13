@@ -1,0 +1,323 @@
+{
+    "phenopacket": {
+        "id": "PMID_19776401_Patient_8-2",
+        "subject": {
+            "id": "Patient 8-2",
+            "timeAtLastEncounter": {
+                "age": {
+                    "iso8601duration": "P16Y"
+                }
+            },
+            "sex": "MALE"
+        },
+        "phenotypicFeatures": [
+            {
+                "type": {
+                    "id": "HP:0000491",
+                    "label": "Keratitis"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0032163",
+                    "label": "Molluscum contagiosum"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0006532",
+                    "label": "Recurrent pneumonia"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000403",
+                    "label": "Recurrent otitis media"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0100658",
+                    "label": "Cellulitis"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0410330",
+                    "label": "Meat allergen allergy"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001047",
+                    "label": "Atopic dermatitis"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0410328",
+                    "label": "Egg allergy"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0006335",
+                    "label": "Persistence of primary teeth"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0410017",
+                    "label": "Otitis externa"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0410331",
+                    "label": "Nut food product allergy"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000246",
+                    "label": "Sinusitis"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0002788",
+                    "label": "Recurrent upper respiratory tract infections"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0410327",
+                    "label": "Dairy allergy"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0410323",
+                    "label": "Drug allergy"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0002099",
+                    "label": "Asthma"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0002664",
+                    "label": "Neoplasm"
+                },
+                "excluded": true
+            }
+        ],
+        "interpretations": [
+            {
+                "id": "Patient 8-2",
+                "progressStatus": "SOLVED",
+                "diagnosis": {
+                    "disease": {
+                        "id": "OMIM:243700",
+                        "label": "Hyper-IgE syndrome 2, autosomal recessive, with recurrent infections"
+                    },
+                    "genomicInterpretations": [
+                        {
+                            "subjectOrBiosampleId": "Patient 8-2",
+                            "interpretationStatus": "CAUSATIVE",
+                            "variantInterpretation": {
+                                "variationDescriptor": {
+                                    "id": "var_cblkpekucoPHYhstWOBfXIyuN",
+                                    "geneContext": {
+                                        "valueId": "HGNC:19191",
+                                        "symbol": "DOCK8"
+                                    },
+                                    "expressions": [
+                                        {
+                                            "syntax": "hgvs.c",
+                                            "value": "NM_203447.3:c.1418A>G"
+                                        },
+                                        {
+                                            "syntax": "hgvs.g",
+                                            "value": "NC_000009.12:g.336714A>G"
+                                        }
+                                    ],
+                                    "vcfRecord": {
+                                        "genomeAssembly": "hg38",
+                                        "chrom": "chr9",
+                                        "pos": "336714",
+                                        "ref": "A",
+                                        "alt": "G"
+                                    },
+                                    "moleculeContext": "genomic",
+                                    "allelicState": {
+                                        "id": "GENO:0000136",
+                                        "label": "homozygous"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "diseases": [
+            {
+                "term": {
+                    "id": "OMIM:243700",
+                    "label": "Hyper-IgE syndrome 2, autosomal recessive, with recurrent infections"
+                }
+            }
+        ],
+        "metaData": {
+            "created": "2024-03-21T17:48:06.198977947Z",
+            "createdBy": "ORCID:0000-0002-5648-2155",
+            "resources": [
+                {
+                    "id": "geno",
+                    "name": "Genotype Ontology",
+                    "url": "http://purl.obolibrary.org/obo/geno.owl",
+                    "version": "2022-03-05",
+                    "namespacePrefix": "GENO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+                },
+                {
+                    "id": "hgnc",
+                    "name": "HUGO Gene Nomenclature Committee",
+                    "url": "https://www.genenames.org",
+                    "version": "06/01/23",
+                    "namespacePrefix": "HGNC",
+                    "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+                },
+                {
+                    "id": "omim",
+                    "name": "An Online Catalog of Human Genes and Genetic Disorders",
+                    "url": "https://www.omim.org",
+                    "version": "January 4, 2023",
+                    "namespacePrefix": "OMIM",
+                    "iriPrefix": "https://www.omim.org/entry/"
+                },
+                {
+                    "id": "so",
+                    "name": "Sequence types and features ontology",
+                    "url": "http://purl.obolibrary.org/obo/so.obo",
+                    "version": "2021-11-22",
+                    "namespacePrefix": "SO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+                },
+                {
+                    "id": "hp",
+                    "name": "human phenotype ontology",
+                    "url": "http://purl.obolibrary.org/obo/hp.owl",
+                    "version": "2024-02-27",
+                    "namespacePrefix": "HP",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+                }
+            ],
+            "phenopacketSchemaVersion": "2.0",
+            "externalReferences": [
+                {
+                    "id": "PMID:19776401",
+                    "reference": "https://pubmed.ncbi.nlm.nih.gov/19776401",
+                    "description": "Combined immunodeficiency associated with DOCK8 mutations"
+                }
+            ]
+        }
+    },
+    "cost_est_base_rate": 0.034561999999999996,
+    "tokens_used_prompt": 13489,
+    "tokens_used_completion": 948,
+    "query": "From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses, even if there is insufficient information to make a definitive diagnosis. If you are unsure, provide a list of possible diagnoses with the most likely one first.\n\nPatient ID: Patient 8-2\nPatient age: 16 years\nPatient sex: Male\nPatient features: Keratitis, Molluscum contagiosum, Recurrent pneumonia, Recurrent otitis media, Cellulitis, Meat allergen allergy, Atopic dermatitis, Egg allergy, Persistence of primary teeth, Otitis externa, Nut food product allergy, Sinusitis, Recurrent upper respiratory tract infections, Dairy allergy.\nExcluded patient features: Drug allergy, Asthma, Neoplasm.",
+    "phenopacket_file": "phenopackets/PMID_19776401_Patient8-2.json",
+    "expected_diagnosis": "OMIM:243700",
+    "base_engine": "gpt-4.1-2025-04-14",
+    "eval_engine": "None",
+    "eval_chain": [],
+    "messages": [
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_vwnZiczd1vHFEcVZ5h3d12cf",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"Keratitis\", \"Molluscum contagiosum\", \"Recurrent pneumonia\", \"Recurrent otitis media\", \"Cellulitis\", \"Meat allergy\", \"Atopic dermatitis\", \"Egg allergy\", \"Persistence of primary teeth\", \"Otitis externa\", \"Nut allergy\", \"Sinusitis\", \"Recurrent upper respiratory tract infections\", \"Dairy allergy\"]}"
+                    }
+                },
+                {
+                    "id": "call_XxXnKHedzQ3nAsrgeYXgYiwg",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"Drug allergy\", \"Asthma\", \"Neoplasm\"]}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'Keratitis': [{'id': 'HP:0000491', 'category': 'biolink:PhenotypicFeature', 'name': 'Keratitis', 'in_taxon_label': None}, {'id': 'MONDO:0003085', 'category': 'biolink:Disease', 'name': 'keratitis', 'in_taxon_label': None}, {'id': 'MONDO:0015291', 'category': 'biolink:Disease', 'name': 'stromal keratitis', 'in_taxon_label': None}, {'id': 'MONDO:0004794', 'category': 'biolink:Disease', 'name': 'exposure keratitis', 'in_taxon_label': None}, {'id': 'MONDO:0001465', 'category': 'biolink:Disease', 'name': 'superficial keratitis', 'in_taxon_label': None}], 'Molluscum contagiosum': [{'id': 'MONDO:0005855', 'category': 'biolink:Disease', 'name': 'molluscum contagiosum', 'in_taxon_label': None}, {'id': 'HP:0032163', 'category': 'biolink:PhenotypicFeature', 'name': 'Molluscum contagiosum', 'in_taxon_label': None}, {'id': 'HP:0032185', 'category': 'biolink:PhenotypicFeature', 'name': 'Disseminated molluscum contagiosum', 'in_taxon_label': None}, {'id': 'NCBITaxon:10279', 'category': 'biolink:OrganismTaxon', 'name': 'Molluscum contagiosum virus', 'in_taxon_label': None}, {'id': 'HP:0010732', 'category': 'biolink:PhenotypicFeature', 'name': 'Nodular changes affecting the eyelids', 'in_taxon_label': None}], 'Recurrent pneumonia': [{'id': 'MONDO:0005936', 'category': 'biolink:Disease', 'name': 'recurrent pneumonia', 'in_taxon_label': None}, {'id': 'HP:0006532', 'category': 'biolink:PhenotypicFeature', 'name': 'Recurrent pneumonia', 'in_taxon_label': None}, {'id': 'HP:0033214', 'category': 'biolink:PhenotypicFeature', 'name': 'Recurrent viral pneumonia', 'in_taxon_label': None}, {'id': 'HP:0002100', 'category': 'biolink:PhenotypicFeature', 'name': 'Recurrent aspiration pneumonia', 'in_taxon_label': None}, {'id': 'MONDO:0018955', 'category': 'biolink:Disease', 'name': 'recurrent respiratory papillomatosis', 'in_taxon_label': None}], 'Recurrent otitis media': [{'id': 'HP:0000403', 'category': 'biolink:PhenotypicFeature', 'name': 'Recurrent otitis media', 'in_taxon_label': None}, {'id': 'MONDO:0008162', 'category': 'biolink:Disease', 'name': 'otitis media, susceptibility to', 'in_taxon_label': None}, {'id': 'MONDO:0022468', 'category': 'biolink:Disease', 'name': 'antigen-peptide-transporter 2 deficiency', 'in_taxon_label': None}, {'id': 'MONDO:0017849', 'category': 'biolink:Disease', 'name': 'Siegler-Brewer-Carey syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0012548', 'category': 'biolink:Disease', 'name': 'Kostmann syndrome', 'in_taxon_label': None}], 'Cellulitis': [{'id': 'HP:0100658', 'category': 'biolink:PhenotypicFeature', 'name': 'Cellulitis', 'in_taxon_label': None}, {'id': 'MONDO:0005230', 'category': 'biolink:Disease', 'name': 'cellulitis', 'in_taxon_label': None}, {'id': 'MONDO:0006881', 'category': 'biolink:Disease', 'name': 'orbital cellulitis', 'in_taxon_label': None}, {'id': 'MONDO:0024414', 'category': 'biolink:Disease', 'name': 'anaerobic cellulitis', 'in_taxon_label': None}, {'id': 'MONDO:0009848', 'category': 'biolink:Disease', 'name': 'dissecting cellulitis of the scalp', 'in_taxon_label': None}], 'Meat allergy': [{'id': 'HP:0410330', 'category': 'biolink:PhenotypicFeature', 'name': 'Meat allergen allergy', 'in_taxon_label': None}, {'id': 'MONDO:0100001', 'category': 'biolink:Disease', 'name': 'alpha-gal syndrome', 'in_taxon_label': None}], 'Atopic dermatitis': [{'id': 'MONDO:0002406', 'category': 'biolink:Disease', 'name': 'dermatitis', 'in_taxon_label': None}, {'id': 'MONDO:0100181', 'category': 'biolink:Disease', 'name': 'dermatitis, atopic, 1', 'in_taxon_label': None}, {'id': 'MONDO:0013295', 'category': 'biolink:Disease', 'name': 'dermatitis, atopic, 9', 'in_taxon_label': None}, {'id': 'MONDO:0011608', 'category': 'biolink:Disease', 'name': 'dermatitis, atopic, 5', 'in_taxon_label': None}, {'id': 'MONDO:0013107', 'category': 'biolink:Disease', 'name': 'dermatitis, atopic, 7', 'in_taxon_label': None}], 'Egg allergy': [{'id': 'HP:0410328', 'category': 'biolink:PhenotypicFeature', 'name': 'Egg allergy', 'in_taxon_label': None}, {'id': 'MONDO:0005741', 'category': 'biolink:Disease', 'name': 'obsolete egg allergy', 'in_taxon_label': None}, {'id': 'MONDO:0000769', 'category': 'biolink:Disease', 'name': 'obsolete chicken egg allergy', 'in_taxon_label': None}], 'Persistence of primary teeth': [{'id': 'HP:0006335', 'category': 'biolink:PhenotypicFeature', 'name': 'Persistence of primary teeth', 'in_taxon_label': None}], 'Otitis externa': [{'id': 'MONDO:0004795', 'category': 'biolink:Disease', 'name': 'otitis externa', 'in_taxon_label': None}, {'id': 'MONDO:0001050', 'category': 'biolink:Disease', 'name': 'malignant otitis externa', 'in_taxon_label': None}, {'id': 'MONDO:0001051', 'category': 'biolink:Disease', 'name': 'acute otitis externa', 'in_taxon_label': None}, {'id': 'HP:0410017', 'category': 'biolink:PhenotypicFeature', 'name': 'Otitis externa', 'in_taxon_label': None}, {'id': 'MONDO:0001052', 'category': 'biolink:Disease', 'name': 'chronic fungal otitis externa', 'in_taxon_label': None}], 'Nut allergy': [{'id': 'HP:0410331', 'category': 'biolink:PhenotypicFeature', 'name': 'Nut food product allergy', 'in_taxon_label': None}, {'id': 'MONDO:0006872', 'category': 'biolink:Disease', 'name': 'obsolete nut allergic reaction', 'in_taxon_label': None}, {'id': 'MONDO:0005902', 'category': 'biolink:Disease', 'name': 'obsolete peanut allergic reaction', 'in_taxon_label': None}], 'Sinusitis': [{'id': 'HP:0000246', 'category': 'biolink:PhenotypicFeature', 'name': 'Sinusitis', 'in_taxon_label': None}, {'id': 'MONDO:0005961', 'category': 'biolink:Disease', 'name': 'sinusitis', 'in_taxon_label': None}, {'id': 'MONDO:0001121', 'category': 'biolink:Disease', 'name': 'frontal sinusitis', 'in_taxon_label': None}, {'id': 'MONDO:0005756', 'category': 'biolink:Disease', 'name': 'ethmoid sinusitis', 'in_taxon_label': None}, {'id': 'MONDO:0005842', 'category': 'biolink:Disease', 'name': 'maxillary sinusitis', 'in_taxon_label': None}], 'Recurrent upper respiratory tract infections': [{'id': 'HP:0002788', 'category': 'biolink:PhenotypicFeature', 'name': 'Recurrent upper respiratory tract infections', 'in_taxon_label': None}, {'id': 'HP:0033166', 'category': 'biolink:PhenotypicFeature', 'name': 'Recurrent viral upper respiratory tract infections', 'in_taxon_label': None}, {'id': 'HP:0031949', 'category': 'biolink:PhenotypicFeature', 'name': 'Recurrent bacterial upper respiratory tract infections', 'in_taxon_label': None}, {'id': 'HP:0200117', 'category': 'biolink:PhenotypicFeature', 'name': 'Recurrent upper and lower respiratory tract infections', 'in_taxon_label': None}, {'id': 'HP:0011948', 'category': 'biolink:PhenotypicFeature', 'name': 'Recurrent acute respiratory tract infection', 'in_taxon_label': None}], 'Dairy allergy': [{'id': 'HP:0410327', 'category': 'biolink:PhenotypicFeature', 'name': 'Dairy allergy', 'in_taxon_label': None}, {'id': 'MONDO:0000797', 'category': 'biolink:Disease', 'name': 'obsolete goat milk allergy', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_vwnZiczd1vHFEcVZ5h3d12cf",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "function",
+            "content": "{'Drug allergy': [{'id': 'MONDO:0000775', 'category': 'biolink:Disease', 'name': 'drug allergy', 'in_taxon_label': None}, {'id': 'HP:0410323', 'category': 'biolink:PhenotypicFeature', 'name': 'Drug allergy', 'in_taxon_label': None}, {'id': 'MONDO:0044982', 'category': 'biolink:Disease', 'name': 'drug pseudoallergy', 'in_taxon_label': None}, {'id': 'MAXO:0000633', 'category': 'biolink:NamedThing', 'name': 'allergy agent therapy', 'in_taxon_label': None}, {'id': 'MAXO:0000666', 'category': 'biolink:NamedThing', 'name': 'allergy and immunology specialist evaluation', 'in_taxon_label': None}], 'Asthma': [{'id': 'HP:0002099', 'category': 'biolink:PhenotypicFeature', 'name': 'Asthma', 'in_taxon_label': None}, {'id': 'MONDO:0004979', 'category': 'biolink:Disease', 'name': 'asthma', 'in_taxon_label': None}, {'id': 'MONDO:0850282', 'category': 'biolink:Disease', 'name': 'chronic asthma', 'in_taxon_label': None}, {'id': 'MONDO:0850283', 'category': 'biolink:Disease', 'name': 'acute asthma', 'in_taxon_label': None}, {'id': 'MONDO:0004784', 'category': 'biolink:Disease', 'name': 'allergic asthma', 'in_taxon_label': None}], 'Neoplasm': [{'id': 'HP:0002664', 'category': 'biolink:PhenotypicFeature', 'name': 'Neoplasm', 'in_taxon_label': None}, {'id': 'MONDO:0005070', 'category': 'biolink:Disease', 'name': 'neoplasm', 'in_taxon_label': None}, {'id': 'MPATH:218', 'category': 'biolink:Disease', 'name': 'neoplasm', 'in_taxon_label': None}, {'id': 'MONDO:0021071', 'category': 'biolink:Disease', 'name': 'laryngeal neoplasm', 'in_taxon_label': None}, {'id': 'MONDO:0021085', 'category': 'biolink:Disease', 'name': 'gastric neoplasm', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_XxXnKHedzQ3nAsrgeYXgYiwg",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_X5yNPwXfQj9nv5gKKC9VHg0S",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) WHERE p.id IN [\\n  'HP:0000491',  // Keratitis\\n  'HP:0032163',  // Molluscum contagiosum\\n  'HP:0006532',  // Recurrent pneumonia\\n  'HP:0000403',  // Recurrent otitis media\\n  'HP:0100658',  // Cellulitis\\n  'HP:0410330',  // Meat allergen allergy\\n  'HP:0410328',  // Egg allergy\\n  'HP:0006335',  // Persistence of primary teeth\\n  'HP:0410017',  // Otitis externa\\n  'HP:0410331',  // Nut food product allergy\\n  'HP:0000246',  // Sinusitis\\n  'HP:0002788',  // Recurrent upper respiratory tract infections\\n  'HP:0410327'   // Dairy allergy\\n] WITH d, count(p) AS match_count ORDER BY match_count DESC LIMIT 20\\nOPTIONAL MATCH (d)-[:biolink_has_phenotype]->(p2:biolink_PhenotypicFeature) WHERE p2.id IN ['HP:0410323', 'HP:0002099', 'HP:0002664'] // Excluded features: Drug allergy, Asthma, Neoplasm\\nWITH d, match_count, collect(p2) AS excluded_features WHERE size(excluded_features) = 0\\nRETURN d.id AS disease_id, d.name AS disease_name, match_count ORDER BY match_count DESC LIMIT 10\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': [{'disease_id': 'MONDO:0009953', 'disease_name': 'leukocyte adhesion deficiency type II', 'match_count': 4}, {'disease_id': 'MONDO:0007818', 'disease_name': 'hyper-IgE recurrent infection syndrome 1, autosomal dominant', 'match_count': 4}, {'disease_id': 'MONDO:8000006', 'disease_name': 'WHIM syndrome 1', 'match_count': 4}, {'disease_id': 'MONDO:0016426', 'disease_name': 'fusariosis', 'match_count': 4}, {'disease_id': 'MONDO:0014226', 'disease_name': 'idiopathic CD4 lymphocytopenia', 'match_count': 3}, {'disease_id': 'MONDO:0007603', 'disease_name': 'Felty syndrome', 'match_count': 3}, {'disease_id': 'MONDO:0007874', 'disease_name': 'trichorhinophalangeal syndrome type II', 'match_count': 3}, {'disease_id': 'MONDO:0013934', 'disease_name': 'combined immunodeficiency due to STK4 deficiency', 'match_count': 3}, {'disease_id': 'MONDO:0017407', 'disease_name': 'deficiency in anterior pituitary function - variable immunodeficiency syndrome', 'match_count': 3}, {'disease_id': 'MONDO:0859231', 'disease_name': 'macrocephaly, neurodevelopmental delay, lymphoid hyperplasia, and persistent fetal hemoglobin', 'match_count': 3}]}}",
+            "name": "run_query",
+            "tool_call_id": "call_X5yNPwXfQj9nv5gKKC9VHg0S",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "Based on the patient's features (multiple allergies, recurrent infections, skin findings, and persistence of primary teeth) and the exclusion of drug allergy, asthma, and neoplasm, here is a rank-ordered list of the most likely diagnoses from the Monarch knowledge graph:\n\n1. [Leukocyte adhesion deficiency type II](https://monarchinitiative.org/MONDO:0009953) (4 matching features)\n2. [Hyper-IgE recurrent infection syndrome 1, autosomal dominant (Job syndrome)](https://monarchinitiative.org/MONDO:0007818) (4 matching features)\n3. [WHIM syndrome 1](https://monarchinitiative.org/MONDO:8000006) (4 matching features)\n4. [Fusariosis](https://monarchinitiative.org/MONDO:0016426) (4 matching features)\n5. [Idiopathic CD4 lymphocytopenia](https://monarchinitiative.org/MONDO:0014226) (3 matching features)\n6. [Felty syndrome](https://monarchinitiative.org/MONDO:0007603) (3 matching features)\n7. [Trichorhinophalangeal syndrome type II](https://monarchinitiative.org/MONDO:0007874) (3 matching features)\n8. [Combined immunodeficiency due to STK4 deficiency](https://monarchinitiative.org/MONDO:0013934) (3 matching features)\n9. [Deficiency in anterior pituitary function - variable immunodeficiency syndrome](https://monarchinitiative.org/MONDO:0017407) (3 matching features)\n10. [Macrocephaly, neurodevelopmental delay, lymphoid hyperplasia, and persistent fetal hemoglobin](https://monarchinitiative.org/MONDO:0859231) (3 matching features)\n\nThe most likely diagnosis, given the combination of recurrent infections, atopic/allergic features, and persistence of primary teeth, is Hyper-IgE recurrent infection syndrome (Job syndrome), but Leukocyte adhesion deficiency type II and WHIM syndrome are also strong considerations. Further clinical and laboratory evaluation would be needed for confirmation.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": null,
+            "is_tool_call_error": null
+        }
+    ],
+    "expected_diagnosis_mondo": [
+        {
+            "mondo_id": "MONDO:0009478",
+            "disease_name": "combined immunodeficiency due to DOCK8 deficiency"
+        }
+    ]
+}

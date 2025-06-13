@@ -1,0 +1,278 @@
+{
+    "phenopacket": {
+        "id": "PMID_34722527_individual_LCA-F009_2_Leen_Abu-Safieh_Autozygome-guid",
+        "subject": {
+            "id": "individual_LCA-F009_2_Leen_Abu-Safieh_Autozygome-guid"
+        },
+        "phenotypicFeatures": [
+            {
+                "type": {
+                    "id": "HP:0001263",
+                    "label": "Global developmental delay"
+                },
+                "excluded": true
+            }
+        ],
+        "interpretations": [
+            {
+                "id": "individual_LCA-F009_2_Leen_Abu-Safieh_Autozygome-guid",
+                "progressStatus": "SOLVED",
+                "diagnosis": {
+                    "disease": {
+                        "id": "OMIM:613826",
+                        "label": "Leber congenital amaurosis 6"
+                    },
+                    "genomicInterpretations": [
+                        {
+                            "subjectOrBiosampleId": "individual_LCA-F009_2_Leen_Abu-Safieh_Autozygome-guid",
+                            "interpretationStatus": "CAUSATIVE",
+                            "variantInterpretation": {
+                                "variationDescriptor": {
+                                    "id": "var_TbFsWmnaHfNgVeiKcttGKuoJd",
+                                    "geneContext": {
+                                        "valueId": "HGNC:13436",
+                                        "symbol": "RPGRIP1"
+                                    },
+                                    "expressions": [
+                                        {
+                                            "syntax": "hgvs.c",
+                                            "value": "NM_020366.4:c.1107del"
+                                        },
+                                        {
+                                            "syntax": "hgvs.g",
+                                            "value": "NC_000014.9:g.21312462del"
+                                        }
+                                    ],
+                                    "vcfRecord": {
+                                        "genomeAssembly": "hg38",
+                                        "chrom": "chr14",
+                                        "pos": "21312457",
+                                        "ref": "GA",
+                                        "alt": "G"
+                                    },
+                                    "moleculeContext": "genomic",
+                                    "allelicState": {
+                                        "id": "GENO:0000136",
+                                        "label": "homozygous"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "diseases": [
+            {
+                "term": {
+                    "id": "OMIM:613826",
+                    "label": "Leber congenital amaurosis 6"
+                }
+            }
+        ],
+        "metaData": {
+            "created": "2024-03-24T13:34:22.467992067Z",
+            "createdBy": "ORCID:0000-0002-0736-9199",
+            "resources": [
+                {
+                    "id": "geno",
+                    "name": "Genotype Ontology",
+                    "url": "http://purl.obolibrary.org/obo/geno.owl",
+                    "version": "2022-03-05",
+                    "namespacePrefix": "GENO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+                },
+                {
+                    "id": "hgnc",
+                    "name": "HUGO Gene Nomenclature Committee",
+                    "url": "https://www.genenames.org",
+                    "version": "06/01/23",
+                    "namespacePrefix": "HGNC",
+                    "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+                },
+                {
+                    "id": "omim",
+                    "name": "An Online Catalog of Human Genes and Genetic Disorders",
+                    "url": "https://www.omim.org",
+                    "version": "January 4, 2023",
+                    "namespacePrefix": "OMIM",
+                    "iriPrefix": "https://www.omim.org/entry/"
+                },
+                {
+                    "id": "so",
+                    "name": "Sequence types and features ontology",
+                    "url": "http://purl.obolibrary.org/obo/so.obo",
+                    "version": "2021-11-22",
+                    "namespacePrefix": "SO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+                },
+                {
+                    "id": "hp",
+                    "name": "human phenotype ontology",
+                    "url": "http://purl.obolibrary.org/obo/hp.owl",
+                    "version": "2024-03-06",
+                    "namespacePrefix": "HP",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+                }
+            ],
+            "phenopacketSchemaVersion": "2.0",
+            "externalReferences": [
+                {
+                    "id": "PMID:34722527",
+                    "reference": "https://pubmed.ncbi.nlm.nih.gov/34722527",
+                    "description": "Retinal Degeneration Associated With RPGRIP1: A Review of Natural History, Mutation Spectrum, and Genotype-Phenotype Correlation in 228 Patients"
+                }
+            ]
+        }
+    },
+    "cost_est_base_rate": 0.05595,
+    "tokens_used_prompt": 25051,
+    "tokens_used_completion": 731,
+    "query": "From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses, even if there is insufficient information to make a definitive diagnosis. If you are unsure, provide a list of possible diagnoses with the most likely one first.\n\nPatient ID: individual_LCA-F009_2_Leen_Abu-Safieh_Autozygome-guid\nPatient age: Unknown\nPatient sex: Unknown\nPatient features: None.\nExcluded patient features: Global developmental delay.",
+    "phenopacket_file": "phenopackets/PMID_34722527_individual_LCA-F009_2_Leen_Abu-Safieh_Autozygome-guid.json",
+    "expected_diagnosis": "OMIM:613826",
+    "base_engine": "gpt-4.1-2025-04-14",
+    "eval_engine": "None",
+    "eval_chain": [],
+    "messages": [
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_KMWuPrszjXI7mj7ajXWz93qA",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\":[\"individual_LCA-F009_2_Leen_Abu-Safieh_Autozygome-guid\"]}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'individual_LCA-F009_2_Leen_Abu-Safieh_Autozygome-guid': []}",
+            "name": "search",
+            "tool_call_id": "call_KMWuPrszjXI7mj7ajXWz93qA",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_ZgS8JqZDbwDZkQOsZSKloQGT",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\":[\"Global developmental delay\"]}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'Global developmental delay': [{'id': 'HP:0001263', 'category': 'biolink:PhenotypicFeature', 'name': 'Global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011344', 'category': 'biolink:PhenotypicFeature', 'name': 'Severe global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0012736', 'category': 'biolink:PhenotypicFeature', 'name': 'Profound global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011342', 'category': 'biolink:PhenotypicFeature', 'name': 'Mild global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011343', 'category': 'biolink:PhenotypicFeature', 'name': 'Moderate global developmental delay', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_ZgS8JqZDbwDZkQOsZSKloQGT",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_BZRTmzX1BSnfdZ3pmoRdhpsj",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature {id: 'HP:0001263'}) RETURN d.id AS disease_id, d.name AS disease_name LIMIT 100\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': [{'disease_id': 'MONDO:0009488', 'disease_name': 'keratoconus posticus circumscriptus'}, {'disease_id': 'MONDO:0009404', 'disease_name': 'hypertelorism, microtia, facial clefting syndrome'}, {'disease_id': 'MONDO:0011575', 'disease_name': 'cerebrooculonasal syndrome'}, {'disease_id': 'MONDO:0010399', 'disease_name': 'chromosome Xp21 deletion syndrome'}, {'disease_id': 'MONDO:0011995', 'disease_name': 'cataract - congenital heart disease - neural tube defect syndrome'}, {'disease_id': 'MONDO:0009444', 'disease_name': 'ichthyosis-alopecia-eclabion-ectropion-intellectual disability syndrome'}, {'disease_id': 'MONDO:0012095', 'disease_name': 'intellectual disability-brachydactyly-Pierre Robin syndrome'}, {'disease_id': 'MONDO:0010774', 'disease_name': 'striatonigral degeneration, infantile, mitochondrial'}, {'disease_id': 'MONDO:0010749', 'disease_name': 'trigonocephaly-short stature-developmental delay syndrome'}, {'disease_id': 'MONDO:0011976', 'disease_name': 'lipodystrophy-intellectual disability-deafness syndrome'}, {'disease_id': 'MONDO:0009543', 'disease_name': 'prominent glabella-microcephaly-hypogenitalism syndrome'}, {'disease_id': 'MONDO:0009577', 'disease_name': 'megalocornea-intellectual disability syndrome'}, {'disease_id': 'MONDO:0010851', 'disease_name': 'Lowry-MacLean syndrome'}, {'disease_id': 'MONDO:0012076', 'disease_name': 'midface hypoplasia, obesity, developmental delay, and neonatal hypotonia'}, {'disease_id': 'MONDO:0010890', 'disease_name': 'acrocardiofacial syndrome'}, {'disease_id': 'MONDO:0010125', 'disease_name': 'upper limb defect-eye and ear abnormalities syndrome'}, {'disease_id': 'MONDO:0009766', 'disease_name': 'oculocerebral hypopigmentation syndrome of Preus'}, {'disease_id': 'MONDO:0010708', 'disease_name': 'Pallister-W syndrome'}, {'disease_id': 'MONDO:0010363', 'disease_name': 'intellectual disability, X-linked 91'}, {'disease_id': 'MONDO:0010815', 'disease_name': 'spondyloepiphyseal dysplasia tarda with characteristic facies'}, {'disease_id': 'MONDO:0009582', 'disease_name': 'Mietens syndrome'}, {'disease_id': 'MONDO:0011530', 'disease_name': 'mesomelic dysplasia, Savarirayan type'}, {'disease_id': 'MONDO:0009781', 'disease_name': 'Onychotrichodysplasia and neutropenia'}, {'disease_id': 'MONDO:0010729', 'disease_name': 'X-linked intellectual disability, Schimke type'}, {'disease_id': 'MONDO:0010007', 'disease_name': 'microbrachycephaly-ptosis-cleft lip syndrome'}, {'disease_id': 'MONDO:0011950', 'disease_name': 'infantile-onset autosomal recessive nonprogressive cerebellar ataxia'}, {'disease_id': 'MONDO:0009974', 'disease_name': 'familial hemophagocytic lymphohistiocytosis type 1'}, {'disease_id': 'MONDO:0010062', 'disease_name': 'spinocerebellar ataxia-dysmorphism syndrome'}, {'disease_id': 'MONDO:0009566', 'disease_name': 'marfanoid habitus-autosomal recessive intellectual disability syndrome'}, {'disease_id': 'MONDO:0011047', 'disease_name': 'deafness-epiphyseal dysplasia-short stature syndrome'}, {'disease_id': 'MONDO:0010883', 'disease_name': 'pectus excavatum-macrocephaly-dysplastic nails syndrome'}, {'disease_id': 'MONDO:0009313', 'disease_name': 'Grubben-de Cock-Borghgraef syndrome'}, {'disease_id': 'MONDO:0012055', 'disease_name': 'Larsen-like osseous dysplasia-short stature syndrome'}, {'disease_id': 'MONDO:0010165', 'disease_name': 'ulna hypoplasia-intellectual disability syndrome'}, {'disease_id': 'MONDO:0011157', 'disease_name': 'Gomez-Lopez-Hernandez syndrome'}, {'disease_id': 'MONDO:0010462', 'disease_name': 'syndromic X-linked intellectual disability Chudley-Schwartz type'}, {'disease_id': 'MONDO:0009581', 'disease_name': 'intellectual disability-dysmorphism-hypogonadism-diabetes mellitus syndrome'}, {'disease_id': 'MONDO:0011676', 'disease_name': 'PHACE syndrome'}, {'disease_id': 'MONDO:0010840', 'disease_name': 'pachygyria-intellectual disability-epilepsy syndrome'}, {'disease_id': 'MONDO:0010460', 'disease_name': 'syndromic X-linked intellectual disability 17'}, {'disease_id': 'MONDO:0010412', 'disease_name': 'X-linked intellectual disability-craniofacioskeletal syndrome'}, {'disease_id': 'MONDO:0010450', 'disease_name': 'intellectual disability, X-linked 89'}, {'disease_id': 'MONDO:0010531', 'disease_name': 'contractures-ectodermal dysplasia-cleft lip/palate syndrome'}, {'disease_id': 'MONDO:0011977', 'disease_name': '8q22.1 microdeletion syndrome'}, {'disease_id': 'MONDO:0009795', 'disease_name': 'orofaciodigital syndrome IX'}, {'disease_id': 'MONDO:0010881', 'disease_name': 'mesomelia-synostoses syndrome'}, {'disease_id': 'MONDO:0010454', 'disease_name': 'intellectual disability, X-linked 88'}, {'disease_id': 'MONDO:0011736', 'disease_name': 'Cree intellectual disability syndrome'}, {'disease_id': 'MONDO:0010686', 'disease_name': 'N syndrome'}, {'disease_id': 'MONDO:0011538', 'disease_name': 'frontoocular syndrome'}, {'disease_id': 'MONDO:0009952', 'disease_name': 'radioulnar synostosis-developmental delay-hypotonia syndrome'}, {'disease_id': 'MONDO:0010115', 'disease_name': 'thoracic dysplasia-hydrocephalus syndrome'}, {'disease_id': 'MONDO:0011146', 'disease_name': 'tetrasomy 12p'}, {'disease_id': 'MONDO:0009611', 'disease_name': '3-methylglutaconic aciduria type 4'}, {'disease_id': 'MONDO:0009349', 'disease_name': 'holoprosencephaly 1'}, {'disease_id': 'MONDO:0009620', 'disease_name': 'Say-Barber-Miller syndrome'}, {'disease_id': 'MONDO:0011261', 'disease_name': 'spondyloepiphyseal dysplasia with coronal craniosynostosis, cataracts, cleft palate, and intellectual disability'}, {'disease_id': 'MONDO:0010529', 'disease_name': 'X-linked spinocerebellar ataxia type 3'}, {'disease_id': 'MONDO:0010464', 'disease_name': 'X-linked cerebral-cerebellar-coloboma syndrome syndrome'}, {'disease_id': 'MONDO:0009769', 'disease_name': 'oculo-palato-cerebral syndrome'}, {'disease_id': 'MONDO:0010364', 'disease_name': 'X-linked intellectual disability-retinitis pigmentosa syndrome'}, {'disease_id': 'MONDO:0010865', 'disease_name': 'pseudoaminopterin syndrome'}, {'disease_id': 'MONDO:0011320', 'disease_name': 'radioulnar synostosis-microcephaly-scoliosis syndrome'}, {'disease_id': 'MONDO:0010336', 'disease_name': 'orofaciodigital syndrome VIII'}, {'disease_id': 'MONDO:0010900', 'disease_name': 'intrauterine growth retardation with increased mitomycin c sensitivity'}, {'disease_id': 'MONDO:0010797', 'disease_name': 'Pearson syndrome'}, {'disease_id': 'MONDO:0007938', 'disease_name': '46,XY sex reversal 4'}, {'disease_id': 'MONDO:0007800', 'disease_name': 'chromosome 18p deletion syndrome'}, {'disease_id': 'MONDO:0008563', 'disease_name': 'thumb stiffness-brachydactyly-intellectual disability syndrome'}, {'disease_id': 'MONDO:0008562', 'disease_name': 'thumb deformity-alopecia-pigmentation anomaly syndrome'}, {'disease_id': 'MONDO:0009272', 'disease_name': 'German syndrome'}, {'disease_id': 'MONDO:0008425', 'disease_name': 'omphalocele syndrome, Shprintzen-Goldberg type'}, {'disease_id': 'MONDO:0008750', 'disease_name': 'microcephaly-albinism-digital anomalies syndrome'}, {'disease_id': 'MONDO:0009042', 'disease_name': 'craniotelencephalic dysplasia'}, {'disease_id': 'MONDO:0005715', 'disease_name': 'congenital toxoplasmosis'}, {'disease_id': 'MONDO:0007693', 'disease_name': 'hypertrichosis cubiti-short stature syndrome'}, {'disease_id': 'MONDO:0007259', 'disease_name': 'craniofaciofrontodigital syndrome'}, {'disease_id': 'MONDO:0008365', 'disease_name': 'recombinant 8 syndrome'}, {'disease_id': 'MONDO:0009083', 'disease_name': 'conductive deafness-malformed external ear syndrome'}, {'disease_id': 'MONDO:0008130', 'disease_name': 'ophthalmoplegia-intellectual disability-lingua scrotalis syndrome'}, {'disease_id': 'MONDO:0008960', 'disease_name': 'Charcot-Marie-Tooth disease-hearing loss-intellectual disability syndrome'}, {'disease_id': 'MONDO:0008402', 'disease_name': 'cleft palate-large ears-small head syndrome'}, {'disease_id': 'MONDO:0008898', 'disease_name': 'camptodactyly syndrome, Guadalajara type 1'}, {'disease_id': 'MONDO:0007210', 'disease_name': 'Brachmann-de Lange-like facial changes with microcephaly, metatarsus adductus, and developmental delay'}, {'disease_id': 'MONDO:0007443', 'disease_name': 'congenital unilateral hypoplasia of depressor anguli oris'}, {'disease_id': 'MONDO:0008859', 'disease_name': 'berry aneurysm, cirrhosis, pulmonary emphysema, and cerebral calcification'}, {'disease_id': 'MONDO:0009099', 'disease_name': 'nephrogenic diabetes insipidus-intracranial calcification syndrome'}, {'disease_id': 'MONDO:0009036', 'disease_name': 'cardiocranial syndrome, Pfeiffer type'}, {'disease_id': 'MONDO:0008395', 'disease_name': 'Ruvalcaba syndrome'}, {'disease_id': 'MONDO:0700107', 'disease_name': 'chromosome 19q13.11 deletion syndrome, distal'}, {'disease_id': 'MONDO:0970951', 'disease_name': 'El Hayek-Chahrour neurodevelopmental disorder'}, {'disease_id': 'MONDO:0060677', 'disease_name': 'chromosome 1p35 deletion syndrome'}, {'disease_id': 'MONDO:0859155', 'disease_name': 'chromosome 1p36 deletion syndrome, proximal'}, {'disease_id': 'MONDO:0971013', 'disease_name': 'MHC class II deficiency 2'}, {'disease_id': 'MONDO:0968978', 'disease_name': 'aplasia cutis-enamel dysplasia syndrome'}, {'disease_id': 'MONDO:0968976', 'disease_name': 'neurodevelopmental disorder with progressive movement abnormalities'}, {'disease_id': 'MONDO:0011147', 'disease_name': 'chromosome 18q deletion syndrome'}, {'disease_id': 'MONDO:0968979', 'disease_name': 'neurodevelopmental disorder with hypotonia and seizures'}, {'disease_id': 'MONDO:0859569', 'disease_name': 'Braddock-Carey syndrome 1'}, {'disease_id': 'MONDO:0100566', 'disease_name': 'myoclonic epilepsy in infancy'}]}}",
+            "name": "run_query",
+            "tool_call_id": "call_BZRTmzX1BSnfdZ3pmoRdhpsj",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_uhtEmZf0eP7dJn0pWvVlqcTO",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease) WHERE NOT (d)-[:biolink_has_phenotype]->(:biolink_PhenotypicFeature {id: 'HP:0001263'}) RETURN d.id AS disease_id, d.name AS disease_name LIMIT 10\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': [{'disease_id': 'MONDO:0008905', 'disease_name': 'predisposition to invasive fungal disease due to CARD9 deficiency'}, {'disease_id': 'MONDO:0033485', 'disease_name': 'short-rib thoracic dysplasia 19 with or without polydactyly'}, {'disease_id': 'MONDO:0014092', 'disease_name': 'schizophrenia 18'}, {'disease_id': 'MONDO:0014093', 'disease_name': 'retinitis pigmentosa 66'}, {'disease_id': 'MONDO:0014692', 'disease_name': 'retinitis pigmentosa 74'}, {'disease_id': 'MONDO:0054750', 'disease_name': 'amyotrophic lateral sclerosis, susceptibility to, 24'}, {'disease_id': 'MONDO:0033486', 'disease_name': 'leukodystrophy, hypomyelinating, 14'}, {'disease_id': 'MONDO:0054752', 'disease_name': 'multiple synostoses syndrome 4'}, {'disease_id': 'MONDO:0020718', 'disease_name': 'congenital short bowel syndrome, autosomal recessive'}, {'disease_id': 'MONDO:0014694', 'disease_name': 'spondylocostal dysostosis 6, autosomal recessive'}]}}",
+            "name": "run_query",
+            "tool_call_id": "call_uhtEmZf0eP7dJn0pWvVlqcTO",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_JvIBE50R5Mhf0VlCAyQyIXR1",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) WHERE NOT (d)-[:biolink_has_phenotype]->(:biolink_PhenotypicFeature {id: 'HP:0001263'}) RETURN d.id AS disease_id, d.name AS disease_name, count(p) AS phenotype_count ORDER BY phenotype_count DESC LIMIT 10\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': [{'disease_id': 'MONDO:0008678', 'disease_name': 'Williams syndrome', 'phenotype_count': 233}, {'disease_id': 'MONDO:0009341', 'disease_name': 'Mowat-Wilson syndrome', 'phenotype_count': 165}, {'disease_id': 'MONDO:0016856', 'disease_name': 'Mowat-Wilson syndrome due to a ZEB2 point mutation', 'phenotype_count': 147}, {'disease_id': 'MONDO:0010592', 'disease_name': 'focal dermal hypoplasia', 'phenotype_count': 134}, {'disease_id': 'MONDO:0008318', 'disease_name': 'Proteus syndrome', 'phenotype_count': 131}, {'disease_id': 'MONDO:0016855', 'disease_name': 'Mowat-Wilson syndrome due to monosomy 2q22', 'phenotype_count': 129}, {'disease_id': 'MONDO:0010010', 'disease_name': 'Schinzel-Giedion syndrome', 'phenotype_count': 127}, {'disease_id': 'MONDO:0012853', 'disease_name': 'Fontaine progeroid syndrome', 'phenotype_count': 122}, {'disease_id': 'MONDO:0007732', 'disease_name': 'Holt-Oram syndrome', 'phenotype_count': 116}, {'disease_id': 'MONDO:0008948', 'disease_name': 'cerebrotendinous xanthomatosis', 'phenotype_count': 113}]}}",
+            "name": "run_query",
+            "tool_call_id": "call_JvIBE50R5Mhf0VlCAyQyIXR1",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "Based on the information provided:\n\n- Patient features: None specified.\n- Excluded feature: Global developmental delay (HP:0001263).\n\nSince no positive features are given, but global developmental delay is specifically excluded, the most likely diagnoses are those diseases that are well-characterized (i.e., have many known phenotypes) but do not typically include global developmental delay as a feature.\n\nHere is a rank-ordered list of possible diagnoses (up to 10), prioritizing diseases with many known phenotypes but without global developmental delay:\n\n1. [Williams syndrome](https://monarchinitiative.org/MONDO:0008678)\n2. [Mowat-Wilson syndrome](https://monarchinitiative.org/MONDO:0009341)\n3. [Mowat-Wilson syndrome due to a ZEB2 point mutation](https://monarchinitiative.org/MONDO:0016856)\n4. [Focal dermal hypoplasia](https://monarchinitiative.org/MONDO:0010592)\n5. [Proteus syndrome](https://monarchinitiative.org/MONDO:0008318)\n6. [Mowat-Wilson syndrome due to monosomy 2q22](https://monarchinitiative.org/MONDO:0016855)\n7. [Schinzel-Giedion syndrome](https://monarchinitiative.org/MONDO:0010010)\n8. [Fontaine progeroid syndrome](https://monarchinitiative.org/MONDO:0012853)\n9. [Holt-Oram syndrome](https://monarchinitiative.org/MONDO:0007732)\n10. [Cerebrotendinous xanthomatosis](https://monarchinitiative.org/MONDO:0008948)\n\nThese are not definitive diagnoses, but rather a list of well-characterized diseases that do not typically present with global developmental delay. If you can provide any additional features, I can further refine this list.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": null,
+            "is_tool_call_error": null
+        }
+    ],
+    "expected_diagnosis_mondo": [
+        {
+            "mondo_id": "MONDO:0013446",
+            "disease_name": "Leber congenital amaurosis 6"
+        }
+    ]
+}

@@ -1,0 +1,364 @@
+{
+    "phenopacket": {
+        "id": "PMID_18256394_6",
+        "subject": {
+            "id": "6",
+            "timeAtLastEncounter": {
+                "age": {
+                    "iso8601duration": "P5Y"
+                }
+            },
+            "sex": "FEMALE"
+        },
+        "phenotypicFeatures": [
+            {
+                "type": {
+                    "id": "HP:0004322",
+                    "label": "Short stature"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0005117",
+                    "label": "Elevated diastolic blood pressure"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0004349",
+                    "label": "Reduced bone mineral density"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0009125",
+                    "label": "Lipodystrophy"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001596",
+                    "label": "Alopecia"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0003758",
+                    "label": "Reduced subcutaneous adipose tissue"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000668",
+                    "label": "Hypodontia"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0100324",
+                    "label": "Scleroderma"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000520",
+                    "label": "Proptosis"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000905",
+                    "label": "Progressive clavicular acroosteolysis"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0009771",
+                    "label": "Osteolytic defects of the phalanges of the hand"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0007394",
+                    "label": "Prominent superficial blood vessels"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0032556",
+                    "label": "Circumoral cyanosis"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001508",
+                    "label": "Failure to thrive"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000347",
+                    "label": "Micrognathia"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001070",
+                    "label": "Mottled pigmentation"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0002673",
+                    "label": "Coxa valga"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0010296",
+                    "label": "Ankyloglossia"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000218",
+                    "label": "High palate"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000684",
+                    "label": "Delayed eruption of teeth"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:4000168",
+                    "label": "Shark teeth"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000504",
+                    "label": "Abnormality of vision"
+                },
+                "excluded": true
+            }
+        ],
+        "interpretations": [
+            {
+                "id": "6",
+                "progressStatus": "SOLVED",
+                "diagnosis": {
+                    "disease": {
+                        "id": "OMIM:176670",
+                        "label": "Hutchinson-Gilford progeria"
+                    },
+                    "genomicInterpretations": [
+                        {
+                            "subjectOrBiosampleId": "6",
+                            "interpretationStatus": "CAUSATIVE",
+                            "variantInterpretation": {
+                                "variationDescriptor": {
+                                    "id": "var_OJUHftQJtBEMtlVxfRAksPqIS",
+                                    "geneContext": {
+                                        "valueId": "HGNC:6636",
+                                        "symbol": "LMNA"
+                                    },
+                                    "expressions": [
+                                        {
+                                            "syntax": "hgvs.c",
+                                            "value": "NM_170707.4:c.1824C>T"
+                                        },
+                                        {
+                                            "syntax": "hgvs.g",
+                                            "value": "NC_000001.11:g.156138613C>T"
+                                        }
+                                    ],
+                                    "vcfRecord": {
+                                        "genomeAssembly": "hg38",
+                                        "chrom": "chr1",
+                                        "pos": "156138613",
+                                        "ref": "C",
+                                        "alt": "T"
+                                    },
+                                    "moleculeContext": "genomic",
+                                    "allelicState": {
+                                        "id": "GENO:0000135",
+                                        "label": "heterozygous"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "diseases": [
+            {
+                "term": {
+                    "id": "OMIM:176670",
+                    "label": "Hutchinson-Gilford progeria"
+                }
+            }
+        ],
+        "metaData": {
+            "created": "2024-03-23T17:36:47.114800930Z",
+            "createdBy": "ORCID:0000-0002-0736-9199",
+            "resources": [
+                {
+                    "id": "geno",
+                    "name": "Genotype Ontology",
+                    "url": "http://purl.obolibrary.org/obo/geno.owl",
+                    "version": "2022-03-05",
+                    "namespacePrefix": "GENO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+                },
+                {
+                    "id": "hgnc",
+                    "name": "HUGO Gene Nomenclature Committee",
+                    "url": "https://www.genenames.org",
+                    "version": "06/01/23",
+                    "namespacePrefix": "HGNC",
+                    "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+                },
+                {
+                    "id": "omim",
+                    "name": "An Online Catalog of Human Genes and Genetic Disorders",
+                    "url": "https://www.omim.org",
+                    "version": "January 4, 2023",
+                    "namespacePrefix": "OMIM",
+                    "iriPrefix": "https://www.omim.org/entry/"
+                },
+                {
+                    "id": "so",
+                    "name": "Sequence types and features ontology",
+                    "url": "http://purl.obolibrary.org/obo/so.obo",
+                    "version": "2021-11-22",
+                    "namespacePrefix": "SO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+                },
+                {
+                    "id": "hp",
+                    "name": "human phenotype ontology",
+                    "url": "http://purl.obolibrary.org/obo/hp.owl",
+                    "version": "2024-02-27",
+                    "namespacePrefix": "HP",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+                }
+            ],
+            "phenopacketSchemaVersion": "2.0",
+            "externalReferences": [
+                {
+                    "id": "PMID:18256394",
+                    "reference": "https://pubmed.ncbi.nlm.nih.gov/18256394",
+                    "description": "Phenotype and course of Hutchinson-Gilford progeria syndrome"
+                }
+            ]
+        }
+    },
+    "cost_est_base_rate": 0.055299999999999995,
+    "tokens_used_prompt": 22666,
+    "tokens_used_completion": 1246,
+    "query": "From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses, even if there is insufficient information to make a definitive diagnosis. If you are unsure, provide a list of possible diagnoses with the most likely one first.\n\nPatient ID: 6\nPatient age: 5 years\nPatient sex: Female\nPatient features: Short stature, Elevated diastolic blood pressure, Reduced bone mineral density, Lipodystrophy, Alopecia, Reduced subcutaneous adipose tissue, Hypodontia, Scleroderma, Proptosis, Progressive clavicular acroosteolysis, Osteolytic defects of the phalanges of the hand, Prominent superficial blood vessels, Circumoral cyanosis, Failure to thrive, Micrognathia, Mottled pigmentation, Coxa valga.\nExcluded patient features: Ankyloglossia, High palate, Delayed eruption of teeth, Shark teeth, Abnormality of vision.",
+    "phenopacket_file": "phenopackets/PMID_18256394_6.json",
+    "expected_diagnosis": "OMIM:176670",
+    "base_engine": "gpt-4o-2024-11-20",
+    "eval_engine": "None",
+    "eval_chain": [],
+    "messages": [
+        {
+            "role": "assistant",
+            "content": "To provide a rank-ordered list of possible diagnoses for this patient, I will:\n\n1. Search for diseases associated with the patient's phenotypic features.\n2. Exclude diseases that are associated with the excluded features.\n3. Rank the diseases based on the overlap of features with the patient.\n\nLet me begin by searching for diseases associated with the patient's features.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_ESod1DPRGJNMB93YqD8zR65Z",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\":[\"Short stature\",\"Elevated diastolic blood pressure\",\"Reduced bone mineral density\",\"Lipodystrophy\",\"Alopecia\",\"Reduced subcutaneous adipose tissue\",\"Hypodontia\",\"Scleroderma\",\"Proptosis\",\"Progressive clavicular acroosteolysis\",\"Osteolytic defects of the phalanges of the hand\",\"Prominent superficial blood vessels\",\"Circumoral cyanosis\",\"Failure to thrive\",\"Micrognathia\",\"Mottled pigmentation\",\"Coxa valga\"]}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'Short stature': [{'id': 'MONDO:0021745', 'category': 'biolink:Disease', 'name': 'psychosocial short stature', 'in_taxon_label': None}, {'id': 'MONDO:1010112', 'category': 'biolink:Disease', 'name': 'isolated short stature', 'in_taxon_label': None}, {'id': 'HP:0004322', 'category': 'biolink:PhenotypicFeature', 'name': 'Short stature', 'in_taxon_label': None}, {'id': 'MONDO:0010367', 'category': 'biolink:Disease', 'name': 'SHOX-related short stature', 'in_taxon_label': None}, {'id': 'MONDO:0011046', 'category': 'biolink:Disease', 'name': 'short stature, Brussels type', 'in_taxon_label': None}], 'Elevated diastolic blood pressure': [{'id': 'HP:0005117', 'category': 'biolink:PhenotypicFeature', 'name': 'Elevated diastolic blood pressure', 'in_taxon_label': None}, {'id': 'MONDO:1030007', 'category': 'biolink:Disease', 'name': 'hypertensive urgency', 'in_taxon_label': None}], 'Reduced bone mineral density': [{'id': 'HP:0004349', 'category': 'biolink:PhenotypicFeature', 'name': 'Reduced bone mineral density', 'in_taxon_label': None}, {'id': 'MP:0000063', 'category': 'biolink:PhenotypicFeature', 'name': 'decreased bone mineral density', 'in_taxon_label': None}, {'id': 'MP:0013616', 'category': 'biolink:PhenotypicFeature', 'name': 'decreased volumetric bone mineral density', 'in_taxon_label': None}, {'id': 'MP:0021186', 'category': 'biolink:PhenotypicFeature', 'name': 'decreased bone mineral density of vertebrae', 'in_taxon_label': None}, {'id': 'MP:0021184', 'category': 'biolink:PhenotypicFeature', 'name': 'decreased bone mineral density of humerus', 'in_taxon_label': None}], 'Lipodystrophy': [{'id': 'HP:0009125', 'category': 'biolink:PhenotypicFeature', 'name': 'Lipodystrophy', 'in_taxon_label': None}, {'id': 'MONDO:0006573', 'category': 'biolink:Disease', 'name': 'lipodystrophy', 'in_taxon_label': None}, {'id': 'MONDO:0020087', 'category': 'biolink:Disease', 'name': 'hereditary lipodystrophy', 'in_taxon_label': None}, {'id': 'MONDO:0020089', 'category': 'biolink:Disease', 'name': 'acquired lipodystrophy', 'in_taxon_label': None}, {'id': 'MONDO:0019552', 'category': 'biolink:Disease', 'name': 'centrifugal lipodystrophy', 'in_taxon_label': None}], 'Alopecia': [{'id': 'HP:0001596', 'category': 'biolink:PhenotypicFeature', 'name': 'Alopecia', 'in_taxon_label': None}, {'id': 'MONDO:0004907', 'category': 'biolink:Disease', 'name': 'alopecia', 'in_taxon_label': None}, {'id': 'MONDO:0800198', 'category': 'biolink:Disease', 'name': 'alopecia universalis', 'in_taxon_label': None}, {'id': 'MONDO:0006551', 'category': 'biolink:Disease', 'name': 'alopecia mucinosa', 'in_taxon_label': None}, {'id': 'MONDO:0000005', 'category': 'biolink:Disease', 'name': 'alopecia, isolated', 'in_taxon_label': None}], 'Reduced subcutaneous adipose tissue': [{'id': 'HP:0003758', 'category': 'biolink:PhenotypicFeature', 'name': 'Reduced subcutaneous adipose tissue', 'in_taxon_label': None}, {'id': 'MP:0008844', 'category': 'biolink:PhenotypicFeature', 'name': 'decreased subcutaneous adipose tissue amount', 'in_taxon_label': None}, {'id': 'UPHENO:0089851', 'category': 'biolink:PhenotypicFeature', 'name': 'decreased number of subcutaneous adipose tissue', 'in_taxon_label': None}, {'id': 'UPHENO:0035135', 'category': 'biolink:PhenotypicFeature', 'name': 'decreased number of subcutaneous adipose tissue in the trunk', 'in_taxon_label': None}, {'id': 'MONDO:0007908', 'category': 'biolink:Disease', 'name': 'multiple symmetric lipomatosis', 'in_taxon_label': None}], 'Hypodontia': [{'id': 'HP:0000668', 'category': 'biolink:PhenotypicFeature', 'name': 'Hypodontia', 'in_taxon_label': None}, {'id': 'MONDO:0043141', 'category': 'biolink:Disease', 'name': 'microdontia hypodontia short stature', 'in_taxon_label': None}, {'id': 'MONDO:0100535', 'category': 'biolink:Disease', 'name': 'hypodontia/oligodontia with orofacial cleft', 'in_taxon_label': None}, {'id': 'MONDO:0100600', 'category': 'biolink:Disease', 'name': 'hypomyelinating leukodystrophy-ataxia-hypodontia-hypomyelination syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0022831', 'category': 'biolink:Disease', 'name': 'congenital heart disease ptosis hypodontia craniostosis', 'in_taxon_label': None}], 'Scleroderma': [{'id': 'HP:0100324', 'category': 'biolink:PhenotypicFeature', 'name': 'Scleroderma', 'in_taxon_label': None}, {'id': 'MONDO:0019340', 'category': 'biolink:Disease', 'name': 'scleroderma', 'in_taxon_label': None}, {'id': 'MONDO:0018361', 'category': 'biolink:Disease', 'name': 'neonatal scleroderma', 'in_taxon_label': None}, {'id': 'MONDO:1010735', 'category': 'biolink:Disease', 'name': 'scleroderma, chicken', 'in_taxon_label': None}, {'id': 'MONDO:0019562', 'category': 'biolink:Disease', 'name': 'localized scleroderma', 'in_taxon_label': None}], 'Proptosis': [{'id': 'HP:0000520', 'category': 'biolink:PhenotypicFeature', 'name': 'Proptosis', 'in_taxon_label': None}, {'id': 'MONDO:0001512', 'category': 'biolink:Disease', 'name': 'intermittent proptosis', 'in_taxon_label': None}, {'id': 'MONDO:0004770', 'category': 'biolink:Disease', 'name': 'exophthalmos', 'in_taxon_label': None}, {'id': 'MP:0002750', 'category': 'biolink:PhenotypicFeature', 'name': 'exophthalmos', 'in_taxon_label': None}, {'id': 'MONDO:0016085', 'category': 'biolink:Disease', 'name': 'Cole-Carpenter syndrome', 'in_taxon_label': None}], 'Progressive clavicular acroosteolysis': [{'id': 'HP:0000905', 'category': 'biolink:PhenotypicFeature', 'name': 'Progressive clavicular acroosteolysis', 'in_taxon_label': None}], 'Osteolytic defects of the phalanges of the hand': [{'id': 'HP:0009771', 'category': 'biolink:PhenotypicFeature', 'name': 'Osteolytic defects of the phalanges of the hand', 'in_taxon_label': None}, {'id': 'HP:0009855', 'category': 'biolink:PhenotypicFeature', 'name': 'Osteolytic defects of the proximal phalanges of the hand', 'in_taxon_label': None}, {'id': 'HP:0009847', 'category': 'biolink:PhenotypicFeature', 'name': 'Osteolytic defects of the middle phalanges of the hand', 'in_taxon_label': None}, {'id': 'HP:0009839', 'category': 'biolink:PhenotypicFeature', 'name': 'Osteolytic defects of the distal phalanges of the hand', 'in_taxon_label': None}], 'Prominent superficial blood vessels': [{'id': 'HP:0007394', 'category': 'biolink:PhenotypicFeature', 'name': 'Prominent superficial blood vessels', 'in_taxon_label': None}], 'Circumoral cyanosis': [{'id': 'HP:0032556', 'category': 'biolink:PhenotypicFeature', 'name': 'Circumoral cyanosis', 'in_taxon_label': None}, {'id': 'HP:0034033', 'category': 'biolink:PhenotypicFeature', 'name': 'Peripheral cyanosis', 'in_taxon_label': None}], 'Failure to thrive': [{'id': 'HP:0001508', 'category': 'biolink:PhenotypicFeature', 'name': 'Failure to thrive', 'in_taxon_label': None}, {'id': 'HP:0001525', 'category': 'biolink:PhenotypicFeature', 'name': 'Severe failure to thrive', 'in_taxon_label': None}, {'id': 'MONDO:0013539', 'category': 'biolink:Disease', 'name': 'hypotonia-failure to thrive-microcephaly syndrome', 'in_taxon_label': None}, {'id': 'HP:0001531', 'category': 'biolink:PhenotypicFeature', 'name': 'Failure to thrive in infancy', 'in_taxon_label': None}, {'id': 'HP:0008866', 'category': 'biolink:PhenotypicFeature', 'name': 'Failure to thrive secondary to recurrent infections', 'in_taxon_label': None}], 'Micrognathia': [{'id': 'HP:0000347', 'category': 'biolink:PhenotypicFeature', 'name': 'Micrognathia', 'in_taxon_label': None}, {'id': 'MP:0002639', 'category': 'biolink:PhenotypicFeature', 'name': 'micrognathia', 'in_taxon_label': None}, {'id': 'MONDO:0022461', 'category': 'biolink:Disease', 'name': 'anophthalmia cleft palate micrognathia', 'in_taxon_label': None}, {'id': 'MONDO:0023255', 'category': 'biolink:Disease', 'name': 'glossopalatine ankylosis micrognathia ear anomalies', 'in_taxon_label': None}, {'id': 'MONDO:0008460', 'category': 'biolink:Disease', 'name': 'splenogonadal fusion-limb defects-micrognathia syndrome', 'in_taxon_label': None}], 'Mottled pigmentation': [{'id': 'HP:0001070', 'category': 'biolink:PhenotypicFeature', 'name': 'Mottled pigmentation', 'in_taxon_label': None}, {'id': 'HP:0007511', 'category': 'biolink:PhenotypicFeature', 'name': 'Mottled pigmentation of photoexposed areas', 'in_taxon_label': None}, {'id': 'MONDO:0007556', 'category': 'biolink:Disease', 'name': 'epidermolysis bullosa simplex 2F, with mottled pigmentation', 'in_taxon_label': None}, {'id': 'HP:0007438', 'category': 'biolink:PhenotypicFeature', 'name': 'Mottled pigmentation of the trunk and proximal extremities', 'in_taxon_label': None}, {'id': 'HP:0012788', 'category': 'biolink:PhenotypicFeature', 'name': 'Reticulate pigmentation of oral mucosa', 'in_taxon_label': None}], 'Coxa valga': [{'id': 'HP:0002673', 'category': 'biolink:PhenotypicFeature', 'name': 'Coxa valga', 'in_taxon_label': None}, {'id': 'HP:0010665', 'category': 'biolink:PhenotypicFeature', 'name': 'Bilateral coxa valga', 'in_taxon_label': None}, {'id': 'MONDO:0011018', 'category': 'biolink:Disease', 'name': 'brachyolmia-amelogenesis imperfecta syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0014401', 'category': 'biolink:Disease', 'name': 'tall stature-scoliosis-macrodactyly of the great toes syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0008619', 'category': 'biolink:Disease', 'name': 'ulna metaphyseal dysplasia syndrome', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_ESod1DPRGJNMB93YqD8zR65Z",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "I have identified a list of diseases and phenotypic features associated with the patient's symptoms. To refine the diagnosis, I will now exclude diseases associated with the excluded features (e.g., ankyloglossia, high palate, delayed eruption of teeth, shark teeth, and abnormality of vision). Then, I will rank the remaining diseases based on the overlap with the patient's features.\n\nLet me proceed with this step.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_Tr6JnXRxtlDaSZ1oSxAFXwPi",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\":[\"Ankyloglossia\",\"High palate\",\"Delayed eruption of teeth\",\"Shark teeth\",\"Abnormality of vision\"]}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'Ankyloglossia': [{'id': 'HP:0010296', 'category': 'biolink:PhenotypicFeature', 'name': 'Ankyloglossia', 'in_taxon_label': None}, {'id': 'MONDO:0007125', 'category': 'biolink:Disease', 'name': 'ankyloglossia', 'in_taxon_label': None}, {'id': 'MONDO:0010560', 'category': 'biolink:Disease', 'name': 'cleft palate with or without ankyloglossia, X-linked', 'in_taxon_label': None}, {'id': 'MP:0013264', 'category': 'biolink:PhenotypicFeature', 'name': 'tongue ankylosis', 'in_taxon_label': None}, {'id': 'HGNC:11600', 'category': 'biolink:Gene', 'name': 'TBX22', 'in_taxon_label': 'Homo sapiens'}], 'High palate': [{'id': 'HP:0000218', 'category': 'biolink:PhenotypicFeature', 'name': 'High palate', 'in_taxon_label': None}, {'id': 'MP:0003757', 'category': 'biolink:PhenotypicFeature', 'name': 'high palate', 'in_taxon_label': None}, {'id': 'HP:0002705', 'category': 'biolink:PhenotypicFeature', 'name': 'High, narrow palate', 'in_taxon_label': None}, {'id': 'UPHENO:0063527', 'category': 'biolink:PhenotypicFeature', 'name': 'increased height of the secondary palate', 'in_taxon_label': None}, {'id': 'MONDO:0015782', 'category': 'biolink:Disease', 'name': 'dysmorphism-cleft palate-loose skin syndrome', 'in_taxon_label': None}], 'Delayed eruption of teeth': [{'id': 'HP:0000684', 'category': 'biolink:PhenotypicFeature', 'name': 'Delayed eruption of teeth', 'in_taxon_label': None}, {'id': 'HP:0000696', 'category': 'biolink:PhenotypicFeature', 'name': 'Delayed eruption of permanent teeth', 'in_taxon_label': None}, {'id': 'HP:0000680', 'category': 'biolink:PhenotypicFeature', 'name': 'Delayed eruption of primary teeth', 'in_taxon_label': None}, {'id': 'MP:0003053', 'category': 'biolink:PhenotypicFeature', 'name': 'delayed tooth eruption', 'in_taxon_label': None}, {'id': 'MONDO:0014460', 'category': 'biolink:Disease', 'name': 'nail and teeth abnormalities-marginal palmoplantar keratoderma-oral hyperpigmentation syndrome', 'in_taxon_label': None}], 'Shark teeth': [{'id': 'HP:4000168', 'category': 'biolink:PhenotypicFeature', 'name': 'Shark teeth', 'in_taxon_label': None}, {'id': 'HP:0000698', 'category': 'biolink:PhenotypicFeature', 'name': 'Conical tooth', 'in_taxon_label': None}], 'Abnormality of vision': [{'id': 'HP:0000504', 'category': 'biolink:PhenotypicFeature', 'name': 'Abnormality of vision', 'in_taxon_label': None}, {'id': 'HP:0011514', 'category': 'biolink:PhenotypicFeature', 'name': 'Abnormality of binocular vision', 'in_taxon_label': None}, {'id': 'HP:0000551', 'category': 'biolink:PhenotypicFeature', 'name': 'Color vision defect', 'in_taxon_label': None}, {'id': 'HP:0000649', 'category': 'biolink:PhenotypicFeature', 'name': 'Abnormality of visual evoked potentials', 'in_taxon_label': None}, {'id': 'MONDO:0009022', 'category': 'biolink:Disease', 'name': 'corpus callosum, agenesis of', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_Tr6JnXRxtlDaSZ1oSxAFXwPi",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "I have identified diseases and features associated with the excluded patient features. Now, I will cross-reference the diseases associated with the patient's features and exclude those linked to the excluded features. Then, I will rank the remaining diseases based on the overlap with the patient's features.\n\nLet me proceed with this analysis.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_z84P0SBe6moLvJ2zJav8hDqf",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) WHERE p.name IN ['Short stature', 'Elevated diastolic blood pressure', 'Reduced bone mineral density', 'Lipodystrophy', 'Alopecia', 'Reduced subcutaneous adipose tissue', 'Hypodontia', 'Scleroderma', 'Proptosis', 'Progressive clavicular acroosteolysis', 'Osteolytic defects of the phalanges of the hand', 'Prominent superficial blood vessels', 'Circumoral cyanosis', 'Failure to thrive', 'Micrognathia', 'Mottled pigmentation', 'Coxa valga'] AND NOT (d)-[:biolink_has_phenotype]->(:biolink_PhenotypicFeature {name: 'Ankyloglossia'}) AND NOT (d)-[:biolink_has_phenotype]->(:biolink_PhenotypicFeature {name: 'High palate'}) AND NOT (d)-[:biolink_has_phenotype]->(:biolink_PhenotypicFeature {name: 'Delayed eruption of teeth'}) AND NOT (d)-[:biolink_has_phenotype]->(:biolink_PhenotypicFeature {name: 'Shark teeth'}) AND NOT (d)-[:biolink_has_phenotype]->(:biolink_PhenotypicFeature {name: 'Abnormality of vision'}) RETURN d, COUNT(p) AS feature_overlap ORDER BY feature_overlap DESC LIMIT 10\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [{'data': {'id': 'MONDO:0019321', 'caption': 'atypical Werner syndrome', 'name': 'atypical Werner syndrome', 'description': 'A heterogeneous group of cases that are clinically diagnosed as Werner syndrome (WS) but do not carry WRN gene mutations. Similar to classical WS caused by WRN mutations, patients generally exhibit an aged appearance and common age-related disorders at earlier ages compared to the general population.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0008389', 'caption': 'autosomal dominant Robinow syndrome', 'name': 'autosomal dominant Robinow syndrome', 'description': 'Autosomal dominant Robinow syndrome (DRS) is the more common type of Robinow syndrome (RS) characterized by mild to moderate limb shortening and abnormalities of the head, face and external genitalia.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0013523', 'caption': 'Nestor-Guillermo progeria syndrome', 'name': 'Nestor-Guillermo progeria syndrome', 'description': 'A premature aging syndrome, autosomal recessive, characterized by lipoatrophy, osteoporosis, and very severe osteolysis. Patients have no cardiovascular impairment, diabetes mellitus, or hypertriglyceridemia, but suffer profound skeletal abnormalities that affect their quality of life.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0859147', 'caption': 'Marbach-Rustad progeroid syndrome', 'name': 'Marbach-Rustad progeroid syndrome', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0011273', 'caption': 'H syndrome', 'name': 'H syndrome', 'description': 'A systemic inherited histiocytosis, with characteristic cutaneous findings accompanying systemic manifestations. H syndrome refers to the major clinical findings of hyperpigmentation, hypertrichosis, hepatosplenomegaly, heart anomalies, hearing loss, hypogonadism, low height, and occasionally, hyperglycemia/diabetes mellitus. Due to overlapping clinical features, H syndrome is now considered to include pigmented hypertrichosis with insulin dependent diabetes mellitus syndrome (PHID), Faisalabad histiocytosis (FHC) and familial sinus histiocytosis with massive lymphadenopathy (FSHML).', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0700107', 'caption': 'chromosome 19q13.11 deletion syndrome, distal', 'name': 'chromosome 19q13.11 deletion syndrome, distal', 'description': 'Chromosome 19q13.11 deletion syndrome in which the distal region was deleted.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014887', 'caption': 'bone marrow failure syndrome 3', 'name': 'bone marrow failure syndrome 3', 'description': 'Any bone marrow failure syndrome in which the cause of the disease is a mutation in the DNAJC21 gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0020682', 'caption': 'Ehlers-Danlos syndrome, spondylodysplastic type, 1', 'name': 'Ehlers-Danlos syndrome, spondylodysplastic type, 1', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0019407', 'caption': 'microcephalic osteodysplastic dysplasia, Saul-Wilson type', 'name': 'microcephalic osteodysplastic dysplasia, Saul-Wilson type', 'description': 'A bone development disease characterized by early developmental delay primarily involving speech, distinct facial features, short stature, brachydactyly, clubfoot deformities, cataracts, and microcephaly that has material basis in heterozygous mutation in COG4 on chromosome 16q22.1.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0012794', 'caption': 'ANE syndrome', 'name': 'ANE syndrome', 'description': 'ANE syndrome is a rare, genetic, neuro-endocrino-cutaneous disorder characterized by highly variable degrees of alopecia, moderate to severe intellectual disability, progressive, late-onset motor deterioration and combined anterior pituitary hormone deficiency, manifesting with central hypogonadotropic hypogonadism, delayed or absent puberty, growth hormone deficiency (resulting in short stature), progressive central adrenal insufficiency and a hypoplastic anterior pituitary gland. Additional features include hypodontia, flexural reticulate hyperpigmentation, gynecomastia, microcephaly and kyphoscoliosis.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': []}}",
+            "name": "run_query",
+            "tool_call_id": "call_z84P0SBe6moLvJ2zJav8hDqf",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "Based on the analysis of the patient's features and the exclusion of diseases associated with the excluded features, here is a rank-ordered list of possible diagnoses:\n\n1. [Atypical Werner Syndrome](https://monarchinitiative.org/MONDO:0019321): A condition resembling Werner syndrome but without WRN gene mutations, characterized by premature aging and age-related disorders.\n2. [Autosomal Dominant Robinow Syndrome](https://monarchinitiative.org/MONDO:0008389): A syndrome with mild to moderate limb shortening, facial abnormalities, and genital anomalies.\n3. [Nestor-Guillermo Progeria Syndrome](https://monarchinitiative.org/MONDO:0013523): A premature aging syndrome with lipoatrophy, osteoporosis, and severe osteolysis, but no cardiovascular impairment or diabetes.\n4. [Marbach-Rustad Progeroid Syndrome](https://monarchinitiative.org/MONDO:0859147): A progeroid syndrome with features of premature aging.\n5. [H Syndrome](https://monarchinitiative.org/MONDO:0011273): A systemic histiocytosis with hyperpigmentation, hypertrichosis, and systemic manifestations like hepatosplenomegaly and hearing loss.\n6. [Chromosome 19q13.11 Deletion Syndrome, Distal](https://monarchinitiative.org/MONDO:0700107): A chromosomal deletion syndrome with variable features.\n7. [Bone Marrow Failure Syndrome 3](https://monarchinitiative.org/MONDO:0014887): A syndrome caused by mutations in the DNAJC21 gene, leading to bone marrow failure.\n8. [Ehlers-Danlos Syndrome, Spondylodysplastic Type 1](https://monarchinitiative.org/MONDO:0020682): A subtype of Ehlers-Danlos syndrome with skeletal dysplasia.\n9. [Microcephalic Osteodysplastic Dysplasia, Saul-Wilson Type](https://monarchinitiative.org/MONDO:0019407): A bone development disorder with short stature, brachydactyly, and microcephaly.\n10. [ANE Syndrome](https://monarchinitiative.org/MONDO:0012794): A rare neuro-endocrino-cutaneous disorder with alopecia, intellectual disability, and combined anterior pituitary hormone deficiency.\n\nThese diagnoses are ranked based on the overlap of features with the patient's presentation. Further clinical evaluation and genetic testing would be necessary to confirm the diagnosis.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": null,
+            "is_tool_call_error": null
+        }
+    ],
+    "expected_diagnosis_mondo": [
+        {
+            "mondo_id": "MONDO:0008310",
+            "disease_name": "Hutchinson-Gilford progeria syndrome"
+        }
+    ]
+}

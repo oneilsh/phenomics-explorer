@@ -1,0 +1,317 @@
+{
+    "phenopacket": {
+        "id": "PMID_33731876_fam1204",
+        "subject": {
+            "id": "fam1204"
+        },
+        "phenotypicFeatures": [
+            {
+                "type": {
+                    "id": "HP:0001290",
+                    "label": "Generalized hypotonia"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001263",
+                    "label": "Global developmental delay"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0012469",
+                    "label": "Infantile spasms"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0100702",
+                    "label": "Arachnoid cyst"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001270",
+                    "label": "Motor delay"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0100021",
+                    "label": "Cerebral palsy"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0002015",
+                    "label": "Dysphagia"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0200134",
+                    "label": "Epileptic encephalopathy"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000540",
+                    "label": "Hypermetropia"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0011189",
+                    "label": "Bilateral multifocal epileptiform discharges"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0010845",
+                    "label": "EEG with generalized slow activity"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0010850",
+                    "label": "EEG with spike-wave complexes"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0011968",
+                    "label": "Feeding difficulties"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0002521",
+                    "label": "Hypsarrhythmia"
+                }
+            }
+        ],
+        "interpretations": [
+            {
+                "id": "fam1204",
+                "progressStatus": "SOLVED",
+                "diagnosis": {
+                    "disease": {
+                        "id": "OMIM:613721",
+                        "label": "Developmental and epileptic encephalopathy 11"
+                    },
+                    "genomicInterpretations": [
+                        {
+                            "subjectOrBiosampleId": "fam1204",
+                            "interpretationStatus": "CAUSATIVE",
+                            "variantInterpretation": {
+                                "variationDescriptor": {
+                                    "id": "var_WZlkHFECoNRmMZezoZcqLDrjn",
+                                    "geneContext": {
+                                        "valueId": "HGNC:10588",
+                                        "symbol": "SCN2A"
+                                    },
+                                    "expressions": [
+                                        {
+                                            "syntax": "hgvs.c",
+                                            "value": "NM_001040142.2:c.584A>G"
+                                        },
+                                        {
+                                            "syntax": "hgvs.g",
+                                            "value": "NC_000002.12:g.165308773A>G"
+                                        }
+                                    ],
+                                    "vcfRecord": {
+                                        "genomeAssembly": "hg38",
+                                        "chrom": "chr2",
+                                        "pos": "165308773",
+                                        "ref": "A",
+                                        "alt": "G"
+                                    },
+                                    "moleculeContext": "genomic",
+                                    "allelicState": {
+                                        "id": "GENO:0000135",
+                                        "label": "heterozygous"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "diseases": [
+            {
+                "term": {
+                    "id": "OMIM:613721",
+                    "label": "Developmental and epileptic encephalopathy 11"
+                },
+                "onset": {
+                    "ontologyClass": {
+                        "id": "HP:0003593",
+                        "label": "Infantile onset"
+                    }
+                }
+            }
+        ],
+        "metaData": {
+            "created": "2024-05-11T07:08:55.810682773Z",
+            "createdBy": "ORCID:0000-0002-0736-9199",
+            "resources": [
+                {
+                    "id": "geno",
+                    "name": "Genotype Ontology",
+                    "url": "http://purl.obolibrary.org/obo/geno.owl",
+                    "version": "2022-03-05",
+                    "namespacePrefix": "GENO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+                },
+                {
+                    "id": "hgnc",
+                    "name": "HUGO Gene Nomenclature Committee",
+                    "url": "https://www.genenames.org",
+                    "version": "06/01/23",
+                    "namespacePrefix": "HGNC",
+                    "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+                },
+                {
+                    "id": "omim",
+                    "name": "An Online Catalog of Human Genes and Genetic Disorders",
+                    "url": "https://www.omim.org",
+                    "version": "January 4, 2023",
+                    "namespacePrefix": "OMIM",
+                    "iriPrefix": "https://www.omim.org/entry/"
+                },
+                {
+                    "id": "so",
+                    "name": "Sequence types and features ontology",
+                    "url": "http://purl.obolibrary.org/obo/so.obo",
+                    "version": "2021-11-22",
+                    "namespacePrefix": "SO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+                },
+                {
+                    "id": "hp",
+                    "name": "human phenotype ontology",
+                    "url": "http://purl.obolibrary.org/obo/hp.owl",
+                    "version": "2024-04-04",
+                    "namespacePrefix": "HP",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+                },
+                {
+                    "id": "mondo",
+                    "name": "Mondo Disease Ontology",
+                    "url": "http://purl.obolibrary.org/obo/mondo.obo",
+                    "version": "2023-09-12",
+                    "namespacePrefix": "MONDO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/MONDO_"
+                }
+            ],
+            "phenopacketSchemaVersion": "2.0",
+            "externalReferences": [
+                {
+                    "id": "PMID:33731876",
+                    "reference": "https://pubmed.ncbi.nlm.nih.gov/33731876",
+                    "description": "Computational analysis of 10,860 phenotypic annotations in individuals with SCN2A-related disorders"
+                }
+            ]
+        }
+    },
+    "cost_est_base_rate": 0.051108,
+    "tokens_used_prompt": 20130,
+    "tokens_used_completion": 1356,
+    "query": "From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses, even if there is insufficient information to make a definitive diagnosis. If you are unsure, provide a list of possible diagnoses with the most likely one first.\n\nPatient ID: fam1204\nPatient age: Unknown\nPatient sex: Unknown\nPatient features: Generalized hypotonia, Global developmental delay, Infantile spasms, Arachnoid cyst, Motor delay, Cerebral palsy, Dysphagia, Epileptic encephalopathy, Hypermetropia, Bilateral multifocal epileptiform discharges, EEG with generalized slow activity, EEG with spike-wave complexes, Feeding difficulties, Hypsarrhythmia.\nExcluded patient features: None.",
+    "phenopacket_file": "phenopackets/PMID_33731876_fam1204.json",
+    "expected_diagnosis": "OMIM:613721",
+    "base_engine": "gpt-4.1-2025-04-14",
+    "eval_engine": "gpt-4.1-2025-04-14",
+    "eval_chain": [
+        {
+            "query": "MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) WHERE p.id IN [\n  'HP:0001290',  // Generalized hypotonia\n  'HP:0001263',  // Global developmental delay\n  'HP:0012469',  // Infantile spasms\n  'HP:0100702',  // Arachnoid cyst\n  'HP:0001270',  // Motor delay\n  'HP:0002015',  // Dysphagia\n  'HP:0200134',  // Epileptic encephalopathy\n  'HP:0000540',  // Hypermetropia\n  'HP:0011189',  // Bilateral multifocal epileptiform discharges\n  'HP:0010845',  // EEG with generalized slow activity\n  'HP:0010850',  // EEG with spike-wave complexes\n  'HP:0011968',  // Feeding difficulties\n  'HP:0002521'   // Hypsarrhythmia\n] RETURN d, count(p) as matched_features ORDER BY matched_features DESC LIMIT 20",
+            "query_summary": "This query searches for diseases that are connected to any of a list of 13 phenotypic features (such as generalized hypotonia, global developmental delay, infantile spasms, etc.) by the 'biolink_has_phenotype' relationship. For each disease, it counts how many of these features are present and returns the diseases with the highest number of matched features, sorted in descending order. The query is limited to the top 20 results. This approach is appropriate for generating a rank-ordered list of possible diagnoses based on the patient's features, as requested. The relationships are oriented correctly (disease to phenotype), and the use of ORDER BY and LIMIT is appropriate. The query does not use OPTIONAL matches, which is correct here since we only want diseases that have at least one of the specified phenotypes. The results align with expectations, showing diseases with multiple matching features. The query passes a sanity check for this use case.",
+            "accept_query": true,
+            "suggestion": "The query is well-constructed for the intended purpose. If you want to ensure you capture diseases that are subclasses of others (e.g., rare subtypes), you could consider using the biolink_subclass_of pattern to include all descendant diseases. Also, you may want to limit the results to the top 10 instead of 20, as per the default instruction, unless a larger list is specifically desired."
+        }
+    ],
+    "messages": [
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_zlKvU49oN7dEpTDU1m79hJAm",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"Generalized hypotonia\", \"Global developmental delay\", \"Infantile spasms\", \"Arachnoid cyst\", \"Motor delay\", \"Cerebral palsy\", \"Dysphagia\", \"Epileptic encephalopathy\", \"Hypermetropia\", \"Bilateral multifocal epileptiform discharges\", \"EEG with generalized slow activity\", \"EEG with spike-wave complexes\", \"Feeding difficulties\", \"Hypsarrhythmia\"]}"
+                    }
+                },
+                {
+                    "id": "call_rZ3HGbe5OUtoYTYxToH3icIl",
+                    "type": "function",
+                    "function": {
+                        "name": "get_entity_types",
+                        "arguments": "{}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'Generalized hypotonia': [{'id': 'HP:0001290', 'category': 'biolink:PhenotypicFeature', 'name': 'Generalized hypotonia', 'in_taxon_label': None}, {'id': 'HP:0006852', 'category': 'biolink:PhenotypicFeature', 'name': 'Episodic generalized hypotonia', 'in_taxon_label': None}, {'id': 'HP:0008935', 'category': 'biolink:PhenotypicFeature', 'name': 'Generalized neonatal hypotonia', 'in_taxon_label': None}, {'id': 'MONDO:0016539', 'category': 'biolink:Disease', 'name': 'atypical hypotonia-cystinuria syndrome', 'in_taxon_label': None}, {'id': 'HP:0003397', 'category': 'biolink:PhenotypicFeature', 'name': 'Generalized hypotonia due to defect at the neuromuscular junction', 'in_taxon_label': None}], 'Global developmental delay': [{'id': 'HP:0001263', 'category': 'biolink:PhenotypicFeature', 'name': 'Global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011344', 'category': 'biolink:PhenotypicFeature', 'name': 'Severe global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0012736', 'category': 'biolink:PhenotypicFeature', 'name': 'Profound global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011342', 'category': 'biolink:PhenotypicFeature', 'name': 'Mild global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011343', 'category': 'biolink:PhenotypicFeature', 'name': 'Moderate global developmental delay', 'in_taxon_label': None}], 'Infantile spasms': [{'id': 'MONDO:0018097', 'category': 'biolink:Disease', 'name': 'infantile spasms', 'in_taxon_label': None}, {'id': 'HP:0012469', 'category': 'biolink:PhenotypicFeature', 'name': 'Infantile spasms', 'in_taxon_label': None}, {'id': 'MONDO:0017852', 'category': 'biolink:Disease', 'name': 'infantile spasms-broad thumbs syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0859162', 'category': 'biolink:Disease', 'name': 'neurodevelopmental disorder with infantile epileptic spasms', 'in_taxon_label': None}, {'id': 'MONDO:0015585', 'category': 'biolink:Disease', 'name': 'cryptogenic late-onset e ... [result trimmed] ..._taxon_label': None}, {'id': 'HP:0010849', 'category': 'biolink:PhenotypicFeature', 'name': 'EEG with spike-wave complexes (>3.5 Hz)', 'in_taxon_label': None}, {'id': 'HP:0010847', 'category': 'biolink:PhenotypicFeature', 'name': 'EEG with spike-wave complexes (<2.5 Hz)', 'in_taxon_label': None}, {'id': 'HP:0001326', 'category': 'biolink:PhenotypicFeature', 'name': 'EEG with irregular generalized spike and wave complexes', 'in_taxon_label': None}, {'id': 'HP:0010848', 'category': 'biolink:PhenotypicFeature', 'name': 'EEG with spike-wave complexes (2.5-3.5 Hz)', 'in_taxon_label': None}], 'Feeding difficulties': [{'id': 'HP:0011968', 'category': 'biolink:PhenotypicFeature', 'name': 'Feeding difficulties', 'in_taxon_label': None}, {'id': 'HP:0008872', 'category': 'biolink:PhenotypicFeature', 'name': 'Feeding difficulties in infancy', 'in_taxon_label': None}, {'id': 'MONDO:0014213', 'category': 'biolink:Disease', 'name': 'intellectual disability-feeding difficulties-developmental delay-microcephaly syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0859295', 'category': 'biolink:Disease', 'name': 'neurodevelopmental disorder with short stature, prominent forehead, and feeding difficulties', 'in_taxon_label': None}, {'id': 'MONDO:0971043', 'category': 'biolink:Disease', 'name': 'neurodevelopmental disorder with hypotonia, feeding difficulties, facial dysmorphism, and brain abnormalities', 'in_taxon_label': None}], 'Hypsarrhythmia': [{'id': 'HP:0002521', 'category': 'biolink:PhenotypicFeature', 'name': 'Hypsarrhythmia', 'in_taxon_label': None}, {'id': 'MP:0014628', 'category': 'biolink:PhenotypicFeature', 'name': 'hypsarrhythmia', 'in_taxon_label': None}, {'id': 'MONDO:0009841', 'category': 'biolink:Disease', 'name': 'PEHO syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0018097', 'category': 'biolink:Disease', 'name': 'infantile spasms', 'in_taxon_label': None}, {'id': 'MONDO:0020495', 'category': 'biolink:Disease', 'name': 'PEHO-like syndrome', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_zlKvU49oN7dEpTDU1m79hJAm",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': [{'label': 'biolink:DiseaseOrPhenotypicFeature'}, {'label': 'biolink:ThingWithTaxon'}, {'label': 'biolink:PhenotypicFeature'}, {'label': 'biolink:Entity'}, {'label': 'biolink:NamedThing'}, {'label': 'biolink:BiologicalEntity'}, {'label': 'biolink:PhysicalEssence'}, {'label': 'biolink:GenomicEntity'}, {'label': 'biolink:PhysicalEssenceOrOccurrent'}, {'label': 'biolink:OntologyClass'}, {'label': 'biolink:Genotype'}, {'label': 'biolink:GeneOrGeneProduct'}, {'label': 'biolink:ChemicalEntityOrGeneOrGeneProduct'}, {'label': 'biolink:Gene'}, {'label': 'biolink:MacromolecularMachineMixin'}, {'label': 'biolink:Disease'}, {'label': 'biolink:Occurrent'}, {'label': 'biolink:BiologicalProcessOrActivity'}, {'label': 'biolink:MolecularActivity'}, {'label': 'biolink:OrganismTaxon'}, {'label': 'biolink:ChemicalEntityOrProteinOrPolypeptide'}, {'label': 'biolink:Polypeptide'}, {'label': 'biolink:Protein'}, {'label': 'biolink:GeneProductMixin'}, {'label': 'biolink:ChemicalEntity'}, {'label': 'biolink:ChemicalOrDrugOrTreatment'}, {'label': 'biolink:AnatomicalEntity'}, {'label': 'biolink:Cell'}, {'label': 'biolink:OrganismalEntity'}, {'label': 'biolink:SubjectOfInvestigation'}, {'label': 'biolink:BiologicalProcess'}, {'label': 'biolink:CellularComponent'}, {'label': 'biolink:MolecularEntity'}, {'label': 'biolink:LifeStage'}, {'label': 'biolink:Pathway'}, {'label': 'biolink:SequenceVariant'}]}}",
+            "name": "get_entity_types",
+            "tool_call_id": "call_rZ3HGbe5OUtoYTYxToH3icIl",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_qPEAFiQatT4JAiEQUPNGlV58",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) WHERE p.id IN [\\n  'HP:0001290',  // Generalized hypotonia\\n  'HP:0001263',  // Global developmental delay\\n  'HP:0012469',  // Infantile spasms\\n  'HP:0100702',  // Arachnoid cyst\\n  'HP:0001270',  // Motor delay\\n  'HP:0002015',  // Dysphagia\\n  'HP:0200134',  // Epileptic encephalopathy\\n  'HP:0000540',  // Hypermetropia\\n  'HP:0011189',  // Bilateral multifocal epileptiform discharges\\n  'HP:0010845',  // EEG with generalized slow activity\\n  'HP:0010850',  // EEG with spike-wave complexes\\n  'HP:0011968',  // Feeding difficulties\\n  'HP:0002521'   // Hypsarrhythmia\\n] RETURN d, count(p) as matched_features ORDER BY matched_features DESC LIMIT 20\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [{'data': {'id': 'MONDO:0011964', 'caption': 'DPAGT1-congenital disorder of glycosylation', 'name': 'DPAGT1-congenital disorder of glycosylation', 'description': 'DPAGT1-CDG is a form of congenital disorders of N-linked glycosylation characterized by hypotonia, intractable seizures, developmental delay, microcephaly and severe fetal hypokinesia. Additional features that may be observed include apnea and respiratory deficiency, cataracts, joint contractures, vermian hypoplasia, dysmorphic features (esotropia, arched palate, micrognathia, finger clinodactyly, single flexion creases) and feeding difficulties. The disease is caused by loss-of-function mutations in the gene DPAGT1 (11q23.3).', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0007298', 'caption': 'spinocerebellar ataxia type 29', 'name': 'spinocerebellar ataxia type 29', 'description': 'Spinocerebellar ataxia type 29 (SCA29) is a rare subtype of autosomal dominant cerebellar ataxia type I (ADCA type I) characterized by very slowly progressive or non-progressive ataxia, dysarthria, oculomotor abnormalities and intellectual disability.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0010396', 'caption': 'developmental and epileptic encephalopathy, 2', 'name': 'developmental and epileptic encephalopathy, 2', 'description': 'Any early infantile epileptic encephalopathy in which the cause of the disease is a mutation in the CDKL5 gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0007113', 'caption': 'Angelman syndrome', 'name': 'Angelman syndrome', 'description': 'A neurogenetic disorder characterized by severe intellectual deficit and distinct facial dysmorphic features.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0009723', 'caption': 'Leigh syndrome', 'name': 'Leigh syndrome', 'description': 'A progressive neurological disease defined by specific neuropathological features associating brainstem and basal ganglia lesions.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0011830', 'caption': 'lissencephaly due to LIS1 mutation', 'name': 'lissencephaly due to LIS1 mutation', 'description': 'Lissencephaly due to LIS1 mutation is a cerebral malformation with epilepsy characterized predominantly by posterior isolated lissencephaly with developmental delay, intellectual disability and epilepsy that usually evolves from West syndrome to Lennox-Gastaut syndrome. Additional features include muscular hypotonia, acquired microcephaly, failure to thrive and poor control of airways leading to aspiration pneumonia.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014741', 'caption': 'DeSanto-Shinawi syndrome due to WAC point mutation', 'name': 'DeSanto-Shinawi syndrome due to WAC point mutation', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014855', 'caption': 'intellectual disability, autosomal dominant 42', 'name': 'intellectual disability, autosomal dominant 42', 'description': 'Any autosomal dominant intellectual disability in which the cause of the disease is a heterozygous mutation in the GNB1 gene. It is characterized by global developmental delay, intellectual disability, hypotonia, structural brain abnormalities, and seizures. Other less common findings include dystonia, visual impairment, behavior problems, growth delay, craniofacial defects, and genitourinary abnormalities in males.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0011652', 'caption': 'Phelan-McDermid syndrome', 'name': 'Phelan-McDermid syndrome', 'description': 'A rare genetic neurodevelopmental disorder characterized by neonatal hypotonia, global developmental delay, normal to accelerated growth, absent to severely delayed speech, and minor dysmorphic features. Phelan-McDermid syndrome can be caused by a deletion at chromosome 22q13 or by mutation in the SHANK3 gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014725', 'caption': 'spastic tetraplegia-thin corpus callosum-progressive postnatal microcephaly syndrome', 'name': 'spastic tetraplegia-thin corpus callosum-progressive postnatal microcephaly syndrome', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014921', 'caption': 'developmental and epileptic encephalopathy, 43', 'name': 'developmental and epileptic encephalopathy, 43', 'description': 'Any early infantile epileptic encephalopathy in which the cause of the disease is a mutation in the GABRB3 gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0010472', 'caption': 'developmental and epileptic encephalopathy, 36', 'name': 'developmental and epileptic encephalopathy, 36', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0032710', 'caption': 'developmental and epileptic encephalopathy, 72', 'name': 'developmental and epileptic encephalopathy, 72', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0010478', 'caption': 'SLC35A2-congenital disorder of glycosylation', 'name': 'SLC35A2-congenital disorder of glycosylation', 'description': 'SLC35A2-CDG is a congenital disorder of glycosylation characterized by severe or profound global developmental delay, early epileptic encephalopathy, muscular hypotonia, dysmorphic features (coarse facies, thick eyebrows, broad nasal bridge, thick lips, inverted nipples), variable ocular defects and brain morphological abnormalities on brain MRI (cerebral atrophy, thin corpus callosum).', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0060752', 'caption': 'neurodevelopmental disorder with spasticity and poor growth', 'name': 'neurodevelopmental disorder with spasticity and poor growth', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014905', 'caption': 'encephalopathy due to defective mitochondrial and peroxisomal fission 2', 'name': 'encephalopathy due to defective mitochondrial and peroxisomal fission 2', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014947', 'caption': 'developmental and epileptic encephalopathy, 46', 'name': 'developmental and epileptic encephalopathy, 46', 'description': 'Any early infantile epileptic encephalopathy in which the cause of the disease is a mutation in the GRIN2D gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0020632', 'caption': 'developmental and epileptic encephalopathy 93', 'name': 'developmental and epileptic encephalopathy 93', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0011929', 'caption': 'chromosome 1p36 deletion syndrome', 'name': 'chromosome 1p36 deletion syndrome', 'description': 'A chromosomal anomaly characterized by distinctive facial dysmorphic features, hypotonia, developmental delay, intellectual disability, seizures, heart defects, hearing impairment and prenatal onset growth deficiency.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014505', 'caption': 'developmental and epileptic encephalopathy, 27', 'name': 'developmental and epileptic encephalopathy, 27', 'description': 'Any early infantile epileptic encephalopathy in which the cause of the disease is a mutation in the GRIN2B gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': []}}",
+            "name": "run_query",
+            "tool_call_id": "call_qPEAFiQatT4JAiEQUPNGlV58",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "Based on the patient's features\u2014generalized hypotonia, global developmental delay, infantile spasms, arachnoid cyst, motor delay, cerebral palsy, dysphagia, epileptic encephalopathy, hypermetropia, bilateral multifocal epileptiform discharges, EEG abnormalities (generalized slow activity, spike-wave complexes), feeding difficulties, and hypsarrhythmia\u2014the following are the most likely diagnoses, ranked by the number of matching features:\n\n1. [DPAGT1-congenital disorder of glycosylation](https://monarchinitiative.org/MONDO:0011964)  \n   - Features: Hypotonia, intractable seizures, developmental delay, feeding difficulties, and more.\n\n2. [Spinocerebellar ataxia type 29](https://monarchinitiative.org/MONDO:0007298)  \n   - Features: Ataxia, intellectual disability, developmental delay, oculomotor abnormalities.\n\n3. [Developmental and epileptic encephalopathy, 2 (CDKL5-related)](https://monarchinitiative.org/MONDO:0010396)  \n   - Features: Early infantile epileptic encephalopathy, developmental delay, seizures.\n\n4. [Angelman syndrome](https://monarchinitiative.org/MONDO:0007113)  \n   - Features: Severe intellectual disability, seizures, hypotonia, feeding difficulties.\n\n5. [Leigh syndrome](https://monarchinitiative.org/MONDO:0009723)  \n   - Features: Progressive neurological disease, hypotonia, developmental delay, seizures.\n\n6. [Lissencephaly due to LIS1 mutation](https://monarchinitiative.org/MONDO:0011830)  \n   - Features: Developmental delay, epilepsy (West syndrome), hypotonia, feeding difficulties.\n\n7. [DeSanto-Shinawi syndrome due to WAC point mutation](https://monarchinitiative.org/MONDO:0014741)  \n   - Features: Developmental delay, hypotonia, seizures.\n\n8. [Intellectual disability, autosomal dominant 42 (GNB1-related)](https://monarchinitiative.org/MONDO:0014855)  \n   - Features: Global developmental delay, hypotonia, seizures, brain abnormalities.\n\n9. [Phelan-McDermid syndrome](https://monarchinitiative.org/MONDO:0011652)  \n   - Features: Neonatal hypotonia, global developmental delay, feeding difficulties.\n\n10. [Spastic tetraplegia-thin corpus callosum-progressive postnatal microcephaly syndrome](https://monarchinitiative.org/MONDO:0014725)  \n    - Features: Developmental delay, hypotonia, brain abnormalities.\n\nOther possible diagnoses (not shown here) include various forms of developmental and epileptic encephalopathies, congenital disorders of glycosylation, and chromosomal syndromes.\n\nIf you have more information (such as age, sex, or genetic findings), the list could be further refined. If you would like more details on any of these conditions or a longer list, please let me know!",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": null,
+            "is_tool_call_error": null
+        }
+    ],
+    "expected_diagnosis_mondo": [
+        {
+            "mondo_id": "MONDO:0013388",
+            "disease_name": "developmental and epileptic encephalopathy, 11"
+        }
+    ]
+}

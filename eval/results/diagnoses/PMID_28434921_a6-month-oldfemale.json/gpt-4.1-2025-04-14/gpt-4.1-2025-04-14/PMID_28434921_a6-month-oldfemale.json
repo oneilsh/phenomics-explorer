@@ -1,0 +1,305 @@
+{
+    "phenopacket": {
+        "id": "PMID_28434921_a_6-month-old_female",
+        "subject": {
+            "id": "a 6-month-old female",
+            "sex": "FEMALE"
+        },
+        "phenotypicFeatures": [
+            {
+                "type": {
+                    "id": "HP:0002092",
+                    "label": "Pulmonary arterial hypertension"
+                },
+                "onset": {
+                    "age": {
+                        "iso8601duration": "P9M"
+                    }
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0011682",
+                    "label": "Perimembranous ventricular septal defect"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001684",
+                    "label": "Secundum atrial septal defect"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0011623",
+                    "label": "Muscular ventricular septal defect"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001674",
+                    "label": "Complete atrioventricular canal defect"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001655",
+                    "label": "Patent foramen ovale"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0009777",
+                    "label": "Absent thumb"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0009778",
+                    "label": "Short thumb"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001199",
+                    "label": "Triphalangeal thumb"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0003974",
+                    "label": "Absent radius"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0009813",
+                    "label": "Upper limb phocomelia"
+                },
+                "excluded": true
+            }
+        ],
+        "interpretations": [
+            {
+                "id": "a 6-month-old female",
+                "progressStatus": "SOLVED",
+                "diagnosis": {
+                    "disease": {
+                        "id": "OMIM:142900",
+                        "label": "Holt-Oram syndrome"
+                    },
+                    "genomicInterpretations": [
+                        {
+                            "subjectOrBiosampleId": "a 6-month-old female",
+                            "interpretationStatus": "CAUSATIVE",
+                            "variantInterpretation": {
+                                "variationDescriptor": {
+                                    "id": "var_MPxTAADzOnprYUxoNsuWaDEjA",
+                                    "geneContext": {
+                                        "valueId": "HGNC:11604",
+                                        "symbol": "TBX5"
+                                    },
+                                    "expressions": [
+                                        {
+                                            "syntax": "hgvs.c",
+                                            "value": "NM_181486.4:c.40C>A"
+                                        },
+                                        {
+                                            "syntax": "hgvs.g",
+                                            "value": "NC_000012.12:g.114403859G>T"
+                                        }
+                                    ],
+                                    "vcfRecord": {
+                                        "genomeAssembly": "hg38",
+                                        "chrom": "chr12",
+                                        "pos": "114403859",
+                                        "ref": "G",
+                                        "alt": "T"
+                                    },
+                                    "moleculeContext": "genomic",
+                                    "allelicState": {
+                                        "id": "GENO:0000135",
+                                        "label": "heterozygous"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "diseases": [
+            {
+                "term": {
+                    "id": "OMIM:142900",
+                    "label": "Holt-Oram syndrome"
+                },
+                "onset": {
+                    "age": {
+                        "iso8601duration": "P0D"
+                    }
+                }
+            }
+        ],
+        "metaData": {
+            "created": "2024-03-27T07:21:37.699770927Z",
+            "createdBy": "ORCID:0000-0002-0736-9199",
+            "resources": [
+                {
+                    "id": "geno",
+                    "name": "Genotype Ontology",
+                    "url": "http://purl.obolibrary.org/obo/geno.owl",
+                    "version": "2022-03-05",
+                    "namespacePrefix": "GENO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+                },
+                {
+                    "id": "hgnc",
+                    "name": "HUGO Gene Nomenclature Committee",
+                    "url": "https://www.genenames.org",
+                    "version": "06/01/23",
+                    "namespacePrefix": "HGNC",
+                    "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+                },
+                {
+                    "id": "omim",
+                    "name": "An Online Catalog of Human Genes and Genetic Disorders",
+                    "url": "https://www.omim.org",
+                    "version": "January 4, 2023",
+                    "namespacePrefix": "OMIM",
+                    "iriPrefix": "https://www.omim.org/entry/"
+                },
+                {
+                    "id": "so",
+                    "name": "Sequence types and features ontology",
+                    "url": "http://purl.obolibrary.org/obo/so.obo",
+                    "version": "2021-11-22",
+                    "namespacePrefix": "SO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+                },
+                {
+                    "id": "hp",
+                    "name": "human phenotype ontology",
+                    "url": "http://purl.obolibrary.org/obo/hp.owl",
+                    "version": "2024-03-06",
+                    "namespacePrefix": "HP",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+                }
+            ],
+            "phenopacketSchemaVersion": "2.0",
+            "externalReferences": [
+                {
+                    "id": "PMID:28434921",
+                    "reference": "https://pubmed.ncbi.nlm.nih.gov/28434921",
+                    "description": "Identification of a novel and functional mutation in the TBX5 gene in a patient by screening from 354 patients with isolated ventricular septal defect"
+                }
+            ]
+        }
+    },
+    "cost_est_base_rate": 0.040336000000000004,
+    "tokens_used_prompt": 16556,
+    "tokens_used_completion": 903,
+    "query": "From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses, even if there is insufficient information to make a definitive diagnosis. If you are unsure, provide a list of possible diagnoses with the most likely one first.\n\nPatient ID: a 6-month-old female\nPatient age: Unknown\nPatient sex: Female\nPatient features: Pulmonary arterial hypertension (onset 9 months), Perimembranous ventricular septal defect.\nExcluded patient features: Secundum atrial septal defect, Muscular ventricular septal defect, Complete atrioventricular canal defect, Patent foramen ovale, Absent thumb, Short thumb, Triphalangeal thumb, Absent radius, Upper limb phocomelia.",
+    "phenopacket_file": "phenopackets/PMID_28434921_a6-month-oldfemale.json",
+    "expected_diagnosis": "OMIM:142900",
+    "base_engine": "gpt-4.1-2025-04-14",
+    "eval_engine": "gpt-4.1-2025-04-14",
+    "eval_chain": [
+        {
+            "query": "MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p1:biolink_PhenotypicFeature {id: 'HP:0002092'})\nWITH d\nMATCH (d)-[:biolink_has_phenotype]->(p2:biolink_PhenotypicFeature {id: 'HP:0011682'})\nWITH d\nOPTIONAL MATCH (d)-[:biolink_has_phenotype]->(excl:biolink_PhenotypicFeature)\nWHERE excl.id IN ['HP:0001684','HP:0011623','HP:0001674','HP:0001655','HP:0009777','HP:0009778','HP:0001199','HP:0003974','HP:0009813']\nWITH d, collect(excl) AS excluded\nWHERE size(excluded) = 0\nRETURN d, size((d)-[:biolink_has_phenotype]->()) AS phenotype_count\nORDER BY phenotype_count DESC\nLIMIT 10",
+            "query_summary": "This query searches for diseases (biolink_Disease) that have both 'Pulmonary arterial hypertension' (HP:0002092) and 'Perimembranous ventricular septal defect' (HP:0011682) as phenotypic features. It then excludes any diseases that also have any of a list of excluded phenotypes (e.g., secundum atrial septal defect, muscular ventricular septal defect, various thumb and limb anomalies). The query returns up to 10 diseases, ordered by the total number of phenotypic features they have (descending), which may help prioritize more thoroughly characterized diseases. The relationships are oriented correctly, and the use of OPTIONAL MATCH for exclusions is appropriate. The result aligns with expectations, returning a small set of diseases that match the inclusion and exclusion criteria. The ORDER BY clause is present and appropriate. The query passes a sanity check, as the returned diseases are plausible given the input features and exclusions.",
+            "accept_query": true,
+            "suggestion": "No major improvements needed. For broader coverage, consider using the biolink_subclass_of*0.. pattern to include subclasses of the phenotypic features or diseases, but the current query is well-constructed for the stated purpose."
+        }
+    ],
+    "messages": [
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_t4ECpTYNYIFTixd9Dbcwm0HE",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"Pulmonary arterial hypertension\", \"Perimembranous ventricular septal defect\"]}"
+                    }
+                },
+                {
+                    "id": "call_EJGRgdEa2UZq2vd2qp2QmLPD",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"Secundum atrial septal defect\", \"Muscular ventricular septal defect\", \"Complete atrioventricular canal defect\", \"Patent foramen ovale\", \"Absent thumb\", \"Short thumb\", \"Triphalangeal thumb\", \"Absent radius\", \"Upper limb phocomelia\"]}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'Pulmonary arterial hypertension': [{'id': 'MONDO:0015924', 'category': 'biolink:Disease', 'name': 'pulmonary arterial hypertension', 'in_taxon_label': None}, {'id': 'MONDO:0017148', 'category': 'biolink:Disease', 'name': 'heritable pulmonary arterial hypertension', 'in_taxon_label': None}, {'id': 'MONDO:0017147', 'category': 'biolink:Disease', 'name': 'idiopathic pulmonary arterial hypertension', 'in_taxon_label': None}, {'id': 'HP:0002092', 'category': 'biolink:PhenotypicFeature', 'name': 'Pulmonary arterial hypertension', 'in_taxon_label': None}, {'id': 'MONDO:0017149', 'category': 'biolink:Disease', 'name': 'drug- or toxin-induced pulmonary arterial hypertension', 'in_taxon_label': None}], 'Perimembranous ventricular septal defect': [{'id': 'HP:0011682', 'category': 'biolink:PhenotypicFeature', 'name': 'Perimembranous ventricular septal defect', 'in_taxon_label': None}, {'id': 'MP:0010402', 'category': 'biolink:PhenotypicFeature', 'name': 'ventricular septal defect', 'in_taxon_label': None}, {'id': 'MP:0010418', 'category': 'biolink:PhenotypicFeature', 'name': 'perimembraneous ventricular septal defect', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_t4ECpTYNYIFTixd9Dbcwm0HE",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "function",
+            "content": "{'Secundum atrial septal defect': [{'id': 'HP:0001684', 'category': 'biolink:PhenotypicFeature', 'name': 'Secundum atrial septal defect', 'in_taxon_label': None}, {'id': 'MONDO:0020434', 'category': 'biolink:Disease', 'name': 'atrial septal defect, ostium secundum type', 'in_taxon_label': None}, {'id': 'MP:0010405', 'category': 'biolink:PhenotypicFeature', 'name': 'ostium secundum atrial septal defect', 'in_taxon_label': None}, {'id': 'MONDO:0007172', 'category': 'biolink:Disease', 'name': 'atrial septal defect 1', 'in_taxon_label': None}, {'id': 'MONDO:0007173', 'category': 'biolink:Disease', 'name': 'atrial septal defect 7', 'in_taxon_label': None}], 'Muscular ventricular septal defect': [{'id': 'HP:0011623', 'category': 'biolink:PhenotypicFeature', 'name': 'Muscular ventricular septal defect', 'in_taxon_label': None}, {'id': 'MP:0010420', 'category': 'biolink:PhenotypicFeature', 'name': 'muscular ventricular septal defect', 'in_taxon_label': None}, {'id': 'HP:0011625', 'category': 'biolink:PhenotypicFeature', 'name': 'Multiple muscular ventricular septal defects', 'in_taxon_label': None}, {'id': 'HP:0011624', 'category': 'biolink:PhenotypicFeature', 'name': 'Apical muscular ventricular septal defect', 'in_taxon_label': None}, {'id': 'MP:0010402', 'category': 'biolink:PhenotypicFeature', 'name': 'ventricular septal defect', 'in_taxon_label': None}], 'Complete atrioventricular canal defect': [{'id': 'MONDO:0015273', 'category': 'biolink:Disease', 'name': 'complete atrioventricular canal', 'in_taxon_label': None}, {'id': 'HP:0001674', 'category': 'biolink:PhenotypicFeature', 'name': 'Complete atrioventricular canal defect', 'in_taxon_label': None}, {'id': 'MP:0010413', 'category': 'biolink:PhenotypicFeature', 'name': 'complete atrioventricular septal defect', 'in_taxon_label': None}, {'id': 'MP:0011671', 'category': 'biolink:PhenotypicFeature', 'name': 'balanced complete atrioventricular canal', 'in_taxon_label': None}, {'id': 'MP:0011673', 'category': 'biolink:Phen ... [result trimmed] ...axon_label': None}, {'id': 'HP:0009650', 'category': 'biolink:PhenotypicFeature', 'name': 'Short distal phalanx of the thumb', 'in_taxon_label': None}, {'id': 'MONDO:0007212', 'category': 'biolink:Disease', 'name': 'brachydactyly-long thumb syndrome', 'in_taxon_label': None}], 'Triphalangeal thumb': [{'id': 'MONDO:0008605', 'category': 'biolink:Disease', 'name': 'triphalangeal thumb, Nonopposable', 'in_taxon_label': None}, {'id': 'HP:0001199', 'category': 'biolink:PhenotypicFeature', 'name': 'Triphalangeal thumb', 'in_taxon_label': None}, {'id': 'MONDO:0017454', 'category': 'biolink:Disease', 'name': 'triphalangeal thumb-polysyndactyly syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0008607', 'category': 'biolink:Disease', 'name': 'triphalangeal thumbs-brachyectrodactyly syndrome', 'in_taxon_label': None}, {'id': 'HP:0005725', 'category': 'biolink:PhenotypicFeature', 'name': 'Nonopposable triphalangeal thumb', 'in_taxon_label': None}], 'Absent radius': [{'id': 'HP:0003974', 'category': 'biolink:PhenotypicFeature', 'name': 'Absent radius', 'in_taxon_label': None}, {'id': 'MP:0000553', 'category': 'biolink:PhenotypicFeature', 'name': 'absent radius', 'in_taxon_label': None}, {'id': 'MONDO:0010121', 'category': 'biolink:Disease', 'name': 'thrombocytopenia-absent radius syndrome', 'in_taxon_label': None}, {'id': 'UPHENO:0009341', 'category': 'biolink:PhenotypicFeature', 'name': 'absent radius bone', 'in_taxon_label': None}, {'id': 'MONDO:0010718', 'category': 'biolink:Disease', 'name': 'absent radius-anogenital anomalies syndrome', 'in_taxon_label': None}], 'Upper limb phocomelia': [{'id': 'HP:0009813', 'category': 'biolink:PhenotypicFeature', 'name': 'Upper limb phocomelia', 'in_taxon_label': None}, {'id': 'MONDO:0017441', 'category': 'biolink:Disease', 'name': 'congenital absence of upper arm and forearm with hand present', 'in_taxon_label': None}, {'id': 'MONDO:0009121', 'category': 'biolink:Disease', 'name': 'von Voss-Cherstvoy syndrome', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_EJGRgdEa2UZq2vd2qp2QmLPD",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_NbOpaXUhVXVzEQhXf6cNsW2Y",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p1:biolink_PhenotypicFeature {id: 'HP:0002092'})\\nWITH d\\nMATCH (d)-[:biolink_has_phenotype]->(p2:biolink_PhenotypicFeature {id: 'HP:0011682'})\\nWITH d\\nOPTIONAL MATCH (d)-[:biolink_has_phenotype]->(excl:biolink_PhenotypicFeature)\\nWHERE excl.id IN ['HP:0001684','HP:0011623','HP:0001674','HP:0001655','HP:0009777','HP:0009778','HP:0001199','HP:0003974','HP:0009813']\\nWITH d, collect(excl) AS excluded\\nWHERE size(excluded) = 0\\nRETURN d, size((d)-[:biolink_has_phenotype]->()) AS phenotype_count\\nORDER BY phenotype_count DESC\\nLIMIT 10\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [{'data': {'id': 'MONDO:0020428', 'caption': 'congenital Gerbode defect', 'name': 'congenital Gerbode defect', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0007345', 'caption': 'aorta coarctation', 'name': 'aorta coarctation', 'description': 'Congenital narrowing of a segment of the aorta. Signs and symptoms include hypertension, muscle weakness, shortness of breath, headaches and leg cramps.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0013262', 'caption': 'dilated cardiomyopathy 1S', 'name': 'dilated cardiomyopathy 1S', 'description': 'Any familial isolated dilated cardiomyopathy in which the cause of the disease is a mutation in the MYH7 gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': []}}",
+            "name": "run_query",
+            "tool_call_id": "call_NbOpaXUhVXVzEQhXf6cNsW2Y",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "Based on the provided patient features (pulmonary arterial hypertension and perimembranous ventricular septal defect) and the exclusion of several other cardiac and limb anomalies, here are the most likely diagnoses from the Monarch knowledge graph, rank-ordered by relevance:\n\n1. [Congenital Gerbode defect](https://monarchinitiative.org/MONDO:0020428)  \n   - A rare congenital heart defect involving an abnormal communication between the left ventricle and right atrium, which can be associated with septal defects and pulmonary hypertension.\n\n2. [Aorta coarctation](https://monarchinitiative.org/MONDO:0007345)  \n   - A congenital narrowing of the aorta, which can lead to hypertension and may be associated with other cardiac anomalies.\n\n3. [Dilated cardiomyopathy 1S](https://monarchinitiative.org/MONDO:0013262)  \n   - A form of familial dilated cardiomyopathy, sometimes associated with septal defects and pulmonary hypertension.\n\nNone of these diagnoses are definitive based on the information provided, but they are the most likely matches in the knowledge graph given the features and exclusions. If you have additional clinical details or genetic findings, that could help further refine the diagnosis.\n\nWould you like more information about any of these conditions, or to explore additional possible diagnoses?",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": null,
+            "is_tool_call_error": null
+        }
+    ],
+    "expected_diagnosis_mondo": [
+        {
+            "mondo_id": "MONDO:0007732",
+            "disease_name": "Holt-Oram syndrome"
+        }
+    ]
+}

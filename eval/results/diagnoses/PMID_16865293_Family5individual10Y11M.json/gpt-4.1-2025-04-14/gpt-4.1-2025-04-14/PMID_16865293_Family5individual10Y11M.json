@@ -1,0 +1,299 @@
+{
+    "phenopacket": {
+        "id": "PMID_16865293_Family_5_individual_10Y11M",
+        "subject": {
+            "id": "Family 5 individual 10Y11M",
+            "timeAtLastEncounter": {
+                "age": {
+                    "iso8601duration": "P10Y11M"
+                }
+            },
+            "sex": "FEMALE"
+        },
+        "phenotypicFeatures": [
+            {
+                "type": {
+                    "id": "HP:0001508",
+                    "label": "Failure to thrive"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000252",
+                    "label": "Microcephaly"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000490",
+                    "label": "Deeply set eye"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000448",
+                    "label": "Prominent nose"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000670",
+                    "label": "Carious teeth"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0002059",
+                    "label": "Cerebral atrophy"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001272",
+                    "label": "Cerebellar atrophy"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0002119",
+                    "label": "Ventriculomegaly"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0002135",
+                    "label": "Basal ganglia calcification"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0007814",
+                    "label": "Retinal pigment epithelial mottling"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0003510",
+                    "label": "Severe short stature"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000992",
+                    "label": "Cutaneous photosensitivity"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001263",
+                    "label": "Global developmental delay"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000407",
+                    "label": "Sensorineural hearing impairment"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0034392",
+                    "label": "Joint contracture"
+                }
+            }
+        ],
+        "interpretations": [
+            {
+                "id": "Family 5 individual 10Y11M",
+                "progressStatus": "SOLVED",
+                "diagnosis": {
+                    "disease": {
+                        "id": "OMIM:216400",
+                        "label": "Cockayne syndrome, type A"
+                    },
+                    "genomicInterpretations": [
+                        {
+                            "subjectOrBiosampleId": "Family 5 individual 10Y11M",
+                            "interpretationStatus": "CAUSATIVE",
+                            "variantInterpretation": {
+                                "variationDescriptor": {
+                                    "id": "var_enXZWKTYMjbhqzbaiYYrPqDLe",
+                                    "geneContext": {
+                                        "valueId": "HGNC:3439",
+                                        "symbol": "ERCC8"
+                                    },
+                                    "expressions": [
+                                        {
+                                            "syntax": "hgvs.c",
+                                            "value": "NM_000082.4:c.399+1G>A"
+                                        },
+                                        {
+                                            "syntax": "hgvs.g",
+                                            "value": "NC_000005.10:g.60918264C>T"
+                                        }
+                                    ],
+                                    "vcfRecord": {
+                                        "genomeAssembly": "hg38",
+                                        "chrom": "chr5",
+                                        "pos": "60918264",
+                                        "ref": "C",
+                                        "alt": "T"
+                                    },
+                                    "moleculeContext": "genomic",
+                                    "allelicState": {
+                                        "id": "GENO:0000136",
+                                        "label": "homozygous"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "diseases": [
+            {
+                "term": {
+                    "id": "OMIM:216400",
+                    "label": "Cockayne syndrome, type A"
+                }
+            }
+        ],
+        "metaData": {
+            "created": "2024-05-20T08:17:50.439371109Z",
+            "createdBy": "ORCID:0000-0002-0736-9199",
+            "resources": [
+                {
+                    "id": "geno",
+                    "name": "Genotype Ontology",
+                    "url": "http://purl.obolibrary.org/obo/geno.owl",
+                    "version": "2022-03-05",
+                    "namespacePrefix": "GENO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+                },
+                {
+                    "id": "hgnc",
+                    "name": "HUGO Gene Nomenclature Committee",
+                    "url": "https://www.genenames.org",
+                    "version": "06/01/23",
+                    "namespacePrefix": "HGNC",
+                    "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+                },
+                {
+                    "id": "omim",
+                    "name": "An Online Catalog of Human Genes and Genetic Disorders",
+                    "url": "https://www.omim.org",
+                    "version": "January 4, 2023",
+                    "namespacePrefix": "OMIM",
+                    "iriPrefix": "https://www.omim.org/entry/"
+                },
+                {
+                    "id": "so",
+                    "name": "Sequence types and features ontology",
+                    "url": "http://purl.obolibrary.org/obo/so.obo",
+                    "version": "2021-11-22",
+                    "namespacePrefix": "SO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+                },
+                {
+                    "id": "hp",
+                    "name": "human phenotype ontology",
+                    "url": "http://purl.obolibrary.org/obo/hp.owl",
+                    "version": "2024-04-26",
+                    "namespacePrefix": "HP",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+                }
+            ],
+            "phenopacketSchemaVersion": "2.0",
+            "externalReferences": [
+                {
+                    "id": "PMID:16865293",
+                    "reference": "https://pubmed.ncbi.nlm.nih.gov/16865293",
+                    "description": "Cockayne syndrome type A: novel mutations in eight typical patients"
+                }
+            ]
+        }
+    },
+    "cost_est_base_rate": 0.042561999999999996,
+    "tokens_used_prompt": 17025,
+    "tokens_used_completion": 1064,
+    "query": "From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses, even if there is insufficient information to make a definitive diagnosis. If you are unsure, provide a list of possible diagnoses with the most likely one first.\n\nPatient ID: Family 5 individual 10Y11M\nPatient age: 10 years, 11 months\nPatient sex: Female\nPatient features: Failure to thrive, Microcephaly, Deeply set eye, Prominent nose, Carious teeth, Cerebral atrophy, Cerebellar atrophy, Ventriculomegaly, Basal ganglia calcification, Retinal pigment epithelial mottling, Severe short stature, Cutaneous photosensitivity, Global developmental delay, Sensorineural hearing impairment, Joint contracture.\nExcluded patient features: None.",
+    "phenopacket_file": "phenopackets/PMID_16865293_Family5individual10Y11M.json",
+    "expected_diagnosis": "OMIM:216400",
+    "base_engine": "gpt-4.1-2025-04-14",
+    "eval_engine": "gpt-4.1-2025-04-14",
+    "eval_chain": [
+        {
+            "query": "MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) WHERE p.id IN ['HP:0001508','HP:0000252','HP:0000490','HP:0000448','HP:0000670','HP:0002059','HP:0001272','HP:0002119','HP:0002135','HP:0007814','HP:0003510','HP:0000992','HP:0001263','HP:0000407','HP:0034392'] WITH d, count(p) AS matched_phenotypes ORDER BY matched_phenotypes DESC LIMIT 20 MATCH (d)-[:biolink_has_phenotype]->(p2:biolink_PhenotypicFeature) RETURN d, matched_phenotypes, collect(p2.name) AS all_phenotypes ORDER BY matched_phenotypes DESC LIMIT 10",
+            "query_summary": "This query is designed to identify diseases that are associated with the largest number of the patient's phenotypic features. It first matches diseases that have at least one of the specified phenotypic features (using their HP IDs), counts how many features each disease matches, and orders the diseases by the number of matched features (descending). It then retrieves up to 20 diseases with the most matches, and for each, collects all their associated phenotypes, finally returning the top 10 diseases with the most matched features and their full phenotype lists. This approach is appropriate for generating a rank-ordered list of possible diagnoses based on phenotypic similarity, as requested by the user. The use of ORDER BY and LIMIT is correct for the user's request. The relationships are oriented correctly, and the query logic is sound for the intended purpose. The results (e.g., Cockayne syndrome types and COFS syndrome) are plausible given the input features, and the query passes a sanity check. No major improvements are needed, though using biolink_subclass_of*0.. could further expand the search to include disease subtypes if desired.",
+            "accept_query": true,
+            "suggestion": "Consider using the biolink_subclass_of*0.. pattern to include all subtypes of diseases for a more comprehensive search. Otherwise, the query is well-constructed and appropriate for the user's diagnostic ranking request."
+        }
+    ],
+    "messages": [
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_QVstsYjxBJNAClSoFkubs16o",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\":[\"Failure to thrive\",\"Microcephaly\",\"Deeply set eye\",\"Prominent nose\",\"Carious teeth\",\"Cerebral atrophy\",\"Cerebellar atrophy\",\"Ventriculomegaly\",\"Basal ganglia calcification\",\"Retinal pigment epithelial mottling\",\"Severe short stature\",\"Cutaneous photosensitivity\",\"Global developmental delay\",\"Sensorineural hearing impairment\",\"Joint contracture\"]}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'Failure to thrive': [{'id': 'HP:0001508', 'category': 'biolink:PhenotypicFeature', 'name': 'Failure to thrive', 'in_taxon_label': None}, {'id': 'HP:0001525', 'category': 'biolink:PhenotypicFeature', 'name': 'Severe failure to thrive', 'in_taxon_label': None}, {'id': 'MONDO:0013539', 'category': 'biolink:Disease', 'name': 'hypotonia-failure to thrive-microcephaly syndrome', 'in_taxon_label': None}, {'id': 'HP:0001531', 'category': 'biolink:PhenotypicFeature', 'name': 'Failure to thrive in infancy', 'in_taxon_label': None}, {'id': 'HP:0008866', 'category': 'biolink:PhenotypicFeature', 'name': 'Failure to thrive secondary to recurrent infections', 'in_taxon_label': None}], 'Microcephaly': [{'id': 'HP:0000252', 'category': 'biolink:PhenotypicFeature', 'name': 'Microcephaly', 'in_taxon_label': None}, {'id': 'MONDO:0001149', 'category': 'biolink:Disease', 'name': 'microcephaly', 'in_taxon_label': None}, {'id': 'MONDO:0043137', 'category': 'biolink:Disease', 'name': 'isolated microcephaly', 'in_taxon_label': None}, {'id': 'MONDO:1010618', 'category': 'biolink:Disease', 'name': 'microcephaly, sheep', 'in_taxon_label': None}, {'id': 'MP:0000433', 'category': 'biolink:PhenotypicFeature', 'name': 'microcephaly', 'in_taxon_label': None}], 'Deeply set eye': [{'id': 'HP:0000490', 'category': 'biolink:PhenotypicFeature', 'name': 'Deeply set eye', 'in_taxon_label': None}, {'id': 'MONDO:0010858', 'category': 'biolink:Disease', 'name': 'macrocephaly-spastic paraplegia-dysmorphism syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0009196', 'category': 'biolink:Disease', 'name': 'ermine phenotype', 'in_taxon_label': None}], 'Prominent nose': [{'id': 'HP:0000448', 'category': 'biolink:PhenotypicFeature', 'name': 'Prominent nose', 'in_taxon_label': None}, {'id': 'UPHENO:0082911', 'category': 'biolink:PhenotypicFeature', 'name': 'prominent nose', 'in_taxon_label': None}, {'id': 'UPHENO:0082929', 'category': 'biolink:PhenotypicFeature', 'name': 'prominent nose tip', 'in_taxon_label': Non ... [result trimmed] ...63', 'category': 'biolink:PhenotypicFeature', 'name': 'Global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011344', 'category': 'biolink:PhenotypicFeature', 'name': 'Severe global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0012736', 'category': 'biolink:PhenotypicFeature', 'name': 'Profound global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011342', 'category': 'biolink:PhenotypicFeature', 'name': 'Mild global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011343', 'category': 'biolink:PhenotypicFeature', 'name': 'Moderate global developmental delay', 'in_taxon_label': None}], 'Sensorineural hearing impairment': [{'id': 'MP:0006329', 'category': 'biolink:PhenotypicFeature', 'name': 'sensorineural hearing impairment', 'in_taxon_label': None}, {'id': 'HP:0000407', 'category': 'biolink:PhenotypicFeature', 'name': 'Sensorineural hearing impairment', 'in_taxon_label': None}, {'id': 'HP:0008527', 'category': 'biolink:PhenotypicFeature', 'name': 'Congenital sensorineural hearing impairment', 'in_taxon_label': None}, {'id': 'HP:0011476', 'category': 'biolink:PhenotypicFeature', 'name': 'Profound sensorineural hearing impairment', 'in_taxon_label': None}, {'id': 'HP:0008619', 'category': 'biolink:PhenotypicFeature', 'name': 'Bilateral sensorineural hearing impairment', 'in_taxon_label': None}], 'Joint contracture': [{'id': 'HP:0034392', 'category': 'biolink:PhenotypicFeature', 'name': 'Joint contracture', 'in_taxon_label': None}, {'id': 'MP:0030798', 'category': 'biolink:PhenotypicFeature', 'name': 'joint contracture', 'in_taxon_label': None}, {'id': 'HP:0005997', 'category': 'biolink:PhenotypicFeature', 'name': 'Neck joint contracture', 'in_taxon_label': None}, {'id': 'HP:0002828', 'category': 'biolink:PhenotypicFeature', 'name': 'Multiple joint contractures', 'in_taxon_label': None}, {'id': 'HP:0006070', 'category': 'biolink:PhenotypicFeature', 'name': 'Metacarpophalangeal joint contracture', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_QVstsYjxBJNAClSoFkubs16o",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_easZCe82wncoCqcbuQpqCIw7",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) WHERE p.id IN ['HP:0001508','HP:0000252','HP:0000490','HP:0000448','HP:0000670','HP:0002059','HP:0001272','HP:0002119','HP:0002135','HP:0007814','HP:0003510','HP:0000992','HP:0001263','HP:0000407','HP:0034392'] WITH d, count(p) AS matched_phenotypes ORDER BY matched_phenotypes DESC LIMIT 20 MATCH (d)-[:biolink_has_phenotype]->(p2:biolink_PhenotypicFeature) RETURN d, matched_phenotypes, collect(p2.name) AS all_phenotypes ORDER BY matched_phenotypes DESC LIMIT 10\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [{'data': {'id': 'MONDO:0019569', 'caption': 'Cockayne syndrome type 1', 'name': 'Cockayne syndrome type 1', 'description': 'Cockayne syndrome caused by mutation(s) in the ERCC8 gene, encoding DNA excision repair protein ERCC-8.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0008955', 'caption': 'cerebrooculofacioskeletal syndrome 1', 'name': 'cerebrooculofacioskeletal syndrome 1', 'description': 'Any COFS syndrome in which the cause of the disease is a mutation in the ERCC6 gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0019570', 'caption': 'Cockayne syndrome type 2', 'name': 'Cockayne syndrome type 2', 'description': 'Cockayne syndrome caused by mutation(s) in the ERCC6 gene, encoding DNA excision repair protein ERCC-6.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0010217', 'caption': 'de Sanctis-Cacchione syndrome', 'name': 'de Sanctis-Cacchione syndrome', 'description': 'A rare autosomal recessive inherited syndrome. It is characterized by xeroderma pigmentosum, mental retardation, dwarfism, hypogonadism, and neurologic abnormalities.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0016006', 'caption': 'Cockayne syndrome', 'name': 'Cockayne syndrome', 'description': 'A multisystem condition characterized by short stature, a characteristic facial appearance, premature aging, photosensitivity, progressive neurological dysfunction, and intellectual deficit.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014213', 'caption': 'intellectual disability-feeding difficulties-developmental delay-microcephaly syndrome', 'name': 'intellectual disability-feeding difficulties-developmental delay-microcephaly syndrome', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0033007', 'caption': 'Galloway-Mowat syndrome 3', 'name': 'Galloway-Mowat syndrome 3', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0008393', 'caption': 'Rubinstein-Taybi syndrome due to CREBBP mutations', 'name': 'Rubinstein-Taybi syndrome due to CREBBP mutations', 'description': 'Any Rubinstein-Taybi syndrome in which the cause of the disease is a mutation in the CREBBP gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0012176', 'caption': 'Emanuel syndrome', 'name': 'Emanuel syndrome', 'description': 'Emanuel syndrome is a constitutional genomic disorder due to the presence of a supernumerary derivative 22 chromosome and characterized by severe intellectual disability, characteristic facial dysmorphism (micrognathia, hooded eyelids, upslanting downslanting parebral fissures, deep set eyes, low hanging columnella and long philtrum), congenital heart defects and kidney abnormalities.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0054782', 'caption': 'leukodystrophy, hypomyelinating, 15', 'name': 'leukodystrophy, hypomyelinating, 15', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': []}}",
+            "name": "run_query",
+            "tool_call_id": "call_easZCe82wncoCqcbuQpqCIw7",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "Based on the patient's features (failure to thrive, microcephaly, deeply set eyes, prominent nose, carious teeth, cerebral and cerebellar atrophy, ventriculomegaly, basal ganglia calcification, retinal pigment epithelial mottling, severe short stature, cutaneous photosensitivity, global developmental delay, sensorineural hearing impairment, and joint contracture), the most likely diagnoses are as follows:\n\n1. [Cockayne syndrome type 1](https://monarchinitiative.org/MONDO:0019569)\n2. [Cerebrooculofacioskeletal syndrome 1 (COFS1)](https://monarchinitiative.org/MONDO:0008955)\n3. [Cockayne syndrome type 2](https://monarchinitiative.org/MONDO:0019570)\n4. [de Sanctis-Cacchione syndrome](https://monarchinitiative.org/MONDO:0010217)\n5. [Cockayne syndrome (general)](https://monarchinitiative.org/MONDO:0016006)\n6. [Intellectual disability-feeding difficulties-developmental delay-microcephaly syndrome](https://monarchinitiative.org/MONDO:0014213)\n7. [Galloway-Mowat syndrome 3](https://monarchinitiative.org/MONDO:0033007)\n8. [Rubinstein-Taybi syndrome due to CREBBP mutations](https://monarchinitiative.org/MONDO:0008393)\n9. [Emanuel syndrome](https://monarchinitiative.org/MONDO:0012176)\n10. [Leukodystrophy, hypomyelinating, 15](https://monarchinitiative.org/MONDO:0054782)\n\nThe top-ranked diagnosis is Cockayne syndrome type 1, which is well known for presenting with many of the features described, including growth failure, microcephaly, photosensitivity, neurodevelopmental delay, and characteristic facial features. Other syndromes listed also share overlapping features and should be considered in the differential diagnosis.\n\nIf you would like more details about any of these conditions or how the features match, please let me know!",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": null,
+            "is_tool_call_error": null
+        }
+    ],
+    "expected_diagnosis_mondo": [
+        {
+            "mondo_id": "MONDO:0019569",
+            "disease_name": "Cockayne syndrome type 1"
+        }
+    ]
+}

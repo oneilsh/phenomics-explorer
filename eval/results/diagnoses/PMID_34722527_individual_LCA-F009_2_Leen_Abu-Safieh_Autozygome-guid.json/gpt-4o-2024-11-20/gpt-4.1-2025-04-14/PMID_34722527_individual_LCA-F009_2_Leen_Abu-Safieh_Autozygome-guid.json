@@ -1,0 +1,241 @@
+{
+    "phenopacket": {
+        "id": "PMID_34722527_individual_LCA-F009_2_Leen_Abu-Safieh_Autozygome-guid",
+        "subject": {
+            "id": "individual_LCA-F009_2_Leen_Abu-Safieh_Autozygome-guid"
+        },
+        "phenotypicFeatures": [
+            {
+                "type": {
+                    "id": "HP:0001263",
+                    "label": "Global developmental delay"
+                },
+                "excluded": true
+            }
+        ],
+        "interpretations": [
+            {
+                "id": "individual_LCA-F009_2_Leen_Abu-Safieh_Autozygome-guid",
+                "progressStatus": "SOLVED",
+                "diagnosis": {
+                    "disease": {
+                        "id": "OMIM:613826",
+                        "label": "Leber congenital amaurosis 6"
+                    },
+                    "genomicInterpretations": [
+                        {
+                            "subjectOrBiosampleId": "individual_LCA-F009_2_Leen_Abu-Safieh_Autozygome-guid",
+                            "interpretationStatus": "CAUSATIVE",
+                            "variantInterpretation": {
+                                "variationDescriptor": {
+                                    "id": "var_TbFsWmnaHfNgVeiKcttGKuoJd",
+                                    "geneContext": {
+                                        "valueId": "HGNC:13436",
+                                        "symbol": "RPGRIP1"
+                                    },
+                                    "expressions": [
+                                        {
+                                            "syntax": "hgvs.c",
+                                            "value": "NM_020366.4:c.1107del"
+                                        },
+                                        {
+                                            "syntax": "hgvs.g",
+                                            "value": "NC_000014.9:g.21312462del"
+                                        }
+                                    ],
+                                    "vcfRecord": {
+                                        "genomeAssembly": "hg38",
+                                        "chrom": "chr14",
+                                        "pos": "21312457",
+                                        "ref": "GA",
+                                        "alt": "G"
+                                    },
+                                    "moleculeContext": "genomic",
+                                    "allelicState": {
+                                        "id": "GENO:0000136",
+                                        "label": "homozygous"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "diseases": [
+            {
+                "term": {
+                    "id": "OMIM:613826",
+                    "label": "Leber congenital amaurosis 6"
+                }
+            }
+        ],
+        "metaData": {
+            "created": "2024-03-24T13:34:22.467992067Z",
+            "createdBy": "ORCID:0000-0002-0736-9199",
+            "resources": [
+                {
+                    "id": "geno",
+                    "name": "Genotype Ontology",
+                    "url": "http://purl.obolibrary.org/obo/geno.owl",
+                    "version": "2022-03-05",
+                    "namespacePrefix": "GENO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+                },
+                {
+                    "id": "hgnc",
+                    "name": "HUGO Gene Nomenclature Committee",
+                    "url": "https://www.genenames.org",
+                    "version": "06/01/23",
+                    "namespacePrefix": "HGNC",
+                    "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+                },
+                {
+                    "id": "omim",
+                    "name": "An Online Catalog of Human Genes and Genetic Disorders",
+                    "url": "https://www.omim.org",
+                    "version": "January 4, 2023",
+                    "namespacePrefix": "OMIM",
+                    "iriPrefix": "https://www.omim.org/entry/"
+                },
+                {
+                    "id": "so",
+                    "name": "Sequence types and features ontology",
+                    "url": "http://purl.obolibrary.org/obo/so.obo",
+                    "version": "2021-11-22",
+                    "namespacePrefix": "SO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+                },
+                {
+                    "id": "hp",
+                    "name": "human phenotype ontology",
+                    "url": "http://purl.obolibrary.org/obo/hp.owl",
+                    "version": "2024-03-06",
+                    "namespacePrefix": "HP",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+                }
+            ],
+            "phenopacketSchemaVersion": "2.0",
+            "externalReferences": [
+                {
+                    "id": "PMID:34722527",
+                    "reference": "https://pubmed.ncbi.nlm.nih.gov/34722527",
+                    "description": "Retinal Degeneration Associated With RPGRIP1: A Review of Natural History, Mutation Spectrum, and Genotype-Phenotype Correlation in 228 Patients"
+                }
+            ]
+        }
+    },
+    "cost_est_base_rate": 0.061267999999999996,
+    "tokens_used_prompt": 22742,
+    "tokens_used_completion": 1973,
+    "query": "From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses, even if there is insufficient information to make a definitive diagnosis. If you are unsure, provide a list of possible diagnoses with the most likely one first.\n\nPatient ID: individual_LCA-F009_2_Leen_Abu-Safieh_Autozygome-guid\nPatient age: Unknown\nPatient sex: Unknown\nPatient features: None.\nExcluded patient features: Global developmental delay.",
+    "phenopacket_file": "phenopackets/PMID_34722527_individual_LCA-F009_2_Leen_Abu-Safieh_Autozygome-guid.json",
+    "expected_diagnosis": "OMIM:613826",
+    "base_engine": "gpt-4o-2024-11-20",
+    "eval_engine": "gpt-4.1-2025-04-14",
+    "eval_chain": [
+        {
+            "query": "MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature {id: 'HP:0001263'}) RETURN d LIMIT 10",
+            "query_summary": "This query searches for diseases that are associated with the phenotypic feature 'Global developmental delay' (HP:0001263). It matches disease nodes that have a direct 'biolink_has_phenotype' relationship to this phenotype and returns up to 10 such diseases. The result provides a sample of diseases linked to this feature, which aligns with the user's goal of identifying diseases to exclude from consideration for the patient. The query is correctly oriented for the intended relationship. However, the query does not use an ORDER BY clause, so the returned diseases are not ranked by relevance, frequency, or any other metric. Additionally, the query only retrieves direct associations and does not include diseases that may be indirectly associated via subclass relationships (e.g., diseases that are subclasses of other diseases with this phenotype). Using the '-[:biolink_subclass_of*0..]->' pattern could broaden the search to include all relevant diseases. The use of LIMIT 10 is appropriate for a sample, but the user should be alerted that more results may exist. The query passes a sanity check, as the diseases returned are plausible and relevant to the phenotype.",
+            "accept_query": true,
+            "suggestion": "Consider using the '-[:biolink_subclass_of*0..]->' pattern to include all diseases and their subtypes associated with 'Global developmental delay.' Adding an ORDER BY clause (e.g., by evidence strength or prevalence, if available) could help rank the results. Alert the user that only a sample of results is shown and that more may exist."
+        },
+        {
+            "query": "MATCH (d:biolink_Disease) WHERE NOT (d)-[:biolink_has_phenotype]->(:biolink_PhenotypicFeature {id: 'HP:0001263'}) RETURN d LIMIT 10",
+            "query_summary": "This query searches for diseases that are NOT associated with the phenotypic feature 'Global developmental delay' (HP:0001263). It does this by matching all disease nodes and filtering out any that have a direct 'biolink_has_phenotype' relationship to this phenotype. The query then returns up to 10 such diseases. This approach is appropriate for the user's goal of identifying possible diagnoses for a patient who does NOT have global developmental delay. The result aligns with expectations, as it returns a list of diseases that are not linked to this excluded feature. However, the query does not use an ORDER BY clause, so the returned diseases are not ranked by relevance, frequency, or any other criterion. Adding an ORDER BY clause (e.g., by disease name or another relevant property) could improve the interpretability of the results. The relationships are oriented correctly for the intended exclusion. No OPTIONAL matches are needed here, as the query is specifically filtering out certain relationships. The query passes a sanity check, as the results are plausible and match the query intent.",
+            "accept_query": true,
+            "suggestion": "Consider adding an ORDER BY clause to rank the diseases by name or another relevant property for more interpretable results. If you want to ensure you are excluding all subtypes of 'Global developmental delay', you could use the biolink_subclass_of pattern to include all descendant phenotypes."
+        }
+    ],
+    "messages": [
+        {
+            "role": "assistant",
+            "content": "The patient information provided is quite limited, with no specific phenotypic features listed and only one excluded feature: \"Global developmental delay.\" This makes it challenging to provide a definitive diagnosis. However, I can attempt to identify possible diagnoses by reasoning through the exclusion of \"Global developmental delay\" and exploring diseases that are less likely to present with this feature.\n\nTo proceed, I will:\n1. Search for diseases associated with \"Global developmental delay.\"\n2. Identify diseases that are not associated with \"Global developmental delay.\"\n3. Provide a rank-ordered list of possible diagnoses based on the exclusion of this feature.\n\nLet me start by searching for diseases associated with \"Global developmental delay.\"",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_5Y669AAH7fWz6ylm3BbZ01RC",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\":[\"Global developmental delay\"]}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'Global developmental delay': [{'id': 'HP:0001263', 'category': 'biolink:PhenotypicFeature', 'name': 'Global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011344', 'category': 'biolink:PhenotypicFeature', 'name': 'Severe global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0012736', 'category': 'biolink:PhenotypicFeature', 'name': 'Profound global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011342', 'category': 'biolink:PhenotypicFeature', 'name': 'Mild global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011343', 'category': 'biolink:PhenotypicFeature', 'name': 'Moderate global developmental delay', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_5Y669AAH7fWz6ylm3BbZ01RC",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "I found several phenotypic features related to \"Global developmental delay,\" including:\n- [Global developmental delay (HP:0001263)](https://monarchinitiative.org/HP:0001263)\n- [Severe global developmental delay (HP:0011344)](https://monarchinitiative.org/HP:0011344)\n- [Profound global developmental delay (HP:0012736)](https://monarchinitiative.org/HP:0012736)\n- [Mild global developmental delay (HP:0011342)](https://monarchinitiative.org/HP:0011342)\n- [Moderate global developmental delay (HP:0011343)](https://monarchinitiative.org/HP:0011343)\n\nNext, I will identify diseases associated with the general feature \"Global developmental delay (HP:0001263)\" and exclude them from consideration.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_MVPG4ejCi2EWYW74gTABEs5t",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature {id: 'HP:0001263'}) RETURN d LIMIT 10\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [{'data': {'id': 'MONDO:0009488', 'caption': 'keratoconus posticus circumscriptus', 'name': 'keratoconus posticus circumscriptus', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0009404', 'caption': 'hypertelorism, microtia, facial clefting syndrome', 'name': 'hypertelorism, microtia, facial clefting syndrome', 'description': 'Hypertelorism-microtia-facial clefting syndrome, or HMC syndrome, is a very rare syndrome characterized by the combination of hypertelorism, cleft lip and palate and microtia.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0011575', 'caption': 'cerebrooculonasal syndrome', 'name': 'cerebrooculonasal syndrome', 'description': 'Cerebro-oculo-nasal syndrome is a multisystem malformation syndrome that has been reported in about 10 patients. The clinical features include bilateral anophthalmia, abnormal nares, central nervous system anomalies, and neurodevelopmental delay.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0010399', 'caption': 'chromosome Xp21 deletion syndrome', 'name': 'chromosome Xp21 deletion syndrome', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0011995', 'caption': 'cataract - congenital heart disease - neural tube defect syndrome', 'name': 'cataract - congenital heart disease - neural tube defect syndrome', 'description': 'Cataract-congenital heart disease-neural tube defect syndrome is a multiple congenital anomaly syndrome characterized by sacral neural tube defects resulting in tethered cord, atrial and/or ventricular septal heart defects (that are detected in infancy), bilateral, symmetrical hyperopia, rapidly progressive early childhood cataracts, bilateral aphakic glaucoma, and abnormal facial features (low frontal hairline, small ears, short philtrum, prominent, widely spaced central incisors, and micrognathia). hy ... [result trimmed] ... oligodontia) are also associated. Additional features reported include microcephaly, capillary hemangiomas on face and scalp, ventricular septal defect, corneal clouding, nystagmus and profound sensorineural deafness.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0010774', 'caption': 'striatonigral degeneration, infantile, mitochondrial', 'name': 'striatonigral degeneration, infantile, mitochondrial', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0010749', 'caption': 'trigonocephaly-short stature-developmental delay syndrome', 'name': 'trigonocephaly-short stature-developmental delay syndrome', 'description': 'A syndrome characterized by short stature, trigonocephaly and developmental delay. It has been described in three males. Moderate intellectual deficit was reported in one of the males and the other two patients displayed psychomotor retardation. X-linked transmission has been suggested but autosomal recessive inheritance can not be ruled out.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0011976', 'caption': 'lipodystrophy-intellectual disability-deafness syndrome', 'name': 'lipodystrophy-intellectual disability-deafness syndrome', 'description': 'Lipodystrophy-intellectual disability-deafness syndrome is an extremely rare form of genetic lipodystrophy, reported in 3 patients from one family to date, characterized by generalized congenital lipodystrophy, low birth weight, progressive sensorineural deafness occurring in childhood, intellectual deficit, progressive osteopenia, delayed skeletal maturation, skeletal abnormalities described as slender, undermineralized tubular bones, and dense metaphyseal striations in the distal femur, ulna and radius of older patients. Autosomal recessive inheritance has been suggested.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': []}}",
+            "name": "run_query",
+            "tool_call_id": "call_MVPG4ejCi2EWYW74gTABEs5t",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "I identified several diseases associated with \"Global developmental delay (HP:0001263).\" These include:\n\n1. [Keratoconus posticus circumscriptus (MONDO:0009488)](https://monarchinitiative.org/MONDO:0009488)\n2. [Hypertelorism, microtia, facial clefting syndrome (MONDO:0009404)](https://monarchinitiative.org/MONDO:0009404)\n3. [Cerebrooculonasal syndrome (MONDO:0011575)](https://monarchinitiative.org/MONDO:0011575)\n4. [Chromosome Xp21 deletion syndrome (MONDO:0010399)](https://monarchinitiative.org/MONDO:0010399)\n5. [Cataract - congenital heart disease - neural tube defect syndrome (MONDO:0011995)](https://monarchinitiative.org/MONDO:0011995)\n6. [Ichthyosis-alopecia-eclabion-ectropion-intellectual disability syndrome (MONDO:0009444)](https://monarchinitiative.org/MONDO:0009444)\n7. [Intellectual disability-brachydactyly-Pierre Robin syndrome (MONDO:0012095)](https://monarchinitiative.org/MONDO:0012095)\n8. [Striatonigral degeneration, infantile, mitochondrial (MONDO:0010774)](https://monarchinitiative.org/MONDO:0010774)\n9. [Trigonocephaly-short stature-developmental delay syndrome (MONDO:0010749)](https://monarchinitiative.org/MONDO:0010749)\n10. [Lipodystrophy-intellectual disability-deafness syndrome (MONDO:0011976)](https://monarchinitiative.org/MONDO:0011976)\n\nThese diseases are less likely to be relevant to the patient due to the exclusion of \"Global developmental delay.\" Next, I will explore diseases that are not associated with this feature to provide a rank-ordered list of possible diagnoses.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_oTuO6Sv0IfaVQAoZQWybsIpU",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease) WHERE NOT (d)-[:biolink_has_phenotype]->(:biolink_PhenotypicFeature {id: 'HP:0001263'}) RETURN d LIMIT 10\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [{'data': {'id': 'MONDO:0008905', 'caption': 'predisposition to invasive fungal disease due to CARD9 deficiency', 'name': 'predisposition to invasive fungal disease due to CARD9 deficiency', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0033485', 'caption': 'short-rib thoracic dysplasia 19 with or without polydactyly', 'name': 'short-rib thoracic dysplasia 19 with or without polydactyly', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014092', 'caption': 'schizophrenia 18', 'name': 'schizophrenia 18', 'description': 'A schizophrenia that has material basis in a mutation of SLC1A1 on chromosome 9p24.2.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014093', 'caption': 'retinitis pigmentosa 66', 'name': 'retinitis pigmentosa 66', 'description': 'Any retinitis pigmentosa in which the cause of the disease is a mutation in the RBP3 gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014692', 'caption': 'retinitis pigmentosa 74', 'name': 'retinitis pigmentosa 74', 'description': 'Any retinitis pigmentosa in which the cause of the disease is a mutation in the BBS2 gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0054750', 'caption': 'amyotrophic lateral sclerosis, susceptibility to, 24', 'name': 'amyotrophic lateral sclerosis, susceptibility to, 24', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0033486', 'caption': 'leukodystrophy, hypomyelinating, 14', 'name': 'leukodystrophy, hypomyelinating, 14', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0054752', 'caption': 'multiple synostoses syndrome 4', 'name': 'multiple synostoses syndrome 4', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0020718', 'caption': 'congenital short bowel syndrome, autosomal recessive', 'name': 'congenital short bowel syndrome, autosomal recessive', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014694', 'caption': 'spondylocostal dysostosis 6, autosomal recessive', 'name': 'spondylocostal dysostosis 6, autosomal recessive', 'description': 'Any autosomal recessive spondylocostal dysostosis in which the cause of the disease is a mutation in the RIPPLY2 gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': []}}",
+            "name": "run_query",
+            "tool_call_id": "call_oTuO6Sv0IfaVQAoZQWybsIpU",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "Here are 10 diseases that are not associated with \"Global developmental delay,\" making them potential candidates for consideration given the exclusion of this feature:\n\n1. [Predisposition to invasive fungal disease due to CARD9 deficiency (MONDO:0008905)](https://monarchinitiative.org/MONDO:0008905)\n2. [Short-rib thoracic dysplasia 19 with or without polydactyly (MONDO:0033485)](https://monarchinitiative.org/MONDO:0033485)\n3. [Schizophrenia 18 (MONDO:0014092)](https://monarchinitiative.org/MONDO:0014092)\n4. [Retinitis pigmentosa 66 (MONDO:0014093)](https://monarchinitiative.org/MONDO:0014093)\n5. [Retinitis pigmentosa 74 (MONDO:0014692)](https://monarchinitiative.org/MONDO:0014692)\n6. [Amyotrophic lateral sclerosis, susceptibility to, 24 (MONDO:0054750)](https://monarchinitiative.org/MONDO:0054750)\n7. [Leukodystrophy, hypomyelinating, 14 (MONDO:0033486)](https://monarchinitiative.org/MONDO:0033486)\n8. [Multiple synostoses syndrome 4 (MONDO:0054752)](https://monarchinitiative.org/MONDO:0054752)\n9. [Congenital short bowel syndrome, autosomal recessive (MONDO:0020718)](https://monarchinitiative.org/MONDO:0020718)\n10. [Spondylocostal dysostosis 6, autosomal recessive (MONDO:0014694)](https://monarchinitiative.org/MONDO:0014694)\n\nThis list is rank-ordered based on the query results, but further clinical details about the patient would be necessary to refine the diagnosis. Let me know if you'd like to explore any of these conditions further!",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": null,
+            "is_tool_call_error": null
+        }
+    ],
+    "expected_diagnosis_mondo": [
+        {
+            "mondo_id": "MONDO:0013446",
+            "disease_name": "Leber congenital amaurosis 6"
+        }
+    ]
+}
