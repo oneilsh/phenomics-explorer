@@ -270,5 +270,22 @@
             "mondo_id": "MONDO:0009550",
             "disease_name": "renal hypomagnesemia 3"
         }
-    ]
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0012717",
+            "MONDO:0009548",
+            "MONDO:0017624",
+            "MONDO:0007937",
+            "MONDO:0017624",
+            "MONDO:0017624",
+            "MONDO:0017624",
+            "MONDO:0017624",
+            "MONDO:0017624",
+            "MONDO:0017624"
+        ],
+        "top_1_score": 0,
+        "top_3_score": 0,
+        "top_10_score": 0
+    }
 }

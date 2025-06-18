@@ -496,5 +496,22 @@
             "mondo_id": "MONDO:0014198",
             "disease_name": "mitochondrial DNA depletion syndrome 13"
         }
-    ]
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0859295",
+            "MONDO:0971043",
+            "MONDO:0010946",
+            "MONDO:0013539",
+            "MONDO:0014213",
+            "MONDO:0005030",
+            "MONDO:0010367",
+            "MONDO:0021745",
+            "MONDO:0007267",
+            "MONDO:1010112"
+        ],
+        "top_1_score": 0,
+        "top_3_score": 0,
+        "top_10_score": 0
+    }
 }

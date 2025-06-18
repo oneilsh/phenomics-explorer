@@ -910,5 +910,22 @@
             "mondo_id": "MONDO:0060760",
             "disease_name": "intellectual developmental disorder with dysmorphic facies and behavioral abnormalities"
         }
-    ]
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0011053",
+            "MONDO:0014336",
+            "MONDO:0008300",
+            "MONDO:0032572",
+            "MONDO:0007874",
+            "MONDO:0014243",
+            "MONDO:0044302",
+            "MONDO:0009999",
+            "MONDO:0010502",
+            "MONDO:0007846"
+        ],
+        "top_1_score": 0,
+        "top_3_score": 0,
+        "top_10_score": 0
+    }
 }

@@ -385,5 +385,22 @@
             "mondo_id": "MONDO:0007732",
             "disease_name": "Holt-Oram syndrome"
         }
-    ]
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0020427",
+            "MONDO:0009933",
+            "MONDO:0019944",
+            "MONDO:0007130",
+            "MONDO:0007917",
+            "MONDO:0007921",
+            "MONDO:0008912",
+            "MONDO:0020428",
+            "MONDO:0011969",
+            "MONDO:0100297"
+        ],
+        "top_1_score": 0,
+        "top_3_score": 0,
+        "top_10_score": 0
+    }
 }

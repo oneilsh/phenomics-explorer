@@ -135,6 +135,7 @@ for phenopacket_file in phenopackets_files:
             prompt = phenopacket_to_prompt(phenopacket, include_ids = False)
 
             # extract diagnosis and lookup the MONDO ID and name for the diagnosis for later scoring
+            # (I do this here rather than in scoring so we can spot-check results by hand during processing)
             diagnosis = phenopacket["interpretations"][0]["diagnosis"]["disease"]["id"] if len(phenopacket["interpretations"]) > 0 else None
             diagnosis_mondo = None
 

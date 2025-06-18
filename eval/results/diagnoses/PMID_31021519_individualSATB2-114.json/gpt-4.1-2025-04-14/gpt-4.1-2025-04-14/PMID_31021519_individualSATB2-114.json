@@ -274,5 +274,22 @@
             "mondo_id": "MONDO:0012864",
             "disease_name": "chromosome 2q32-q33 deletion syndrome"
         }
-    ]
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0044738",
+            "MONDO:0014723",
+            "MONDO:0014633",
+            "MONDO:8000008",
+            "MONDO:0012269",
+            "MONDO:0009026",
+            "MONDO:0013362",
+            "MONDO:0032707",
+            "MONDO:0032912",
+            "MONDO:0017404"
+        ],
+        "top_1_score": 0,
+        "top_3_score": 0,
+        "top_10_score": 0
+    }
 }

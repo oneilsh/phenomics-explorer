@@ -276,5 +276,22 @@
             "mondo_id": "MONDO:0957541",
             "disease_name": "neurodevelopmental disorder with hypotonia and speech delay, with or without seizures"
         }
-    ]
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0957541",
+            "MONDO:0859178",
+            "MONDO:0859143",
+            "MONDO:0060502",
+            "MONDO:0030065",
+            "MONDO:0859185",
+            "MONDO:0035133",
+            "MONDO:0859187",
+            "MONDO:0013364",
+            "MONDO:0014858"
+        ],
+        "top_1_score": 1,
+        "top_3_score": 1,
+        "top_10_score": 1
+    }
 }

@@ -319,5 +319,22 @@
             "mondo_id": "MONDO:0009478",
             "disease_name": "combined immunodeficiency due to DOCK8 deficiency"
         }
-    ]
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0009953",
+            "MONDO:0007818",
+            "MONDO:8000006",
+            "MONDO:0016426",
+            "MONDO:0014226",
+            "MONDO:0007603",
+            "MONDO:0007874",
+            "MONDO:0013934",
+            "MONDO:0017407",
+            "MONDO:0859231"
+        ],
+        "top_1_score": 0,
+        "top_3_score": 0,
+        "top_10_score": 0
+    }
 }

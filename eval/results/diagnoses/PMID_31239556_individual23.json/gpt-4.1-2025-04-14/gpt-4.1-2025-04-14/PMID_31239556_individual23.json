@@ -956,5 +956,22 @@
             "mondo_id": "MONDO:0014213",
             "disease_name": "intellectual disability-feeding difficulties-developmental delay-microcephaly syndrome"
         }
-    ]
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0014213",
+            "MONDO:0007843",
+            "MONDO:0014606",
+            "MONDO:0012916",
+            "MONDO:0008013",
+            "MONDO:0012864",
+            "MONDO:0011213",
+            "MONDO:0014379",
+            "MONDO:0013424",
+            "MONDO:0011929"
+        ],
+        "top_1_score": 1,
+        "top_3_score": 1,
+        "top_10_score": 1
+    }
 }

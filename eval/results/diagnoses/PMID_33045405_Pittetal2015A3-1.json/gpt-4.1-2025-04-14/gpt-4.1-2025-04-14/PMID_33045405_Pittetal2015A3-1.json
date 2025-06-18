@@ -311,5 +311,22 @@
             "mondo_id": "MONDO:0011614",
             "disease_name": "3-hydroxy-3-methylglutaryl-CoA synthase deficiency"
         }
-    ]
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0011614",
+            "MONDO:0008723",
+            "MONDO:0012136",
+            "MONDO:0008721",
+            "MONDO:0009747",
+            "MONDO:0008918",
+            "MONDO:0033537",
+            "MONDO:0009705",
+            "MONDO:0014064",
+            "MONDO:0009529"
+        ],
+        "top_1_score": 1,
+        "top_3_score": 1,
+        "top_10_score": 1
+    }
 }

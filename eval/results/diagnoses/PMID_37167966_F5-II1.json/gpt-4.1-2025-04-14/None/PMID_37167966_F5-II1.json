@@ -280,5 +280,27 @@
             "mondo_id": "MONDO:0957270",
             "disease_name": "muscular dystrophy, limb-girdle, autosomal recessive 28"
         }
-    ]
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0009708",
+            "MONDO:0013225",
+            "MONDO:0009712",
+            "MONDO:0012240",
+            "MONDO:0019127",
+            "MONDO:0029133",
+            "MONDO:0030927",
+            "MONDO:0008050",
+            "MONDO:0012248",
+            "MONDO:0859530",
+            "MONDO:0020485",
+            "MONDO:0007827",
+            "MONDO:0013686",
+            "MONDO:0008048",
+            "MONDO:0024530"
+        ],
+        "top_1_score": 0,
+        "top_3_score": 0,
+        "top_10_score": 0
+    }
 }

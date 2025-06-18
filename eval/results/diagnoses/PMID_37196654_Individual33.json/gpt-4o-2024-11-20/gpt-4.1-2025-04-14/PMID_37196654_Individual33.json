@@ -417,5 +417,22 @@
             "mondo_id": "MONDO:0032790",
             "disease_name": "neurodevelopmental disorder with coarse facies and mild distal skeletal abnormalities"
         }
-    ]
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0015278",
+            "MONDO:0030084",
+            "MONDO:0030085",
+            "MONDO:0030086",
+            "MONDO:0030087",
+            "MONDO:0030088",
+            "MONDO:0030089",
+            "MONDO:0030090",
+            "MONDO:0030091",
+            "MONDO:0030092"
+        ],
+        "top_1_score": 0,
+        "top_3_score": 0,
+        "top_10_score": 0
+    }
 }

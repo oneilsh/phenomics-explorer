@@ -304,5 +304,18 @@
             "mondo_id": "MONDO:0008287",
             "disease_name": "Greig cephalopolysyndactyly syndrome"
         }
-    ]
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0958227",
+            "MONDO:0007923",
+            "MONDO:0011537",
+            "MONDO:0011359",
+            "MONDO:0021002",
+            "MONDO:0017457"
+        ],
+        "top_1_score": 0,
+        "top_3_score": 0,
+        "top_10_score": 0
+    }
 }

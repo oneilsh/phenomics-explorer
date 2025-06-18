@@ -367,5 +367,22 @@
             "mondo_id": "MONDO:0008310",
             "disease_name": "Hutchinson-Gilford progeria syndrome"
         }
-    ]
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0011122",
+            "MONDO:0011123",
+            "MONDO:0011124",
+            "MONDO:0011125",
+            "MONDO:0011126",
+            "MONDO:0011127",
+            "MONDO:0011128",
+            "MONDO:0011129",
+            "MONDO:0011130",
+            "MONDO:0011131"
+        ],
+        "top_1_score": 0,
+        "top_3_score": 0,
+        "top_10_score": 0
+    }
 }

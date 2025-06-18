@@ -274,5 +274,22 @@
             "mondo_id": "MONDO:0013446",
             "disease_name": "Leber congenital amaurosis 6"
         }
-    ]
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0008678",
+            "MONDO:0009341",
+            "MONDO:0016856",
+            "MONDO:0010592",
+            "MONDO:0008318",
+            "MONDO:0016855",
+            "MONDO:0010010",
+            "MONDO:0012853",
+            "MONDO:0007732",
+            "MONDO:0008948"
+        ],
+        "top_1_score": 0,
+        "top_3_score": 0,
+        "top_10_score": 0
+    }
 }

@@ -290,5 +290,22 @@
             "mondo_id": "MONDO:0013388",
             "disease_name": "developmental and epileptic encephalopathy, 11"
         }
-    ]
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0011964",
+            "MONDO:0007298",
+            "MONDO:0010396",
+            "MONDO:0007113",
+            "MONDO:0009723",
+            "MONDO:0011830",
+            "MONDO:0014741",
+            "MONDO:0014855",
+            "MONDO:0011652",
+            "MONDO:0014725"
+        ],
+        "top_1_score": 0,
+        "top_3_score": 0,
+        "top_10_score": 0
+    }
 }

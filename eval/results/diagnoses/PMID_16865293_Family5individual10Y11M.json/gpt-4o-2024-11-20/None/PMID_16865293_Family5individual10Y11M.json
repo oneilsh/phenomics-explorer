@@ -288,5 +288,22 @@
             "mondo_id": "MONDO:0019569",
             "disease_name": "Cockayne syndrome type 1"
         }
-    ]
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0019569",
+            "MONDO:0008955",
+            "MONDO:0019570",
+            "MONDO:0010217",
+            "MONDO:0016006",
+            "MONDO:0012176",
+            "MONDO:0014213",
+            "MONDO:0054782",
+            "MONDO:0010035",
+            "MONDO:0033007"
+        ],
+        "top_1_score": 1,
+        "top_3_score": 1,
+        "top_10_score": 1
+    }
 }

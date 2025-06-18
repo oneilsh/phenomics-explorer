@@ -26,6 +26,7 @@ cloudpickle = "^3.1.1"
 st-link-analysis = "^0.3.0"
 importlib = "^1.0.4"
 isodate = "^0.7.2"
+seaborn = "^0.13.2"
 
 [build-system]
 requires = ["poetry-core"]
