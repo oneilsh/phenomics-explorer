@@ -13,7 +13,7 @@ import json
 import httpx
 from st_link_analysis import NodeStyle
 
-from phenomics_explorer.monarch_utils import fix_biolink_labels, graph_summary, munge_monarch_graph_result, categories
+from phenomics_explorer.monarch_utils import fix_biolink_labels, graph_summary, munge_monarch_data, categories
 from phenomics_explorer.agent_kg_base import BaseKGAgent
 import streamlit as st
 
@@ -148,7 +148,7 @@ class MonarchKGAgent(BaseKGAgent):
     async def _call_neo4j(self, query, parameters = None, timeout = 6):
         query = fix_biolink_labels(query)
         res = await super()._call_neo4j(query, parameters = parameters, timeout = timeout)
-        res['result_as_graph']['data'] = munge_monarch_graph_result(res['result_as_graph']['data'])
+        res = munge_monarch_data(res)
         return res
 
 

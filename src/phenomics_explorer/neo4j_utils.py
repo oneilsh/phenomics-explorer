@@ -1,24 +1,6 @@
 import json
 import yaml
 
-# internal graph data model
-    #     elements = {
-    #         "nodes": [
-    #             {"data": {"id": "joe", "label": "PERSON", "name": "Streamlit"}},
-    #             {"data": {"id": 2, "label": "PERSON", "name": "Hello"}},
-    #             {"data": {"id": 3, "label": "PERSON", "name": "World"}},
-    #             {"data": {"id": 4, "label": "POST", "content": "x", "other": 4000}},
-    #             {"data": {"id": 5, "label": "POST", "content": "y"}},
-    #         ],
-    #         "edges": [
-    #             {"data": {"id": 6, "label": "FOLLOWS", "source": "joe", "target": 2}},
-    #             {"data": {"id": "alex", "label": "FOLLOWS", "source": 2, "target": 3}},
-    #             {"data": {"id": 8, "label": "POSTED", "source": 3, "target": 4}},
-    #             {"data": {"id": 9, "label": "POSTED", "source": "joe", "target": 5}},
-    #             {"data": {"id": 10, "label": "QUOTES", "source": 5, "target": 4}},
-    #         ],
-    #     }
-
 
 async def _parse_neo4j_result(result, expected_type = "graph"):
     # ok, we can get a graph with result.graph(), but this might have 0 nodes; if so we 
@@ -52,7 +34,7 @@ async def _parse_neo4j_result(result, expected_type = "graph"):
     else:
         raise ValueError(f"Unknown expected type: {expected_type}. Expected 'graph' or 'table'.")
 
- 
+
 
 def add_node_to_graph_data(graph_data, node, known_node_ids):
     """

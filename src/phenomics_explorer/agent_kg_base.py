@@ -165,6 +165,10 @@ Think step-by-step.
 
         self._status("Running query...")
         try:
+            print("\n\n-------------------------")
+            print(query)
+            print(parameters)
+            print("-------------------------\n\n")
             neo4j_result = await self._call_neo4j(query, parameters = parameters)
         except Exception as e:
             self._status("Query failed.")
