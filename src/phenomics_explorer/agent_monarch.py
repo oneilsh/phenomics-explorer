@@ -171,6 +171,7 @@ graph](https://monarchinitiative.org/). I can answer questions via complex graph
         return f"""
 - Consider that the user may not be familiar with the graph structure or the specific terms used in the query.
 - Provide non-specialist descriptions of biomedical results.
+- Consider relevant relationship qualifiers, especially negated, percentage, onset, and frequency qualifiers when designing queries.
 - Use the -[r:biolink_subclass_of*0..]-> pattern liberally to find all subclasses of a class.
 - Use `LIMIT`, `ORDER BY` and `SKIP` clauses to manage the size of your results.
 - Default to 10 results unless otherwise asked.
