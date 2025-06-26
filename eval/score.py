@@ -19,7 +19,7 @@ from kani import AIParam, ai_function, ChatMessage, ChatRole
 
 # read API keys .env file (e.g. set OPENAI_API_KEY=.... in .env and gitignore .env)
 import dotenv
-dotenv.load_dotenv() 
+dotenv.load_dotenv(override=True) 
 
 from kani_utils.utils import full_round_sync
 from phenomics_explorer.utils import messages_dump
@@ -170,7 +170,7 @@ if __name__ == "__main__":
     # run the scoring on the results/ directory
     df = add_scores_to_results()
     # save the results to eval/results/scores.csv
-    
+
     output_file = "eval/results/scores.csv"
     df.to_csv(output_file, index=False)
 
