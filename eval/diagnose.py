@@ -11,7 +11,7 @@ from kani.engines.openai import OpenAIEngine
 
 # read API keys .env file (e.g. set OPENAI_API_KEY=.... in .env and gitignore .env)
 import dotenv
-dotenv.load_dotenv() 
+dotenv.load_dotenv(override=True) 
 
 from kani_utils.utils import full_round_sync
 from phenomics_explorer.agent_monarch import MonarchKGAgent

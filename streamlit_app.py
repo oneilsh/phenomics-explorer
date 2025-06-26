@@ -24,7 +24,7 @@ from phenomics_explorer.agent_monarch import MonarchKGAgent
 
 # read API keys .env file (e.g. set OPENAI_API_KEY=.... in .env and gitignore .env)
 import dotenv
-dotenv.load_dotenv() 
+dotenv.load_dotenv(override=True)
 
 
 
