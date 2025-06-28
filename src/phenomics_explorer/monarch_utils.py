@@ -8,49 +8,7 @@ import json
 import importlib.resources
 import os
 
-from neo4j import GraphDatabase
-
-neo4j_driver = GraphDatabase.driver(os.environ["NEO4J_URI"])
-
-
-categories = [
-'biolink:LifeStage',
-'biolink:MolecularEntity',
-'biolink:OrganismTaxon',
-'biolink:Cell',
-'biolink:CellularComponent',
-'biolink:MolecularActivity',
-'biolink:SequenceVariant',
-'biolink:ChemicalEntity',
-'biolink:ChemicalOrDrugOrTreatment',
-'biolink:GeneProductMixin',
-'biolink:Protein',
-'biolink:Polypeptide',
-'biolink:Pathway',
-'biolink:Disease',
-'biolink:ChemicalEntityOrProteinOrPolypeptide',
-'biolink:BiologicalProcess',
-'biolink:Occurrent',
-'biolink:BiologicalProcessOrActivity',
-'biolink:AnatomicalEntity',
-'biolink:OrganismalEntity',
-'biolink:SubjectOfInvestigation',
-'biolink:Genotype',
-'biolink:PhenotypicFeature',
-'biolink:DiseaseOrPhenotypicFeature',
-'biolink:Gene',
-'biolink:MacromolecularMachineMixin',
-'biolink:GeneOrGeneProduct',
-'biolink:ChemicalEntityOrGeneOrGeneProduct',
-'biolink:GenomicEntity',
-'biolink:OntologyClass',
-'biolink:PhysicalEssence',
-'biolink:PhysicalEssenceOrOccurrent',
-'biolink:BiologicalEntity',
-'biolink:ThingWithTaxon',
-'biolink:NamedThing',
-'biolink:Entity',
-]
+from phenomics_explorer.constants import categories
 
 
 def munge_monarch_data(data):
@@ -103,35 +61,3 @@ def fix_biolink_labels(query):
 
     res = re.sub(pattern, replacement, query)
     return res
-
-
-graph_summary = ""
-with importlib.resources.files("phenomics_explorer").joinpath("kg_summary.md").open("r") as f:
-    graph_summary = f.read()
-    
-# example_queries_str = ""
-# with open("monarch_competency_questions_1.yaml", "r") as f:
-#     example_queries_str = f.read()
-
-# these are lines not matching "expected_answer"
-example_queries = None
-with importlib.resources.files("phenomics_explorer").joinpath("monarch_competency_questions_1.yaml").open("r") as f:
-    example_queries = yaml.safe_load(f)
-
-# we want a string version of the result, with a blank line between each entry
-example_queries_str = ""
-for query in example_queries:
-    # remove the "expected_answer" key from each query
-    if "expected_answer" in query:
-        del query["expected_answer"]
-
-    # we need the keys to be in the order question, search_terms, query
-    example_queries_str += f"question: {query['question']}\n"
-    example_queries_str += f"search_terms: {query['search_terms']}\n"
-    example_queries_str += f"query: {query['query']}"
-    # add a blank line between each query
-    example_queries_str += "\n\n"
-
-    # add the query dictionary to the string using yaml.dump
-# remove the last two newlines
-example_queries_str = example_queries_str[:-2]

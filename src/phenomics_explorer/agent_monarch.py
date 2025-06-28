@@ -4,19 +4,16 @@ from kani.exceptions import WrappedCallException
 from typing import Annotated, List
 from neo4j import AsyncGraphDatabase
 from collections import OrderedDict
-from phenomics_explorer.monarch_utils import graph_summary, example_queries_str
+from phenomics_explorer.monarch_constants import graph_summary, example_queries_str, categories
+from phenomics_explorer.monarch_utils import fix_biolink_labels, munge_monarch_data
+from phenomics_explorer.agent_kg_base import BaseKGAgent
+import streamlit as st
 
 
 # for reading API keys from .env file
 import os
 import json
 import httpx
-from st_link_analysis import NodeStyle
-
-from phenomics_explorer.monarch_utils import fix_biolink_labels, graph_summary, munge_monarch_data, categories
-from phenomics_explorer.agent_kg_base import BaseKGAgent
-import streamlit as st
-
 
 class MonarchKGAgent(BaseKGAgent):
     """Agent for interacting with the Monarch knowledge graph; extends KGAgent with keyword search (using Monarch API) system prompt with cypher examples."""

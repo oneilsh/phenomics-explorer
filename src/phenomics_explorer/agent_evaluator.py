@@ -1,7 +1,7 @@
 from typing_extensions import Annotated
 from typing import Optional
 from kani import AIParam, ai_function, ChatMessage, ChatRole
-from phenomics_explorer.monarch_utils import graph_summary, example_queries_str
+from phenomics_explorer.monarch_constants import graph_summary, example_queries_str
 from phenomics_explorer.utils import messages_dump
 import json
 import yaml
