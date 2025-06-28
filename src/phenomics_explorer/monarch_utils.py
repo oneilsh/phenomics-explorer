@@ -8,7 +8,7 @@ import json
 import importlib.resources
 import os
 
-from phenomics_explorer.constants import categories
+from phenomics_explorer.monarch_constants import categories
 
 
 def munge_monarch_data(data):
