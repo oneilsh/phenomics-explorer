@@ -45,11 +45,6 @@ class MonarchEvaluatorAgent(StreamlitKani):
 
         prompt = self.get_eval_query_prompt(template, query, result_dict, context_history, instructions)
 
-        # print("\n\n-------------------------")
-        # print("EVAL QUERY PROMPT")
-        # print(prompt)
-        # print("-------------------------\n\n")
-
         eval_chat_log = full_round_sync(self, prompt)
         eval_chat_log = [m.content for m in eval_chat_log]
 

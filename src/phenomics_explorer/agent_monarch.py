@@ -135,11 +135,6 @@ class MonarchKGAgent(BaseKGAgent):
         st.button("Edit Evaluator System Prompt", on_click=self.edit_evaluator_system_prompt, disabled=st.session_state.lock_widgets, use_container_width=True)
         st.button("Edit Evaluator Query Prompt Template", on_click=self.edit_eval_query_template, disabled=st.session_state.lock_widgets, use_container_width=True)
 
-        # TODO: 1) add button for editing the eval prompt template
-        # 2) put this info in the eval_chain for provenance, but deeply somewhere so it's out of the way
-        # 4) add an "attempt number" for the eval loop
-        # 3) clean up the eval chain a bit to make it more readable and limited expansion, using the attempt number
-
 
     # override the basic neo4j call to fix and munge the result for monarch biolink labels
     async def _call_neo4j(self, query, parameters = None, timeout = 6):
