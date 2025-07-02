@@ -22,7 +22,6 @@ import dotenv
 dotenv.load_dotenv(override=True) 
 
 from kani_utils.utils import full_round_sync
-from phenomics_explorer.utils import messages_dump
 
 from kani_utils.base_kanis import EnhancedKani
 

@@ -5,6 +5,7 @@ import streamlit as st
 from kani.exceptions import WrappedCallException
 import asyncio
 from phenomics_explorer.neo4j_utils import _parse_neo4j_result
+from phenomics_explorer.monarch_utils import fix_biolink_labels
 import yaml
 from phenomics_explorer.neo4j_utils import summarize_structure
 import json
@@ -137,7 +138,7 @@ class BaseKGAgent(StreamlitKani):
         def edit_eval_query_template():
             """Edit the evaluator system prompt."""
             st.markdown("In the prompt, %QUERY% and %QUERY_RESULT% will be replaced with the query and result, respectively. %MESSAGES_HISTORY% will be replaced with the recent chat history (last 3 messages).")
-            new_prompt = st.text_area("Evaluator Query Prompt Template", value=self.eval_agent.eval_query_template, height=600, max_chars=20000)
+            new_prompt = st.text_area("Evaluator Query Prompt Template", value=self.eval_agent.eval_message_template, height=600, max_chars=20000)
             if st.button("Save"):
                 self.eval_agent.eval_query_template = new_prompt
 
@@ -190,7 +191,7 @@ class BaseKGAgent(StreamlitKani):
         except asyncio.TimeoutError:
             self._status("Query timed out.")
             report = {
-                "query": query,
+                "query": fix_biolink_labels(query),
                 "accept_query": False,
                 "suggestion": f"The query took longer than the alloted time of f{timeout} seconds and was terminated."
                 }
@@ -207,29 +208,26 @@ class BaseKGAgent(StreamlitKani):
         """Run a given cypher query against the knowledge graph and return the results. Think step-by-step when calling this function to ensure the query addresses the user question with the appropriate type of query, which may need to return either tabular or graph (nodes, edges, or paths) data."""
 
         self._status("Running query...")
+        display_query = fix_biolink_labels(query)
         try:
             neo4j_result = await self._call_neo4j(query, parameters = parameters)
         except Exception as e:
             self._status("Query failed.")
             report = {
-                "query": query,
+                "query": display_query,
                 "accept_query": False,
                 "suggestion": "The query generated an error:\n\n"  + str(e)
                 }
             self.eval_chain.append(report)
             raise WrappedCallException(retry = True, original = e)
 
-        #context_history = [message for message in self.chat_history if message.role == ChatRole.USER or message.role == ChatRole.ASSISTANT][-3:]
-        # let's use up to 10 context messages, but, when message.role == ChatRole.FUNCTION, we'll truncate the content to the first 200 characters, with a [result_truncated] signifier
-        context_history = self.chat_history
-
         if self.eval_agent is not None:
             self._status("Evaluating query and result...")
             result_summary = summarize_structure(neo4j_result)
-            eval_result = self.eval_agent.evaluate_query(query, result_summary, context_history)
+            eval_result = self.eval_agent.evaluate_query(query, result_summary, self.chat_history)
 
             report = {
-                "query": query,
+                "query": display_query,
                 **eval_result
             }
             self.eval_chain.append(report)
@@ -242,7 +240,7 @@ class BaseKGAgent(StreamlitKani):
         if tokens > self.max_response_tokens:
             error_message = f"The search result contained {tokens} tokens, greater than the maximum allowable of {self.max_response_tokens}. Please try a smaller search."
             report = {
-                "query": query,
+                "query": display_query,
                 "accept_query": False,
                 "suggestion": error_message
                 }

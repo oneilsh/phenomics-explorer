@@ -1,7 +1,6 @@
 from typing_extensions import Annotated
 from typing import Optional
 from kani import AIParam, ai_function, ChatMessage, ChatRole
-from phenomics_explorer.monarch_constants import graph_summary, example_queries_str
 from phenomics_explorer.utils import messages_dump
 import json
 import yaml
@@ -12,6 +11,7 @@ class EvaluatorAgent(StreamlitKani):
     """Agent for interacting with the Monarch knowledge graph; extends KGAgent with keyword search (using Monarch API) system prompt with cypher examples."""
     def __init__(self, *args, **kwargs):
 
+        # this needs to stay as an instance variable so that the UI can edit it
         self.eval_message_template = """\
 Please evaluate the following cypher query in the context of the conversation and query result:
 
@@ -31,20 +31,16 @@ Result (possibly truncated):
 %QUERY_RESULT%
 ```
 
-Instructions given to the agent:
-```
-%INSTRUCTIONS%
-```
-
 Report your answer using your report_evaluation() function, considering the following:
-- Whether the result aligns with expectations based on the query.
+- Whether the result aligns with expectations based on the query and your knowledge of the graph.
 - Whether an ORDER BY clause should be applied.
 - Whether relationships are oriented correctly in the query.
 - Whether the query should allow for OPTIONAL matches.
 - Whether the query passes a 'sanity check' if the results are not as expected.
+- Whether the agent followed its given instructions, if any.
 
 Think step-by-step.
-"""
+""".strip()
 
         kwargs['system_prompt'] = kwargs.get(
             'system_prompt', """\
@@ -86,10 +82,16 @@ You are the Phenomics Evaluator, designed to evaluate cypher queries against the
                        query: Annotated[str, AIParam(desc="The cypher query to evaluate.")], 
                        result_dict: Annotated[dict, AIParam(desc="The result of the cypher query, in dictionary format.")], 
                        context_history: Optional[Annotated[list[ChatMessage], AIParam(desc="The chat history, which is a list of ChatMessage objects. This is used to provide context for the evaluation.")]] = None):
-        """Evaluate a query result using the evaluator agent. This can be called externally (it is not available for the agent to call), which will trigger this agent to evaluate """
+        """Evaluate a query in the context of its result and the context history (the agent's .history) using the evaluator agent. This can be called externally (it is not available for the agent to call), which will trigger this agent to evaluate """
+
+        
 
         prompt = self.get_eval_query_prompt(query, result_dict, context_history)
 
+        # this method is called externally but belongs to to the agent, which chats with itself
+        # to trigger running report_evaluation() with structured input enforced; the last
+        # message will be the result of the function call for extraction
+        # (this is how pydandic.ai implements structured tool output interally: https://ai.pydantic.dev/output/#tool-output)
         eval_chat_log = full_round_sync(self, prompt)
         eval_chat_log = [m.content for m in eval_chat_log]
 
@@ -122,18 +124,6 @@ You are the Phenomics Evaluator, designed to evaluate cypher queries against the
                .replace("%QUERY_RESULT%", json.dumps(result_dict, indent=2))
                .replace("%MESSAGES_HISTORY%", "\n".join(cleaned_history_strings))
                )
-        # print("EVAL QUERY")
-        # print(res)
+
         return res
-    
-# What phenotypes are associated with more than one subtype of EDS?
-
-# How many subtypes are associated with both blue sclerae and scoliosis?
-
-# And how many genes are connected to more than one of those subtypes?
-
-# I see. Presumably there are genes associated with individual subtypes? How many are there, and can we visualize this network of the two phenotypes, connected subtypes, and connected genes?
-
-# That is just lovely. Thank you!
-
-
+   

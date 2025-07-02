@@ -17,9 +17,11 @@ import dotenv # pip install python-dotenv
 from kani.engines.openai import OpenAIEngine
 #from kani.engines.anthropic import AnthropicEngine
 
+from phenomics_explorer.agent_kgbase_evaluator import EvaluatorAgent
+from phenomics_explorer.agent_kgbase import BaseKGAgent
+
 from phenomics_explorer.agent_monarch import MonarchKGAgent
-from phenomics_explorer.agent_evaluator import EvaluatorAgent
-from phenomics_explorer.agent_kg_base import BaseKGAgent
+from phenomics_explorer.agent_monarch_evaluator import MonarchEvaluatorAgent
 
 ########################
 ##### 1 - Configuration
@@ -67,12 +69,15 @@ def get_agents():
                                prompt_tokens_cost = 2, 
                                completion_tokens_cost = 8)
     
-    eval_agent = EvaluatorAgent(engine = evalEngine)
-    base_agent = BaseKGAgent(engine = baseEngine, eval_agent = eval_agent, retry_attempts = 3)
-    
+    # eval_agent = EvaluatorAgent(engine = evalEngine)
+    # base_agent = BaseKGAgent(engine = baseEngine, eval_agent = eval_agent, retry_attempts = 3)
+    monarch_eval_agent = MonarchEvaluatorAgent(engine = evalEngine)
+    monarch_base_agent = MonarchKGAgent(engine = baseEngine, eval_agent = monarch_eval_agent, retry_attempts = 3)
+    monarch_base_agent_no_eval = MonarchKGAgent(engine = baseEngine, eval_agent = None, retry_attempts = 3)
+
     return {
-            "Phenomics Explorer (GPT 4.1)": base_agent,
-            #"Phenomics Explorer (GPT 4.1, No Eval)": MonarchKGAgent(engine = engine41, eval_agent_engine = None, prompt_tokens_cost = 2, completion_tokens_cost = 8, retry_attempts = 3)
+            "Monarch Explorer (GPT 4.1)": monarch_base_agent,
+            "Monarch Explorer (GPT 4.1, No Eval)": monarch_base_agent_no_eval
            }
 
 
