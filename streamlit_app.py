@@ -7,6 +7,7 @@
 
 # kani_streamlit imports
 import kani_utils.kani_streamlit_server as ks
+from kani_utils.base_engines import CostAwareEngine
 
 # for reading API keys from .env file
 import os
@@ -17,6 +18,8 @@ from kani.engines.openai import OpenAIEngine
 #from kani.engines.anthropic import AnthropicEngine
 
 from phenomics_explorer.agent_monarch import MonarchKGAgent
+from phenomics_explorer.agent_evaluator import EvaluatorAgent
+from phenomics_explorer.agent_kg_base import BaseKGAgent
 
 ########################
 ##### 1 - Configuration
@@ -46,16 +49,29 @@ ks.initialize_app_config(
     share_chat_ttl_seconds = 60 * 60 * 24 * 60, # 60 days
 )
 
-# define an engine to use (see Kani documentation for more info)
-# 4.1 isn't yet supported by Kani, so we need to explicitly set the max context size otherwise we get the default of 8k tokens (4.1 can support up to 1M tokens technically)
-engine41 = OpenAIEngine(os.environ["OPENAI_API_KEY"], model="gpt-4.1-2025-04-14", temperature=0.0, max_tokens=16000, max_context_size= 128000)
-engine4o = OpenAIEngine(os.environ["OPENAI_API_KEY"], model="gpt-4o-2024-11-20", temperature=0.0, max_tokens=16000)
 
-# We also have to define a function that returns a dictionary of agents to serve
-# Agents are keyed by their name, which is what the user will see in the UI
 def get_agents():
+    # 4.1 isn't yet supported by Kani, so we need to explicitly set the max context size otherwise we get the default of 8k tokens (4.1 can support up to 1M tokens technically)
+    baseEngine = CostAwareEngine(OpenAIEngine(os.environ["OPENAI_API_KEY"], 
+                                            model="gpt-4.1-2025-04-14", 
+                                            temperature=0.0, 
+                                            max_tokens=16000,
+                                             max_context_size= 128000),
+                               prompt_tokens_cost = 2, 
+                               completion_tokens_cost = 8)
+    evalEngine = CostAwareEngine(OpenAIEngine(os.environ["OPENAI_API_KEY"],
+                                            model="gpt-4.1-2025-04-14", 
+                                            temperature=0.0, 
+                                            max_tokens=16000,
+                                             max_context_size= 128000),
+                               prompt_tokens_cost = 2, 
+                               completion_tokens_cost = 8)
+    
+    eval_agent = EvaluatorAgent(engine = evalEngine)
+    base_agent = BaseKGAgent(engine = baseEngine, eval_agent = eval_agent, retry_attempts = 3)
+    
     return {
-            "Phenomics Explorer (GPT 4.1)": MonarchKGAgent(engine = engine41, eval_agent_engine = engine41, prompt_tokens_cost = 2, completion_tokens_cost = 8, retry_attempts = 3),
+            "Phenomics Explorer (GPT 4.1)": base_agent,
             #"Phenomics Explorer (GPT 4.1, No Eval)": MonarchKGAgent(engine = engine41, eval_agent_engine = None, prompt_tokens_cost = 2, completion_tokens_cost = 8, retry_attempts = 3)
            }
 

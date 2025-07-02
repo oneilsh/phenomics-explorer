@@ -1,80 +1,50 @@
 from typing_extensions import Annotated
 from kani import AIParam, ai_function, ChatRole, ChatMessage
 from kani_utils.base_kanis import StreamlitKani
-import random
 import streamlit as st
-from st_link_analysis import EdgeStyle, st_link_analysis
 from kani.exceptions import WrappedCallException
 import asyncio
 from phenomics_explorer.neo4j_utils import _parse_neo4j_result
-from phenomics_explorer.agent_evaluator import MonarchEvaluatorAgent
 import yaml
 from phenomics_explorer.neo4j_utils import summarize_structure
 import json
-
+from neo4j import AsyncGraphDatabase
+import os
 
 class BaseKGAgent(StreamlitKani):
     """Agent for interacting with the Monarch knowledge graph; extends KGAgent with keyword search (using Monarch API) system prompt with cypher examples."""
     def __init__(self, 
                  *args,
+                 eval_agent = None,
+                 max_response_tokens = 30000,
                  **kwargs):
 
         kwargs['system_prompt'] = kwargs.get(
             'system_prompt',
             'You are an expert-level Neo4j analyst, designed to query a knowledge graph with cypher and interpret the result.'
         )
+
+        self.eval_chain = []  # this is a list of evaluation reports, which we will display after each user message
+
         # if interactive is not set, we set it to True by default
         if 'interactive' not in kwargs:
             self.interactive = True
         else:
             self.interactive = kwargs['interactive']
             del kwargs['interactive']
-
-        self.eval_engine = kwargs['eval_agent_engine']
-        del kwargs['eval_agent_engine']
         
+        self.eval_agent = eval_agent
+        self.max_response_tokens = max_response_tokens
+
+        self.neo4j_uri = os.environ["NEO4J_URI"]  # default bolt protocol port
+        self.neo4j_driver = AsyncGraphDatabase.driver(self.neo4j_uri)
 
         super().__init__(*args, **kwargs)
-        self.eval_chain = []
-
-        self.eval_query_template = """\
-Please evaluate the following cypher query in the context of the conversation and query result:
-
-Conversation context:
-```
-- ...
-%MESSAGES_HISTORY%
-```
-      
-Query:
-```
-%QUERY%
-```
-
-Result (possibly truncated):
-```
-%QUERY_RESULT%
-```
-
-Instructions given to the agent:
-```
-%INSTRUCTIONS%
-```
-
-Report your answer using your report_evaluation() function, considering the following:
-- Whether the result aligns with expectations based on the query.
-- Whether an ORDER BY clause should be applied.
-- Whether relationships are oriented correctly in the query.
-- Whether the query should allow for OPTIONAL matches.
-- Whether the query passes a 'sanity check' if the results are not as expected.
-
-Think step-by-step.
-"""
+        
 
     #######################
     #### Status display
     #######################
-    #     
 
     def _status(self, label):
         if self.interactive:
@@ -116,6 +86,79 @@ Think step-by-step.
         await super().add_to_history(message, *args, **kwargs)
 
 
+
+    ##############################
+    ###### Sidebar components
+    ##############################
+
+    ## called on button click
+    def edit_system_prompt(self):
+
+        # this is streamlit, see the documentation for @st.dialog()
+        # calling this function renders a modal dialog, with the contents
+        # of the function definding the contents of the modal
+        @st.dialog(title = "Edit System Prompt", width = "large")
+        def edit_system_prompt():
+            """Edit the system prompt."""
+            new_prompt = st.text_area("System Prompt", value=self.system_prompt, height=600, max_chars=20000)
+            if st.button("Save"):
+                self.update_system_prompt(new_prompt)
+
+                ## If we set it in the session state, it will be saved when a chat is shared
+                ## and reloaded during rendering (though, at this time this doesn't really do anything)
+                st.session_state['system_prompt'] = new_prompt
+                st.success("System prompt updated.")
+
+        edit_system_prompt()
+
+    def edit_evaluator_system_prompt(self):
+        # this is streamlit, see the documentation for @st.dialog()
+        # calling this function renders a modal dialog, with the contents
+        # of the function definding the contents of the modal
+        @st.dialog(title = "Edit Evaluator System Prompt", width = "large")
+        def edit_evaluator_system_prompt():
+            """Edit the evaluator system prompt."""
+            new_prompt = st.text_area("Evaluator System Prompt", value=self.eval_agent.system_prompt, height=600, max_chars=20000)
+            if st.button("Save"):
+                self.eval_agent.update_system_prompt(new_prompt)
+
+                ## If we set it in the session state, it will be saved when a chat is shared
+                ## and reloaded during rendering (though, at this time this doesn't really do anything)
+                st.session_state['evaluator_system_prompt'] = new_prompt
+                st.success("Evaluator system prompt updated.")
+
+        edit_evaluator_system_prompt()
+
+    def edit_eval_query_template(self):
+        # this is streamlit, see the documentation for @st.dialog()
+        # calling this function renders a modal dialog, with the contents
+        # of the function definding the contents of the modal
+        @st.dialog(title = "Edit Evaluator Evaluation Prompt", width = "large")
+        def edit_eval_query_template():
+            """Edit the evaluator system prompt."""
+            st.markdown("In the prompt, %QUERY% and %QUERY_RESULT% will be replaced with the query and result, respectively. %MESSAGES_HISTORY% will be replaced with the recent chat history (last 3 messages).")
+            new_prompt = st.text_area("Evaluator Query Prompt Template", value=self.eval_agent.eval_query_template, height=600, max_chars=20000)
+            if st.button("Save"):
+                self.eval_agent.eval_query_template = new_prompt
+
+                ## If we set it in the session state, it will be saved when a chat is shared
+                ## and reloaded during rendering (though, at this time this doesn't really do anything)
+                st.session_state['eval_query_template'] = new_prompt
+                st.success("Evaluator system prompt updated.")
+
+
+        edit_eval_query_template()
+
+    def render_sidebar(self):
+        super().render_sidebar()
+
+        st.divider()
+
+        st.button("Edit System Prompt", on_click=self.edit_system_prompt, disabled=st.session_state.lock_widgets, use_container_width=True)
+        
+        if self.eval_agent is not None:
+            st.button("Edit Evaluator System Prompt", on_click=self.edit_evaluator_system_prompt, disabled=st.session_state.lock_widgets, use_container_width=True)
+            st.button("Edit Evaluator Query Prompt Template", on_click=self.edit_eval_query_template, disabled=st.session_state.lock_widgets, use_container_width=True)
 
 
 
@@ -165,10 +208,6 @@ Think step-by-step.
 
         self._status("Running query...")
         try:
-            print("\n\n-------------------------")
-            print(query)
-            print(parameters)
-            print("-------------------------\n\n")
             neo4j_result = await self._call_neo4j(query, parameters = parameters)
         except Exception as e:
             self._status("Query failed.")
@@ -184,18 +223,10 @@ Think step-by-step.
         # let's use up to 10 context messages, but, when message.role == ChatRole.FUNCTION, we'll truncate the content to the first 200 characters, with a [result_truncated] signifier
         context_history = self.chat_history
 
-        if self.eval_engine is not None:
-            eval_agent = MonarchEvaluatorAgent(engine = self.eval_engine)
-            eval_agent.update_system_prompt(self.evaluator_system_prompt)
-
+        if self.eval_agent is not None:
             self._status("Evaluating query and result...")
             result_summary = summarize_structure(neo4j_result)
-            eval_result = eval_agent.evaluate_query(self.eval_query_template, query, result_summary, context_history, self._gen_monarch_instructions())
-
-            # need to add the evaluator's token usage to ours
-            # TODO: this won't be right, since we're using the cost of the base agent, not the eval agent
-            self.tokens_used_prompt += eval_agent.tokens_used_prompt
-            self.tokens_used_completion += eval_agent.tokens_used_completion
+            eval_result = self.eval_agent.evaluate_query(query, result_summary, context_history)
 
             report = {
                 "query": query,
@@ -207,10 +238,16 @@ Think step-by-step.
                 self._status("Query did not pass evaluation.")
                 raise WrappedCallException(retry = True, original = ValueError("The query did not pass evaluation; please review the suggestions and try again. Evaluation:\n\n" + yaml.dump(eval_result)))
 
-            self._status("Generating Answer...")
-
         tokens = self.message_token_len(ChatMessage.user(json.dumps(neo4j_result)))
         if tokens > self.max_response_tokens:
-            raise WrappedCallException(retry = True, original = ValueError(f"The search result contained {tokens} tokens, greater than the maximum allowable of {self.max_response_tokens}. Please try a smaller search."))
+            error_message = f"The search result contained {tokens} tokens, greater than the maximum allowable of {self.max_response_tokens}. Please try a smaller search."
+            report = {
+                "query": query,
+                "accept_query": False,
+                "suggestion": error_message
+                }
+            self.eval_chain.append(report)
+            raise WrappedCallException(retry = True, original = ValueError(error_message))
         else:
+            self._status("Generating Answer...")
             return neo4j_result    

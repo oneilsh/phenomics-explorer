@@ -17,7 +17,7 @@ import httpx
 
 class MonarchKGAgent(BaseKGAgent):
     """Agent for interacting with the Monarch knowledge graph; extends KGAgent with keyword search (using Monarch API) system prompt with cypher examples."""
-    def __init__(self, *args, max_response_tokens = 30000, **kwargs):
+    def __init__(self, *args, eval_agent = None, max_response_tokens = 30000, **kwargs):
 
         kwargs['system_prompt'] = ('''You are the Phenomics Assistant, designed to assist users in exploring and intepreting a biomedical knowledge graph known as Monarch.\n\n''' + 
 #self._gen_monarch_instructions() + "\n\n" + 
@@ -36,18 +36,17 @@ class MonarchKGAgent(BaseKGAgent):
         self.name = "Phenomics Explorer"
 
         # dev instance of
-        self.neo4j_uri = os.environ["NEO4J_URI"]  # default bolt protocol port
-        self.neo4j_driver = AsyncGraphDatabase.driver(self.neo4j_uri)
 
         self.max_response_tokens = max_response_tokens
+        self.eval_agent = eval_agent
 
-        self.evaluator_system_prompt = ('''You are the Phenomics Evaluator, designed to evaluate cypher queries against the biomedical knowledge graph known as Monarch.\n\n''' + 
-"# Graph Summary\n\n" + graph_summary + "\n\n" + 
-"# Example queries\n\n" + example_queries_str + "\n\n" +
-'''# Instructions
+#         self.evaluator_system_prompt = ('''You are the Phenomics Evaluator, designed to evaluate cypher queries against the biomedical knowledge graph known as Monarch.\n\n''' + 
+# "# Graph Summary\n\n" + graph_summary + "\n\n" + 
+# "# Example queries\n\n" + example_queries_str + "\n\n" +
+# '''# Instructions
 
-- When asked, use your report_evaluation() function to evaluate a given query and its results. Follow the instructions exactly.'''
-)
+# - When asked, use your report_evaluation() function to evaluate a given query and its results. Follow the instructions exactly.'''
+# )
 
     @ai_function()
     async def get_entity_types(self):
@@ -67,73 +66,6 @@ class MonarchKGAgent(BaseKGAgent):
 
         return res
         
-
-    ## called on button click
-    def edit_system_prompt(self):
-
-        # this is streamlit, see the documentation for @st.dialog()
-        # calling this function renders a modal dialog, with the contents
-        # of the function definding the contents of the modal
-        @st.dialog(title = "Edit System Prompt", width = "large")
-        def edit_system_prompt():
-            """Edit the system prompt."""
-            new_prompt = st.text_area("System Prompt", value=self.system_prompt, height=600, max_chars=20000)
-            if st.button("Save"):
-                self.update_system_prompt(new_prompt)
-
-                ## If we set it in the session state, it will be saved when a chat is shared
-                ## and reloaded during rendering (though, at this time this doesn't really do anything)
-                st.session_state['system_prompt'] = new_prompt
-                st.success("System prompt updated.")
-
-        edit_system_prompt()
-
-    def edit_evaluator_system_prompt(self):
-        # this is streamlit, see the documentation for @st.dialog()
-        # calling this function renders a modal dialog, with the contents
-        # of the function definding the contents of the modal
-        @st.dialog(title = "Edit Evaluator System Prompt", width = "large")
-        def edit_evaluator_system_prompt():
-            """Edit the evaluator system prompt."""
-            new_prompt = st.text_area("Evaluator System Prompt", value=self.evaluator_system_prompt, height=600, max_chars=20000)
-            if st.button("Save"):
-                self.evaluator_system_prompt = new_prompt
-
-                ## If we set it in the session state, it will be saved when a chat is shared
-                ## and reloaded during rendering (though, at this time this doesn't really do anything)
-                st.session_state['evaluator_system_prompt'] = new_prompt
-                st.success("Evaluator system prompt updated.")
-
-        edit_evaluator_system_prompt()
-
-    def edit_eval_query_template(self):
-        # this is streamlit, see the documentation for @st.dialog()
-        # calling this function renders a modal dialog, with the contents
-        # of the function definding the contents of the modal
-        @st.dialog(title = "Edit Evaluator Evaluation Prompt", width = "large")
-        def edit_eval_query_template():
-            """Edit the evaluator system prompt."""
-            st.markdown("In the prompt, %QUERY% and %QUERY_RESULT% will be replaced with the query and result, respectively. %MESSAGES_HISTORY% will be replaced with the recent chat history (last 3 messages).")
-            new_prompt = st.text_area("Evaluator Query Prompt Template", value=self.eval_query_template, height=600, max_chars=20000)
-            if st.button("Save"):
-                self.eval_query_template = new_prompt
-
-                ## If we set it in the session state, it will be saved when a chat is shared
-                ## and reloaded during rendering (though, at this time this doesn't really do anything)
-                st.session_state['eval_query_template'] = new_prompt
-                st.success("Evaluator system prompt updated.")
-
-
-        edit_eval_query_template()
-
-    def render_sidebar(self):
-        super().render_sidebar()
-
-        st.divider()
-
-        st.button("Edit System Prompt", on_click=self.edit_system_prompt, disabled=st.session_state.lock_widgets, use_container_width=True)
-        st.button("Edit Evaluator System Prompt", on_click=self.edit_evaluator_system_prompt, disabled=st.session_state.lock_widgets, use_container_width=True)
-        st.button("Edit Evaluator Query Prompt Template", on_click=self.edit_eval_query_template, disabled=st.session_state.lock_widgets, use_container_width=True)
 
 
     # override the basic neo4j call to fix and munge the result for monarch biolink labels

@@ -8,10 +8,56 @@ import yaml
 from kani_utils.base_kanis import StreamlitKani
 from kani_utils.utils import full_round_sync
 
-class MonarchEvaluatorAgent(StreamlitKani):
+class EvaluatorAgent(StreamlitKani):
     """Agent for interacting with the Monarch knowledge graph; extends KGAgent with keyword search (using Monarch API) system prompt with cypher examples."""
-    def __init__(self, *args, engine = None, max_response_tokens = 10000, **kwargs):
-        super().__init__(engine = engine, *args, **kwargs)
+    def __init__(self, *args, **kwargs):
+
+        self.eval_message_template = """\
+Please evaluate the following cypher query in the context of the conversation and query result:
+
+Conversation context:
+```
+- ...
+%MESSAGES_HISTORY%
+```
+      
+Query:
+```
+%QUERY%
+```
+
+Result (possibly truncated):
+```
+%QUERY_RESULT%
+```
+
+Instructions given to the agent:
+```
+%INSTRUCTIONS%
+```
+
+Report your answer using your report_evaluation() function, considering the following:
+- Whether the result aligns with expectations based on the query.
+- Whether an ORDER BY clause should be applied.
+- Whether relationships are oriented correctly in the query.
+- Whether the query should allow for OPTIONAL matches.
+- Whether the query passes a 'sanity check' if the results are not as expected.
+
+Think step-by-step.
+"""
+
+        kwargs['system_prompt'] = kwargs.get(
+            'system_prompt', """\
+You are the Phenomics Evaluator, designed to evaluate cypher queries against the biomedical knowledge graph known as Monarch. 
+
+# Instructions
+
+- When asked, use your report_evaluation() function to evaluate a given query and its results. Follow the instructions exactly.'''
+"""
+        )
+
+
+        super().__init__(*args, **kwargs)
 
 
 
@@ -36,14 +82,13 @@ class MonarchEvaluatorAgent(StreamlitKani):
                 })
     
  
-    def evaluate_query(self, template: Annotated[str, AIParam(desc="The template to use to build the query.")],
-                                   query: Annotated[str, AIParam(desc="The cypher query to evaluate.")], 
-                                   result_dict: Annotated[dict, AIParam(desc="The result of the cypher query, in dictionary format.")], 
-                                   context_history: Optional[Annotated[list[ChatMessage], AIParam(desc="The chat history, which is a list of ChatMessage objects. This is used to provide context for the evaluation.")]] = None,
-                                   instructions: Optional[Annotated[str, AIParam(desc="Instructions given to the main agent. This is used to provide context for the evaluation.")]] = None):
+    def evaluate_query(self,
+                       query: Annotated[str, AIParam(desc="The cypher query to evaluate.")], 
+                       result_dict: Annotated[dict, AIParam(desc="The result of the cypher query, in dictionary format.")], 
+                       context_history: Optional[Annotated[list[ChatMessage], AIParam(desc="The chat history, which is a list of ChatMessage objects. This is used to provide context for the evaluation.")]] = None):
         """Evaluate a query result using the evaluator agent. This can be called externally (it is not available for the agent to call), which will trigger this agent to evaluate """
 
-        prompt = self.get_eval_query_prompt(template, query, result_dict, context_history, instructions)
+        prompt = self.get_eval_query_prompt(query, result_dict, context_history)
 
         eval_chat_log = full_round_sync(self, prompt)
         eval_chat_log = [m.content for m in eval_chat_log]
@@ -58,8 +103,9 @@ class MonarchEvaluatorAgent(StreamlitKani):
         return result
     
 
-    def get_eval_query_prompt(self, template, query, result_dict, messages_history, instructions):
+    def get_eval_query_prompt(self, query, result_dict, messages_history):
         """Generate a prompt for evaluating a query result."""
+        template = self.eval_message_template
 
         cleaned_history = []
         for m in messages_history:
@@ -75,7 +121,6 @@ class MonarchEvaluatorAgent(StreamlitKani):
         res = (template.replace("%QUERY%", query)
                .replace("%QUERY_RESULT%", json.dumps(result_dict, indent=2))
                .replace("%MESSAGES_HISTORY%", "\n".join(cleaned_history_strings))
-               .replace("%INSTRUCTIONS%", instructions)
                )
         # print("EVAL QUERY")
         # print(res)
