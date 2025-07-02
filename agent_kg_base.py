@@ -177,16 +177,13 @@ Think step-by-step.
 
         context_history = [message for message in self.chat_history if message.role == ChatRole.USER or message.role == ChatRole.ASSISTANT][-3:]
 
+        # since we are sharing a cost engine, the evaluation cost will be included in tracking
         eval_agent = MonarchEvaluatorAgent(engine = self.engine)
         eval_agent.update_system_prompt(self.evaluator_system_prompt)
 
         self._status("Evaluating query and result...")
         result_summary = summarize_structure(neo4j_result)
         eval_result = eval_agent.evaluate_query(self.eval_query_template, query, result_summary, context_history, self._gen_monarch_instructions())
-
-        # need to add the evaluator's token usage to ours
-        self.tokens_used_prompt += eval_agent.tokens_used_prompt
-        self.tokens_used_completion += eval_agent.tokens_used_completion
 
         report = {
             "query": query,

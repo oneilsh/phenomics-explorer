@@ -7,6 +7,7 @@
 
 # kani_streamlit imports
 import kani_utils.kani_streamlit_server as ks
+from kani_utils.base_engines import CostAwareEngine
 
 # for reading API keys from .env file
 import os
@@ -47,14 +48,22 @@ ks.initialize_app_config(
 )
 
 # define an engine to use (see Kani documentation for more info)
-engine = OpenAIEngine(os.environ["OPENAI_API_KEY"], model="gpt-4.1-2025-04-14", temperature=0.0, max_tokens=10000)
+base_engine = CostAwareEngine(OpenAIEngine(os.environ["OPENAI_API_KEY"], 
+                                           model="gpt-4.1-2025-04-14", 
+                                           temperature=0.0, 
+                                           max_tokens=10000), 
+                              prompt_tokens_cost = 2, 
+                              completion_tokens_cost = 8)
+
+
 #engine = AnthropicEngine(model="claude-3-5-haiku-latest")
 
 # We also have to define a function that returns a dictionary of agents to serve
 # Agents are keyed by their name, which is what the user will see in the UI
 def get_agents():
+    base_agent = MonarchKGAgent(engine = base_engine, retry_attempts = 3)
     return {
-            "Phenomics Explorer (GPT 4.1)": MonarchKGAgent(engine, prompt_tokens_cost = 2, completion_tokens_cost = 8, retry_attempts = 3)
+            "Phenomics Explorer (GPT 4.1)": base_agent
             #"Phenomics Explorer (Experimental, Haiku)": MonarchKGAgent(engine, prompt_tokens_cost = 0.008, completion_tokens_cost = 0.4, retry_attempts = 3)
            }
 
