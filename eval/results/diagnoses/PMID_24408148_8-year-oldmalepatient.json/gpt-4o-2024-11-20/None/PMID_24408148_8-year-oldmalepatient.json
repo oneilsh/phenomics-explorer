@@ -1,0 +1,328 @@
+{
+    "phenopacket": {
+        "id": "PMID_24408148_8-year-old_male_patient",
+        "subject": {
+            "id": "8-year-old male patient",
+            "sex": "MALE"
+        },
+        "phenotypicFeatures": [
+            {
+                "type": {
+                    "id": "HP:0001629",
+                    "label": "Ventricular septal defect"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0009777",
+                    "label": "Absent thumb"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000767",
+                    "label": "Pectus excavatum"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0003042",
+                    "label": "Elbow dislocation"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001684",
+                    "label": "Secundum atrial septal defect"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001674",
+                    "label": "Complete atrioventricular canal defect"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001655",
+                    "label": "Patent foramen ovale"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0009778",
+                    "label": "Short thumb"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001199",
+                    "label": "Triphalangeal thumb"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0009813",
+                    "label": "Upper limb phocomelia"
+                },
+                "excluded": true
+            }
+        ],
+        "interpretations": [
+            {
+                "id": "8-year-old male patient",
+                "progressStatus": "SOLVED",
+                "diagnosis": {
+                    "disease": {
+                        "id": "OMIM:142900",
+                        "label": "Holt-Oram syndrome"
+                    },
+                    "genomicInterpretations": [
+                        {
+                            "subjectOrBiosampleId": "8-year-old male patient",
+                            "interpretationStatus": "CAUSATIVE",
+                            "variantInterpretation": {
+                                "variationDescriptor": {
+                                    "id": "var_ipttaFPgoqlRwjPiJmiimixsA",
+                                    "geneContext": {
+                                        "valueId": "HGNC:11604",
+                                        "symbol": "TBX5"
+                                    },
+                                    "expressions": [
+                                        {
+                                            "syntax": "hgvs.c",
+                                            "value": "NM_181486.4:c.194del"
+                                        },
+                                        {
+                                            "syntax": "hgvs.g",
+                                            "value": "NC_000012.12:g.114401874del"
+                                        }
+                                    ],
+                                    "vcfRecord": {
+                                        "genomeAssembly": "hg38",
+                                        "chrom": "chr12",
+                                        "pos": "114401873",
+                                        "ref": "TA",
+                                        "alt": "T"
+                                    },
+                                    "moleculeContext": "genomic",
+                                    "allelicState": {
+                                        "id": "GENO:0000135",
+                                        "label": "heterozygous"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "diseases": [
+            {
+                "term": {
+                    "id": "OMIM:142900",
+                    "label": "Holt-Oram syndrome"
+                }
+            }
+        ],
+        "metaData": {
+            "created": "2024-03-27T07:21:37.766327142Z",
+            "createdBy": "ORCID:0000-0002-0736-9199",
+            "resources": [
+                {
+                    "id": "geno",
+                    "name": "Genotype Ontology",
+                    "url": "http://purl.obolibrary.org/obo/geno.owl",
+                    "version": "2022-03-05",
+                    "namespacePrefix": "GENO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+                },
+                {
+                    "id": "hgnc",
+                    "name": "HUGO Gene Nomenclature Committee",
+                    "url": "https://www.genenames.org",
+                    "version": "06/01/23",
+                    "namespacePrefix": "HGNC",
+                    "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+                },
+                {
+                    "id": "omim",
+                    "name": "An Online Catalog of Human Genes and Genetic Disorders",
+                    "url": "https://www.omim.org",
+                    "version": "January 4, 2023",
+                    "namespacePrefix": "OMIM",
+                    "iriPrefix": "https://www.omim.org/entry/"
+                },
+                {
+                    "id": "so",
+                    "name": "Sequence types and features ontology",
+                    "url": "http://purl.obolibrary.org/obo/so.obo",
+                    "version": "2021-11-22",
+                    "namespacePrefix": "SO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+                },
+                {
+                    "id": "hp",
+                    "name": "human phenotype ontology",
+                    "url": "http://purl.obolibrary.org/obo/hp.owl",
+                    "version": "2024-03-06",
+                    "namespacePrefix": "HP",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+                }
+            ],
+            "phenopacketSchemaVersion": "2.0",
+            "externalReferences": [
+                {
+                    "id": "PMID:24408148",
+                    "reference": "https://pubmed.ncbi.nlm.nih.gov/24408148",
+                    "description": "A new mutation in the TBX5 gene in Holt-Oram syndrome: two cases in the same family and prenatal diagnosis"
+                }
+            ]
+        }
+    },
+    "cost_est_base_rate": 0.030368,
+    "tokens_used_prompt": 10496,
+    "tokens_used_completion": 1172,
+    "query": "From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses, even if there is insufficient information to make a definitive diagnosis. If you are unsure, provide a list of possible diagnoses with the most likely one first.\n\nPatient ID: 8-year-old male patient\nPatient age: Unknown\nPatient sex: Male\nPatient features: Ventricular septal defect, Absent thumb, Pectus excavatum, Elbow dislocation.\nExcluded patient features: Secundum atrial septal defect, Complete atrioventricular canal defect, Patent foramen ovale, Short thumb, Triphalangeal thumb, Upper limb phocomelia.",
+    "phenopacket_file": "phenopackets/PMID_24408148_8-year-oldmalepatient.json",
+    "expected_diagnosis": "OMIM:142900",
+    "base_engine": "gpt-4o-2024-11-20",
+    "eval_engine": "None",
+    "eval_chain": [],
+    "messages": [
+        {
+            "role": "assistant",
+            "content": "To provide a rank-ordered list of possible diagnoses for this patient, I will:\n\n1. Search for diseases associated with the provided phenotypic features: **ventricular septal defect**, **absent thumb**, **pectus excavatum**, and **elbow dislocation**.\n2. Exclude diseases associated with the excluded features: **secundum atrial septal defect**, **complete atrioventricular canal defect**, **patent foramen ovale**, **short thumb**, **triphalangeal thumb**, and **upper limb phocomelia**.\n3. Rank the results based on the overlap of features and relevance.\n\nLet me begin by searching for diseases associated with the provided features.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_j4uP4PMOsrN9e7Enj1mTunrI",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"ventricular septal defect\"]}"
+                    }
+                },
+                {
+                    "id": "call_ZjLE9pHMId2fo8BXkkHIWqBJ",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"absent thumb\"]}"
+                    }
+                },
+                {
+                    "id": "call_DLfaKruFO0a42rDWC80NJuVe",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"pectus excavatum\"]}"
+                    }
+                },
+                {
+                    "id": "call_NqB6C2ZimHe8Noyv84HM609Z",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"elbow dislocation\"]}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'ventricular septal defect': [{'id': 'MONDO:0002070', 'category': 'biolink:Disease', 'name': 'ventricular septal defect', 'in_taxon_label': None}, {'id': 'MONDO:0013749', 'category': 'biolink:Disease', 'name': 'ventricular septal defect 3', 'in_taxon_label': None}, {'id': 'MONDO:1010494', 'category': 'biolink:Disease', 'name': 'ventricular septal defect, sheep', 'in_taxon_label': None}, {'id': 'MONDO:1010487', 'category': 'biolink:Disease', 'name': 'ventricular septal defect, chicken', 'in_taxon_label': None}, {'id': 'MONDO:1010493', 'category': 'biolink:Disease', 'name': 'ventricular septal defect, cattle', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_j4uP4PMOsrN9e7Enj1mTunrI",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "function",
+            "content": "{'absent thumb': [{'id': 'HP:0009777', 'category': 'biolink:PhenotypicFeature', 'name': 'Absent thumb', 'in_taxon_label': None}, {'id': 'MONDO:0008561', 'category': 'biolink:Disease', 'name': 'thumb deformity', 'in_taxon_label': None}, {'id': 'HP:0009686', 'category': 'biolink:PhenotypicFeature', 'name': 'Absent epiphyses of the thumb', 'in_taxon_label': None}, {'id': 'HP:0009637', 'category': 'biolink:PhenotypicFeature', 'name': 'Absent proximal phalanx of thumb', 'in_taxon_label': None}, {'id': 'HP:0009601', 'category': 'biolink:PhenotypicFeature', 'name': 'Aplasia/Hypoplasia of the thumb', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_ZjLE9pHMId2fo8BXkkHIWqBJ",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "function",
+            "content": "{'pectus excavatum': [{'id': 'MONDO:0008213', 'category': 'biolink:Disease', 'name': 'pectus excavatum', 'in_taxon_label': None}, {'id': 'MP:0012514', 'category': 'biolink:PhenotypicFeature', 'name': 'pectus excavatum', 'in_taxon_label': None}, {'id': 'HP:0000767', 'category': 'biolink:PhenotypicFeature', 'name': 'Pectus excavatum', 'in_taxon_label': None}, {'id': 'MONDO:0010883', 'category': 'biolink:Disease', 'name': 'pectus excavatum-macrocephaly-dysplastic nails syndrome', 'in_taxon_label': None}, {'id': 'HP:0000915', 'category': 'biolink:PhenotypicFeature', 'name': 'Pectus excavatum of inferior sternum', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_DLfaKruFO0a42rDWC80NJuVe",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "function",
+            "content": "{'elbow dislocation': [{'id': 'MONDO:0017469', 'category': 'biolink:Disease', 'name': 'congenital elbow dislocation', 'in_taxon_label': None}, {'id': 'MP:0030843', 'category': 'biolink:PhenotypicFeature', 'name': 'elbow dislocation', 'in_taxon_label': None}, {'id': 'HP:0003042', 'category': 'biolink:PhenotypicFeature', 'name': 'Elbow dislocation', 'in_taxon_label': None}, {'id': 'MONDO:0017559', 'category': 'biolink:Disease', 'name': 'congenital elbow dislocation, bilateral', 'in_taxon_label': None}, {'id': 'MONDO:0017558', 'category': 'biolink:Disease', 'name': 'congenital elbow dislocation, unilateral', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_NqB6C2ZimHe8Noyv84HM609Z",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "Here are the results for diseases and features associated with the patient's symptoms:\n\n1. **Ventricular septal defect**:\n   - [Ventricular septal defect](https://monarchinitiative.org/MONDO:0002070)\n   - [Ventricular septal defect 3](https://monarchinitiative.org/MONDO:0013749)\n\n2. **Absent thumb**:\n   - [Thumb deformity](https://monarchinitiative.org/MONDO:0008561)\n\n3. **Pectus excavatum**:\n   - [Pectus excavatum](https://monarchinitiative.org/MONDO:0008213)\n   - [Pectus excavatum-macrocephaly-dysplastic nails syndrome](https://monarchinitiative.org/MONDO:0010883)\n\n4. **Elbow dislocation**:\n   - [Congenital elbow dislocation](https://monarchinitiative.org/MONDO:0017469)\n   - [Congenital elbow dislocation, bilateral](https://monarchinitiative.org/MONDO:0017559)\n   - [Congenital elbow dislocation, unilateral](https://monarchinitiative.org/MONDO:0017558)\n\nNext, I will identify diseases that are associated with multiple features and exclude those linked to the excluded features.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_JlCjvomlxaxbbp5PrUCceeTi",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) WHERE p.name IN ['Ventricular septal defect', 'Absent thumb', 'Pectus excavatum', 'Elbow dislocation'] AND NOT p.name IN ['Secundum atrial septal defect', 'Complete atrioventricular canal defect', 'Patent foramen ovale', 'Short thumb', 'Triphalangeal thumb', 'Upper limb phocomelia'] RETURN d, COUNT(p) AS feature_overlap ORDER BY feature_overlap DESC LIMIT 10\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [{'data': {'id': 'MONDO:0007732', 'caption': 'Holt-Oram syndrome', 'name': 'Holt-Oram syndrome', 'description': 'Holt-Oram syndrome (HOS) is the most common form of heart-hand syndrome and is characterized by skeletal abnormalities of the upper limbs and mild-to-severe congenital cardiac defects.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0007875', 'caption': 'Larsen syndrome', 'name': 'Larsen syndrome', 'description': 'Larsen syndrome (LS) is a rare skeletal dysplasia characterized by congenital dislocation of large joints, foot deformities, cervical spine dysplasia, scoliosis, spatula-shaped distal phalanges and distinctive craniofacial abnormalities, including cleft palate.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0016033', 'caption': 'Cornelia de Lange syndrome', 'name': 'Cornelia de Lange syndrome', 'description': 'A rare syndrome characterized by low birth weight, delayed growth, intellectual disabillity, behavioral problems, and a distinctive facial appearance (thin, arched eyebrows, low set ears, small teeth, and small nose). The majority of cases are caused by mutations in the NIPBL gene. Less severe forms of the syndrome are caused by mutations in the SMC1A and SMC3 genes.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0009999', 'caption': 'autosomal recessive Robinow syndrome', 'name': 'autosomal recessive Robinow syndrome', 'description': 'Autosomal recessive Robinow syndrome (RRS) is the less common type of Robinow syndrome (RS) characterized by short-limb dwarfism, costovertebral segmentation defects and abnormalities of the head, face and external genitalia.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0007363', 'caption': 'congenital contractural arachnodactyly', 'name': 'congenital contractural arachnodactyly', 'description': 'Congenital contractural arachnodactyly (CCA, Beals syndrome) is a connective tissue disorder characterized by multiple flexion contractures, arachnodactyly, severe kyphoscoliosis, abnormal pinnae and muscular hypoplasia.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0016836', 'caption': '16p13.11 microdeletion syndrome', 'name': '16p13.11 microdeletion syndrome', 'description': '16p13.11 microdeletion syndrome is a recently described syndrome characterized by developmental delay, microcephaly, epilepsy, short stature, facial dysmorphism and behavioral problems.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0018066', 'caption': 'trisomy X', 'name': 'trisomy X', 'description': 'Trisomy X is a sex chromosome anomaly with a variable phenotype caused by the presence of an extra X chromosome in females (47,XXX instead of 46,XX).', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0016837', 'caption': '16p13.11 microduplication syndrome', 'name': '16p13.11 microduplication syndrome', 'description': '16p13.11 microduplication syndrome is a recently described syndrome associated with variable clinical features including behavioral abnormalities, developmental delay, congenital heart defects and skeletal anomalies.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0007618', 'caption': 'Eng-Strom syndrome', 'name': 'Eng-Strom syndrome', 'description': 'Eng-Strom syndrome is characterized by intrauterine growth retardation and intermittent locking of the finger joints. It has been described in two individuals: a mother and her daughter. The mode of transmission is autosomal dominant.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0011147', 'caption': 'chromosome 18q deletion syndrome', 'name': 'chromosome 18q deletion syndrome', 'description': 'A condition in which some or all of the cells of the body contain extra genetic material from chromosome 18. Clinical features of this condition may include the following: spina bifida, hearing loss, cleft lip, cleft palate, undescended testes, rocker bottom feet, micrognathia, low set ears, cardiac anomalies (ventricular septal defect, atrial septal defect, patent ductus arteriosus, tetralogy of Fallot), intellectual disability, holoprosencephaly, pituitary dysplasia, seizures, autoimmune disorders, hip dysplasia, and/or congenital cataracts.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': []}}",
+            "name": "run_query",
+            "tool_call_id": "call_JlCjvomlxaxbbp5PrUCceeTi",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "Based on the patient's features and the exclusion criteria, here is a rank-ordered list of possible diagnoses:\n\n1. **[Holt-Oram syndrome](https://monarchinitiative.org/MONDO:0007732)**: A heart-hand syndrome characterized by skeletal abnormalities of the upper limbs and congenital cardiac defects, including ventricular septal defects.\n2. **[Larsen syndrome](https://monarchinitiative.org/MONDO:0007875)**: A rare skeletal dysplasia with congenital dislocation of large joints, foot deformities, and other skeletal abnormalities.\n3. **[Cornelia de Lange syndrome](https://monarchinitiative.org/MONDO:0016033)**: A syndrome with distinctive facial features, limb abnormalities, and congenital heart defects.\n4. **[Autosomal recessive Robinow syndrome](https://monarchinitiative.org/MONDO:0009999)**: A condition with short-limb dwarfism, skeletal abnormalities, and craniofacial features.\n5. **[Congenital contractural arachnodactyly](https://monarchinitiative.org/MONDO:0007363)**: A connective tissue disorder with skeletal abnormalities, including joint contractures and arachnodactyly.\n6. **[16p13.11 microdeletion syndrome](https://monarchinitiative.org/MONDO:0016836)**: A syndrome with developmental delay, congenital heart defects, and skeletal anomalies.\n7. **[Trisomy X](https://monarchinitiative.org/MONDO:0018066)**: A chromosomal anomaly with variable features, though less likely in a male patient.\n8. **[16p13.11 microduplication syndrome](https://monarchinitiative.org/MONDO:0016837)**: Similar to the microdeletion syndrome, with overlapping features.\n9. **[Eng-Strom syndrome](https://monarchinitiative.org/MONDO:0007618)**: A rare syndrome with skeletal abnormalities, though less well-documented.\n10. **[Chromosome 18q deletion syndrome](https://monarchinitiative.org/MONDO:0011147)**: A condition with a wide range of features, including ventricular septal defects and skeletal anomalies.\n\nThe most likely diagnosis is **Holt-Oram syndrome**, given the combination of ventricular septal defect and absent thumb, which are hallmark features of this condition. Further genetic testing and clinical evaluation would be necessary to confirm the diagnosis.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": null,
+            "is_tool_call_error": null
+        }
+    ],
+    "expected_diagnosis_mondo": [
+        {
+            "mondo_id": "MONDO:0007732",
+            "disease_name": "Holt-Oram syndrome"
+        }
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0007732",
+            "MONDO:0007875",
+            "MONDO:0016033",
+            "MONDO:0009999",
+            "MONDO:0007363",
+            "MONDO:0016836",
+            "MONDO:0018066",
+            "MONDO:0016837",
+            "MONDO:0007618",
+            "MONDO:0011147"
+        ],
+        "top_1_score": 1,
+        "top_3_score": 1,
+        "top_10_score": 1
+    }
+}

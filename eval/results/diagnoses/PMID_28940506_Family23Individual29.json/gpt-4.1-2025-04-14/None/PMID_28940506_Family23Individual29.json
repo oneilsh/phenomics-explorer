@@ -1,0 +1,542 @@
+{
+    "phenopacket": {
+        "id": "PMID_28940506_Family_23_Individual_29",
+        "subject": {
+            "id": "Family 23 Individual 29",
+            "timeAtLastEncounter": {
+                "age": {
+                    "iso8601duration": "P10M"
+                }
+            },
+            "sex": "FEMALE"
+        },
+        "phenotypicFeatures": [
+            {
+                "type": {
+                    "id": "HP:0011968",
+                    "label": "Feeding difficulties"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0004322",
+                    "label": "Short stature"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001508",
+                    "label": "Failure to thrive"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001263",
+                    "label": "Global developmental delay"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000252",
+                    "label": "Microcephaly"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0011220",
+                    "label": "Prominent forehead"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001252",
+                    "label": "Hypotonia"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001639",
+                    "label": "Hypertrophic cardiomyopathy"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001518",
+                    "label": "Small for gestational age"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0002151",
+                    "label": "Increased circulating lactate concentration"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0002719",
+                    "label": "Recurrent infections"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000365",
+                    "label": "Hearing impairment"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0012707",
+                    "label": "Elevated brain lactate level by MRS"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0002384",
+                    "label": "Focal impaired awareness seizure"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0012469",
+                    "label": "Infantile spasms"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0025190",
+                    "label": "Bilateral tonic-clonic seizure with generalized onset"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0002119",
+                    "label": "Ventriculomegaly"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0007109",
+                    "label": "Periventricular cysts"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001251",
+                    "label": "Ataxia"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0033725",
+                    "label": "Thin corpus callosum"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001272",
+                    "label": "Cerebellar atrophy"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0002059",
+                    "label": "Cerebral atrophy"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000286",
+                    "label": "Epicanthus"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000574",
+                    "label": "Thick eyebrow"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000343",
+                    "label": "Long philtrum"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000347",
+                    "label": "Micrognathia"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000319",
+                    "label": "Smooth philtrum"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000431",
+                    "label": "Wide nasal bridge"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0002280",
+                    "label": "Enlarged cisterna magna"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000527",
+                    "label": "Long eyelashes"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0012745",
+                    "label": "Short palpebral fissure"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0002092",
+                    "label": "Pulmonary arterial hypertension"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001655",
+                    "label": "Patent foramen ovale"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0004755",
+                    "label": "Supraventricular tachycardia"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001636",
+                    "label": "Tetralogy of Fallot"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000486",
+                    "label": "Strabismus"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000639",
+                    "label": "Nystagmus"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000648",
+                    "label": "Optic atrophy"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0007663",
+                    "label": "Reduced visual acuity"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000316",
+                    "label": "Hypertelorism"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000508",
+                    "label": "Ptosis"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001987",
+                    "label": "Hyperammonemia"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001875",
+                    "label": "Neutropenia"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0000369",
+                    "label": "Low-set ears"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001622",
+                    "label": "Premature birth"
+                },
+                "excluded": true
+            }
+        ],
+        "interpretations": [
+            {
+                "id": "Family 23 Individual 29",
+                "progressStatus": "SOLVED",
+                "diagnosis": {
+                    "disease": {
+                        "id": "OMIM:615471",
+                        "label": "Mitochondrial DNA depletion syndrome 13 (encephalomyopathic type)"
+                    },
+                    "genomicInterpretations": [
+                        {
+                            "subjectOrBiosampleId": "Family 23 Individual 29",
+                            "interpretationStatus": "CAUSATIVE",
+                            "variantInterpretation": {
+                                "variationDescriptor": {
+                                    "id": "var_lMIzelikIhkmqiPeTcPFRCuXz",
+                                    "geneContext": {
+                                        "valueId": "HGNC:13601",
+                                        "symbol": "FBXL4"
+                                    },
+                                    "expressions": [
+                                        {
+                                            "syntax": "hgvs.c",
+                                            "value": "NM_001278716.2:c.1210C>T"
+                                        },
+                                        {
+                                            "syntax": "hgvs.g",
+                                            "value": "NC_000006.12:g.98899375G>A"
+                                        }
+                                    ],
+                                    "vcfRecord": {
+                                        "genomeAssembly": "hg38",
+                                        "chrom": "chr6",
+                                        "pos": "98899375",
+                                        "ref": "G",
+                                        "alt": "A"
+                                    },
+                                    "moleculeContext": "genomic",
+                                    "allelicState": {
+                                        "id": "GENO:0000136",
+                                        "label": "homozygous"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "diseases": [
+            {
+                "term": {
+                    "id": "OMIM:615471",
+                    "label": "Mitochondrial DNA depletion syndrome 13 (encephalomyopathic type)"
+                },
+                "onset": {
+                    "age": {
+                        "iso8601duration": "P6M"
+                    }
+                }
+            }
+        ],
+        "metaData": {
+            "created": "2024-05-31T06:49:14.530344963Z",
+            "createdBy": "ORCID:0000-0002-0736-9199",
+            "resources": [
+                {
+                    "id": "geno",
+                    "name": "Genotype Ontology",
+                    "url": "http://purl.obolibrary.org/obo/geno.owl",
+                    "version": "2022-03-05",
+                    "namespacePrefix": "GENO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+                },
+                {
+                    "id": "hgnc",
+                    "name": "HUGO Gene Nomenclature Committee",
+                    "url": "https://www.genenames.org",
+                    "version": "06/01/23",
+                    "namespacePrefix": "HGNC",
+                    "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+                },
+                {
+                    "id": "omim",
+                    "name": "An Online Catalog of Human Genes and Genetic Disorders",
+                    "url": "https://www.omim.org",
+                    "version": "January 4, 2023",
+                    "namespacePrefix": "OMIM",
+                    "iriPrefix": "https://www.omim.org/entry/"
+                },
+                {
+                    "id": "so",
+                    "name": "Sequence types and features ontology",
+                    "url": "http://purl.obolibrary.org/obo/so.obo",
+                    "version": "2021-11-22",
+                    "namespacePrefix": "SO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+                },
+                {
+                    "id": "hp",
+                    "name": "human phenotype ontology",
+                    "url": "http://purl.obolibrary.org/obo/hp.owl",
+                    "version": "2024-04-04",
+                    "namespacePrefix": "HP",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+                }
+            ],
+            "phenopacketSchemaVersion": "2.0",
+            "externalReferences": [
+                {
+                    "id": "PMID:28940506",
+                    "reference": "https://pubmed.ncbi.nlm.nih.gov/28940506",
+                    "description": "Molecular and clinical spectra of FBXL4 deficiency"
+                }
+            ]
+        }
+    },
+    "cost_est_base_rate": 0.047653999999999995,
+    "tokens_used_prompt": 18843,
+    "tokens_used_completion": 1246,
+    "query": "From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses, even if there is insufficient information to make a definitive diagnosis. If you are unsure, provide a list of possible diagnoses with the most likely one first.\n\nPatient ID: Family 23 Individual 29\nPatient age: 10 months\nPatient sex: Female\nPatient features: Feeding difficulties, Short stature, Failure to thrive, Global developmental delay, Microcephaly, Prominent forehead, Hypotonia, Hypertrophic cardiomyopathy, Small for gestational age, Increased circulating lactate concentration, Recurrent infections, Hearing impairment, Elevated brain lactate level by MRS.\nExcluded patient features: Focal impaired awareness seizure, Infantile spasms, Bilateral tonic-clonic seizure with generalized onset, Ventriculomegaly, Periventricular cysts, Ataxia, Thin corpus callosum, Cerebellar atrophy, Cerebral atrophy, Epicanthus, Thick eyebrow, Long philtrum, Micrognathia, Smooth philtrum, Wide nasal bridge, Enlarged cisterna magna, Long eyelashes, Short palpebral fissure, Pulmonary arterial hypertension, Patent foramen ovale, Supraventricular tachycardia, Tetralogy of Fallot, Strabismus, Nystagmus, Optic atrophy, Reduced visual acuity, Hypertelorism, Ptosis, Hyperammonemia, Neutropenia, Low-set ears, Premature birth.",
+    "phenopacket_file": "phenopackets/PMID_28940506_Family23Individual29.json",
+    "expected_diagnosis": "OMIM:615471",
+    "base_engine": "gpt-4.1-2025-04-14",
+    "eval_engine": "None",
+    "eval_chain": [],
+    "messages": [
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_57SwWqUTkjisrrMP8ju9iPAT",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"Feeding difficulties\", \"Short stature\", \"Failure to thrive\", \"Global developmental delay\", \"Microcephaly\", \"Prominent forehead\", \"Hypotonia\", \"Hypertrophic cardiomyopathy\", \"Small for gestational age\", \"Increased circulating lactate concentration\", \"Recurrent infections\", \"Hearing impairment\", \"Elevated brain lactate level\"]}"
+                    }
+                },
+                {
+                    "id": "call_5JNt8kY64mxhRMWiPI1IePxv",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"Mitochondrial disease\", \"Mitochondrial disorder\", \"Hypertrophic cardiomyopathy\", \"Lactic acidosis\", \"Leigh syndrome\", \"Pearson syndrome\", \"MELAS\", \"MERRF\", \"Pyruvate dehydrogenase deficiency\", \"Congenital disorder of glycosylation\"]}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'Feeding difficulties': [{'id': 'HP:0011968', 'category': 'biolink:PhenotypicFeature', 'name': 'Feeding difficulties', 'in_taxon_label': None}, {'id': 'HP:0008872', 'category': 'biolink:PhenotypicFeature', 'name': 'Feeding difficulties in infancy', 'in_taxon_label': None}, {'id': 'MONDO:0014213', 'category': 'biolink:Disease', 'name': 'intellectual disability-feeding difficulties-developmental delay-microcephaly syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0859295', 'category': 'biolink:Disease', 'name': 'neurodevelopmental disorder with short stature, prominent forehead, and feeding difficulties', 'in_taxon_label': None}, {'id': 'MONDO:0971043', 'category': 'biolink:Disease', 'name': 'neurodevelopmental disorder with hypotonia, feeding difficulties, facial dysmorphism, and brain abnormalities', 'in_taxon_label': None}], 'Short stature': [{'id': 'MONDO:0021745', 'category': 'biolink:Disease', 'name': 'psychosocial short stature', 'in_taxon_label': None}, {'id': 'MONDO:1010112', 'category': 'biolink:Disease', 'name': 'isolated short stature', 'in_taxon_label': None}, {'id': 'HP:0004322', 'category': 'biolink:PhenotypicFeature', 'name': 'Short stature', 'in_taxon_label': None}, {'id': 'MONDO:0010367', 'category': 'biolink:Disease', 'name': 'SHOX-related short stature', 'in_taxon_label': None}, {'id': 'MONDO:0011046', 'category': 'biolink:Disease', 'name': 'short stature, Brussels type', 'in_taxon_label': None}], 'Failure to thrive': [{'id': 'HP:0001508', 'category': 'biolink:PhenotypicFeature', 'name': 'Failure to thrive', 'in_taxon_label': None}, {'id': 'HP:0001525', 'category': 'biolink:PhenotypicFeature', 'name': 'Severe failure to thrive', 'in_taxon_label': None}, {'id': 'MONDO:0013539', 'category': 'biolink:Disease', 'name': 'hypotonia-failure to thrive-microcephaly syndrome', 'in_taxon_label': None}, {'id': 'HP:0001531', 'category': 'biolink:PhenotypicFeature', 'name': 'Failure to thrive in infancy', 'in_taxon_label': None}, {'id': 'HP:0008866', 'category': 'biolink:PhenotypicFeature', 'name': 'Failure to thrive secondary to recurrent infections', 'in_taxon_label': None}], 'Global developmental delay': [{'id': 'HP:0001263', 'category': 'biolink:PhenotypicFeature', 'name': 'Global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011344', 'category': 'biolink:PhenotypicFeature', 'name': 'Severe global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0012736', 'category': 'biolink:PhenotypicFeature', 'name': 'Profound global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011342', 'category': 'biolink:PhenotypicFeature', 'name': 'Mild global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011343', 'category': 'biolink:PhenotypicFeature', 'name': 'Moderate global developmental delay', 'in_taxon_label': None}], 'Microcephaly': [{'id': 'HP:0000252', 'category': 'biolink:PhenotypicFeature', 'name': 'Microcephaly', 'in_taxon_label': None}, {'id': 'MONDO:0001149', 'category': 'biolink:Disease', 'name': 'microcephaly', 'in_taxon_label': None}, {'id': 'MONDO:0043137', 'category': 'biolink:Disease', 'name': 'isolated microcephaly', 'in_taxon_label': None}, {'id': 'MONDO:1010618', 'category': 'biolink:Disease', 'name': 'microcephaly, sheep', 'in_taxon_label': None}, {'id': 'MP:0000433', 'category': 'biolink:PhenotypicFeature', 'name': 'microcephaly', 'in_taxon_label': None}], 'Prominent forehead': [{'id': 'HP:0011220', 'category': 'biolink:PhenotypicFeature', 'name': 'Prominent forehead', 'in_taxon_label': None}, {'id': 'UPHENO:0082905', 'category': 'biolink:PhenotypicFeature', 'name': 'prominent forehead', 'in_taxon_label': None}, {'id': 'MP:0030049', 'category': 'biolink:PhenotypicFeature', 'name': 'prominent forehead', 'in_taxon_label': None}, {'id': 'MONDO:0859295', 'category': 'biolink:Disease', 'name': 'neurodevelopmental disorder with short stature, prominent forehead, and feeding difficulties', 'in_taxon_label': None}, {'id': 'HP:0005487', 'category': 'biolink:PhenotypicFeature', 'name': 'Prominent metopic ridge', 'in_taxon_label': None}], 'Hypotonia': [{'id': 'HP:0001252', 'category': 'biolink:PhenotypicFeature', 'name': 'Hypotonia', 'in_taxon_label': None}, {'id': 'MP:0004144', 'category': 'biolink:PhenotypicFeature', 'name': 'hypotonia', 'in_taxon_label': None}, {'id': 'MONDO:0011669', 'category': 'biolink:Disease', 'name': 'hypotonia-cystinuria syndrome', 'in_taxon_label': None}, {'id': 'HP:0001290', 'category': 'biolink:PhenotypicFeature', 'name': 'Generalized hypotonia', 'in_taxon_label': None}, {'id': 'HP:0012389', 'category': 'biolink:PhenotypicFeature', 'name': 'Appendicular hypotonia', 'in_taxon_label': None}], 'Hypertrophic cardiomyopathy': [{'id': 'MONDO:0004994', 'category': 'biolink:Disease', 'name': 'cardiomyopathy', 'in_taxon_label': None}, {'id': 'MONDO:0005045', 'category': 'biolink:Disease', 'name': 'hypertrophic cardiomyopathy', 'in_taxon_label': None}, {'id': 'MONDO:0007267', 'category': 'biolink:Disease', 'name': 'hypertrophic cardiomyopathy 3', 'in_taxon_label': None}, {'id': 'MONDO:0007268', 'category': 'biolink:Disease', 'name': 'hypertrophic cardiomyopathy 4', 'in_taxon_label': None}, {'id': 'MONDO:0010946', 'category': 'biolink:Disease', 'name': 'hypertrophic cardiomyopathy 6', 'in_taxon_label': None}], 'Small for gestational age': [{'id': 'HP:0001518', 'category': 'biolink:PhenotypicFeature', 'name': 'Small for gestational age', 'in_taxon_label': None}, {'id': 'MONDO:0005030', 'category': 'biolink:Disease', 'name': 'fetal growth restriction', 'in_taxon_label': None}, {'id': 'HP:0011451', 'category': 'biolink:PhenotypicFeature', 'name': 'Primary microcephaly', 'in_taxon_label': None}, {'id': 'HP:0001511', 'category': 'biolink:PhenotypicFeature', 'name': 'Intrauterine growth retardation', 'in_taxon_label': None}], 'Increased circulating lactate concentration': [{'id': 'HP:0002151', 'category': 'biolink:PhenotypicFeature', 'name': 'Increased circulating lactate concentration', 'in_taxon_label': None}, {'id': 'HP:0025435', 'category': 'biolink:PhenotypicFeature', 'name': 'Increased circulating lactate dehydrogenase concentration', 'in_taxon_label': None}], 'Recurrent infections': [{'id': 'HP:0002719', 'category': 'biolink:PhenotypicFeature', 'name': 'Recurrent infections', 'in_taxon_label': None}, {'id': 'HP:0005386', 'category': 'biolink:PhenotypicFeature', 'name': 'Recurrent protozoan infections', 'in_taxon_label': None}, {'id': 'HP:0006538', 'category': 'biolink:PhenotypicFeature', 'name': 'Recurrent bronchopulmonary infections', 'in_taxon_label': None}, {'id': 'HP:0030885', 'category': 'biolink:PhenotypicFeature', 'name': 'Recurrent parasitic infections', 'in_taxon_label': None}, {'id': 'HP:0007499', 'category': 'biolink:PhenotypicFeature', 'name': 'Recurrent staphylococcal infections', 'in_taxon_label': None}], 'Hearing impairment': [{'id': 'HP:0000365', 'category': 'biolink:PhenotypicFeature', 'name': 'Hearing impairment', 'in_taxon_label': None}, {'id': 'MONDO:0015351', 'category': 'biolink:Disease', 'name': 'neuropathy with hearing impairment', 'in_taxon_label': None}, {'id': 'MP:0006329', 'category': 'biolink:PhenotypicFeature', 'name': 'sensorineural hearing impairment', 'in_taxon_label': None}, {'id': 'HP:0012714', 'category': 'biolink:PhenotypicFeature', 'name': 'Severe hearing impairment', 'in_taxon_label': None}, {'id': 'MP:0006330', 'category': 'biolink:PhenotypicFeature', 'name': 'syndromic hearing impairment', 'in_taxon_label': None}], 'Elevated brain lactate level': [{'id': 'HP:0012707', 'category': 'biolink:PhenotypicFeature', 'name': 'Elevated brain lactate level by MRS', 'in_taxon_label': None}, {'id': 'MONDO:0054865', 'category': 'biolink:Disease', 'name': 'encephalopathy due to mitochondrial and peroxisomal fission defect', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_57SwWqUTkjisrrMP8ju9iPAT",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "function",
+            "content": "{'Mitochondrial disease': [{'id': 'MONDO:0044970', 'category': 'biolink:Disease', 'name': 'mitochondrial disease', 'in_taxon_label': None}, {'id': 'MONDO:0010796', 'category': 'biolink:Disease', 'name': 'Parkinson disease, mitochondrial', 'in_taxon_label': None}, {'id': 'MONDO:0010327', 'category': 'biolink:Disease', 'name': 'HSD10 mitochondrial disease', 'in_taxon_label': None}, {'id': 'MONDO:0100295', 'category': 'biolink:Disease', 'name': 'Alzheimer disease, susceptibility to, mitochondrial', 'in_taxon_label': None}, {'id': 'MONDO:1011332', 'category': 'biolink:Disease', 'name': 'mitochondrial disease, non-human animal', 'in_taxon_label': None}], 'Mitochondrial disorder': [{'id': 'MONDO:0016801', 'category': 'biolink:Disease', 'name': 'mitochondrial substrate carrier disorder', 'in_taxon_label': None}, {'id': 'MONDO:0016802', 'category': 'biolink:Disease', 'name': 'mitochondrial protein import disorder', 'in_taxon_label': None}, {'id': 'MONDO:0004069', 'category': 'biolink:Disease', 'name': 'inborn mitochondrial metabolism disorder', 'in_taxon_label': None}, {'id': 'MONDO:0016387', 'category': 'biolink:Disease', 'name': 'mitochondrial oxidative phosphorylation disorder', 'in_taxon_label': None}, {'id': 'MONDO:0016800', 'category': 'biolink:Disease', 'name': 'mitochondrial membrane transport disorder', 'in_taxon_label': None}], 'Hypertrophic cardiomyopathy': [{'id': 'MONDO:0004994', 'category': 'biolink:Disease', 'name': 'cardiomyopathy', 'in_taxon_label': None}, {'id': 'MONDO:0005045', 'category': 'biolink:Disease', 'name': 'hypertrophic cardiomyopathy', 'in_taxon_label': None}, {'id': 'MONDO:0007267', 'category': 'biolink:Disease', 'name': 'hypertrophic cardiomyopathy 3', 'in_taxon_label': None}, {'id': 'MONDO:0007268', 'category': 'biolink:Disease', 'name': 'hypertrophic cardiomyopathy 4', 'in_taxon_label': None}, {'id': 'MONDO:0010946', 'category': 'biolink:Disease', 'name': 'hypertrophic cardiomyopathy 6', 'in_taxon_label': None}], 'Lactic acidosis': [{'id': 'MONDO:0006040', 'category': 'biolink:Disease', 'name': 'lactic acidosis', 'in_taxon_label': None}, {'id': 'MONDO:0024306', 'category': 'biolink:Disease', 'name': 'acquired lactic acidosis', 'in_taxon_label': None}, {'id': 'HP:0003128', 'category': 'biolink:PhenotypicFeature', 'name': 'Lactic acidosis', 'in_taxon_label': None}, {'id': 'MP:0012552', 'category': 'biolink:PhenotypicFeature', 'name': 'lactic acidosis', 'in_taxon_label': None}, {'id': 'HP:0004925', 'category': 'biolink:PhenotypicFeature', 'name': 'Chronic lactic acidosis', 'in_taxon_label': None}], 'Leigh syndrome': [{'id': 'MONDO:0009723', 'category': 'biolink:Disease', 'name': 'Leigh syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0970944', 'category': 'biolink:Disease', 'name': 'Leigh syndrome, mitochondrial', 'in_taxon_label': None}, {'id': 'MONDO:0016814', 'category': 'biolink:Disease', 'name': 'maternally-inherited Leigh syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0019083', 'category': 'biolink:Disease', 'name': 'Leigh syndrome with cardiomyopathy', 'in_taxon_label': None}, {'id': 'MONDO:1012801', 'category': 'biolink:Disease', 'name': 'Leigh syndrome, SURF1-related, pig', 'in_taxon_label': None}], 'Pearson syndrome': [{'id': 'MONDO:0010797', 'category': 'biolink:Disease', 'name': 'Pearson syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0015194', 'category': 'biolink:Disease', 'name': 'sideroblastic anemia', 'in_taxon_label': None}], 'MELAS': [{'id': 'MONDO:0010789', 'category': 'biolink:Disease', 'name': 'MELAS syndrome', 'in_taxon_label': None}, {'id': 'dictyBase:DDB_G0271490', 'category': 'biolink:Gene', 'name': 'melA', 'in_taxon_label': 'Dictyostelium discoideum'}, {'id': 'MGI:107565', 'category': 'biolink:Gene', 'name': 'Mela', 'in_taxon_label': 'Mus musculus'}, {'id': 'MONDO:0800034', 'category': 'biolink:Disease', 'name': 'MELAS syndrome caused by mutation in MTTH', 'in_taxon_label': None}, {'id': 'MONDO:0800038', 'category': 'biolink:Disease', 'name': 'MELAS syndrome caused by mutation in MTND1', 'in_taxon_label': None}], 'MERRF': [{'id': 'MONDO:0010790', 'category': 'biolink:Disease', 'name': 'MERRF syndrome', 'in_taxon_label': None}, {'id': 'HGNC:7489', 'category': 'biolink:Gene', 'name': 'MT-TK', 'in_taxon_label': 'Homo sapiens'}], 'Pyruvate dehydrogenase deficiency': [{'id': 'MONDO:0019169', 'category': 'biolink:Disease', 'name': 'pyruvate dehydrogenase deficiency', 'in_taxon_label': None}, {'id': 'MONDO:0009502', 'category': 'biolink:Disease', 'name': 'pyruvate dehydrogenase E2 deficiency', 'in_taxon_label': None}, {'id': 'MONDO:1010713', 'category': 'biolink:Disease', 'name': 'pyruvate dehydrogenase deficiency, dog', 'in_taxon_label': None}, {'id': 'MONDO:0012120', 'category': 'biolink:Disease', 'name': 'pyruvate dehydrogenase phosphatase deficiency', 'in_taxon_label': None}, {'id': 'MONDO:0009529', 'category': 'biolink:Disease', 'name': 'pyruvate dehydrogenase E3 deficiency', 'in_taxon_label': None}], 'Congenital disorder of glycosylation': [{'id': 'MONDO:0015286', 'category': 'biolink:Disease', 'name': 'congenital disorder of glycosylation', 'in_taxon_label': None}, {'id': 'MONDO:0014270', 'category': 'biolink:Disease', 'name': 'STT3A-congenital disorder of glycosylation', 'in_taxon_label': None}, {'id': 'MONDO:0013049', 'category': 'biolink:Disease', 'name': 'DPM3-congenital disorder of glycosylation', 'in_taxon_label': None}, {'id': 'MONDO:0013870', 'category': 'biolink:Disease', 'name': 'TMEM165-congenital disorder of glycosylation', 'in_taxon_label': None}, {'id': 'MONDO:0011342', 'category': 'biolink:Disease', 'name': 'SLC35A1-congenital disorder of glycosylation', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_5JNt8kY64mxhRMWiPI1IePxv",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_ByukMPtCUgvpUHFbUvEu9n1U",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) WHERE p.id IN [\\n  'HP:0011968',  // Feeding difficulties\\n  'HP:0004322',  // Short stature\\n  'HP:0001508',  // Failure to thrive\\n  'HP:0001263',  // Global developmental delay\\n  'HP:0000252',  // Microcephaly\\n  'HP:0011220',  // Prominent forehead\\n  'HP:0001252',  // Hypotonia\\n  'MONDO:0005045', // Hypertrophic cardiomyopathy (disease, but may be used as phenotype in some models)\\n  'HP:0001518',  // Small for gestational age\\n  'HP:0002151',  // Increased circulating lactate concentration\\n  'HP:0002719',  // Recurrent infections\\n  'HP:0000365',  // Hearing impairment\\n  'HP:0012707'   // Elevated brain lactate level by MRS\\n] WITH d, count(p) AS matched_phenos ORDER BY matched_phenos DESC LIMIT 20 MATCH (d)-[:biolink_has_phenotype]->(p2:biolink_PhenotypicFeature) RETURN d, collect(p2.name) AS all_phenos, matched_phenos ORDER BY matched_phenos DESC LIMIT 20\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [{'data': {'id': 'MONDO:0013256', 'caption': 'chromosome 15q24 deletion syndrome', 'name': 'chromosome 15q24 deletion syndrome', 'description': '15q24 microdeletion syndrome is a rare chromosomal anomaly characterized cytogenetically by a 1.7-6.1 Mb deletion in chromosome 15q24 and clinically by pre- and post-natal growth retardation, intellectual disability, distinct facial features, and genital, skeletal, and digital anomalies.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014213', 'caption': 'intellectual disability-feeding difficulties-developmental delay-microcephaly syndrome', 'name': 'intellectual disability-feeding difficulties-developmental delay-microcephaly syndrome', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0008393', 'caption': 'Rubinstein-Taybi syndrome due to CREBBP mutations', 'name': 'Rubinstein-Taybi syndrome due to CREBBP mutations', 'description': 'Any Rubinstein-Taybi syndrome in which the cause of the disease is a mutation in the CREBBP gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0010797', 'caption': 'Pearson syndrome', 'name': 'Pearson syndrome', 'description': 'Pearson syndrome is characterized by refractory sideroblastic anemia, vacuolization of bone marrow precursors and exocrine pancreatic dysfunction.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0859283', 'caption': 'neurodevelopmental disorder with seizures, microcephaly, and brain abnormalities', 'name': 'neurodevelopmental disorder with seizures, microcephaly, and brain abnormalities', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0008684', 'caption': 'Wolf-Hirschhorn syndrome', 'name': 'Wolf-Hirschhorn syndrome', 'description': 'Wolf-Hirschhorn syndrome (WHS) is a developmental disorder characterized by typical craniofacial features, prenatal and postnatal growth impairment, intellectual disability, severe delayed psychomotor development, seizures, and hypotonia.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0011510', 'caption': 'Bohring-Opitz syndrome', 'name': 'Bohring-Opitz syndrome', 'description': 'Bohring-Opitz syndrome is characterized by intrauterine growth retardation (IUGR), failure to thrive, facial dysmorphism (prominent metopic suture and forehead nevus flammeus, a low frontal and temporal hairline with hirsutism, puffy cheeks, upslanting palpebral fissures, exophthalmos, hypertelorism, cleft lip and palate, retrognathia and low set ears), flexion deformities of the elbows and wrists, camptodactyly, ulnar deviation of the fingers, foot anomalies and severe developmental delay. Less than 20 patients have been described so far. Although the large majority of reported cases occurred sporadically, autosomal recessive inheritance has also been reported.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0030993', 'caption': 'Tessadori-Van Haaften neurodevelopmental syndrome 3', 'name': 'Tessadori-Van Haaften neurodevelopmental syndrome 3', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0859181', 'caption': 'DEGCAGS syndrome', 'name': 'DEGCAGS syndrome', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0009069', 'caption': 'congenital lactic acidosis, Saguenay-Lac-Saint-Jean type', 'name': 'congenital lactic acidosis, Saguenay-Lac-Saint-Jean type', 'description': 'Saguenay-Lac-St. Jean (SLSJ) type congenital lactic acidosis, a French Canadian form of Leigh syndrome, is a mitochondrial disease characterized by chronic metabolic acidosis, hypotonia, facial dysmorphism and delayed development.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0012791', 'caption': 'mitochondrial DNA depletion syndrome, encephalomyopathic form with methylmalonic aciduria', 'name': 'mitochondrial DNA depletion syndrome, encephalomyopathic form with methylmalonic aciduria', 'description': 'Mitochondrial DNA depletion syndrome, encephalomyopathic form with methylmalonic aciduria is characterized by the association of a mitochondrial encephalomyopathy and an aminoacidopathy. It has been described in two brothers presenting with developmental delay, neurological signs, deafness, exercise intolerance, lactic acidosis and elevation of several plasmatic amino acids. Mitochondria morphology was found to be abnormal on muscle biopsy. Transmission is likely to be linked to maternal mitochondrial DNA.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0032760', 'caption': 'developmental delay with or without dysmorphic facies and autism', 'name': 'developmental delay with or without dysmorphic facies and autism', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0010035', 'caption': 'Smith-Lemli-Opitz syndrome', 'name': 'Smith-Lemli-Opitz syndrome', 'description': 'Smith-Lemli-Opitz syndrome (SLOS) is characterized by multiple congenital anomalies, intellectual deficit, and behavioral problems.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0011213', 'caption': 'Pierpont syndrome', 'name': 'Pierpont syndrome', 'description': 'Pierpont syndrome is a rare subcutaneous tissue disorder characterized by axial hypotonia after birth, prolonged feeding difficulties, moderate to severe global developmental delay, seizures (in particular absence seizures), fetal digital pads, distinctive plantar fat pads anteromedial to the heels, deep palmar and plantar grooves. Additionally, distinct craniofacial dysmorphic features, notably a broad face with high forehead, high anterior hairline, narrow palpebral fissures that take on a crescent moon shape when smiling, broad nasal bridge and tip with anteverted nostrils, mild midfacial hypoplasia, long, smooth philtrum, thin upper lip vermillion, small, widely spaced teeth and flat occiput/microcephaly/brachycephaly, are also chararteristic. Over time, fat pads may become less prominent and disappear.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0009452', 'caption': 'Vici syndrome', 'name': 'Vici syndrome', 'description': 'A very rare and severe congenital multisystem disorder characterized by the principal features of agenesis of the corpus callosum, cataracts, oculocutaneous hypopigmentation, cardiomyopathy and combined immunodeficiency.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0012315', 'caption': 'distal 10q deletion syndrome', 'name': 'distal 10q deletion syndrome', 'description': 'Distal monosomy 10q is a chromosomal anomaly involving terminal deletion of the long arm of chromosome 10 and is characterized by facial dysmorphism, pre- and postnatal growth retardation, cardiac and genital anomalies, and developmental delay.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0100215', 'caption': 'Rajab interstitial lung disease with brain calcifications 1', 'name': 'Rajab interstitial lung disease with brain calcifications 1', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014936', 'caption': 'ZTTK syndrome', 'name': 'ZTTK syndrome', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0009504', 'caption': 'mitochondrial DNA depletion syndrome 9', 'name': 'mitochondrial DNA depletion syndrome 9', 'description': 'Fatal infantile lactic acidosis with methylmalonic aciduria is a rare neurometabolic disease characterized by infantile onset of severe encephalomyopathy, lactic acidosis and elevated methylmalonic acid urinary excretion. Clinically it manifests with severe psychomotor delay, hypotonia, failure to thrive, feeding difficulties and dystonia. Epilepsy and multiple congenital anomalies may be associated.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0027407', 'caption': 'Kleefstra syndrome 1', 'name': 'Kleefstra syndrome 1', 'description': 'An autosomal dominant non-syndromic intellectual disability that has material basis in an autosomal dominant mutation of EHMT1 on chromosome 9q34.3.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': []}}",
+            "name": "run_query",
+            "tool_call_id": "call_ByukMPtCUgvpUHFbUvEu9n1U",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "Based on the patient's features and the exclusion of certain findings, here is a rank-ordered list of possible diagnoses, focusing on those that match the most features (including lactic acidosis, developmental delay, microcephaly, cardiomyopathy, and feeding difficulties):\n\n1. **[Mitochondrial DNA depletion syndrome, encephalomyopathic form with methylmalonic aciduria](https://monarchinitiative.org/MONDO:0012791)**\n   - Matches: Global developmental delay, hearing impairment, lactic acidosis, hypotonia, failure to thrive, feeding difficulties, microcephaly, and more.\n   - Description: Characterized by mitochondrial encephalomyopathy, lactic acidosis, developmental delay, and hearing loss.\n\n2. **[Mitochondrial DNA depletion syndrome 9 (Fatal infantile lactic acidosis with methylmalonic aciduria)](https://monarchinitiative.org/MONDO:0009504)**\n   - Matches: Severe psychomotor delay, hypotonia, failure to thrive, feeding difficulties, lactic acidosis, and infantile onset.\n\n3. **[Congenital lactic acidosis, Saguenay-Lac-Saint-Jean type (French Canadian Leigh syndrome)](https://monarchinitiative.org/MONDO:0009069)**\n   - Matches: Chronic metabolic acidosis, hypotonia, facial dysmorphism, delayed development, and lactic acidosis.\n\n4. **[Pearson syndrome](https://monarchinitiative.org/MONDO:0010797)**\n   - Matches: Failure to thrive, lactic acidosis, developmental delay, and multi-system involvement.\n\n5. **[Vici syndrome](https://monarchinitiative.org/MONDO:0009452)**\n   - Matches: Cardiomyopathy, immunodeficiency (recurrent infections), developmental delay, hypotonia, and feeding difficulties.\n\n6. **[Bohring-Opitz syndrome](https://monarchinitiative.org/MONDO:0011510)**\n   - Matches: Failure to thrive, microcephaly, developmental delay, hypotonia, feeding difficulties, and facial dysmorphism.\n\n7. **[Wolf-Hirschhorn syndrome](https://monarchinitiative.org/MONDO:0008684)**\n   - Matches: Growth impairment, intellectual disability, microcephaly, hypotonia, and feeding difficulties.\n\n8. **[Chromosome 15q24 deletion syndrome](https://monarchinitiative.org/MONDO:0013256)**\n   - Matches: Growth retardation, intellectual disability, facial features, and feeding difficulties.\n\n9. **[Intellectual disability-feeding difficulties-developmental delay-microcephaly syndrome](https://monarchinitiative.org/MONDO:0014213)**\n   - Matches: Intellectual disability, feeding difficulties, developmental delay, and microcephaly.\n\n10. **[ZTTK syndrome](https://monarchinitiative.org/MONDO:0014936)**\n    - Matches: Developmental delay, growth impairment, and multi-system involvement.\n\n**Most likely diagnosis:**  \nGiven the combination of lactic acidosis, hypertrophic cardiomyopathy, developmental delay, microcephaly, feeding difficulties, and recurrent infections, a mitochondrial disorder\u2014specifically a mitochondrial DNA depletion syndrome (such as the encephalomyopathic form with methylmalonic aciduria or fatal infantile lactic acidosis)\u2014is most likely.\n\nIf you would like more details about any of these conditions or wish to explore gene associations, please let me know!",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": null,
+            "is_tool_call_error": null
+        }
+    ],
+    "expected_diagnosis_mondo": [
+        {
+            "mondo_id": "MONDO:0014198",
+            "disease_name": "mitochondrial DNA depletion syndrome 13"
+        }
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0012791",
+            "MONDO:0009504",
+            "MONDO:0009069",
+            "MONDO:0010797",
+            "MONDO:0009452",
+            "MONDO:0011510",
+            "MONDO:0008684",
+            "MONDO:0013256",
+            "MONDO:0014213",
+            "MONDO:0014936"
+        ],
+        "top_1_score": 0,
+        "top_3_score": 0,
+        "top_10_score": 0
+    }
+}

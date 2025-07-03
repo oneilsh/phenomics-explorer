@@ -1,0 +1,297 @@
+{
+    "phenopacket": {
+        "id": "PMID_36528028_Individual_3",
+        "subject": {
+            "id": "Individual 3",
+            "sex": "FEMALE"
+        },
+        "phenotypicFeatures": [
+            {
+                "type": {
+                    "id": "HP:0002194",
+                    "label": "Delayed gross motor development"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0010862",
+                    "label": "Delayed fine motor development"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001263",
+                    "label": "Global developmental delay"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001252",
+                    "label": "Hypotonia"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0100710",
+                    "label": "Impulsivity"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0007018",
+                    "label": "Attention deficit hyperactivity disorder"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0011968",
+                    "label": "Feeding difficulties"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000664",
+                    "label": "Synophrys"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001007",
+                    "label": "Hirsutism"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0040019",
+                    "label": "Finger clinodactyly"
+                }
+            }
+        ],
+        "interpretations": [
+            {
+                "id": "Individual 3",
+                "progressStatus": "SOLVED",
+                "diagnosis": {
+                    "disease": {
+                        "id": "OMIM:620455",
+                        "label": "Neurodevelopmental disorder with hypotonia and speech delay, with or without seizures"
+                    },
+                    "genomicInterpretations": [
+                        {
+                            "subjectOrBiosampleId": "Individual 3",
+                            "interpretationStatus": "CAUSATIVE",
+                            "variantInterpretation": {
+                                "variationDescriptor": {
+                                    "id": "var_ZHWuHgSPEBWowNbIbNxjKWCkd",
+                                    "geneContext": {
+                                        "valueId": "HGNC:3284",
+                                        "symbol": "EIF4A2"
+                                    },
+                                    "expressions": [
+                                        {
+                                            "syntax": "hgvs.c",
+                                            "value": "NM_001967.3:c.131_132del"
+                                        },
+                                        {
+                                            "syntax": "hgvs.g",
+                                            "value": "NC_000003.12:g.186784619_186784620del"
+                                        }
+                                    ],
+                                    "vcfRecord": {
+                                        "genomeAssembly": "hg38",
+                                        "chrom": "chr3",
+                                        "pos": "186784614",
+                                        "ref": "GTC",
+                                        "alt": "G"
+                                    },
+                                    "moleculeContext": "genomic",
+                                    "allelicState": {
+                                        "id": "GENO:0000135",
+                                        "label": "heterozygous"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "diseases": [
+            {
+                "term": {
+                    "id": "OMIM:620455",
+                    "label": "Neurodevelopmental disorder with hypotonia and speech delay, with or without seizures"
+                }
+            }
+        ],
+        "metaData": {
+            "created": "2024-03-28T11:44:38.617546081Z",
+            "createdBy": "ORCID:0000-0002-0736-9199",
+            "resources": [
+                {
+                    "id": "geno",
+                    "name": "Genotype Ontology",
+                    "url": "http://purl.obolibrary.org/obo/geno.owl",
+                    "version": "2022-03-05",
+                    "namespacePrefix": "GENO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+                },
+                {
+                    "id": "hgnc",
+                    "name": "HUGO Gene Nomenclature Committee",
+                    "url": "https://www.genenames.org",
+                    "version": "06/01/23",
+                    "namespacePrefix": "HGNC",
+                    "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+                },
+                {
+                    "id": "omim",
+                    "name": "An Online Catalog of Human Genes and Genetic Disorders",
+                    "url": "https://www.omim.org",
+                    "version": "January 4, 2023",
+                    "namespacePrefix": "OMIM",
+                    "iriPrefix": "https://www.omim.org/entry/"
+                },
+                {
+                    "id": "so",
+                    "name": "Sequence types and features ontology",
+                    "url": "http://purl.obolibrary.org/obo/so.obo",
+                    "version": "2021-11-22",
+                    "namespacePrefix": "SO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+                },
+                {
+                    "id": "hp",
+                    "name": "human phenotype ontology",
+                    "url": "http://purl.obolibrary.org/obo/hp.owl",
+                    "version": "2024-03-06",
+                    "namespacePrefix": "HP",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+                }
+            ],
+            "phenopacketSchemaVersion": "2.0",
+            "externalReferences": [
+                {
+                    "id": "PMID:36528028",
+                    "reference": "https://pubmed.ncbi.nlm.nih.gov/36528028",
+                    "description": "Rare EIF4A2 variants are associated with a neurodevelopmental disorder characterized by intellectual disability, hypotonia, and epilepsy"
+                }
+            ]
+        }
+    },
+    "cost_est_base_rate": 0.04315,
+    "tokens_used_prompt": 16659,
+    "tokens_used_completion": 1229,
+    "query": "From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses, even if there is insufficient information to make a definitive diagnosis. If you are unsure, provide a list of possible diagnoses with the most likely one first.\n\nPatient ID: Individual 3\nPatient age: Unknown\nPatient sex: Female\nPatient features: Delayed gross motor development, Delayed fine motor development, Global developmental delay, Hypotonia, Impulsivity, Attention deficit hyperactivity disorder, Feeding difficulties, Synophrys, Hirsutism, Finger clinodactyly.\nExcluded patient features: None.",
+    "phenopacket_file": "phenopackets/PMID_36528028_Individual3.json",
+    "expected_diagnosis": "OMIM:620455",
+    "base_engine": "gpt-4.1-2025-04-14",
+    "eval_engine": "gpt-4.1-2025-04-14",
+    "eval_chain": [
+        {
+            "query": "MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) WHERE p.id IN ['HP:0002194','HP:0010862','HP:0001263','HP:0001252','HP:0100710','HP:0007018','HP:0011968','HP:0000664','HP:0001007','HP:0040019'] WITH d, count(p) AS matched_phenotypes ORDER BY matched_phenotypes DESC LIMIT 20 MATCH (d)-[:biolink_has_phenotype]->(p2:biolink_PhenotypicFeature) WHERE p2.id IN ['HP:0002194','HP:0010862','HP:0001263','HP:0001252','HP:0100710','HP:0007018','HP:0011968','HP:0000664','HP:0001007','HP:0040019'] RETURN d, collect(p2.name) AS matching_phenotypes, matched_phenotypes ORDER BY matched_phenotypes DESC LIMIT 10",
+            "query_summary": "This query is designed to find diseases (biolink_Disease) that are associated with as many as possible of the patient's observed phenotypic features (biolink_PhenotypicFeature) by matching on a list of 10 HPO terms. It first counts, for each disease, how many of these phenotypes are present, orders the diseases by the number of matching phenotypes (descending), and limits to the top 20. Then, for these diseases, it collects the names of the matching phenotypes and returns the top 10 diseases with the most matches. This approach is appropriate for generating a rank-ordered list of possible diagnoses based on phenotypic similarity, as requested by the user. The use of ORDER BY and LIMIT is correct for the user's request. The relationships are oriented correctly (disease has phenotype). The query does not use subclass expansion (biolink_subclass_of*0..), which could potentially increase recall by including subtypes of diseases, but for the purpose of ranking based on direct phenotype matches, this is reasonable. The results align with expectations, showing neurodevelopmental and syndromic disorders with overlapping features. The query passes a sanity check and is suitable for the user's diagnostic ranking request.",
+            "accept_query": true,
+            "suggestion": "Consider using the biolink_subclass_of*0.. pattern to include all subtypes of diseases for broader coverage. Optionally, you could use OPTIONAL MATCH to include diseases with partial phenotype matches, but the current approach is already focused on ranking by the number of matches, which is appropriate for the task."
+        }
+    ],
+    "messages": [
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_oggkeQ63xC4a7F078hkl6EIA",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"Delayed gross motor development\", \"Delayed fine motor development\", \"Global developmental delay\", \"Hypotonia\", \"Impulsivity\", \"Attention deficit hyperactivity disorder\", \"Feeding difficulties\", \"Synophrys\", \"Hirsutism\", \"Finger clinodactyly\"]}"
+                    }
+                },
+                {
+                    "id": "call_SYblrAkPalPmzTq85TdXnwyb",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"Female\"]}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'Delayed gross motor development': [{'id': 'HP:0002194', 'category': 'biolink:PhenotypicFeature', 'name': 'Delayed gross motor development', 'in_taxon_label': None}, {'id': 'MP:0031496', 'category': 'biolink:PhenotypicFeature', 'name': 'motor developmental delay', 'in_taxon_label': None}, {'id': 'MONDO:0018528', 'category': 'biolink:Disease', 'name': 'congenital myopathy with myasthenic-like onset', 'in_taxon_label': None}], 'Delayed fine motor development': [{'id': 'HP:0010862', 'category': 'biolink:PhenotypicFeature', 'name': 'Delayed fine motor development', 'in_taxon_label': None}, {'id': 'MP:0031496', 'category': 'biolink:PhenotypicFeature', 'name': 'motor developmental delay', 'in_taxon_label': None}], 'Global developmental delay': [{'id': 'HP:0001263', 'category': 'biolink:PhenotypicFeature', 'name': 'Global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011344', 'category': 'biolink:PhenotypicFeature', 'name': 'Severe global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0012736', 'category': 'biolink:PhenotypicFeature', 'name': 'Profound global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011342', 'category': 'biolink:PhenotypicFeature', 'name': 'Mild global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011343', 'category': 'biolink:PhenotypicFeature', 'name': 'Moderate global developmental delay', 'in_taxon_label': None}], 'Hypotonia': [{'id': 'HP:0001252', 'category': 'biolink:PhenotypicFeature', 'name': 'Hypotonia', 'in_taxon_label': None}, {'id': 'MP:0004144', 'category': 'biolink:PhenotypicFeature', 'name': 'hypotonia', 'in_taxon_label': None}, {'id': 'MONDO:0011669', 'category': 'biolink:Disease', 'name': 'hypotonia-cystinuria syndrome', 'in_taxon_label': None}, {'id': 'HP:0001290', 'category': 'biolink:PhenotypicFeature', 'name': 'Generalized hypotonia', 'in_taxon_label': None}, {'id': 'HP:0012389', 'category': 'biolink:PhenotypicFeature', 'name': 'Appendicular hypotonia', 'in_taxon_label': None}], ' ... [result trimmed] ...l dysmorphism, and brain abnormalities', 'in_taxon_label': None}], 'Synophrys': [{'id': 'HP:0000664', 'category': 'biolink:PhenotypicFeature', 'name': 'Synophrys', 'in_taxon_label': None}, {'id': 'MONDO:0017580', 'category': 'biolink:Disease', 'name': '11p15.4 microduplication syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0012495', 'category': 'biolink:Disease', 'name': 'spondyloepimetaphyseal dysplasia, Genevieve type', 'in_taxon_label': None}, {'id': 'MONDO:0009570', 'category': 'biolink:Disease', 'name': 'McDonough syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0019416', 'category': 'biolink:Disease', 'name': 'X-linked intellectual disability-hypogammaglobulinemia-progressive neurological deterioration syndrome', 'in_taxon_label': None}], 'Hirsutism': [{'id': 'HP:0001007', 'category': 'biolink:PhenotypicFeature', 'name': 'Hirsutism', 'in_taxon_label': None}, {'id': 'HP:0002230', 'category': 'biolink:PhenotypicFeature', 'name': 'Generalized hirsutism', 'in_taxon_label': None}, {'id': 'HP:0009747', 'category': 'biolink:PhenotypicFeature', 'name': 'Lumbosacral hirsutism', 'in_taxon_label': None}, {'id': 'HP:0009937', 'category': 'biolink:PhenotypicFeature', 'name': 'Facial hirsutism', 'in_taxon_label': None}, {'id': 'HP:0009889', 'category': 'biolink:PhenotypicFeature', 'name': 'Localized hirsutism', 'in_taxon_label': None}], 'Finger clinodactyly': [{'id': 'HP:0040019', 'category': 'biolink:PhenotypicFeature', 'name': 'Finger clinodactyly', 'in_taxon_label': None}, {'id': 'MONDO:0017461', 'category': 'biolink:Disease', 'name': 'familial isolated clinodactyly of fingers', 'in_taxon_label': None}, {'id': 'HP:0011431', 'category': 'biolink:PhenotypicFeature', 'name': 'Fetal fifth finger clinodactyly', 'in_taxon_label': None}, {'id': 'HP:0030084', 'category': 'biolink:PhenotypicFeature', 'name': 'Clinodactyly', 'in_taxon_label': None}, {'id': 'HP:0004209', 'category': 'biolink:PhenotypicFeature', 'name': 'Clinodactyly of the 5th finger', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_oggkeQ63xC4a7F078hkl6EIA",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "function",
+            "content": "{'Female': [{'id': 'MONDO:0021124', 'category': 'biolink:Disease', 'name': 'female infertility', 'in_taxon_label': None}, {'id': 'MONDO:0006758', 'category': 'biolink:Disease', 'name': 'female genital tuberculosis', 'in_taxon_label': None}, {'id': 'MONDO:0035821', 'category': 'biolink:Disease', 'name': 'isolated female hypospadias', 'in_taxon_label': None}, {'id': 'MONDO:0004258', 'category': 'biolink:Disease', 'name': 'female orgasmic disorder', 'in_taxon_label': None}, {'id': 'MONDO:0004160', 'category': 'biolink:Disease', 'name': 'female stress incontinence', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_SYblrAkPalPmzTq85TdXnwyb",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_8E89P6FAjR9vZjyO41NHqx3D",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) WHERE p.id IN ['HP:0002194','HP:0010862','HP:0001263','HP:0001252','HP:0100710','HP:0007018','HP:0011968','HP:0000664','HP:0001007','HP:0040019'] WITH d, count(p) AS matched_phenotypes ORDER BY matched_phenotypes DESC LIMIT 20 MATCH (d)-[:biolink_has_phenotype]->(p2:biolink_PhenotypicFeature) WHERE p2.id IN ['HP:0002194','HP:0010862','HP:0001263','HP:0001252','HP:0100710','HP:0007018','HP:0011968','HP:0000664','HP:0001007','HP:0040019'] RETURN d, collect(p2.name) AS matching_phenotypes, matched_phenotypes ORDER BY matched_phenotypes DESC LIMIT 10\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [{'data': {'id': 'MONDO:0957541', 'caption': 'neurodevelopmental disorder with hypotonia and speech delay, with or without seizures', 'name': 'neurodevelopmental disorder with hypotonia and speech delay, with or without seizures', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0859178', 'caption': 'developmental delay, impaired speech, and behavioral abnormalities', 'name': 'developmental delay, impaired speech, and behavioral abnormalities', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0859143', 'caption': 'Radio-Tartaglia syndrome', 'name': 'Radio-Tartaglia syndrome', 'description': 'A syndrome that is caused by a variation in the SPEN gene and is characterized by developmental delay/intellectual disability, autism spectrum disorder, anxiety, aggressive behavior, attention deficit disorder, hypotonia, brain and spine anomalies, congenital heart defects, high/narrow palate, facial dysmorphisms, and obesity/increased BMI, especially in females.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0060502', 'caption': 'neurodevelopmental disorder with progressive microcephaly, spasticity, and brain anomalies', 'name': 'neurodevelopmental disorder with progressive microcephaly, spasticity, and brain anomalies', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0030065', 'caption': 'agenesis of corpus callosum, cardiac, ocular, and genital syndrome', 'name': 'agenesis of corpus callosum, cardiac, ocular, and genital syndrome', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0859185', 'caption': 'neurodevelopmental disorder with hypotonia and dysmorphic facies', 'name': 'neurodevelopmental disorder with hypotonia and dysmorphic facies', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0035133', 'caption': 'PHIP-related behavioral problems-intellectual disability-obesity-dysmorphic features syndrome', 'name': 'PHIP-related behavioral problems-intellectual disability-obesity-dysmorphic features syndrome', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0859187', 'caption': 'neurodevelopmental disorder with hypotonia and brain abnormalities', 'name': 'neurodevelopmental disorder with hypotonia and brain abnormalities', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0013364', 'caption': 'Rubinstein-Taybi syndrome due to EP300 haploinsufficiency', 'name': 'Rubinstein-Taybi syndrome due to EP300 haploinsufficiency', 'description': 'Any Rubinstein-Taybi syndrome in which the cause of the disease is a mutation in the EP300 gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014858', 'caption': 'intellectual disability, autosomal dominant 43', 'name': 'intellectual disability, autosomal dominant 43', 'description': 'Any autosomal dominant non-syndromic intellectual disability in which the cause of the disease is a mutation in the HIVEP2 gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': []}}",
+            "name": "run_query",
+            "tool_call_id": "call_8E89P6FAjR9vZjyO41NHqx3D",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "Based on the patient's features\u2014delayed gross and fine motor development, global developmental delay, hypotonia, impulsivity, ADHD, feeding difficulties, synophrys (unibrow), hirsutism (excess hair), and finger clinodactyly (curved fingers)\u2014the following are the most likely diagnoses, ranked by the number of matching features:\n\n1. [Neurodevelopmental disorder with hypotonia and speech delay, with or without seizures](https://monarchinitiative.org/MONDO:0957541)\n2. [Developmental delay, impaired speech, and behavioral abnormalities](https://monarchinitiative.org/MONDO:0859178)\n3. [Radio-Tartaglia syndrome](https://monarchinitiative.org/MONDO:0859143) \u2014 Notably, this syndrome is more common in females and includes ADHD, hypotonia, developmental delay, and dysmorphic features.\n4. [Neurodevelopmental disorder with progressive microcephaly, spasticity, and brain anomalies](https://monarchinitiative.org/MONDO:0060502)\n5. [Agenesis of corpus callosum, cardiac, ocular, and genital syndrome](https://monarchinitiative.org/MONDO:0030065)\n6. [Neurodevelopmental disorder with hypotonia and dysmorphic facies](https://monarchinitiative.org/MONDO:0859185)\n7. [PHIP-related behavioral problems-intellectual disability-obesity-dysmorphic features syndrome](https://monarchinitiative.org/MONDO:0035133)\n8. [Neurodevelopmental disorder with hypotonia and brain abnormalities](https://monarchinitiative.org/MONDO:0859187)\n9. [Rubinstein-Taybi syndrome due to EP300 haploinsufficiency](https://monarchinitiative.org/MONDO:0013364) \u2014 This syndrome is known for developmental delay, synophrys, hirsutism, and clinodactyly.\n10. [Intellectual disability, autosomal dominant 43](https://monarchinitiative.org/MONDO:0014858)\n\nThese conditions are all associated with multiple features present in your patient. Rubinstein-Taybi syndrome, in particular, is notable for the combination of synophrys, hirsutism, clinodactyly, and developmental delay, making it a strong candidate.\n\nIf you have additional information (such as age of onset, family history, or genetic findings), this could help further refine the diagnosis. If you would like more details about any of these conditions, please let me know!",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": null,
+            "is_tool_call_error": null
+        }
+    ],
+    "expected_diagnosis_mondo": [
+        {
+            "mondo_id": "MONDO:0957541",
+            "disease_name": "neurodevelopmental disorder with hypotonia and speech delay, with or without seizures"
+        }
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0957541",
+            "MONDO:0859178",
+            "MONDO:0859143",
+            "MONDO:0060502",
+            "MONDO:0030065",
+            "MONDO:0859185",
+            "MONDO:0035133",
+            "MONDO:0859187",
+            "MONDO:0013364",
+            "MONDO:0014858"
+        ],
+        "top_1_score": 1,
+        "top_3_score": 1,
+        "top_10_score": 1
+    }
+}

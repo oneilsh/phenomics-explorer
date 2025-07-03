@@ -1,0 +1,302 @@
+{
+    "phenopacket": {
+        "id": "PMID_24736735_G028_",
+        "subject": {
+            "id": "G028 "
+        },
+        "phenotypicFeatures": [
+            {
+                "type": {
+                    "id": "HP:0011304",
+                    "label": "Broad thumb"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0010055",
+                    "label": "Broad hallux"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001159",
+                    "label": "Syndactyly"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001162",
+                    "label": "Postaxial hand polydactyly"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001841",
+                    "label": "Preaxial foot polydactyly"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0006042",
+                    "label": "Y-shaped metacarpals"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0010567",
+                    "label": "Y-shaped metatarsals"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0002023",
+                    "label": "Anal atresia"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0002164",
+                    "label": "Nail dysplasia"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001830",
+                    "label": "Postaxial foot polydactyly"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001177",
+                    "label": "Preaxial hand polydactyly"
+                },
+                "excluded": true
+            }
+        ],
+        "interpretations": [
+            {
+                "id": "G028 ",
+                "progressStatus": "SOLVED",
+                "diagnosis": {
+                    "disease": {
+                        "id": "OMIM:175700",
+                        "label": "Greig cephalopolysyndactyly syndrome"
+                    },
+                    "genomicInterpretations": [
+                        {
+                            "subjectOrBiosampleId": "G028 ",
+                            "interpretationStatus": "CAUSATIVE",
+                            "variantInterpretation": {
+                                "variationDescriptor": {
+                                    "id": "var_cnSuAkfTnJhMuExULGiirheBr",
+                                    "label": "rsa7p14.1(kit P179)x1",
+                                    "geneContext": {
+                                        "valueId": "HGNC:4319",
+                                        "symbol": "GLI3"
+                                    },
+                                    "moleculeContext": "genomic",
+                                    "structuralType": {
+                                        "id": "SO:1000029",
+                                        "label": "chromosomal_deletion"
+                                    },
+                                    "allelicState": {
+                                        "id": "GENO:0000135",
+                                        "label": "heterozygous"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "diseases": [
+            {
+                "term": {
+                    "id": "OMIM:175700",
+                    "label": "Greig cephalopolysyndactyly syndrome"
+                },
+                "onset": {
+                    "ontologyClass": {
+                        "id": "HP:0003577",
+                        "label": "Congenital onset"
+                    }
+                }
+            }
+        ],
+        "metaData": {
+            "created": "2024-04-15T05:22:11.077809810Z",
+            "createdBy": "ORCID:0000-0002-0736-9199",
+            "resources": [
+                {
+                    "id": "geno",
+                    "name": "Genotype Ontology",
+                    "url": "http://purl.obolibrary.org/obo/geno.owl",
+                    "version": "2022-03-05",
+                    "namespacePrefix": "GENO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+                },
+                {
+                    "id": "hgnc",
+                    "name": "HUGO Gene Nomenclature Committee",
+                    "url": "https://www.genenames.org",
+                    "version": "06/01/23",
+                    "namespacePrefix": "HGNC",
+                    "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+                },
+                {
+                    "id": "omim",
+                    "name": "An Online Catalog of Human Genes and Genetic Disorders",
+                    "url": "https://www.omim.org",
+                    "version": "January 4, 2023",
+                    "namespacePrefix": "OMIM",
+                    "iriPrefix": "https://www.omim.org/entry/"
+                },
+                {
+                    "id": "so",
+                    "name": "Sequence types and features ontology",
+                    "url": "http://purl.obolibrary.org/obo/so.obo",
+                    "version": "2021-11-22",
+                    "namespacePrefix": "SO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+                },
+                {
+                    "id": "hp",
+                    "name": "human phenotype ontology",
+                    "url": "http://purl.obolibrary.org/obo/hp.owl",
+                    "version": "2024-04-03",
+                    "namespacePrefix": "HP",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+                }
+            ],
+            "phenopacketSchemaVersion": "2.0",
+            "externalReferences": [
+                {
+                    "id": "PMID:24736735",
+                    "reference": "https://pubmed.ncbi.nlm.nih.gov/24736735",
+                    "description": "New insights into genotype-phenotype correlation for GLI3 mutations"
+                }
+            ]
+        }
+    },
+    "cost_est_base_rate": 0.049162,
+    "tokens_used_prompt": 19773,
+    "tokens_used_completion": 1202,
+    "query": "From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses, even if there is insufficient information to make a definitive diagnosis. If you are unsure, provide a list of possible diagnoses with the most likely one first.\n\nPatient ID: G028 \nPatient age: Unknown\nPatient sex: Unknown\nPatient features: Broad thumb, Broad hallux, Syndactyly, Postaxial hand polydactyly, Preaxial foot polydactyly.\nExcluded patient features: Y-shaped metacarpals, Y-shaped metatarsals, Anal atresia, Nail dysplasia, Postaxial foot polydactyly, Preaxial hand polydactyly.",
+    "phenopacket_file": "phenopackets/PMID_24736735_G028.json",
+    "expected_diagnosis": "OMIM:175700",
+    "base_engine": "gpt-4.1-2025-04-14",
+    "eval_engine": "gpt-4.1-2025-04-14",
+    "eval_chain": [
+        {
+            "query": "MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) \nWHERE p.id IN ['HP:0011304', 'HP:0010055', 'HP:0001159', 'HP:0001162', 'HP:0001841']\nWITH d, count(p) AS matched_features\nORDER BY matched_features DESC\nLIMIT 30\nOPTIONAL MATCH (d)-[:biolink_has_phenotype]->(ep:biolink_PhenotypicFeature)\nWHERE ep.id IN ['HP:0006042', 'HP:0010567', 'HP:0002023', 'HP:0002164', 'HP:0001830', 'HP:0001177']\nWITH d, matched_features, collect(ep.id) AS excluded_matches\nORDER BY matched_features DESC\nRETURN d, matched_features, excluded_matches\nLIMIT 20",
+            "query_summary": "This query is designed to identify diseases that are associated with a set of patient features (broad thumb, broad hallux, syndactyly, postaxial hand polydactyly, preaxial foot polydactyly) by matching diseases that have these phenotypic features. It counts how many of these features each disease matches, orders the diseases by the number of matched features (most to least), and limits the results to the top 30. Then, for each disease, it checks if any of a set of excluded features (Y-shaped metacarpals, Y-shaped metatarsals, anal atresia, nail dysplasia, postaxial foot polydactyly, preaxial hand polydactyly) are also present, collecting these as 'excluded_matches'. The final output is a list of diseases, the number of matched features, and any excluded features present, ordered by the number of matched features, and limited to 20 results. This approach is appropriate for generating a rank-ordered list of possible diagnoses based on the provided features, while also flagging diseases that have features the patient does not have.",
+            "accept_query": true,
+            "suggestion": "The query is well-constructed for the intended purpose. It uses ORDER BY to prioritize diseases with the most matching features and checks for the presence of excluded features. The use of OPTIONAL MATCH for excluded features is appropriate, as not all diseases will have these features. The use of LIMIT is also appropriate to manage result size. If more results are needed, consider increasing the LIMIT or providing total count information. To ensure all relevant subtypes are included, consider using the biolink_subclass_of*0.. pattern when matching diseases."
+        }
+    ],
+    "messages": [
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_pXc8lN0fiL81PUEpQj6uF9Yn",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"Broad thumb\", \"Broad hallux\", \"Syndactyly\", \"Postaxial hand polydactyly\", \"Preaxial foot polydactyly\"]}"
+                    }
+                },
+                {
+                    "id": "call_mzhkgHOT93qfZvJ6W6dKzmAI",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"Y-shaped metacarpals\", \"Y-shaped metatarsals\", \"Anal atresia\", \"Nail dysplasia\", \"Postaxial foot polydactyly\", \"Preaxial hand polydactyly\"]}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'Broad thumb': [{'id': 'HP:0011304', 'category': 'biolink:PhenotypicFeature', 'name': 'Broad thumb', 'in_taxon_label': None}, {'id': 'MONDO:0018064', 'category': 'biolink:Disease', 'name': 'trigonocephaly-broad thumbs syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0017852', 'category': 'biolink:Disease', 'name': 'infantile spasms-broad thumbs syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0008484', 'category': 'biolink:Disease', 'name': 'stapes ankylosis with broad thumbs and toes', 'in_taxon_label': None}, {'id': 'HP:0009630', 'category': 'biolink:PhenotypicFeature', 'name': 'Broad proximal phalanx of the thumb', 'in_taxon_label': None}], 'Broad hallux': [{'id': 'HP:0010055', 'category': 'biolink:PhenotypicFeature', 'name': 'Broad hallux', 'in_taxon_label': None}, {'id': 'HP:0008111', 'category': 'biolink:PhenotypicFeature', 'name': 'Broad distal hallux', 'in_taxon_label': None}, {'id': 'HP:0010059', 'category': 'biolink:PhenotypicFeature', 'name': 'Broad hallux phalanx', 'in_taxon_label': None}, {'id': 'HP:0010086', 'category': 'biolink:PhenotypicFeature', 'name': 'Broad proximal phalanx of the hallux', 'in_taxon_label': None}, {'id': 'HP:0010077', 'category': 'biolink:PhenotypicFeature', 'name': 'Broad distal phalanx of the hallux', 'in_taxon_label': None}], 'Syndactyly': [{'id': 'HP:0001159', 'category': 'biolink:PhenotypicFeature', 'name': 'Syndactyly', 'in_taxon_label': None}, {'id': 'MONDO:0021002', 'category': 'biolink:Disease', 'name': 'syndactyly', 'in_taxon_label': None}, {'id': 'MONDO:1010824', 'category': 'biolink:Disease', 'name': 'syndactyly, chicken', 'in_taxon_label': None}, {'id': 'MONDO:1010827', 'category': 'biolink:Disease', 'name': 'syndactyly, cattle', 'in_taxon_label': None}, {'id': 'MONDO:1010828', 'category': 'biolink:Disease', 'name': 'syndactyly, sheep', 'in_taxon_label': None}], 'Postaxial hand polydactyly': [{'id': 'HP:0001162', 'category': 'biolink:PhenotypicFeature', 'name': 'Postaxial hand polydactyly', 'in_taxon_label': None}, {'id': 'MONDO:0017426', 'category': 'biolink:Disease', 'name': 'postaxial polydactyly of fingers', 'in_taxon_label': None}, {'id': 'HP:0005676', 'category': 'biolink:PhenotypicFeature', 'name': 'Rudimentary postaxial polydactyly of hands', 'in_taxon_label': None}, {'id': 'HP:0005696', 'category': 'biolink:PhenotypicFeature', 'name': 'Postaxial polydactyly type A', 'in_taxon_label': None}, {'id': 'MONDO:0009075', 'category': 'biolink:Disease', 'name': 'Dandy-Walker malformation-postaxial polydactyly syndrome', 'in_taxon_label': None}], 'Preaxial foot polydactyly': [{'id': 'HP:0001841', 'category': 'biolink:PhenotypicFeature', 'name': 'Preaxial foot polydactyly', 'in_taxon_label': None}, {'id': 'MONDO:0017457', 'category': 'biolink:Disease', 'name': 'Preaxial polydactyly of toes', 'in_taxon_label': None}, {'id': 'HP:0010440', 'category': 'biolink:PhenotypicFeature', 'name': 'Ectopic accessory toe-like appendage', 'in_taxon_label': None}, {'id': 'MONDO:0011359', 'category': 'biolink:Disease', 'name': 'acromelic frontonasal dysostosis', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_pXc8lN0fiL81PUEpQj6uF9Yn",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "function",
+            "content": "{'Y-shaped metacarpals': [{'id': 'HP:0006042', 'category': 'biolink:PhenotypicFeature', 'name': 'Y-shaped metacarpals', 'in_taxon_label': None}, {'id': 'HP:0006145', 'category': 'biolink:PhenotypicFeature', 'name': 'Central Y-shaped metacarpal', 'in_taxon_label': None}, {'id': 'UPHENO:0041575', 'category': 'biolink:PhenotypicFeature', 'name': 'Y-shaped metacarpal bone', 'in_taxon_label': None}, {'id': 'MONDO:0015421', 'category': 'biolink:Disease', 'name': 'orofaciodigital syndrome type 12', 'in_taxon_label': None}], 'Y-shaped metatarsals': [{'id': 'HP:0010567', 'category': 'biolink:PhenotypicFeature', 'name': 'Y-shaped metatarsals', 'in_taxon_label': None}], 'Anal atresia': [{'id': 'HP:0002023', 'category': 'biolink:PhenotypicFeature', 'name': 'Anal atresia', 'in_taxon_label': None}, {'id': 'MP:0003130', 'category': 'biolink:PhenotypicFeature', 'name': 'anal atresia', 'in_taxon_label': None}, {'id': 'UPHENO:0088344', 'category': 'biolink:PhenotypicFeature', 'name': 'anal canal atresia', 'in_taxon_label': None}, {'id': 'MONDO:0015324', 'category': 'biolink:Disease', 'name': 'cataract-intellectual disability-anal atresia-urinary defects syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0011069', 'category': 'biolink:Disease', 'name': 'cervical ribs, Sprengel anomaly, anal atresia, and urethral obstruction', 'in_taxon_label': None}], 'Nail dysplasia': [{'id': 'HP:0002164', 'category': 'biolink:PhenotypicFeature', 'name': 'Nail dysplasia', 'in_taxon_label': None}, {'id': 'MONDO:0019071', 'category': 'biolink:Disease', 'name': 'pure hair and nail ectodermal dysplasia', 'in_taxon_label': None}, {'id': 'MONDO:0011177', 'category': 'biolink:Disease', 'name': 'ectodermal dysplasia 4, hair/nail type', 'in_taxon_label': None}, {'id': 'MONDO:0013976', 'category': 'biolink:Disease', 'name': 'ectodermal dysplasia 9, hair/nail type', 'in_taxon_label': None}, {'id': 'MONDO:0013973', 'category': 'biolink:Disease', 'name': 'ectodermal dysplasia 5, hair/nail type', 'in_taxon_label': None}], 'Postaxial foot polydactyly': [{'id': 'HP:0001830', 'category': 'biolink:PhenotypicFeature', 'name': 'Postaxial foot polydactyly', 'in_taxon_label': None}, {'id': 'HP:0005817', 'category': 'biolink:PhenotypicFeature', 'name': 'Postaxial polysyndactyly of foot', 'in_taxon_label': None}, {'id': 'MONDO:0008572', 'category': 'biolink:Disease', 'name': 'tibia, hypoplasia or aplasia of, with polydactyly', 'in_taxon_label': None}, {'id': 'MONDO:0017454', 'category': 'biolink:Disease', 'name': 'triphalangeal thumb-polysyndactyly syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0017458', 'category': 'biolink:Disease', 'name': 'obsolete postaxial polydactyly of toes', 'in_taxon_label': None}], 'Preaxial hand polydactyly': [{'id': 'HP:0001177', 'category': 'biolink:PhenotypicFeature', 'name': 'Preaxial hand polydactyly', 'in_taxon_label': None}, {'id': 'MONDO:0017425', 'category': 'biolink:Disease', 'name': 'preaxial polydactyly of fingers', 'in_taxon_label': None}, {'id': 'MONDO:0008269', 'category': 'biolink:Disease', 'name': 'polydactyly of a biphalangeal thumb', 'in_taxon_label': None}, {'id': 'MONDO:0008301', 'category': 'biolink:Disease', 'name': 'Guttmacher syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0011621', 'category': 'biolink:Disease', 'name': 'acropectoral syndrome', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_mzhkgHOT93qfZvJ6W6dKzmAI",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_6axTJOUwulMWyg6BaXRIcht8",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) \\nWHERE p.id IN ['HP:0011304', 'HP:0010055', 'HP:0001159', 'HP:0001162', 'HP:0001841']\\nWITH d, count(p) AS matched_features\\nORDER BY matched_features DESC\\nLIMIT 30\\nOPTIONAL MATCH (d)-[:biolink_has_phenotype]->(ep:biolink_PhenotypicFeature)\\nWHERE ep.id IN ['HP:0006042', 'HP:0010567', 'HP:0002023', 'HP:0002164', 'HP:0001830', 'HP:0001177']\\nWITH d, matched_features, collect(ep.id) AS excluded_matches\\nORDER BY matched_features DESC\\nRETURN d, matched_features, excluded_matches\\nLIMIT 20\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [{'data': {'id': 'MONDO:0008287', 'caption': 'Greig cephalopolysyndactyly syndrome', 'name': 'Greig cephalopolysyndactyly syndrome', 'description': 'Greig cephalopolysyndactyly syndrome (GCPS) is a pleiotropic, multiple congenital anomaly syndrome.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0008266', 'caption': 'polydactyly, postaxial, type A1', 'name': 'polydactyly, postaxial, type A1', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0007804', 'caption': 'Pallister-Hall syndrome', 'name': 'Pallister-Hall syndrome', 'description': 'Pallister-Hall syndrome (PHS), a pleiotropic autosomal dominant malformative disorder, is characterized by hypothalamic hamartoma, pituitary dysfunction, bifid epiglottis, polydactyly, and, more rarely, renal abnormalities and genitourinary malformations.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0009642', 'caption': 'orofaciodigital syndrome type II', 'name': 'orofaciodigital syndrome type II', 'description': 'Oral-facial-digital (OFD) type 2 is characterized by hand and feet deformities, facial deformities, midline cleft of the upper lip and tongue hamartomas.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0007041', 'caption': 'Apert syndrome', 'name': 'Apert syndrome', 'description': 'Apert syndrome (AS) is a frequent form of acrocephalosyndactyly, a group of inherited congenital malformation disorders, characterized by craniosynostosis, midface hypoplasia, and finger and toe anomalies and/or syndactyly.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0019012', 'caption': 'Carpenter syndrome', 'name': 'Carpenter syndrome', 'description': 'An extremely rare autosomal recessive syndrome characterized by premature closure of cranial sutures leading to cone-shaped head, fusion of the digits, and the presence of more digits than normal. It may be associated with heart defects, single horseshoe-shaped kidney, short stature, undescended testes, and mild mental retardation.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0008270', 'caption': 'polydactyly of a triphalangeal thumb', 'name': 'polydactyly of a triphalangeal thumb', 'description': 'A form of preaxial polydactyly of fingers, a limb malformation syndrome, that is characterized by the presence of a usually opposable triphalangeal thumb with or without additional duplication of one or more skeletal components of the thumb. The thumb appearance can differ widely in shape (wedge to rectangular) or it can be deviated in the radio-ulnar plane (clinodactyly). PPD2 is also associated with systemic syndromes, including Holt-Oram syndrome and Fanconi anemia.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0013364', 'caption': 'Rubinstein-Taybi syndrome due to EP300 haploinsufficiency', 'name': 'Rubinstein-Taybi syndrome due to EP300 haploinsufficiency', 'description': 'Any Rubinstein-Taybi syndrome in which the cause of the disease is a mutation in the EP300 gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0007732', 'caption': 'Holt-Oram syndrome', 'name': 'Holt-Oram syndrome', 'description': 'Holt-Oram syndrome (HOS) is the most common form of heart-hand syndrome and is characterized by skeletal abnormalities of the upper limbs and mild-to-severe congenital cardiac defects.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0008393', 'caption': 'Rubinstein-Taybi syndrome due to CREBBP mutations', 'name': 'Rubinstein-Taybi syndrome due to CREBBP mutations', 'description': 'Any Rubinstein-Taybi syndrome in which the cause of the disease is a mutation in the CREBBP gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0012374', 'caption': 'brachyphalangy, polydactyly, and tibial aplasia/hypoplasia', 'name': 'brachyphalangy, polydactyly, and tibial aplasia/hypoplasia', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0009999', 'caption': 'autosomal recessive Robinow syndrome', 'name': 'autosomal recessive Robinow syndrome', 'description': 'Autosomal recessive Robinow syndrome (RRS) is the less common type of Robinow syndrome (RS) characterized by short-limb dwarfism, costovertebral segmentation defects and abnormalities of the head, face and external genitalia.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0010590', 'caption': 'FG syndrome 1', 'name': 'FG syndrome 1', 'description': 'Any FG syndrome in which the cause of the disease is a mutation in the MED12 gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0010176', 'caption': 'orofaciodigital syndrome type 6', 'name': 'orofaciodigital syndrome type 6', 'description': 'Joubert syndrome with orofaciodigital defect (or oral-facial-digital syndrome type 6, OFD6) is a very rare subtype of Joubert syndrome and related disorders (JSRD) characterized by the neurological features of JS associated with orofacial anomalies and often polydactyly.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0007043', 'caption': 'Pfeiffer syndrome', 'name': 'Pfeiffer syndrome', 'description': 'Pfeiffer syndrome (PS) is a common form of acrocephalosyndactyly, a group of inherited congenital malformation disorders, characterized by variable degrees of bicoronal craniosynostosis, variable hand and foot malformations and various other associated manifestations.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0009402', 'caption': 'acrofrontofacionasal dysostosis 2', 'name': 'acrofrontofacionasal dysostosis 2', 'description': 'A very rare syndrome associating an acro-fronto-facio-nasal dysostosis with genitourinary anomalies.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0010571', 'caption': 'otopalatodigital syndrome type 2', 'name': 'otopalatodigital syndrome type 2', 'description': 'A severe form of otopalatodigital syndrome spectrum disorder, and is characterized by dysmorphic facies, severe skeletal dysplasia affecting the axial and appendicular skeleton, extraskeletal anomalies (including malformations of the brain, heart, genitourinary system, and intestine) and poor survival.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0034989', 'caption': 'intellectual disability-cardiac anomalies-short stature-joint laxity syndrome', 'name': 'intellectual disability-cardiac anomalies-short stature-joint laxity syndrome', 'description': 'A rare genetic multiple congenital anomalies/dysmorphic syndrome characterized by intrauterine and postnatal growth restriction, global developmental delay, intellectual disability, and dysmorphic facial features (such as broad nasal root, anteverted nares, long philtrum, low-set and posteriorly rotated ears, and short neck). Additional reported manifestations are microcephaly, short stature, vertebral abnormalities, joint laxity, ocular, cardiac, and renal defects, and minor limb anomalies. Brain imaging may show hypoplastic corpus callosum, delayed myelination, and cerebral atrophy.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0010316', 'caption': 'FG syndrome 3', 'name': 'FG syndrome 3', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0012519', 'caption': 'Rubinstein-Taybi syndrome due to 16p13.3 microdeletion', 'name': 'Rubinstein-Taybi syndrome due to 16p13.3 microdeletion', 'description': 'Chromosome 16p13.3deletion syndrome is a chromosome abnormality that can affect many parts of the body. People with this condition are missing a small piece (deletion) of chromosome 16 at a location designated p13.3. Although once thought to be a severe form of Rubinstein-Taybi syndrome, it is now emerging as a unique syndrome. Signs and symptoms may include failure to thrive, hypotonia (reduced muscle tone), short stature, microcephaly (unusually small head), characteristic facial features, mild to moderate intellectual disability, organ anomalies (i.e. heart and/or kidney problems), and vulnerability to infections. Chromosome testing of both parents can provide information about whether the deletion was inherited. In most cases, parents do not have any chromosome abnormalities. However, sometimes one parent has a balanced translocation where a piece of a chromosome has broken off and attached to another one with no gain or loss of genetic material. The balanced translocation normally does not cause signs or symptoms, but it increases the risk for having a child with a chromosome abnormality like a deletion. Treatment is based on the signs and symptoms present in each person.To learn more about chromosome abnormalities in general, view our GARD fact sheet on Chromosome Disorders.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': []}}",
+            "name": "run_query",
+            "tool_call_id": "call_6axTJOUwulMWyg6BaXRIcht8",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "Based on the patient's features (Broad thumb, Broad hallux, Syndactyly, Postaxial hand polydactyly, Preaxial foot polydactyly) and the exclusion of certain features (Y-shaped metacarpals, Y-shaped metatarsals, Anal atresia, Nail dysplasia, Postaxial foot polydactyly, Preaxial hand polydactyly), here is a rank-ordered list of possible diagnoses. These are based on the number of matching features and the absence of excluded features:\n\n1. [Greig cephalopolysyndactyly syndrome](https://monarchinitiative.org/MONDO:0008287) \u2014 Classic for broad thumbs, broad halluces, syndactyly, and both preaxial and postaxial polydactyly.\n2. [Pallister-Hall syndrome](https://monarchinitiative.org/MONDO:0007804)\n3. [Apert syndrome](https://monarchinitiative.org/MONDO:0007041)\n4. [Carpenter syndrome](https://monarchinitiative.org/MONDO:0019012)\n5. [Rubinstein-Taybi syndrome due to EP300 haploinsufficiency](https://monarchinitiative.org/MONDO:0013364)\n6. [Rubinstein-Taybi syndrome due to CREBBP mutations](https://monarchinitiative.org/MONDO:0008393)\n7. [orofaciodigital syndrome type II](https://monarchinitiative.org/MONDO:0009642)\n8. [Holt-Oram syndrome](https://monarchinitiative.org/MONDO:0007732)\n9. [Pfeiffer syndrome](https://monarchinitiative.org/MONDO:0007043)\n10. [autosomal recessive Robinow syndrome](https://monarchinitiative.org/MONDO:0009999)\n\nThe most likely diagnosis, given the combination of broad thumbs, broad halluces, syndactyly, and both preaxial and postaxial polydactyly (and the absence of features like Y-shaped metacarpals/metatarsals and anal atresia), is Greig cephalopolysyndactyly syndrome.\n\nIf you need more details about any of these syndromes or want to explore further, let me know!",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": null,
+            "is_tool_call_error": null
+        }
+    ],
+    "expected_diagnosis_mondo": [
+        {
+            "mondo_id": "MONDO:0008287",
+            "disease_name": "Greig cephalopolysyndactyly syndrome"
+        }
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0008287",
+            "MONDO:0007804",
+            "MONDO:0007041",
+            "MONDO:0019012",
+            "MONDO:0013364",
+            "MONDO:0008393",
+            "MONDO:0009642",
+            "MONDO:0007732",
+            "MONDO:0007043",
+            "MONDO:0009999"
+        ],
+        "top_1_score": 1,
+        "top_3_score": 1,
+        "top_10_score": 1
+    }
+}

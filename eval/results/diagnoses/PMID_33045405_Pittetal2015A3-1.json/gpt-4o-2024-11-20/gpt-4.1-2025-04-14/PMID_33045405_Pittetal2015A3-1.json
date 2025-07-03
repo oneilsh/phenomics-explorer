@@ -1,0 +1,255 @@
+{
+    "phenopacket": {
+        "id": "PMID_33045405_Pitt_et_al.,_2015_A3-1",
+        "subject": {
+            "id": "Pitt et al., 2015 A3-1"
+        },
+        "phenotypicFeatures": [
+            {
+                "type": {
+                    "id": "HP:0002240",
+                    "label": "Hepatomegaly"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001943",
+                    "label": "Hypoglycemia"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001942",
+                    "label": "Metabolic acidosis"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0030781",
+                    "label": "Increased circulating free fatty acid level"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0003215",
+                    "label": "Dicarboxylic aciduria"
+                }
+            }
+        ],
+        "interpretations": [
+            {
+                "id": "Pitt et al., 2015 A3-1",
+                "progressStatus": "SOLVED",
+                "diagnosis": {
+                    "disease": {
+                        "id": "OMIM:605911",
+                        "label": "HMG-CoA synthase-2 deficiency"
+                    },
+                    "genomicInterpretations": [
+                        {
+                            "subjectOrBiosampleId": "Pitt et al., 2015 A3-1",
+                            "interpretationStatus": "CAUSATIVE",
+                            "variantInterpretation": {
+                                "variationDescriptor": {
+                                    "id": "var_tNONdBjdodWRkHpYPIZKlhKXW",
+                                    "geneContext": {
+                                        "valueId": "HGNC:5008",
+                                        "symbol": "HMGCS2"
+                                    },
+                                    "expressions": [
+                                        {
+                                            "syntax": "hgvs.c",
+                                            "value": "NM_005518.4:c.1162G>A"
+                                        },
+                                        {
+                                            "syntax": "hgvs.g",
+                                            "value": "NC_000001.11:g.119755452C>T"
+                                        }
+                                    ],
+                                    "vcfRecord": {
+                                        "genomeAssembly": "hg38",
+                                        "chrom": "chr1",
+                                        "pos": "119755452",
+                                        "ref": "C",
+                                        "alt": "T"
+                                    },
+                                    "moleculeContext": "genomic",
+                                    "allelicState": {
+                                        "id": "GENO:0000136",
+                                        "label": "homozygous"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "diseases": [
+            {
+                "term": {
+                    "id": "OMIM:605911",
+                    "label": "HMG-CoA synthase-2 deficiency"
+                },
+                "onset": {
+                    "age": {
+                        "iso8601duration": "P6M"
+                    }
+                }
+            }
+        ],
+        "metaData": {
+            "created": "2024-04-01T07:13:16.468088150Z",
+            "createdBy": "ORCID:0000-0002-0736-9199",
+            "resources": [
+                {
+                    "id": "geno",
+                    "name": "Genotype Ontology",
+                    "url": "http://purl.obolibrary.org/obo/geno.owl",
+                    "version": "2022-03-05",
+                    "namespacePrefix": "GENO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+                },
+                {
+                    "id": "hgnc",
+                    "name": "HUGO Gene Nomenclature Committee",
+                    "url": "https://www.genenames.org",
+                    "version": "06/01/23",
+                    "namespacePrefix": "HGNC",
+                    "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+                },
+                {
+                    "id": "omim",
+                    "name": "An Online Catalog of Human Genes and Genetic Disorders",
+                    "url": "https://www.omim.org",
+                    "version": "January 4, 2023",
+                    "namespacePrefix": "OMIM",
+                    "iriPrefix": "https://www.omim.org/entry/"
+                },
+                {
+                    "id": "so",
+                    "name": "Sequence types and features ontology",
+                    "url": "http://purl.obolibrary.org/obo/so.obo",
+                    "version": "2021-11-22",
+                    "namespacePrefix": "SO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+                },
+                {
+                    "id": "hp",
+                    "name": "human phenotype ontology",
+                    "url": "http://purl.obolibrary.org/obo/hp.owl",
+                    "version": "2024-03-06",
+                    "namespacePrefix": "HP",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+                }
+            ],
+            "phenopacketSchemaVersion": "2.0",
+            "externalReferences": [
+                {
+                    "id": "PMID:33045405",
+                    "reference": "https://pubmed.ncbi.nlm.nih.gov/33045405",
+                    "description": "Expanding phenotypic and mutational spectra of mitochondrial HMG-CoA synthase deficiency"
+                }
+            ]
+        }
+    },
+    "cost_est_base_rate": 0.041148,
+    "tokens_used_prompt": 15198,
+    "tokens_used_completion": 1344,
+    "query": "From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses, even if there is insufficient information to make a definitive diagnosis. If you are unsure, provide a list of possible diagnoses with the most likely one first.\n\nPatient ID: Pitt et al., 2015 A3-1\nPatient age: Unknown\nPatient sex: Unknown\nPatient features: Hepatomegaly, Hypoglycemia, Metabolic acidosis, Increased circulating free fatty acid level, Dicarboxylic aciduria.\nExcluded patient features: None.",
+    "phenopacket_file": "phenopackets/PMID_33045405_Pittetal2015A3-1.json",
+    "expected_diagnosis": "OMIM:605911",
+    "base_engine": "gpt-4o-2024-11-20",
+    "eval_engine": "gpt-4.1-2025-04-14",
+    "eval_chain": [
+        {
+            "query": "MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) WHERE p.id IN ['HP:0002240', 'HP:0001943', 'HP:0001942', 'HP:0030781', 'HP:0003215'] RETURN d, count(p) AS feature_overlap ORDER BY feature_overlap DESC LIMIT 10",
+            "query_summary": "This query searches for diseases in the knowledge graph that are associated with any of the five phenotypic features observed in the patient: hepatomegaly, hypoglycemia, metabolic acidosis, increased circulating free fatty acid level, and dicarboxylic aciduria. It counts how many of these features each disease is linked to, ranks the diseases by the number of matching features (feature_overlap), and returns the top 10 diseases with the highest overlap. This approach is appropriate for generating a rank-ordered list of possible diagnoses based on the patient's symptoms, as requested by the user. The query uses an ORDER BY clause to sort by feature overlap and a LIMIT to restrict the number of results, both of which are appropriate. The direction of the relationship (disease to phenotype) is correct for this context. The query does not use OPTIONAL MATCH, which is suitable here since we only want diseases with at least one matching phenotype. The results include diseases that are well-known to be associated with the queried features, so the query passes a sanity check. The result aligns with expectations and is suitable for the user's needs.",
+            "accept_query": true,
+            "suggestion": "No changes needed. The query is well-constructed for the user's diagnostic ranking task. If more results are needed, consider increasing the LIMIT or providing total count information."
+        }
+    ],
+    "messages": [
+        {
+            "role": "assistant",
+            "content": "To provide a rank-ordered list of possible diagnoses for the patient described, I will follow these steps:\n\n1. Search for phenotypic features in the knowledge graph that match the patient's features: hepatomegaly, hypoglycemia, metabolic acidosis, increased circulating free fatty acid level, and dicarboxylic aciduria.\n2. Identify diseases associated with these phenotypic features.\n3. Rank the diseases based on the overlap of features with the patient\u2019s presentation.\n\nLet me begin by searching for the phenotypic features in the knowledge graph.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_cIso5o2NQwAlSCpbgbJwTFJQ",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\":[\"Hepatomegaly\",\"Hypoglycemia\",\"Metabolic acidosis\",\"Increased circulating free fatty acid level\",\"Dicarboxylic aciduria\"]}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'Hepatomegaly': [{'id': 'HP:0002240', 'category': 'biolink:PhenotypicFeature', 'name': 'Hepatomegaly', 'in_taxon_label': None}, {'id': 'HP:0006564', 'category': 'biolink:PhenotypicFeature', 'name': 'Fluctuating hepatomegaly', 'in_taxon_label': None}, {'id': 'MONDO:0017932', 'category': 'biolink:Disease', 'name': 'muscular hypertrophy-hepatomegaly-polyhydramnios syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0022435', 'category': 'biolink:Disease', 'name': 'Mauriac syndrome', 'in_taxon_label': None}, {'id': 'MP:0000599', 'category': 'biolink:PhenotypicFeature', 'name': 'enlarged liver', 'in_taxon_label': None}], 'Hypoglycemia': [{'id': 'HP:0001943', 'category': 'biolink:PhenotypicFeature', 'name': 'Hypoglycemia', 'in_taxon_label': None}, {'id': 'MONDO:0004946', 'category': 'biolink:Disease', 'name': 'hypoglycemia', 'in_taxon_label': None}, {'id': 'MONDO:0005803', 'category': 'biolink:Disease', 'name': 'hyperinsulinemic hypoglycemia', 'in_taxon_label': None}, {'id': 'MP:0000189', 'category': 'biolink:PhenotypicFeature', 'name': 'hypoglycemia', 'in_taxon_label': None}, {'id': 'MONDO:0009415', 'category': 'biolink:Disease', 'name': 'hypoglycemia, leucine-induced', 'in_taxon_label': None}], 'Metabolic acidosis': [{'id': 'MONDO:0000440', 'category': 'biolink:Disease', 'name': 'metabolic acidosis', 'in_taxon_label': None}, {'id': 'HP:0001942', 'category': 'biolink:PhenotypicFeature', 'name': 'Metabolic acidosis', 'in_taxon_label': None}, {'id': 'MP:0012551', 'category': 'biolink:PhenotypicFeature', 'name': 'metabolic acidosis', 'in_taxon_label': None}, {'id': 'HP:0004918', 'category': 'biolink:PhenotypicFeature', 'name': 'Hyperchloremic metabolic acidosis', 'in_taxon_label': None}, {'id': 'HP:0004911', 'category': 'biolink:PhenotypicFeature', 'name': 'Episodic metabolic acidosis', 'in_taxon_label': None}], 'Increased circulating free fatty acid level': [{'id': 'HP:0030781', 'category': 'biolink:PhenotypicFeature', 'name': 'Increased circulating free fatty acid level', 'in_taxon_label': None}, {'id': 'MP:0001554', 'category': 'biolink:PhenotypicFeature', 'name': 'increased circulating free fatty acids level', 'in_taxon_label': None}], 'Dicarboxylic aciduria': [{'id': 'HP:0003215', 'category': 'biolink:PhenotypicFeature', 'name': 'Dicarboxylic aciduria', 'in_taxon_label': None}, {'id': 'MP:0030613', 'category': 'biolink:PhenotypicFeature', 'name': 'dicarboxylic aciduria', 'in_taxon_label': None}, {'id': 'HP:0008309', 'category': 'biolink:PhenotypicFeature', 'name': 'Medium chain dicarboxylic aciduria', 'in_taxon_label': None}, {'id': 'HP:0008293', 'category': 'biolink:PhenotypicFeature', 'name': 'Long-chain dicarboxylic aciduria', 'in_taxon_label': None}, {'id': 'MP:0030615', 'category': 'biolink:PhenotypicFeature', 'name': 'ethylmalonic aciduria', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_cIso5o2NQwAlSCpbgbJwTFJQ",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "I have identified the following phenotypic features in the knowledge graph that match the patient's presentation:\n\n1. **Hepatomegaly**: [Hepatomegaly (HP:0002240)](https://monarchinitiative.org/HP:0002240)\n2. **Hypoglycemia**: [Hypoglycemia (HP:0001943)](https://monarchinitiative.org/HP:0001943)\n3. **Metabolic acidosis**: [Metabolic acidosis (HP:0001942)](https://monarchinitiative.org/HP:0001942)\n4. **Increased circulating free fatty acid level**: [Increased circulating free fatty acid level (HP:0030781)](https://monarchinitiative.org/HP:0030781)\n5. **Dicarboxylic aciduria**: [Dicarboxylic aciduria (HP:0003215)](https://monarchinitiative.org/HP:0003215)\n\nNext, I will query the knowledge graph to find diseases associated with these phenotypic features.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_6FYI7EZtlHDdf9GhI4cy3PDx",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) WHERE p.id IN ['HP:0002240', 'HP:0001943', 'HP:0001942', 'HP:0030781', 'HP:0003215'] RETURN d, count(p) AS feature_overlap ORDER BY feature_overlap DESC LIMIT 10\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [{'data': {'id': 'MONDO:0011614', 'caption': '3-hydroxy-3-methylglutaryl-CoA synthase deficiency', 'name': '3-hydroxy-3-methylglutaryl-CoA synthase deficiency', 'description': '3-hydroxy-3-methylglutaryl-CoA synthase deficiency (HMG-CoA synthase deficiency) is a rare autosomal recessively inherited disorder of ketone body metabolism, reported in less than 20 patients to date, characterized clinically by episodes of decompensation (often associated with gastroenteritis or fasting) that present with vomiting, lethargy, hepatomegaly, non ketotic hypoglycemia and, in rare cases, coma. Patients are mostly asymptomatic between acute epidodes. HMG-CoA synthase deficiency requires an early diagnosis in order to avoid hypoglycemic crises that can lead to permanent brain damage or death.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0008723', 'caption': 'very long chain acyl-CoA dehydrogenase deficiency', 'name': 'very long chain acyl-CoA dehydrogenase deficiency', 'description': 'An inherited disorder of mitochondrial long-chain fatty acid oxidation with a variable presentation including: cardiomyopathy, hypoketotic hypoglycemia, liver disease, exercise intolerance and rhabdomyolysis.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0008721', 'caption': 'medium chain acyl-CoA dehydrogenase deficiency', 'name': 'medium chain acyl-CoA dehydrogenase deficiency', 'description': 'Medium chain acyl-CoA dehydrogenase (MCAD) deficiency (MCADD) is an inborn error of mitochondrial fatty acid oxidation characterized by a rapidly progressive metabolic crisis, often presenting as hypoketotic hypoglycemia, lethargy, vomiting, seizures and coma, which can be fatal in the absence of emergency medical intervention.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0012136', 'caption': 'carnitine palmitoyl transferase II deficiency, neonatal form', 'name': 'carnitine palmitoyl transferase II deficiency, neonatal form', 'description': 'The neonatal form of carnitine palmitoyltransferase II (CPT II) deficiency, an inherited disorder that affects mitochondrial oxidation of long chain fatty acids (LCFA), is the lethal form of the disease which presents with multisystem failure.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0010184', 'caption': 'methylmalonic aciduria and homocystinuria type cblC', 'name': 'methylmalonic aciduria and homocystinuria type cblC', 'description': 'A form of methylmalonic acidemia with homocystinuria, an inborn error of vitamin B12 (cobalamin) metabolism characterized by megaloblastic anemia, lethargy, failure to thrive, developmental delay, intellectual deficit and seizures. cblC type methylmalonic acidemia with homocystinuria is caused by mutations in the MMACHC gene (1p36.3) and is transmitted in an autosomal recessive manner.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014458', 'caption': 'Fanconi renotubular syndrome 4 with maturity-onset diabetes of the young', 'name': 'Fanconi renotubular syndrome 4 with maturity-onset diabetes of the young', 'description': 'Any Fanconi syndrome in which the cause of the disease is a mutation in the HNF4A gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0010161', 'caption': 'tyrosinemia type I', 'name': 'tyrosinemia type I', 'description': 'Tyrosinemia type 1 (HTI) is an inborn error of tyrosine catabolism caused by defective activity of fumarylacetoacetate hydrolase (FAH) and is characterized by progressive liver disease, renal tubular dysfunction, porphyria-like crises and a dramatic improvement in prognosis following treatment with nitisinone.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0009070', 'caption': 'D-glyceric aciduria', 'name': 'D-glyceric aciduria', 'description': 'A metabolic disorder characterized by D-glyceric acid excretion. It has been described in several patients. Clinical findings include progressive neurological impairment, hypotonia, seizures, failure to thrive and metabolic acidosis. Some patients had hyperglycinemia secondary to the organic acidemia. However, some of the reported patients were asymptomatic. D-glyceric aciduria is caused by D-glycerate kinase deficiency. The GLYCTK gene has been mapped to 3p21.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0008760', 'caption': 'beta-ketothiolase deficiency', 'name': 'beta-ketothiolase deficiency', 'description': 'Beta-ketothiolase (T2) deficiency is a rare organic aciduria affecting ketone body metabolism and the catabolism of isoleucine and characterized by intermittent ketoacidotic episodes associated with vomiting, dyspnea, tachypnoea, hypotonia, lethargy and coma, with an onset during infancy or toddlerhood and usually ceasing by adolescence.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0009288', 'caption': 'glycogen storage disease Ib', 'name': 'glycogen storage disease Ib', 'description': 'A type of glycogenosis due to G6P deficiency.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': []}}",
+            "name": "run_query",
+            "tool_call_id": "call_6FYI7EZtlHDdf9GhI4cy3PDx",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "Based on the overlap of the patient's phenotypic features with diseases in the knowledge graph, here is a rank-ordered list of possible diagnoses:\n\n1. **[3-hydroxy-3-methylglutaryl-CoA synthase deficiency](https://monarchinitiative.org/MONDO:0011614)**: A rare disorder of ketone body metabolism characterized by episodes of decompensation, hepatomegaly, non-ketotic hypoglycemia, and metabolic crises.\n2. **[Very long chain acyl-CoA dehydrogenase deficiency](https://monarchinitiative.org/MONDO:0008723)**: A disorder of mitochondrial fatty acid oxidation presenting with hypoketotic hypoglycemia, liver disease, and other symptoms.\n3. **[Medium chain acyl-CoA dehydrogenase deficiency](https://monarchinitiative.org/MONDO:0008721)**: An inborn error of fatty acid oxidation causing hypoketotic hypoglycemia, lethargy, and metabolic crises.\n4. **[Carnitine palmitoyl transferase II deficiency, neonatal form](https://monarchinitiative.org/MONDO:0012136)**: A severe disorder affecting mitochondrial oxidation of long-chain fatty acids, leading to multisystem failure.\n5. **[Methylmalonic aciduria and homocystinuria type cblC](https://monarchinitiative.org/MONDO:0010184)**: A metabolic disorder with features including developmental delay, metabolic acidosis, and failure to thrive.\n6. **[Fanconi renotubular syndrome 4 with maturity-onset diabetes of the young](https://monarchinitiative.org/MONDO:0014458)**: A syndrome involving renal tubular dysfunction and metabolic abnormalities.\n7. **[Tyrosinemia type I](https://monarchinitiative.org/MONDO:0010161)**: A disorder of tyrosine catabolism with progressive liver disease and metabolic crises.\n8. **[D-glyceric aciduria](https://monarchinitiative.org/MONDO:0009070)**: A metabolic disorder with neurological impairment, metabolic acidosis, and other symptoms.\n9. **[Beta-ketothiolase deficiency](https://monarchinitiative.org/MONDO:0008760)**: A rare organic aciduria with intermittent ketoacidotic episodes.\n10. **[Glycogen storage disease Ib](https://monarchinitiative.org/MONDO:0009288)**: A glycogen storage disorder associated with hypoglycemia and metabolic abnormalities.\n\nThese diagnoses are ranked based on the number of overlapping features with the patient's presentation. Further clinical evaluation and testing would be required to confirm the diagnosis.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": null,
+            "is_tool_call_error": null
+        }
+    ],
+    "expected_diagnosis_mondo": [
+        {
+            "mondo_id": "MONDO:0011614",
+            "disease_name": "3-hydroxy-3-methylglutaryl-CoA synthase deficiency"
+        }
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0011614",
+            "MONDO:0008723",
+            "MONDO:0008721",
+            "MONDO:0012136",
+            "MONDO:0010184",
+            "MONDO:0014458",
+            "MONDO:0010161",
+            "MONDO:0009070",
+            "MONDO:0008760",
+            "MONDO:0009288"
+        ],
+        "top_1_score": 1,
+        "top_3_score": 1,
+        "top_10_score": 1
+    }
+}
