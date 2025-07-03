@@ -76,8 +76,8 @@ def get_agents():
     monarch_base_agent_no_eval = MonarchKGAgent(engine = baseEngine, eval_agent = None, retry_attempts = 3)
 
     return {
-            "Monarch Explorer (GPT 4.1)": monarch_base_agent,
-            "Monarch Explorer (GPT 4.1, No Eval)": monarch_base_agent_no_eval
+            "Phenomics Explorer (GPT 4.1)": monarch_base_agent,
+            "Phenomics Explorer (GPT 4.1, No Eval)": monarch_base_agent_no_eval
            }
 
 

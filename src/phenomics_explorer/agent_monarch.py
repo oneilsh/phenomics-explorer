@@ -17,7 +17,7 @@ class MonarchKGAgent(BaseKGAgent):
         self.description = "Queries the Monarch KG with graph queries and contextual information."
         self.avatar = "🕷️"
         self.user_avatar = "👤"
-        self.name = "Monarch Explorer"
+        self.name = "Phenomics Explorer"
 
         self.update_system_prompt(C.monarch_system_prompt)
 
