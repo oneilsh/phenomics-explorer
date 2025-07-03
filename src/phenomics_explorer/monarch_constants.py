@@ -125,14 +125,14 @@ Onset qualifiers:
 | HP:6000315 | Postmenopausal onset           |
 
 Frequency qualifiers:
-| id         | label         |
-|:-----------|:--------------|
-| HP:0040280 | Obligate      |
-| HP:0040281 | Very frequent |
-| HP:0040282 | Frequent      |
-| HP:0040283 | Occasional    |
-| HP:0040284 | Very rare     |
-| HP:0040285 | Excluded      |
+| id         | label                           |
+|:-----------|:--------------------------------|
+| HP:0040280 | Obligate (100% of cases)        |
+| HP:0040281 | Very frequent (80-99% of cases) |
+| HP:0040282 | Frequent (30-79% of cases)      |
+| HP:0040283 | Occasional (5-29% of cases)     |
+| HP:0040284 | Very rare (1-5% of cases)       |
+| HP:0040285 | Excluded (0% of cases)          |
 
 Evidence qualifiers:
 | id          | label                               |
@@ -147,23 +147,84 @@ Evidence qualifiers:
 monarch_example_queries = """
 - question: "List all of the diseases related to TAF4."
   search_terms: ["TAF4"]
-  query: "MATCH (g:biolink_Gene {id: 'HGNC:11537'})-[r]-(d:biolink_Disease) RETURN g, r, d"
+  query: |
+    MATCH (g:biolink_Gene {id: 'HGNC:11537'})-[r]-(d:biolink_Disease) RETURN g, r, d
 
 - question: "What is the relationship between abamectin and avermectin B1a?"
   search_terms: ["abamectin", "avermectin B1a"]
-  query: "MATCH (c1:biolink_ChemicalEntity {id: 'CHEBI:39214'})-[r]-(c2:biolink_ChemicalEntity {id: 'CHEBI:29534'}) RETURN c1, r, c2"
+  query: |
+    MATCH (c1:biolink_ChemicalEntity {id: 'CHEBI:39214'})-[r]-(c2:biolink_ChemicalEntity {id: 'CHEBI:29534'}) RETURN c1, r, c2
 
 - question: "What features of Noonan Syndrome 6 are unique compared to other types of Noonan Syndrome?"
   search_terms: ["Noonan syndrome 6", "Noonan Syndrome"]
-  query: "MATCH (ns6_subtype:biolink_Disease)-[:biolink_subclass_of*0..]->(noonan_syndrome_6:biolink_Disease {id: 'MONDO:0013186'}) OPTIONAL MATCH (ns6_subtype)-[:biolink_has_phenotype]->(pns6:biolink_PhenotypicFeature) WITH collect(DISTINCT pns6.name) AS noonan_syndrome_6_phenotypes, collect(DISTINCT ns6_subtype) AS ns6_subtypes MATCH (ns_subtype:biolink_Disease)-[:biolink_subclass_of*0..]->(noonan_syndrome:biolink_Disease {id: 'MONDO:0018997'}) WHERE NOT ns_subtype IN ns6_subtypes OPTIONAL MATCH (ns_subtype)-[:biolink_has_phenotype]->(pns:biolink_PhenotypicFeature) WITH noonan_syndrome_6_phenotypes, collect(DISTINCT pns.name) AS noonan_syndrome_phenotypes RETURN [phenotype IN noonan_syndrome_6_phenotypes WHERE phenotype IN noonan_syndrome_phenotypes] AS shared_phenotypes, [phenotype IN noonan_syndrome_6_phenotypes WHERE NOT phenotype IN noonan_syndrome_phenotypes] AS unique_to_noonan_syndrome_6 "
+  query: |
+    // Find all phenotypes for Noonan syndrome 6 and its subtypes, EXCLUDING negated phenotypes
+    MATCH (ns6_subtype:biolink_Disease)-[:biolink_subclass_of*0..]->(noonan_syndrome_6:biolink_Disease {id: 'MONDO:0013186'})
+    OPTIONAL MATCH (ns6_subtype)-[r1:biolink_has_phenotype]->(pns6:biolink_PhenotypicFeature)
+    WHERE (r1.negated IS NULL OR r1.negated = false) // Exclude negated phenotype associations
+    WITH collect(DISTINCT pns6.name) AS noonan_syndrome_6_phenotypes, collect(DISTINCT ns6_subtype) AS ns6_subtypes
+
+    // Find all phenotypes for other Noonan syndrome types and their subtypes, EXCLUDING negated phenotypes
+    MATCH (ns_subtype:biolink_Disease)-[:biolink_subclass_of*0..]->(noonan_syndrome:biolink_Disease {id: 'MONDO:0018997'})
+    WHERE NOT ns_subtype IN ns6_subtypes
+    OPTIONAL MATCH (ns_subtype)-[r2:biolink_has_phenotype]->(pns:biolink_PhenotypicFeature)
+    WHERE (r2.negated IS NULL OR r2.negated = false) // Exclude negated phenotype associations
+    WITH noonan_syndrome_6_phenotypes, collect(DISTINCT pns.name) AS noonan_syndrome_phenotypes
+
+    // Compare the two sets to find shared and unique phenotypes
+    RETURN
+      [phenotype IN noonan_syndrome_6_phenotypes WHERE phenotype IN noonan_syndrome_phenotypes] AS shared_phenotypes,
+      [phenotype IN noonan_syndrome_6_phenotypes WHERE NOT phenotype IN noonan_syndrome_phenotypes] AS unique_to_noonan_syndrome_6
 
 - question: "What are all the different types of Ehlers-Danlos Syndrome?"
   search_terms: ["Ehlers-Danlos Syndrome"]
-  query: "MATCH (parent:biolink_Disease {id: 'MONDO:0020066'}) OPTIONAL MATCH (subD:biolink_Disease)-[r:biolink_subclass_of*]->(parent) RETURN parent, r, subD"
+  query: |
+    MATCH (parent:biolink_Disease {id: 'MONDO:0020066'}) OPTIONAL MATCH (subD:biolink_Disease)-[r:biolink_subclass_of*]->(parent) RETURN parent, r, subD
 
 - question: "What phenotypes are shared by EDS or its descendants, and Cystic Fibrosis or its descendants?"
   search_terms: ["Ehlers-Danlos Syndrome", "Cystic Fibrosis"]
-  query: "MATCH path = (d: biolink_Disease {id: 'MONDO:0020066'})-[:biolink_subclass_of*]->(parent: biolink_Disease) RETURN nodes(path) AS Nodes, relationships(path) AS Edges"
+  query: |
+    // Find all phenotypes for Ehlers-Danlos syndrome (EDS) and its descendants, EXCLUDING negated phenotypes
+    MATCH (eds_subtype:biolink_Disease)-[:biolink_subclass_of*0..]->(eds:biolink_Disease {id: 'MONDO:0020066'})
+    OPTIONAL MATCH (eds_subtype)-[r1:biolink_has_phenotype]->(peds:biolink_PhenotypicFeature)
+    WHERE (r1.negated IS NULL OR r1.negated = false) // Exclude negated phenotype associations
+    WITH collect(DISTINCT peds.name) AS eds_phenotypes, collect(DISTINCT eds_subtype) AS eds_subtypes
+
+    // Find all phenotypes for Cystic Fibrosis (CF) and its descendants, EXCLUDING negated phenotypes
+    MATCH (cf_subtype:biolink_Disease)-[:biolink_subclass_of*0..]->(cf:biolink_Disease {id: 'MONDO:0009061'})
+    OPTIONAL MATCH (cf_subtype)-[r2:biolink_has_phenotype]->(pcf:biolink_PhenotypicFeature)
+    WHERE (r2.negated IS NULL OR r2.negated = false) // Exclude negated phenotype associations
+    WITH eds_phenotypes, collect(DISTINCT pcf.name) AS cf_phenotypes
+
+    // Find shared phenotypes
+    RETURN [phenotype IN eds_phenotypes WHERE phenotype IN cf_phenotypes] AS shared_phenotypes
+
+- question: "What are the most frequent phenotypic features reported in Noonan syndrome and their associated frequencies?"
+  search_terms: ["Noonan syndrome"]
+  query: |
+    // Retrieve all phenotypes for Noonan syndrome and its subtypes that are 'very frequent' or higher, or have a provided percentage >= 80
+    MATCH (ns_subtype:biolink_Disease)-[:biolink_subclass_of*0..]->(ns:biolink_Disease {id: 'MONDO:0018997'})
+    OPTIONAL MATCH (ns_subtype)-[r:biolink_has_phenotype]->(p:biolink_PhenotypicFeature)
+    WHERE (
+      r.frequency_qualifier IN ['HP:0040280', 'HP:0040281']
+      OR (r.has_percentage IS NOT NULL AND r.has_percentage >= 80)
+    )
+    RETURN 
+      p.name AS phenotype,
+      r.frequency_qualifier AS frequency_qualifier,
+      r.has_percentage AS frequency_percentage
+    ORDER BY 
+      COALESCE(
+        r.has_percentage, 
+        CASE r.frequency_qualifier
+          WHEN 'HP:0040280' THEN 100      // Obligate (100% of cases)
+          WHEN 'HP:0040281' THEN 89.5     // Very frequent (80-99% of cases)
+          ELSE 0
+        END
+      ) DESC
+      // Be sure to let the user know about the critiria used to filter the results
+
+
 """.strip()
 
 monarch_greeting = """
@@ -178,20 +239,18 @@ graph](https://monarchinitiative.org/). I can answer questions via complex graph
 
 Note that as an AI I occasionally make mistakes. If you are curious how I work, you can ask about my implementation details.
 
-<img src="https://tislab.org/images/research/monarch.png" style="display: block; margin-left: auto; margin-right: auto; width: 150px;">
-
 """.strip()
 
 monarch_instructions = """
 - Consider that the user may not be familiar with the graph structure or the specific terms used in the query.
 - Provide non-specialist descriptions of biomedical results.
-- Consider relevant relationship qualifiers, especially negated, percentage, onset, and frequency qualifiers when designing queries.
 - Use the -[r:biolink_subclass_of*0..]-> pattern liberally to find all subclasses of a class.
 - Use `LIMIT`, `ORDER BY` and `SKIP` clauses to manage the size of your results.
 - Default to 10 results unless otherwise asked.
 - Alert the user if there may be more results, and provide total count information when possible.
 - Only answer biomedical questions, using the tools available to you as your primary information source.
 - Avoid answers that may be construed as medical advice or diagnoses.
+- Always consider relevant relationship qualifiers, especially negated, percentage, onset, and frequency qualifiers when designing queries.
 - ALWAYS include links for nodes in the format `[Node Name](https://monarchinitiative.org/nodeid)`.""".strip()
 
 monarch_system_prompt = f"""You are the Phenomics Assistant, designed to assist users in exploring and intepreting a biomedical knowledge graph known as Monarch.
