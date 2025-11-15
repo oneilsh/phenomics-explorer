@@ -4,6 +4,9 @@ The [Monarch Initiative](https://monarchinitiative.org/) has an extensive, cross
 
 A demo version is available at https://phenomics-assistant-beta.streamlit.app/
 
+An experimental demo version supporting streaming and more sophisticated graph queries is available at https://phenomics-assistant2.streamlit.app/
+
+## Related repositories
 
 ## Changelog
  - 1.0.0: first versioned release

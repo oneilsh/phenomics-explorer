@@ -1,17 +1,11 @@
 [tool.poetry]
-name = "phenomics-explorer"
-version = "1.0.0"
-description = "LLM agent for Monarch."
+name = "phenomics-assistant"
+version = "0.1.2"
+description = "LLM retrieval augmented generation agent for Monarch."
 authors = ["Shawn O'Neil <oneilsh@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-package-mode = true
-
-include = [
-    "src/phenomics_explorer/monarch_competency_questions_1.yaml",
-    "src/phenomics_explorer/pe_notes.md"
-]
-
+package-mode = false
 
 [tool.poetry.dependencies]
 python=">=3.12,<4.0"
