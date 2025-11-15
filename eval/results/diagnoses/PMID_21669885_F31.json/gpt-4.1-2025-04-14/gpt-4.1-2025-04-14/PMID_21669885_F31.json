@@ -1,0 +1,314 @@
+{
+    "phenopacket": {
+        "id": "PMID_21669885_F3_1",
+        "subject": {
+            "id": "F3.1 ",
+            "timeAtLastEncounter": {
+                "age": {
+                    "iso8601duration": "P13Y"
+                }
+            },
+            "sex": "MALE"
+        },
+        "phenotypicFeatures": [
+            {
+                "type": {
+                    "id": "HP:0002199",
+                    "label": "Hypocalcemic seizures"
+                },
+                "onset": {
+                    "age": {
+                        "iso8601duration": "P6Y"
+                    }
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000121",
+                    "label": "Nephrocalcinosis"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000083",
+                    "label": "Renal insufficiency"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0002150",
+                    "label": "Hypercalciuria"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0012608",
+                    "label": "Hypermagnesiuria"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0005567",
+                    "label": "Renal magnesium wasting"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0012637",
+                    "label": "Renal calcium wasting"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0002917",
+                    "label": "Hypomagnesemia"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0003774",
+                    "label": "Stage 5 chronic kidney disease"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0004322",
+                    "label": "Short stature"
+                },
+                "excluded": true
+            }
+        ],
+        "interpretations": [
+            {
+                "id": "F3.1 ",
+                "progressStatus": "SOLVED",
+                "diagnosis": {
+                    "disease": {
+                        "id": "OMIM:248250",
+                        "label": "Hypomagnesemia 3, renal"
+                    },
+                    "genomicInterpretations": [
+                        {
+                            "subjectOrBiosampleId": "F3.1 ",
+                            "interpretationStatus": "CAUSATIVE",
+                            "variantInterpretation": {
+                                "variationDescriptor": {
+                                    "id": "var_qlPQVRkNxQoSthbnsYLAZDEZS",
+                                    "geneContext": {
+                                        "valueId": "HGNC:2037",
+                                        "symbol": "CLDN16"
+                                    },
+                                    "expressions": [
+                                        {
+                                            "syntax": "hgvs.c",
+                                            "value": "NM_006580.4:c.80A>G"
+                                        },
+                                        {
+                                            "syntax": "hgvs.g",
+                                            "value": "NC_000003.12:g.190388409A>G"
+                                        }
+                                    ],
+                                    "vcfRecord": {
+                                        "genomeAssembly": "hg38",
+                                        "chrom": "chr3",
+                                        "pos": "190388409",
+                                        "ref": "A",
+                                        "alt": "G"
+                                    },
+                                    "moleculeContext": "genomic",
+                                    "allelicState": {
+                                        "id": "GENO:0000136",
+                                        "label": "homozygous"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "diseases": [
+            {
+                "term": {
+                    "id": "OMIM:248250",
+                    "label": "Hypomagnesemia 3, renal"
+                },
+                "onset": {
+                    "age": {
+                        "iso8601duration": "P6Y"
+                    }
+                }
+            }
+        ],
+        "metaData": {
+            "created": "2024-05-31T06:44:43.280954122Z",
+            "createdBy": "ORCID:0000-0002-0736-9199",
+            "resources": [
+                {
+                    "id": "geno",
+                    "name": "Genotype Ontology",
+                    "url": "http://purl.obolibrary.org/obo/geno.owl",
+                    "version": "2022-03-05",
+                    "namespacePrefix": "GENO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+                },
+                {
+                    "id": "hgnc",
+                    "name": "HUGO Gene Nomenclature Committee",
+                    "url": "https://www.genenames.org",
+                    "version": "06/01/23",
+                    "namespacePrefix": "HGNC",
+                    "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+                },
+                {
+                    "id": "omim",
+                    "name": "An Online Catalog of Human Genes and Genetic Disorders",
+                    "url": "https://www.omim.org",
+                    "version": "January 4, 2023",
+                    "namespacePrefix": "OMIM",
+                    "iriPrefix": "https://www.omim.org/entry/"
+                },
+                {
+                    "id": "so",
+                    "name": "Sequence types and features ontology",
+                    "url": "http://purl.obolibrary.org/obo/so.obo",
+                    "version": "2021-11-22",
+                    "namespacePrefix": "SO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+                },
+                {
+                    "id": "hp",
+                    "name": "human phenotype ontology",
+                    "url": "http://purl.obolibrary.org/obo/hp.owl",
+                    "version": "2024-04-04",
+                    "namespacePrefix": "HP",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+                }
+            ],
+            "phenopacketSchemaVersion": "2.0",
+            "externalReferences": [
+                {
+                    "id": "PMID:21669885",
+                    "reference": "https://pubmed.ncbi.nlm.nih.gov/21669885",
+                    "description": "Clinical and molecular characterization of Turkish patients with familial hypomagnesaemia: novel mutations in TRPM6 and CLDN16 genes"
+                }
+            ]
+        }
+    },
+    "cost_est_base_rate": 0.043224,
+    "tokens_used_prompt": 16712,
+    "tokens_used_completion": 1225,
+    "query": "From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses, even if there is insufficient information to make a definitive diagnosis. If you are unsure, provide a list of possible diagnoses with the most likely one first.\n\nPatient ID: F3.1 \nPatient age: 13 years\nPatient sex: Male\nPatient features: Hypocalcemic seizures (onset 6 years), Nephrocalcinosis, Renal insufficiency, Hypercalciuria, Hypermagnesiuria, Renal magnesium wasting, Renal calcium wasting, Hypomagnesemia.\nExcluded patient features: Stage 5 chronic kidney disease, Short stature.",
+    "phenopacket_file": "phenopackets/PMID_21669885_F31.json",
+    "expected_diagnosis": "OMIM:248250",
+    "base_engine": "gpt-4.1-2025-04-14",
+    "eval_engine": "gpt-4.1-2025-04-14",
+    "eval_chain": [
+        {
+            "query": "MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) WHERE p.id IN ['HP:0002199','HP:0000121','HP:0000083','HP:0002150','HP:0012608','HP:0005567','HP:0012637','HP:0002917']\nWITH d, count(p) AS matched_features\nORDER BY matched_features DESC\nLIMIT 20\nOPTIONAL MATCH (d)-[:biolink_has_phenotype]->(ep:biolink_PhenotypicFeature)\nWHERE ep.id IN ['HP:0003774','HP:0004322']\nWITH d, matched_features, collect(ep) AS excluded_features\nWHERE size(excluded_features) = 0\nRETURN d, matched_features\nORDER BY matched_features DESC\nLIMIT 10",
+            "query_summary": "This query is designed to identify diseases that are associated with a set of patient features (phenotypes): hypocalcemic seizures, nephrocalcinosis, renal insufficiency, hypercalciuria, hypermagnesiuria, renal magnesium wasting, renal calcium wasting, and hypomagnesemia. It matches diseases that have these phenotypes, counts how many features each disease matches, and orders the diseases by the number of matched features (most to least). It then excludes diseases that are associated with the excluded features (stage 5 chronic kidney disease and short stature). The final result is a rank-ordered list of up to 10 diseases that best match the patient's features, with none of the excluded features. The query uses ORDER BY and LIMIT appropriately, and the relationships are oriented correctly. The use of OPTIONAL MATCH for excluded features is appropriate, as it allows for filtering out diseases with any excluded features. The results align with expectations, showing diseases with relevant phenotypes. The query passes a sanity check and is suitable for the user's diagnostic reasoning task.",
+            "accept_query": true,
+            "suggestion": "No major improvements needed. For completeness, consider using the biolink_subclass_of*0.. pattern to include all subclasses of diseases, but the current query is already well-constructed for the intended purpose."
+        }
+    ],
+    "messages": [
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_K02L9fxOCh9JZge5FxY4jz04",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"Hypocalcemic seizures\", \"Nephrocalcinosis\", \"Renal insufficiency\", \"Hypercalciuria\", \"Hypermagnesiuria\", \"Renal magnesium wasting\", \"Renal calcium wasting\", \"Hypomagnesemia\"]}"
+                    }
+                },
+                {
+                    "id": "call_ol9Hqs23g8vTP05leNnlRrbQ",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"Stage 5 chronic kidney disease\", \"Short stature\"]}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'Hypocalcemic seizures': [{'id': 'HP:0002199', 'category': 'biolink:PhenotypicFeature', 'name': 'Hypocalcemic seizures', 'in_taxon_label': None}, {'id': 'MONDO:0009426', 'category': 'biolink:Disease', 'name': 'hypoparathyroidism-retardation-dysmorphism syndrome', 'in_taxon_label': None}], 'Nephrocalcinosis': [{'id': 'HP:0000121', 'category': 'biolink:PhenotypicFeature', 'name': 'Nephrocalcinosis', 'in_taxon_label': None}, {'id': 'MONDO:0001567', 'category': 'biolink:Disease', 'name': 'nephrocalcinosis', 'in_taxon_label': None}, {'id': 'MP:0003197', 'category': 'biolink:PhenotypicFeature', 'name': 'nephrocalcinosis', 'in_taxon_label': None}, {'id': 'HP:0012409', 'category': 'biolink:PhenotypicFeature', 'name': 'Cortical nephrocalcinosis', 'in_taxon_label': None}, {'id': 'HP:0008327', 'category': 'biolink:PhenotypicFeature', 'name': 'Microscopic nephrocalcinosis', 'in_taxon_label': None}], 'Renal insufficiency': [{'id': 'MONDO:1012237', 'category': 'biolink:Disease', 'name': 'renal insufficiency, dog', 'in_taxon_label': None}, {'id': 'HP:0000083', 'category': 'biolink:PhenotypicFeature', 'name': 'Renal insufficiency', 'in_taxon_label': None}, {'id': 'MONDO:1011911', 'category': 'biolink:Disease', 'name': 'renal insufficiency, non-human animal', 'in_taxon_label': None}, {'id': 'MONDO:0008868', 'category': 'biolink:Disease', 'name': 'biliary malformation with renal tubular insufficiency', 'in_taxon_label': None}, {'id': 'MONDO:0001530', 'category': 'biolink:Disease', 'name': 'secondary hyperparathyroidism of renal origin', 'in_taxon_label': None}], 'Hypercalciuria': [{'id': 'HP:0002150', 'category': 'biolink:PhenotypicFeature', 'name': 'Hypercalciuria', 'in_taxon_label': None}, {'id': 'MONDO:1012541', 'category': 'biolink:Disease', 'name': 'idiopathic hypercalciuria, dog', 'in_taxon_label': None}, {'id': 'MONDO:0007748', 'category': 'biolink:Disease', 'name': 'hypercalciuria, absorptive, 2', 'in_taxon_label': None}, {'id': 'MONDO:0011802', 'category': 'biolink:Disease' ... [result trimmed] ...uria', 'in_taxon_label': None}, {'id': 'MP:0011435', 'category': 'biolink:PhenotypicFeature', 'name': 'increased urine magnesium level', 'in_taxon_label': None}], 'Renal magnesium wasting': [{'id': 'HP:0005567', 'category': 'biolink:PhenotypicFeature', 'name': 'Renal magnesium wasting', 'in_taxon_label': None}, {'id': 'MONDO:0007937', 'category': 'biolink:Disease', 'name': 'renal hypomagnesemia 2', 'in_taxon_label': None}, {'id': 'MONDO:0009550', 'category': 'biolink:Disease', 'name': 'renal hypomagnesemia 3', 'in_taxon_label': None}, {'id': 'MONDO:0009548', 'category': 'biolink:Disease', 'name': 'renal hypomagnesemia 5 with ocular involvement', 'in_taxon_label': None}, {'id': 'MONDO:0017624', 'category': 'biolink:Disease', 'name': 'familial primary hypomagnesemia with hypercalciuria and nephrocalcinosis', 'in_taxon_label': None}], 'Renal calcium wasting': [{'id': 'HP:0012637', 'category': 'biolink:PhenotypicFeature', 'name': 'Renal calcium wasting', 'in_taxon_label': None}, {'id': 'MONDO:0007937', 'category': 'biolink:Disease', 'name': 'renal hypomagnesemia 2', 'in_taxon_label': None}, {'id': 'MONDO:0009548', 'category': 'biolink:Disease', 'name': 'renal hypomagnesemia 5 with ocular involvement', 'in_taxon_label': None}, {'id': 'MONDO:0017624', 'category': 'biolink:Disease', 'name': 'familial primary hypomagnesemia with hypercalciuria and nephrocalcinosis', 'in_taxon_label': None}], 'Hypomagnesemia': [{'id': 'HP:0002917', 'category': 'biolink:PhenotypicFeature', 'name': 'Hypomagnesemia', 'in_taxon_label': None}, {'id': 'MONDO:0011176', 'category': 'biolink:Disease', 'name': 'intestinal hypomagnesemia 1', 'in_taxon_label': None}, {'id': 'MONDO:0012717', 'category': 'biolink:Disease', 'name': 'renal hypomagnesemia 4', 'in_taxon_label': None}, {'id': 'MONDO:0007937', 'category': 'biolink:Disease', 'name': 'renal hypomagnesemia 2', 'in_taxon_label': None}, {'id': 'MONDO:0013480', 'category': 'biolink:Disease', 'name': 'renal hypomagnesemia 6', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_K02L9fxOCh9JZge5FxY4jz04",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "function",
+            "content": "{'Stage 5 chronic kidney disease': [{'id': 'HP:0003774', 'category': 'biolink:PhenotypicFeature', 'name': 'Stage 5 chronic kidney disease', 'in_taxon_label': None}, {'id': 'MONDO:0004375', 'category': 'biolink:Disease', 'name': 'end stage renal failure', 'in_taxon_label': None}], 'Short stature': [{'id': 'MONDO:0021745', 'category': 'biolink:Disease', 'name': 'psychosocial short stature', 'in_taxon_label': None}, {'id': 'MONDO:1010112', 'category': 'biolink:Disease', 'name': 'isolated short stature', 'in_taxon_label': None}, {'id': 'HP:0004322', 'category': 'biolink:PhenotypicFeature', 'name': 'Short stature', 'in_taxon_label': None}, {'id': 'MONDO:0010367', 'category': 'biolink:Disease', 'name': 'SHOX-related short stature', 'in_taxon_label': None}, {'id': 'MONDO:0011046', 'category': 'biolink:Disease', 'name': 'short stature, Brussels type', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_ol9Hqs23g8vTP05leNnlRrbQ",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": null,
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_V5fUXu7gJX6sPixYFNWM0l09",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) WHERE p.id IN ['HP:0002199','HP:0000121','HP:0000083','HP:0002150','HP:0012608','HP:0005567','HP:0012637','HP:0002917']\\nWITH d, count(p) AS matched_features\\nORDER BY matched_features DESC\\nLIMIT 20\\nOPTIONAL MATCH (d)-[:biolink_has_phenotype]->(ep:biolink_PhenotypicFeature)\\nWHERE ep.id IN ['HP:0003774','HP:0004322']\\nWITH d, matched_features, collect(ep) AS excluded_features\\nWHERE size(excluded_features) = 0\\nRETURN d, matched_features\\nORDER BY matched_features DESC\\nLIMIT 10\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [{'data': {'id': 'MONDO:0019130', 'caption': 'tubular renal disease-cardiomyopathy syndrome', 'name': 'tubular renal disease-cardiomyopathy syndrome', 'description': 'A syndrome characterized by hypokalaemic metabolic alkalosis secondary to a tubulopathy, hypomagnesaemia with hypermagnesuria, severe hypercalciuria and dilated cardiomyopathy.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0018543', 'caption': 'autosomal dominant hypocalcemia', 'name': 'autosomal dominant hypocalcemia', 'description': 'Autosomal dominant hypocalcemia (AD hypocalcemia) is a disorder of calcium homeostasis characterized by variable degrees of hypocalcemia with abnormally low levels of parathyroid hormone (PTH) and persistent normal or elevated calciuria.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0010618', 'caption': 'familial isolated hypoparathyroidism due to agenesis of parathyroid gland', 'name': 'familial isolated hypoparathyroidism due to agenesis of parathyroid gland', 'description': 'Hypoparathyroidism in which the inheritance is recessive and linked to the q26-q27 region of the X chromosome. The parathyroid glands are usually incompletely developed (parathyroid dysgenesis) or absent (parathyroid agenesis).', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0015027', 'caption': 'familial isolated hyperparathyroidism', 'name': 'familial isolated hyperparathyroidism', 'description': 'A rare, autosomal dominant hereditary syndrome characterized by hypercalcemia, abnormally high levels of parathyroid hormone, and isolated hyperfunctioning parathyroid tumors.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0015612', 'caption': 'Dent disease', 'name': 'Dent disease', 'description': 'Dent disease is a rare genetic renal tubular disease characterized by manifestations of proximal tubule dysfunction.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0010797', 'caption': 'Pearson syndrome', 'name': 'Pearson syndrome', 'description': 'Pearson syndrome is characterized by refractory sideroblastic anemia, vacuolization of bone marrow precursors and exocrine pancreatic dysfunction.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0019338', 'caption': 'sarcoidosis', 'name': 'sarcoidosis', 'description': 'Sarcoidosis is a multisystemic disorder of unknown cause characterized by the formation of immune granulomas in involved organs.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0020788', 'caption': 'hypomagnesemia, seizures, and intellectual disability 2', 'name': 'hypomagnesemia, seizures, and intellectual disability 2', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0007937', 'caption': 'renal hypomagnesemia 2', 'name': 'renal hypomagnesemia 2', 'description': 'Autosomal dominant primary hypomagnesemia with hypocalciuria (ADPHH) is a mild form of familial primary hypomagnesemia (FPH), characterized by extreme weakness, tetany and convulsions. Secondary disturbances in calcium excretion are observed.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0012004', 'caption': 'parathyroid gland carcinoma', 'name': 'parathyroid gland carcinoma', 'description': 'A very rare, slow-growing, clinically serious endocrine tumor that generally develops in mid-adulthood. PRTC presents as a palpable painless mass in the neck and causes severe hypercalcemia and related symptoms, non-specific gastrointestinal manifestations, as well as renal and bone complications related to primary hyperparathyroidism (nephrolithiasis, impaired renal function, osteoporosis, bone pain, and pathologic fractures, etc.). Some PRTCs are however non-functioning tumors.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': []}}",
+            "name": "run_query",
+            "tool_call_id": "call_V5fUXu7gJX6sPixYFNWM0l09",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "Based on the patient's features (hypocalcemic seizures, nephrocalcinosis, renal insufficiency, hypercalciuria, hypermagnesiuria, renal magnesium and calcium wasting, hypomagnesemia) and the exclusion of stage 5 chronic kidney disease and short stature, here are the most likely diagnoses, rank-ordered by the number of matching features:\n\n1. [Tubular renal disease-cardiomyopathy syndrome](https://monarchinitiative.org/MONDO:0019130)  \n   - Characterized by tubulopathy, hypomagnesemia with hypermagnesuria, severe hypercalciuria, and can include seizures.\n\n2. [Autosomal dominant hypocalcemia](https://monarchinitiative.org/MONDO:0018543)  \n   - Features include hypocalcemia (often with seizures), low parathyroid hormone, and persistent normal or elevated calciuria.\n\n3. [Familial isolated hypoparathyroidism due to agenesis of parathyroid gland](https://monarchinitiative.org/MONDO:0010618)  \n   - Presents with hypocalcemia and seizures, sometimes with renal complications.\n\n4. [Familial isolated hyperparathyroidism](https://monarchinitiative.org/MONDO:0015027)  \n   - Usually causes hypercalcemia, but some forms may have overlapping renal features.\n\n5. [Dent disease](https://monarchinitiative.org/MONDO:0015612)  \n   - A rare genetic renal tubular disorder with proximal tubule dysfunction, hypercalciuria, nephrocalcinosis, and sometimes hypomagnesemia.\n\n6. [Pearson syndrome](https://monarchinitiative.org/MONDO:0010797)  \n   - Multisystem disorder, can include renal tubular dysfunction and metabolic abnormalities.\n\n7. [Sarcoidosis](https://monarchinitiative.org/MONDO:0019338)  \n   - Multisystem granulomatous disease, can affect kidneys and calcium metabolism.\n\n8. [Hypomagnesemia, seizures, and intellectual disability 2](https://monarchinitiative.org/MONDO:0020788)  \n   - Includes hypomagnesemia and seizures.\n\n9. [Renal hypomagnesemia 2](https://monarchinitiative.org/MONDO:0007937)  \n   - Primary hypomagnesemia with secondary disturbances in calcium excretion, can present with seizures.\n\n10. [Parathyroid gland carcinoma](https://monarchinitiative.org/MONDO:0012004)  \n    - Rare, but can cause severe disturbances in calcium and magnesium metabolism with renal complications.\n\nThe most likely diagnosis, given the combination of renal tubular dysfunction, hypomagnesemia, hypercalciuria, nephrocalcinosis, and seizures, is likely a tubular disorder such as Dent disease or a form of familial hypomagnesemia with hypercalciuria. However, other rare syndromes with overlapping features are also possible.\n\nIf you have more clinical or laboratory details, or genetic testing results, this could help further narrow the diagnosis.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": null,
+            "is_tool_call_error": null
+        }
+    ],
+    "expected_diagnosis_mondo": [
+        {
+            "mondo_id": "MONDO:0009550",
+            "disease_name": "renal hypomagnesemia 3"
+        }
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0019130",
+            "MONDO:0018543",
+            "MONDO:0010618",
+            "MONDO:0015027",
+            "MONDO:0015612",
+            "MONDO:0010797",
+            "MONDO:0019338",
+            "MONDO:0020788",
+            "MONDO:0007937",
+            "MONDO:0012004"
+        ],
+        "top_1_score": 0,
+        "top_3_score": 0,
+        "top_10_score": 0
+    }
+}

@@ -1,0 +1,331 @@
+{
+    "phenopacket": {
+        "id": "PMID_28434921_a_6-month-old_female",
+        "subject": {
+            "id": "a 6-month-old female",
+            "sex": "FEMALE"
+        },
+        "phenotypicFeatures": [
+            {
+                "type": {
+                    "id": "HP:0002092",
+                    "label": "Pulmonary arterial hypertension"
+                },
+                "onset": {
+                    "age": {
+                        "iso8601duration": "P9M"
+                    }
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0011682",
+                    "label": "Perimembranous ventricular septal defect"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001684",
+                    "label": "Secundum atrial septal defect"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0011623",
+                    "label": "Muscular ventricular septal defect"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001674",
+                    "label": "Complete atrioventricular canal defect"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001655",
+                    "label": "Patent foramen ovale"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0009777",
+                    "label": "Absent thumb"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0009778",
+                    "label": "Short thumb"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001199",
+                    "label": "Triphalangeal thumb"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0003974",
+                    "label": "Absent radius"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0009813",
+                    "label": "Upper limb phocomelia"
+                },
+                "excluded": true
+            }
+        ],
+        "interpretations": [
+            {
+                "id": "a 6-month-old female",
+                "progressStatus": "SOLVED",
+                "diagnosis": {
+                    "disease": {
+                        "id": "OMIM:142900",
+                        "label": "Holt-Oram syndrome"
+                    },
+                    "genomicInterpretations": [
+                        {
+                            "subjectOrBiosampleId": "a 6-month-old female",
+                            "interpretationStatus": "CAUSATIVE",
+                            "variantInterpretation": {
+                                "variationDescriptor": {
+                                    "id": "var_MPxTAADzOnprYUxoNsuWaDEjA",
+                                    "geneContext": {
+                                        "valueId": "HGNC:11604",
+                                        "symbol": "TBX5"
+                                    },
+                                    "expressions": [
+                                        {
+                                            "syntax": "hgvs.c",
+                                            "value": "NM_181486.4:c.40C>A"
+                                        },
+                                        {
+                                            "syntax": "hgvs.g",
+                                            "value": "NC_000012.12:g.114403859G>T"
+                                        }
+                                    ],
+                                    "vcfRecord": {
+                                        "genomeAssembly": "hg38",
+                                        "chrom": "chr12",
+                                        "pos": "114403859",
+                                        "ref": "G",
+                                        "alt": "T"
+                                    },
+                                    "moleculeContext": "genomic",
+                                    "allelicState": {
+                                        "id": "GENO:0000135",
+                                        "label": "heterozygous"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "diseases": [
+            {
+                "term": {
+                    "id": "OMIM:142900",
+                    "label": "Holt-Oram syndrome"
+                },
+                "onset": {
+                    "age": {
+                        "iso8601duration": "P0D"
+                    }
+                }
+            }
+        ],
+        "metaData": {
+            "created": "2024-03-27T07:21:37.699770927Z",
+            "createdBy": "ORCID:0000-0002-0736-9199",
+            "resources": [
+                {
+                    "id": "geno",
+                    "name": "Genotype Ontology",
+                    "url": "http://purl.obolibrary.org/obo/geno.owl",
+                    "version": "2022-03-05",
+                    "namespacePrefix": "GENO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+                },
+                {
+                    "id": "hgnc",
+                    "name": "HUGO Gene Nomenclature Committee",
+                    "url": "https://www.genenames.org",
+                    "version": "06/01/23",
+                    "namespacePrefix": "HGNC",
+                    "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+                },
+                {
+                    "id": "omim",
+                    "name": "An Online Catalog of Human Genes and Genetic Disorders",
+                    "url": "https://www.omim.org",
+                    "version": "January 4, 2023",
+                    "namespacePrefix": "OMIM",
+                    "iriPrefix": "https://www.omim.org/entry/"
+                },
+                {
+                    "id": "so",
+                    "name": "Sequence types and features ontology",
+                    "url": "http://purl.obolibrary.org/obo/so.obo",
+                    "version": "2021-11-22",
+                    "namespacePrefix": "SO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+                },
+                {
+                    "id": "hp",
+                    "name": "human phenotype ontology",
+                    "url": "http://purl.obolibrary.org/obo/hp.owl",
+                    "version": "2024-03-06",
+                    "namespacePrefix": "HP",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+                }
+            ],
+            "phenopacketSchemaVersion": "2.0",
+            "externalReferences": [
+                {
+                    "id": "PMID:28434921",
+                    "reference": "https://pubmed.ncbi.nlm.nih.gov/28434921",
+                    "description": "Identification of a novel and functional mutation in the TBX5 gene in a patient by screening from 354 patients with isolated ventricular septal defect"
+                }
+            ]
+        }
+    },
+    "cost_est_base_rate": 0.035532,
+    "tokens_used_prompt": 13058,
+    "tokens_used_completion": 1177,
+    "query": "From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses, even if there is insufficient information to make a definitive diagnosis. If you are unsure, provide a list of possible diagnoses with the most likely one first.\n\nPatient ID: a 6-month-old female\nPatient age: Unknown\nPatient sex: Female\nPatient features: Pulmonary arterial hypertension (onset 9 months), Perimembranous ventricular septal defect.\nExcluded patient features: Secundum atrial septal defect, Muscular ventricular septal defect, Complete atrioventricular canal defect, Patent foramen ovale, Absent thumb, Short thumb, Triphalangeal thumb, Absent radius, Upper limb phocomelia.",
+    "phenopacket_file": "phenopackets/PMID_28434921_a6-month-oldfemale.json",
+    "expected_diagnosis": "OMIM:142900",
+    "base_engine": "gpt-4o-2024-11-20",
+    "eval_engine": "None",
+    "eval_chain": [],
+    "messages": [
+        {
+            "role": "assistant",
+            "content": "To provide a rank-ordered list of possible diagnoses for this patient, I will:\n\n1. Search for diseases associated with the provided phenotypic features: **Pulmonary arterial hypertension** and **Perimembranous ventricular septal defect**.\n2. Exclude diseases associated with the excluded features: **Secundum atrial septal defect**, **Muscular ventricular septal defect**, **Complete atrioventricular canal defect**, **Patent foramen ovale**, **Absent thumb**, **Short thumb**, **Triphalangeal thumb**, **Absent radius**, and **Upper limb phocomelia**.\n3. Rank the results based on relevance to the patient's features.\n\nLet me begin by searching for diseases associated with the provided features.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_If049Cegc9JKnixo7taZEeRo",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"Pulmonary arterial hypertension\"]}"
+                    }
+                },
+                {
+                    "id": "call_BrfAfbR36fqTGbVBEJVz8FLS",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\": [\"Perimembranous ventricular septal defect\"]}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'Pulmonary arterial hypertension': [{'id': 'MONDO:0015924', 'category': 'biolink:Disease', 'name': 'pulmonary arterial hypertension', 'in_taxon_label': None}, {'id': 'MONDO:0017148', 'category': 'biolink:Disease', 'name': 'heritable pulmonary arterial hypertension', 'in_taxon_label': None}, {'id': 'MONDO:0017147', 'category': 'biolink:Disease', 'name': 'idiopathic pulmonary arterial hypertension', 'in_taxon_label': None}, {'id': 'HP:0002092', 'category': 'biolink:PhenotypicFeature', 'name': 'Pulmonary arterial hypertension', 'in_taxon_label': None}, {'id': 'MONDO:0017149', 'category': 'biolink:Disease', 'name': 'drug- or toxin-induced pulmonary arterial hypertension', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_If049Cegc9JKnixo7taZEeRo",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "function",
+            "content": "{'Perimembranous ventricular septal defect': [{'id': 'HP:0011682', 'category': 'biolink:PhenotypicFeature', 'name': 'Perimembranous ventricular septal defect', 'in_taxon_label': None}, {'id': 'MP:0010402', 'category': 'biolink:PhenotypicFeature', 'name': 'ventricular septal defect', 'in_taxon_label': None}, {'id': 'MP:0010418', 'category': 'biolink:PhenotypicFeature', 'name': 'perimembraneous ventricular septal defect', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_BrfAfbR36fqTGbVBEJVz8FLS",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "I have identified the following relevant terms and diseases associated with the patient's features:\n\n### Pulmonary Arterial Hypertension\n- [Pulmonary arterial hypertension](https://monarchinitiative.org/MONDO:0015924)\n- [Heritable pulmonary arterial hypertension](https://monarchinitiative.org/MONDO:0017148)\n- [Idiopathic pulmonary arterial hypertension](https://monarchinitiative.org/MONDO:0017147)\n- [Drug- or toxin-induced pulmonary arterial hypertension](https://monarchinitiative.org/MONDO:0017149)\n\n### Perimembranous Ventricular Septal Defect\n- [Perimembranous ventricular septal defect](https://monarchinitiative.org/HP:0011682)\n- [Ventricular septal defect](https://monarchinitiative.org/MP:0010402)\n- [Perimembraneous ventricular septal defect](https://monarchinitiative.org/MP:0010418)\n\nNext, I will search for diseases associated with these features and exclude those linked to the excluded features.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_TMOoPxRL1GxVqLK91tOOAaz2",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\": \"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature {id: 'HP:0002092'}) RETURN d LIMIT 20\"}"
+                    }
+                },
+                {
+                    "id": "call_IjqZf7jjOz16EdMrDoGReKV2",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\": \"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature {id: 'HP:0011682'}) RETURN d LIMIT 20\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [{'data': {'id': 'MONDO:0009930', 'caption': 'obsolete pulmonary arteriovenous malformation', 'name': 'obsolete pulmonary arteriovenous malformation', 'description': 'OBSOLETE. Pulmonary arteriovenous malformation (PAVM) describes an anatomic communication between a pulmonary artery and a pulmonary vein leading to a right to left extracardiac shunt that can be asymptomatic or can lead to varying manifestations such as dyspnea, hemoptysis, and neurological symptoms.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0008347', 'caption': 'obsolete idiopathic and/or familial pulmonary arterial hypertension', 'name': 'obsolete idiopathic and/or familial pulmonary arterial hypertension', 'description': 'OBSOLETE. Idiopathic and/or familial pulmonary arterial hypertension (IFPAH) is a form or pulmonary arterial hypertension (PAH, see his term) characterized by elevated pulmonary arterial resistance leading to right heart failure; it is progressive and potentially fatal. About 75% of heritable pulmonary arterial hypertension (HPAH) have an identified mutation. HPAH has been linked to mutations in BMPR2 in 75% of cases; other genes implicated in HPAH include ACVR1, BMPR1, CAV1, ENG and SMAD9 and CBLN2. (However, the majority of patients carrying an HPAH mutation do not develop PAH). Idiopathic pulmonary arterial hypertension (IFPAH) refers to those cases of pulmonary arterial hypertension in which etiology remains unknown.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0009933', 'caption': 'congenital pulmonary lymphangiectasia', 'name': 'congenital pulmonary lymphangiectasia', 'description': 'Congenital pulmonary lymphangiectasia (PL) is a rare developmental disorder involving the lung and characterized by pulmonary subpleural, interlobar, perivascular, and peribronchial lymphatic dilatation.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0012032', 'caption': 'Braddock syndrome', 'name': 'Braddock syndrome', 'description': 'Braddock syndrome is a rare malformation syndrome with multiple congenital abnormalities, described in 2 siblings, that is characterized by VACTERL -like association in combination with pulmonary hypertension, laryngeal webs, blue sclerae, abnormal ears, persistent growth deficiency and normal intellect.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0007259', 'caption': 'craniofaciofrontodigital syndrome', 'name': 'craniofaciofrontodigital syndrome', 'description': 'Craniofaciofrontodigital is a rare multiple congenital anomalies syndrome characterized by mild intellectual disability, short stature, cardiac anomalies, mild dysmorphic features (macrocephaly, prominent forehead, hypertelorism, exophthalmos), cutis laxa, joint hyperlaxity, wrinkled palms and soles and skeletal anomalies (sella turcica, wide ribs and small vertebral bodies).', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0005854', 'caption': 'mixed connective tissue disease', 'name': 'mixed connective tissue disease', 'description': \"Mixed connective tissue disease (MCTD) is a rare autoimmune disorder that is characterized by features commonly seen in three different connective tissue disorders: systemic lupus erythematosus, scleroderma, and polymyositis. Some affected people may also have symptoms of rheumatoid arthritis. Although MCTD can affect people of all ages, it appears to be most common in women under age 30. Signs and symptoms vary but may include Raynaud's phenomenon ; arthritis; heart, lung and skin abnormalities; kidney disease; muscle weakness, and dysfunction of the esophagus. The cause of MCTD is currently unknown. There is no cure but certain medications such as nonsteroidal anti-inflammatory drugs (NSAIDs), corticosteroids and immunosuppresivedrugsmay help manage the symptoms.\", 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0007917', 'caption': 'lymphedema-cerebral arteriovenous anomaly syndrome', 'name': 'lymphedema-cerebral arteriovenous anomaly syndrome', 'description': 'Lymphedema-cerebral arteriovenous anomaly syndrome is characterized by the variable association of a cerebrovascular malformation, foot lymphoedema and primary pulmonary hypertension. It has been described in a woman and four of her children.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0007130', 'caption': 'congenital total pulmonary venous return anomaly', 'name': 'congenital total pulmonary venous return anomaly', 'description': 'Total pulmonary venous return (TAPVR) is a form of congenital pulmonary venous return where all of the pulmonary veins drain into the right atrium or one of its tributaries, instead of the left atrium, leading to various manifestations such as fatigue, exertional dyspnea, pulmonary arterial hypertension, cyanosis and progressive congestive heart failure.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0006851', 'caption': 'meconium aspiration syndrome', 'name': 'meconium aspiration syndrome', 'description': 'A serious condition in which a newborn breathes a mixture of meconium (the first intestinal discharge) and amniotic fluid into the lungs around the time of delivery. Meconium aspiration syndrome occurs in 5-10 percent of births and typically occurs when the infant is stressed, as when the infant is past its due date.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0007921', 'caption': 'yellow nail syndrome', 'name': 'yellow nail syndrome', 'description': 'A very rare syndromic disorder characterized by the variable triad of characteristic yellow nails, chronic respiratory manifestations, and primary lymphedema.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0968983', 'caption': 'proteasome-associated autoinflammatory syndrome 6', 'name': 'proteasome-associated autoinflammatory syndrome 6', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0020428', 'caption': 'congenital Gerbode defect', 'name': 'congenital Gerbode defect', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0020007', 'caption': 'absence of the pulmonary artery', 'name': 'absence of the pulmonary artery', 'description': 'A rare vascular anomaly characterized by congenital absence of the right or left pulmonary artery, usually ending within 2 cm of its expected origin from the pulmonary trunk. Patients often also have other cardiovascular abnormalities and respective symptoms and are then typically diagnosed in infancy or childhood, while isolated cases generally present with a mild clinical course and may go undiagnosed until adulthood. Presenting clinical features in isolated cases include hemoptysis, exertional dyspnea, and recurrent respiratory infections. The condition is typically accompanied by marked changes of lung tissue and may, if unrecognized, result in massive hemoptysis and pulmonary hypertension.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0020435', 'caption': 'atrial septal defect, coronary sinus type', 'name': 'atrial septal defect, coronary sinus type', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0020391', 'caption': 'pulmonary artery coming from the aorta', 'name': 'pulmonary artery coming from the aorta', 'description': 'Pulmonary artery coming from the aorta (PACA) is a cardiac malformation characterized by anomalous origin of one branch of the pulmonary arteries from the ascending aorta and a normal origin of the other pulmonary artery from the right ventricular outflow tract, and presenting with respiratory distress, congestive heart failure and failure to thrive within the first days/months of life.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0019944', 'caption': 'Eisenmenger syndrome', 'name': 'Eisenmenger syndrome', 'description': 'Eisenmenger syndrome (ES) is an form of pulmonary arterial hypertension (PAH) associated with unoperated congenital heart disease and is characterized by congenital heart malformations with reversed or bi-directional shunting through an intra-cardiac or intervascular (usually aorto-pulmonary) communication with the development of PAH.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0020501', 'caption': 'Crimean-Congo hemorrhagic fever', 'name': 'Crimean-Congo hemorrhagic fever', 'description': 'Crimean-Congo hemorrhagic fever (CCHF) is a tick-borne zoonotic disease caused by CCHF virus and characterized by initial fever, headache, and malaise followed by gastrointestinal symptoms and, in severe cases, bleeding, shock, and multi-organ system failure.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0019813', 'caption': 'congenital tricuspid stenosis', 'name': 'congenital tricuspid stenosis', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0019804', 'caption': 'congenital tracheomalacia', 'name': 'congenital tracheomalacia', 'description': 'Congenital tracheomalacia is a rare condition where the trachea is soft and flexible causing the tracheal wall to collapse when exhaling, coughing or crying, that usually presents in infancy, and that is characterized by stridor and noisy breathing or upper respiratory infections. Tracheomalacia improves by the age of 18-24 months.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0018030', 'caption': 'tetrasomy 9p', 'name': 'tetrasomy 9p', 'description': 'Tetrasomy 9p is a rare autosomal anomaly characterized by pre- and postnatal growth retardation, psychomotor delay, mild to moderate intellectual disability, hypotonia, microcephaly, dysmorphic features (ocular hypertelorism, low-set, malformed ears, bulbous/beaked nose, microretrognathia, enophthalmos/micropthalmia, epicanthus, strabismus), cleft lip/palate, skeletal abnormalities (hypoplastic nails/distal phalanges, short stature, short neck, contractures), congenital heart defects, renal and urogenital malformations (renal hypoplasia, genital hypoplasia, cryptorchidism).', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': []}}",
+            "name": "run_query",
+            "tool_call_id": "call_TMOoPxRL1GxVqLK91tOOAaz2",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [{'data': {'id': 'MONDO:0034989', 'caption': 'intellectual disability-cardiac anomalies-short stature-joint laxity syndrome', 'name': 'intellectual disability-cardiac anomalies-short stature-joint laxity syndrome', 'description': 'A rare genetic multiple congenital anomalies/dysmorphic syndrome characterized by intrauterine and postnatal growth restriction, global developmental delay, intellectual disability, and dysmorphic facial features (such as broad nasal root, anteverted nares, long philtrum, low-set and posteriorly rotated ears, and short neck). Additional reported manifestations are microcephaly, short stature, vertebral abnormalities, joint laxity, ocular, cardiac, and renal defects, and minor limb anomalies. Brain imaging may show hypoplastic corpus callosum, delayed myelination, and cerebral atrophy.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0008912', 'caption': 'cardiac septal defects with coarctation of the aorta', 'name': 'cardiac septal defects with coarctation of the aorta', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0020427', 'caption': 'Laubry-Pezzi syndrome', 'name': 'Laubry-Pezzi syndrome', 'description': 'Laubry-Pezzi syndrome is a rare, non-syndromic, congenital heart malformation characterized by the prolapse of an aortic valve cusp into a subjacent ventricular septal defect due to Venturi effect, resulting in aortic regurgitation. Patients typically present with symptoms of progressive aortic valve insufficiency, such as shortness of breath, heart palpitations, chest pain and exercise intolerance.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0020428', 'caption': 'congenital Gerbode defect', 'name': 'congenital Gerbode defect', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0016301', 'caption': 'congenitally corrected transposition of the great arteries', 'name': 'congenitally corrected transposition of the great arteries', 'description': 'Congenitally corrected transposition (CCT) of the great vessels is a rare cardiac malformation characterized by the combination of discordant atrioventricular and ventriculo-arterial connections, usually accompanied by other cardiovascular malformations.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0008013', 'caption': 'chromosome 9p deletion syndrome', 'name': 'chromosome 9p deletion syndrome', 'description': 'Monosomy 9p is a rare chromosomal anomaly characterized by psychomotor developmental delay, facial dysmorphism (trigonocephaly, midface hypoplasia, upslanting palpebral fissures, dysplastic small ears, flat nasal bridge with anteverted nostrils and long philtrum, micrognathia, choanal atresia, short neck), single umbilical artery, omphalocele, inguinal or umbilical hernia, genital abnormalities (hypospadia, cryptorchidism), muscular hypotonia and scoliosis.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0007345', 'caption': 'aorta coarctation', 'name': 'aorta coarctation', 'description': 'Congenital narrowing of a segment of the aorta. Signs and symptoms include hypertension, muscle weakness, shortness of breath, headaches and leg cramps.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0012508', 'caption': 'agammaglobulinemia-microcephaly-craniosynostosis-severe dermatitis syndrome', 'name': 'agammaglobulinemia-microcephaly-craniosynostosis-severe dermatitis syndrome', 'description': 'A syndrome that combines agammaglobulinemia with marked microcephaly, significant developmental delay, craniosynostosis, a severe dermatitis, cleft palate, narrowing of the choanae, and blepharophimosis. It has been described in three siblings, two males and one female, born to nonconsanguineous parents. Transmission is probably autosomal recessive. It has been suggested that this syndrome represents a new form of agammaglobulinemia due to a defect in early B-cell maturation.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0011969', 'caption': 'ALG8-congenital disorder of glycosylation', 'name': 'ALG8-congenital disorder of glycosylation', 'description': 'A form of congenital disorders of N-linked glycosylation that is characterized by gastrointestinal symptoms (diarrhea, vomiting, feeding problems with failure to thrive, protein-losing enteropathy), edema and ascites (including hydrops fetalis), hepatomegaly, renal tubulopathy, coagulation anomalies due to thrombocytopenia, brain involvement (psychomotor delay, seizures, ataxia), facial dysmorphism (low-set ears and retrognathia), pes equinovarus, and muscular hypotonia. Cataracts may also be observed. Prognosis is usually poor. The disease is caused by loss-of-function mutations in the gene ALG8 (11q14.1), resulting in a block in the initial step of protein glycosylation.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0100297', 'caption': 'short stature, facial dysmorphism, and skeletal anomalies with or without cardiac anomalies 1', 'name': 'short stature, facial dysmorphism, and skeletal anomalies with or without cardiac anomalies 1', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0010970', 'caption': 'cardiac malformation, cleft lip/palate, microcephaly, and digital anomalies', 'name': 'cardiac malformation, cleft lip/palate, microcephaly, and digital anomalies', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0008393', 'caption': 'Rubinstein-Taybi syndrome due to CREBBP mutations', 'name': 'Rubinstein-Taybi syndrome due to CREBBP mutations', 'description': 'Any Rubinstein-Taybi syndrome in which the cause of the disease is a mutation in the CREBBP gene.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0011730', 'caption': 'fumaric aciduria', 'name': 'fumaric aciduria', 'description': 'Fumaric aciduria (FA), an autosomal recessive metabolic disorder, is most often characterized by early onset but non-specific clinical signs: hypotonia, severe psychomotor impairment, convulsions, respiratory distress, feeding difficulties and frequent cerebral malformations, along with a distinctive facies. Some patients present with only moderate intellectual impairment.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0030902', 'caption': 'mitochondrial complex 1 deficiency, nuclear type 36', 'name': 'mitochondrial complex 1 deficiency, nuclear type 36', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0012657', 'caption': 'Mungan syndrome', 'name': 'Mungan syndrome', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0032926', 'caption': 'sandestig-stefanova syndrome', 'name': 'sandestig-stefanova syndrome', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0859320', 'caption': 'mitochondrial complex I deficiency, nuclear type 39', 'name': 'mitochondrial complex I deficiency, nuclear type 39', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0007732', 'caption': 'Holt-Oram syndrome', 'name': 'Holt-Oram syndrome', 'description': 'Holt-Oram syndrome (HOS) is the most common form of heart-hand syndrome and is characterized by skeletal abnormalities of the upper limbs and mild-to-severe congenital cardiac defects.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0010519', 'caption': 'alpha thalassemia-X-linked intellectual disability syndrome', 'name': 'alpha thalassemia-X-linked intellectual disability syndrome', 'description': 'X-linked alpha thalassaemia mental retardation (ATR-X) syndrome in males is associated with profound developmental delay, facial dysmorphism, genital abnormalities and alpha thalassaemia. Female carriers are usually physically and intellectually normal.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0958005', 'caption': 'Hoxha-Aliu syndrome', 'name': 'Hoxha-Aliu syndrome', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': []}}",
+            "name": "run_query",
+            "tool_call_id": "call_IjqZf7jjOz16EdMrDoGReKV2",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "Based on the patient's features, I have identified several diseases associated with **Pulmonary Arterial Hypertension** and **Perimembranous Ventricular Septal Defect**. Below is a rank-ordered list of possible diagnoses, considering the patient's features and excluding diseases linked to the excluded features:\n\n### Rank-Ordered Diagnoses\n1. [Eisenmenger Syndrome](https://monarchinitiative.org/MONDO:0019944): A form of pulmonary arterial hypertension associated with unoperated congenital heart disease, characterized by reversed or bi-directional shunting through an intra-cardiac or intervascular communication.\n2. [Congenital Gerbode Defect](https://monarchinitiative.org/MONDO:0020428): A rare congenital heart defect involving an abnormal communication between the left ventricle and the right atrium.\n3. [Laubry-Pezzi Syndrome](https://monarchinitiative.org/MONDO:0020427): A rare congenital heart malformation characterized by aortic valve prolapse into a ventricular septal defect, leading to aortic regurgitation.\n4. [Congenitally Corrected Transposition of the Great Arteries](https://monarchinitiative.org/MONDO:0016301): A rare cardiac malformation with discordant atrioventricular and ventriculo-arterial connections, often accompanied by other cardiovascular anomalies.\n5. [Braddock Syndrome](https://monarchinitiative.org/MONDO:0012032): A rare malformation syndrome with multiple congenital abnormalities, including pulmonary hypertension and cardiac defects.\n6. [Craniofaciofrontodigital Syndrome](https://monarchinitiative.org/MONDO:0007259): A rare syndrome with multiple congenital anomalies, including cardiac defects and pulmonary hypertension.\n7. [Congenital Total Pulmonary Venous Return Anomaly](https://monarchinitiative.org/MONDO:0007130): A congenital defect where all pulmonary veins drain into the right atrium or its tributaries, leading to pulmonary arterial hypertension.\n8. [Mixed Connective Tissue Disease](https://monarchinitiative.org/MONDO:0005854): A rare autoimmune disorder that can involve pulmonary hypertension and cardiac abnormalities.\n9. [Lymphedema-Cerebral Arteriovenous Anomaly Syndrome](https://monarchinitiative.org/MONDO:0007917): A syndrome characterized by cerebrovascular malformations, lymphedema, and primary pulmonary hypertension.\n10. [Yellow Nail Syndrome](https://monarchinitiative.org/MONDO:0007921): A rare disorder with a triad of yellow nails, chronic respiratory manifestations, and primary lymphedema, which may include pulmonary hypertension.\n\n### Next Steps\nIf you would like, I can further refine this list by exploring specific genetic associations or additional phenotypic features. Let me know if you would like to investigate any of these conditions in more detail!",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": null,
+            "is_tool_call_error": null
+        }
+    ],
+    "expected_diagnosis_mondo": [
+        {
+            "mondo_id": "MONDO:0007732",
+            "disease_name": "Holt-Oram syndrome"
+        }
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0019944",
+            "MONDO:0020428",
+            "MONDO:0020427",
+            "MONDO:0016301",
+            "MONDO:0012032",
+            "MONDO:0007259",
+            "MONDO:0007130",
+            "MONDO:0005854",
+            "MONDO:0007917",
+            "MONDO:0007921"
+        ],
+        "top_1_score": 0,
+        "top_3_score": 0,
+        "top_10_score": 0
+    }
+}

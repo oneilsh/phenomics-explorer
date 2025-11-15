@@ -8,13 +8,26 @@ readme = "README.md"
 package-mode = false
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.9.7 || >3.9.7,<3.10"
-agent-smith-ai = {git = "https://github.com/monarch-initiative/agent-smith-ai.git"}
+python=">=3.12,<4.0"
 streamlit = "^1.26.0"
 python-dotenv = "^1.0.0"
-streamlit-cookies-manager = {git = "https://github.com/oneilsh/streamlit-cookies-manager.git"}
-streamlit-ws-localstorage = "^1.0.6"
+kani-utils = {git = "https://github.com/oneilsh/kani-utils.git", branch = "main"}
+neo4j = "^5.20.0"
+pyyaml = "^6.0.2"
+kani = {extras = ["openai"], version = "^1.4.2"}
+httpx = "^0.28.1"
+cloudpickle = "^3.1.1"
+st-link-analysis = "^0.3.0"
+importlib = "^1.0.4"
+isodate = "^0.7.2"
+seaborn = "^0.13.2"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.packages]]
+from = "src"
+include = "phenomics_explorer"
+
+

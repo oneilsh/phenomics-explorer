@@ -1,0 +1,288 @@
+{
+    "phenopacket": {
+        "id": "PMID_31021519_individual_SATB2_114",
+        "subject": {
+            "id": "individual SATB2-114",
+            "timeAtLastEncounter": {
+                "age": {
+                    "iso8601duration": "P5Y"
+                }
+            },
+            "sex": "MALE"
+        },
+        "phenotypicFeatures": [
+            {
+                "type": {
+                    "id": "HP:0008872",
+                    "label": "Feeding difficulties in infancy"
+                },
+                "onset": {
+                    "ontologyClass": {
+                        "id": "HP:0003593",
+                        "label": "Infantile onset"
+                    }
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000164",
+                    "label": "Abnormality of the dentition"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000750",
+                    "label": "Delayed speech and language development"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001249",
+                    "label": "Intellectual disability"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0001263",
+                    "label": "Global developmental delay"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0410263",
+                    "label": "Brain imaging abnormality"
+                }
+            },
+            {
+                "type": {
+                    "id": "HP:0000175",
+                    "label": "Cleft palate"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001250",
+                    "label": "Seizure"
+                },
+                "excluded": true
+            },
+            {
+                "type": {
+                    "id": "HP:0001510",
+                    "label": "Growth delay"
+                },
+                "excluded": true
+            }
+        ],
+        "interpretations": [
+            {
+                "id": "individual SATB2-114",
+                "progressStatus": "SOLVED",
+                "diagnosis": {
+                    "disease": {
+                        "id": "OMIM:612313",
+                        "label": "Glass syndrome"
+                    },
+                    "genomicInterpretations": [
+                        {
+                            "subjectOrBiosampleId": "individual SATB2-114",
+                            "interpretationStatus": "CAUSATIVE",
+                            "variantInterpretation": {
+                                "variationDescriptor": {
+                                    "id": "var_UiCUZADjGpWGDAENjNbHYdYUN",
+                                    "geneContext": {
+                                        "valueId": "HGNC:21637",
+                                        "symbol": "SATB2"
+                                    },
+                                    "expressions": [
+                                        {
+                                            "syntax": "hgvs.c",
+                                            "value": "NM_001172509.1:c.715C>T"
+                                        },
+                                        {
+                                            "syntax": "hgvs.g",
+                                            "value": "NC_000002.12:g.199349159G>A"
+                                        }
+                                    ],
+                                    "vcfRecord": {
+                                        "genomeAssembly": "hg38",
+                                        "chrom": "chr2",
+                                        "pos": "199349159",
+                                        "ref": "G",
+                                        "alt": "A"
+                                    },
+                                    "moleculeContext": "genomic",
+                                    "allelicState": {
+                                        "id": "GENO:0000135",
+                                        "label": "heterozygous"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "diseases": [
+            {
+                "term": {
+                    "id": "OMIM:612313",
+                    "label": "Glass syndrome"
+                },
+                "onset": {
+                    "ontologyClass": {
+                        "id": "HP:0003593",
+                        "label": "Infantile onset"
+                    }
+                }
+            }
+        ],
+        "metaData": {
+            "created": "2024-05-12T11:10:18.180768966Z",
+            "createdBy": "ORCID:0000-0002-0736-9199",
+            "resources": [
+                {
+                    "id": "geno",
+                    "name": "Genotype Ontology",
+                    "url": "http://purl.obolibrary.org/obo/geno.owl",
+                    "version": "2022-03-05",
+                    "namespacePrefix": "GENO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+                },
+                {
+                    "id": "hgnc",
+                    "name": "HUGO Gene Nomenclature Committee",
+                    "url": "https://www.genenames.org",
+                    "version": "06/01/23",
+                    "namespacePrefix": "HGNC",
+                    "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+                },
+                {
+                    "id": "omim",
+                    "name": "An Online Catalog of Human Genes and Genetic Disorders",
+                    "url": "https://www.omim.org",
+                    "version": "January 4, 2023",
+                    "namespacePrefix": "OMIM",
+                    "iriPrefix": "https://www.omim.org/entry/"
+                },
+                {
+                    "id": "so",
+                    "name": "Sequence types and features ontology",
+                    "url": "http://purl.obolibrary.org/obo/so.obo",
+                    "version": "2021-11-22",
+                    "namespacePrefix": "SO",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+                },
+                {
+                    "id": "hp",
+                    "name": "human phenotype ontology",
+                    "url": "http://purl.obolibrary.org/obo/hp.owl",
+                    "version": "2024-04-26",
+                    "namespacePrefix": "HP",
+                    "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+                }
+            ],
+            "phenopacketSchemaVersion": "2.0",
+            "externalReferences": [
+                {
+                    "id": "PMID:31021519",
+                    "reference": "https://pubmed.ncbi.nlm.nih.gov/31021519",
+                    "description": "Mutation update for the SATB2 gene."
+                }
+            ]
+        }
+    },
+    "cost_est_base_rate": 0.036618,
+    "tokens_used_prompt": 11605,
+    "tokens_used_completion": 1676,
+    "query": "From the following patient information, what is the most likely diagnosis? Use multiple queries or reasoning steps as necessary, and provide a rank-ordered list of up to 10 diagnoses, even if there is insufficient information to make a definitive diagnosis. If you are unsure, provide a list of possible diagnoses with the most likely one first.\n\nPatient ID: individual SATB2-114\nPatient age: 5 years\nPatient sex: Male\nPatient features: Feeding difficulties in infancy (Infantile onset), Abnormality of the dentition, Delayed speech and language development, Intellectual disability, Global developmental delay, Brain imaging abnormality.\nExcluded patient features: Cleft palate, Seizure, Growth delay.",
+    "phenopacket_file": "phenopackets/PMID_31021519_individualSATB2-114.json",
+    "expected_diagnosis": "OMIM:612313",
+    "base_engine": "gpt-4o-2024-11-20",
+    "eval_engine": "None",
+    "eval_chain": [],
+    "messages": [
+        {
+            "role": "assistant",
+            "content": "To provide a rank-ordered list of possible diagnoses for this patient, I will follow these steps:\n\n1. **Search for phenotypic features**: Identify diseases or syndromes associated with the patient's reported features: feeding difficulties in infancy, abnormality of the dentition, delayed speech and language development, intellectual disability, global developmental delay, and brain imaging abnormality.\n\n2. **Exclude diseases**: Filter out diseases associated with the excluded features: cleft palate, seizure, and growth delay.\n\n3. **Rank diagnoses**: Based on the overlap of features and the specificity of the phenotypic profile, rank the possible diagnoses.\n\nLet me begin by searching for diseases associated with the patient's features.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_0tDAYlKGmeBn6ExMW5pNpF1M",
+                    "type": "function",
+                    "function": {
+                        "name": "search",
+                        "arguments": "{\"search_terms\":[\"Feeding difficulties in infancy\",\"Abnormality of the dentition\",\"Delayed speech and language development\",\"Intellectual disability\",\"Global developmental delay\",\"Brain imaging abnormality\"]}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'Feeding difficulties in infancy': [{'id': 'HP:0008872', 'category': 'biolink:PhenotypicFeature', 'name': 'Feeding difficulties in infancy', 'in_taxon_label': None}, {'id': 'MONDO:0044306', 'category': 'biolink:Disease', 'name': 'neurodevelopmental disorder with epilepsy, cataracts, feeding difficulties, and delayed brain myelination', 'in_taxon_label': None}, {'id': 'MONDO:0012830', 'category': 'biolink:Disease', 'name': 'chromosome 10q23 deletion syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0054835', 'category': 'biolink:Disease', 'name': 'classic dopamine transporter deficiency syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0100507', 'category': 'biolink:Disease', 'name': 'multiple congenital anomalies due to 14q32.2 paternally expressed gene defect', 'in_taxon_label': None}], 'Abnormality of the dentition': [{'id': 'HP:0000164', 'category': 'biolink:PhenotypicFeature', 'name': 'Abnormality of the dentition', 'in_taxon_label': None}, {'id': 'MONDO:0014460', 'category': 'biolink:Disease', 'name': 'nail and teeth abnormalities-marginal palmoplantar keratoderma-oral hyperpigmentation syndrome', 'in_taxon_label': None}, {'id': 'MONDO:0100605', 'category': 'biolink:Disease', 'name': 'POLR-related leukodystrophy', 'in_taxon_label': None}, {'id': 'MONDO:0008673', 'category': 'biolink:Disease', 'name': 'acrofacial dysostosis, Weyers type', 'in_taxon_label': None}, {'id': 'MONDO:0700282', 'category': 'biolink:Disease', 'name': 'POLR3-related leukodystrophy', 'in_taxon_label': None}], 'Delayed speech and language development': [{'id': 'HP:0000750', 'category': 'biolink:PhenotypicFeature', 'name': 'Delayed speech and language development', 'in_taxon_label': None}, {'id': 'MONDO:0060622', 'category': 'biolink:Disease', 'name': 'neurodevelopmental disorder with severe motor impairment and absent language', 'in_taxon_label': None}, {'id': 'MONDO:0100348', 'category': 'biolink:Disease', 'name': 'neurodevelopmental disorder with microcephaly, impaired language, and gait abnormalities', 'in_taxon_label': None}, {'id': 'MONDO:0030837', 'category': 'biolink:Disease', 'name': 'neurodevelopmental disorder with microcephaly, impaired language, epilepsy, and gait abnormalities', 'in_taxon_label': None}, {'id': 'HP:0001263', 'category': 'biolink:PhenotypicFeature', 'name': 'Global developmental delay', 'in_taxon_label': None}], 'Intellectual disability': [{'id': 'MONDO:0001071', 'category': 'biolink:Disease', 'name': 'intellectual disability', 'in_taxon_label': None}, {'id': 'MONDO:0000508', 'category': 'biolink:Disease', 'name': 'syndromic intellectual disability', 'in_taxon_label': None}, {'id': 'MONDO:0010659', 'category': 'biolink:Disease', 'name': 'FRAXE intellectual disability', 'in_taxon_label': None}, {'id': 'HP:0001249', 'category': 'biolink:PhenotypicFeature', 'name': 'Intellectual disability', 'in_taxon_label': None}, {'id': 'MONDO:0008756', 'category': 'biolink:Disease', 'name': 'alopecia - intellectual disability syndrome', 'in_taxon_label': None}], 'Global developmental delay': [{'id': 'HP:0001263', 'category': 'biolink:PhenotypicFeature', 'name': 'Global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011344', 'category': 'biolink:PhenotypicFeature', 'name': 'Severe global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0012736', 'category': 'biolink:PhenotypicFeature', 'name': 'Profound global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011342', 'category': 'biolink:PhenotypicFeature', 'name': 'Mild global developmental delay', 'in_taxon_label': None}, {'id': 'HP:0011343', 'category': 'biolink:PhenotypicFeature', 'name': 'Moderate global developmental delay', 'in_taxon_label': None}], 'Brain imaging abnormality': [{'id': 'HP:0410263', 'category': 'biolink:PhenotypicFeature', 'name': 'Brain imaging abnormality', 'in_taxon_label': None}, {'id': 'MONDO:0030063', 'category': 'biolink:Disease', 'name': 'neurodevelopmental disorder with seizures, hypotonia, and brain imaging abnormalities', 'in_taxon_label': None}, {'id': 'MONDO:0030947', 'category': 'biolink:Disease', 'name': 'neurodegeneration, childhood-onset, with hypotonia, respiratory insufficiency, and brain imaging abnormalities', 'in_taxon_label': None}, {'id': 'MONDO:0032829', 'category': 'biolink:Disease', 'name': 'neurodevelopmental disorder with hypotonia and variable intellectual and behavioral abnormalities', 'in_taxon_label': None}, {'id': 'HP:0032615', 'category': 'biolink:PhenotypicFeature', 'name': 'Abnormal diffusion weighted cerebral MRI morphology', 'in_taxon_label': None}]}",
+            "name": "search",
+            "tool_call_id": "call_0tDAYlKGmeBn6ExMW5pNpF1M",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "I have identified several diseases and phenotypic features associated with the patient's reported characteristics. Next, I will filter out diseases that are associated with the excluded features (cleft palate, seizure, and growth delay) and rank the remaining diagnoses based on the overlap with the patient's features.\n\n### Diseases Associated with Patient Features\n1. **Feeding difficulties in infancy**:\n   - [Neurodevelopmental disorder with epilepsy, cataracts, feeding difficulties, and delayed brain myelination](https://monarchinitiative.org/MONDO:0044306)\n   - [Chromosome 10q23 deletion syndrome](https://monarchinitiative.org/MONDO:0012830)\n   - [Classic dopamine transporter deficiency syndrome](https://monarchinitiative.org/MONDO:0054835)\n   - [Multiple congenital anomalies due to 14q32.2 paternally expressed gene defect](https://monarchinitiative.org/MONDO:0100507)\n\n2. **Abnormality of the dentition**:\n   - [Nail and teeth abnormalities-marginal palmoplantar keratoderma-oral hyperpigmentation syndrome](https://monarchinitiative.org/MONDO:0014460)\n   - [POLR-related leukodystrophy](https://monarchinitiative.org/MONDO:0100605)\n   - [Acrofacial dysostosis, Weyers type](https://monarchinitiative.org/MONDO:0008673)\n   - [POLR3-related leukodystrophy](https://monarchinitiative.org/MONDO:0700282)\n\n3. **Delayed speech and language development**:\n   - [Neurodevelopmental disorder with severe motor impairment and absent language](https://monarchinitiative.org/MONDO:0060622)\n   - [Neurodevelopmental disorder with microcephaly, impaired language, and gait abnormalities](https://monarchinitiative.org/MONDO:0100348)\n   - [Neurodevelopmental disorder with microcephaly, impaired language, epilepsy, and gait abnormalities](https://monarchinitiative.org/MONDO:0030837)\n\n4. **Intellectual disability**:\n   - [Intellectual disability](https://monarchinitiative.org/MONDO:0001071)\n   - [Syndromic intellectual disability](https://monarchinitiative.org/MONDO:0000508)\n   - [FRAXE intellectual disability](https://monarchinitiative.org/MONDO:0010659)\n   - [Alopecia - intellectual disability syndrome](https://monarchinitiative.org/MONDO:0008756)\n\n5. **Global developmental delay**:\n   - [Severe global developmental delay](https://monarchinitiative.org/HP:0011344)\n   - [Profound global developmental delay](https://monarchinitiative.org/HP:0012736)\n   - [Mild global developmental delay](https://monarchinitiative.org/HP:0011342)\n   - [Moderate global developmental delay](https://monarchinitiative.org/HP:0011343)\n\n6. **Brain imaging abnormality**:\n   - [Neurodevelopmental disorder with seizures, hypotonia, and brain imaging abnormalities](https://monarchinitiative.org/MONDO:0030063)\n   - [Neurodegeneration, childhood-onset, with hypotonia, respiratory insufficiency, and brain imaging abnormalities](https://monarchinitiative.org/MONDO:0030947)\n   - [Neurodevelopmental disorder with hypotonia and variable intellectual and behavioral abnormalities](https://monarchinitiative.org/MONDO:0032829)\n\n### Next Steps\nI will now filter out diseases associated with the excluded features and rank the remaining diagnoses.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": [
+                {
+                    "id": "call_Injw8y8E7WNR73C2H8bD1zje",
+                    "type": "function",
+                    "function": {
+                        "name": "run_query",
+                        "arguments": "{\"query\":\"MATCH (d:biolink_Disease)-[:biolink_has_phenotype]->(p:biolink_PhenotypicFeature) WHERE p.id IN ['HP:0008872', 'HP:0000164', 'HP:0000750', 'HP:0001249', 'HP:0001263', 'HP:0410263'] AND NOT (d)-[:biolink_has_phenotype]->(:biolink_PhenotypicFeature {id: 'HP:0000175'}) AND NOT (d)-[:biolink_has_phenotype]->(:biolink_PhenotypicFeature {id: 'HP:0001250'}) AND NOT (d)-[:biolink_has_phenotype]->(:biolink_PhenotypicFeature {id: 'HP:0001510'}) RETURN d, COUNT(p) AS feature_overlap ORDER BY feature_overlap DESC LIMIT 10\"}"
+                    }
+                }
+            ],
+            "is_tool_call_error": null
+        },
+        {
+            "role": "function",
+            "content": "{'result_as_graph': {'type': 'graph', 'data': {'nodes': [{'data': {'id': 'MONDO:0044738', 'caption': 'Gabriele de Vries syndrome', 'name': 'Gabriele de Vries syndrome', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014723', 'caption': 'PMP22-RAI1 contiguous gene duplication syndrome', 'name': 'PMP22-RAI1 contiguous gene duplication syndrome', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0014633', 'caption': 'epilepsy with myoclonic atonic seizures', 'name': 'epilepsy with myoclonic atonic seizures', 'description': 'An idiopathic generalized epilepsy characterized by onset of multiple seizure types in the first few years of life and associated with poor prognosis. Affected individuals have cognitive regression and intellectual disability and that has material basis in heterozygous mutation in the SLC6A1 gene on chromosome 3p25.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:8000008', 'caption': 'Martsolf syndrome 1', 'name': 'Martsolf syndrome 1', 'description': 'This syndrome is characterized by the association of intellectual deficit, congenital cataract, and hypogonadotropic hypogonadism.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0012269', 'caption': 'chromosome 3q29 microdeletion syndrome', 'name': 'chromosome 3q29 microdeletion syndrome', 'description': '3q29 microdeletion syndrome is a recurrent subtelomeric deletion syndrome with variable clinical manifestations including intellectual deficit and dysmorphic features.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0009026', 'caption': 'Costello syndrome', 'name': 'Costello syndrome', 'description': 'Costello syndrome (CS) is a rare multisystemic disorder characterized by failure to thrive, short stature, developmental delay or intellectual disability, joint laxity, soft skin, and distinctive facial features. Cardiac and neurological involvement is common and there is an increased lifetime risk of certain tumors.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0013362', 'caption': 'THOC6-related developmental delay-microcephaly-facial dysmorphism syndrome', 'name': 'THOC6-related developmental delay-microcephaly-facial dysmorphism syndrome', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0032707', 'caption': 'turnpenny-fry syndrome', 'name': 'turnpenny-fry syndrome', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0032912', 'caption': 'Coffin-Siris syndrome 11', 'name': 'Coffin-Siris syndrome 11', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}, {'data': {'id': 'MONDO:0017404', 'caption': 'distal Xq28 microduplication syndrome', 'name': 'distal Xq28 microduplication syndrome', 'description': 'Distal Xq28 microduplication syndrome is a rare, hereditary, syndromic intellectual disability characterized by cognitive impairment, behavioral and psychiatric problems, recurrent infections, atopic diseases, and distinctive facial features in males. Females are clinically asymptomatic or mildly affected, presenting mild learning difficulties and facial dysmorphism.', 'category': 'biolink:Disease', 'label': 'biolink:Disease'}}], 'edges': []}}, 'result_as_table': {'type': 'table', 'data': []}}",
+            "name": "run_query",
+            "tool_call_id": "call_Injw8y8E7WNR73C2H8bD1zje",
+            "tool_calls": null,
+            "is_tool_call_error": false
+        },
+        {
+            "role": "assistant",
+            "content": "Based on the patient's features and the exclusion criteria, here is a rank-ordered list of possible diagnoses:\n\n1. **[Gabriele de Vries syndrome](https://monarchinitiative.org/MONDO:0044738)**  \n   A neurodevelopmental disorder with features overlapping the patient's profile, including intellectual disability and developmental delay.\n\n2. **[PMP22-RAI1 contiguous gene duplication syndrome](https://monarchinitiative.org/MONDO:0014723)**  \n   A genetic syndrome associated with intellectual disability and developmental abnormalities.\n\n3. **[Epilepsy with myoclonic atonic seizures](https://monarchinitiative.org/MONDO:0014633)**  \n   Although seizures are excluded, this condition may still overlap with other features like intellectual disability and developmental delay.\n\n4. **[Martsolf syndrome 1](https://monarchinitiative.org/MONDO:8000008)**  \n   Characterized by intellectual disability and other developmental issues.\n\n5. **[Chromosome 3q29 microdeletion syndrome](https://monarchinitiative.org/MONDO:0012269)**  \n   A recurrent deletion syndrome with intellectual disability and dysmorphic features.\n\n6. **[Costello syndrome](https://monarchinitiative.org/MONDO:0009026)**  \n   A multisystemic disorder with developmental delay, intellectual disability, and distinctive facial features.\n\n7. **[THOC6-related developmental delay-microcephaly-facial dysmorphism syndrome](https://monarchinitiative.org/MONDO:0013362)**  \n   A rare syndrome with developmental delay and intellectual disability.\n\n8. **[Turnpenny-Fry syndrome](https://monarchinitiative.org/MONDO:0032707)**  \n   A genetic disorder with developmental delay and intellectual disability.\n\n9. **[Coffin-Siris syndrome 11](https://monarchinitiative.org/MONDO:0032912)**  \n   A syndrome with developmental delay, intellectual disability, and other overlapping features.\n\n10. **[Distal Xq28 microduplication syndrome](https://monarchinitiative.org/MONDO:0017404)**  \n    A rare syndrome with intellectual disability, behavioral issues, and developmental delay.\n\nThese diagnoses are ranked based on the overlap of features with the patient's profile. Further clinical evaluation, genetic testing, and detailed medical history would be necessary to refine this list and identify the most likely diagnosis.",
+            "name": null,
+            "tool_call_id": null,
+            "tool_calls": null,
+            "is_tool_call_error": null
+        }
+    ],
+    "expected_diagnosis_mondo": [
+        {
+            "mondo_id": "MONDO:0012864",
+            "disease_name": "chromosome 2q32-q33 deletion syndrome"
+        }
+    ],
+    "score": {
+        "candidates": [
+            "MONDO:0044738",
+            "MONDO:0014723",
+            "MONDO:0014633",
+            "MONDO:8000008",
+            "MONDO:0012269",
+            "MONDO:0009026",
+            "MONDO:0013362",
+            "MONDO:0032707",
+            "MONDO:0032912",
+            "MONDO:0017404"
+        ],
+        "top_1_score": 0,
+        "top_3_score": 0,
+        "top_10_score": 0
+    }
+}
